@@ -1,7 +1,8 @@
 import { useState } from "react"
-import { light, dark } from "@theme/index"
-import { LIGHT, DARK } from "@theme/constants"
-import { ThemeType } from "@theme/types"
+
+import { light, dark } from "../index"
+import { LIGHT, DARK } from "../constants"
+import { ThemeType } from "../types"
 
 export function useThemeSetup() {
   const [

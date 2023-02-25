@@ -46,14 +46,16 @@ const lightTheme: ThemeType = {
   button: { 
     border: "none",
     borderRadius: "4px",
-    transition: "background-color .2s cubic-bezier(.17,.67,.83,.67)"
+    transition: "background-color .2s cubic-bezier(.17, .67, .83, .67)"
   },
 
   text: {
     large: "1rem",
     default: "0.875rem",
     button: "0.875rem",
-    caption: "0.75rem"
+    caption: "0.75rem",
+    strikeLarge: "1.125rem",
+    strike: "0.875rem"
   },
 
   title: {
