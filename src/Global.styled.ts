@@ -1,5 +1,5 @@
 import { createGlobalStyle } from "styled-components"
-import { ThemeType } from "@theme/types"
+import { type ThemeType } from "@theme/types"
 
 declare module "styled-components" {
   export interface DefaultTheme extends ThemeType {}
@@ -14,8 +14,8 @@ const Global = createGlobalStyle`
   }
 
   :root {
-    font-family: ${props => props.theme.font.family};
-    font-size: ${props => props.theme.font.rootSize};
+    font-family: ${(props) => props.theme.font.family};
+    font-size: ${(props) => props.theme.font.rootSize};
     line-height: 1.5;
 
     background-color: #fff;

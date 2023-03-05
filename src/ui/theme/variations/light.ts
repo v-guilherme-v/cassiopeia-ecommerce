@@ -1,4 +1,4 @@
-import { ThemeType } from "../types"
+import { type ThemeType } from "../types"
 
 const lightTheme: ThemeType = {
   font: {
@@ -37,13 +37,13 @@ const lightTheme: ThemeType = {
     onFocus: "1px solid #000000",
     error: "1px solid #EE7764",
     success: "1px solid #00CB6F"
-  }, 
+  },
 
   lightShadow: "0px 52px rgba(90, 92, 102, 0.06)",
   lightShadowHoverRight: "3px 7px 18px rgba(103, 105, 116, 0.0833424)",
   lightShadowHoverLeft: "-10px 5px 18px rgba(103, 105, 116, 0.0833424)",
 
-  button: { 
+  button: {
     border: "none",
     borderRadius: "4px",
     transition: "background-color .2s cubic-bezier(.17, .67, .83, .67)"
