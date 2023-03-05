@@ -7,16 +7,16 @@ import { ThemeFunctionsContext } from "@contexts/index"
 import StyledRoot from "./Root.styled"
 import StyledGlobal from "./Global.styled"
 
-export default function Root(){
+export default function Root (): JSX.Element {
   const { selectedTheme, handleThemeChange } = useThemeSetup()
 
   return (
     <ThemeProvider theme={selectedTheme}>
-      <ThemeFunctionsContext.Provider value={{handleThemeChange}}>
-          <StyledGlobal />
-          <StyledRoot className="App">
-            <Home />
-          </StyledRoot>
+      <ThemeFunctionsContext.Provider value={{ handleThemeChange }}>
+        <StyledGlobal />
+        <StyledRoot className="App">
+          <Home />
+        </StyledRoot>
       </ThemeFunctionsContext.Provider>
     </ThemeProvider>
   )

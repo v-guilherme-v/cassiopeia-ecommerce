@@ -2,17 +2,19 @@ import { useState } from "react"
 
 import { light, dark } from "../index"
 import { LIGHT, DARK } from "../constants"
-import { ThemeType } from "../types"
+import { type ThemeType } from "../types"
 
-export function useThemeSetup() {
-  const [
-    selectedTheme,
-    setSelectedTheme
-  ] = useState<ThemeType>(light)
+interface IUseThemeSetup {
+  selectedTheme: ThemeType
+  handleThemeChange: (type: string) => void
+}
+
+export function useThemeSetup (): IUseThemeSetup {
+  const [ selectedTheme, setSelectedTheme ] = useState<ThemeType>(light)
 
   /**
    * Returns a theme object based on a theme name
-   * @param { string } type 
+   * @param { string } type
    * @returns { ThemeType }
    */
   const getThemeConfig = (type: string): ThemeType => {

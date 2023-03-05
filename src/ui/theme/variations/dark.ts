@@ -1,4 +1,4 @@
-import { ThemeType } from "../types"
+import { type ThemeType } from "../types"
 
 const darkTheme: ThemeType = {
   font: {
@@ -57,7 +57,7 @@ const darkTheme: ThemeType = {
     strikeLarge: "1.125rem",
     strike: "0.875rem"
   },
-  
+
   title: {
     extraLarge: "2rem",
     large: "1.75rem",

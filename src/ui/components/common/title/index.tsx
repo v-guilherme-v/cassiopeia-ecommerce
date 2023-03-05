@@ -1,36 +1,26 @@
 import StyledTitle from "./index.styled"
 
-function ExtraLargeTitle(props: any){
-    return (
-        <StyledTitle.ExtraLarge>{props.children}</StyledTitle.ExtraLarge>
-    )
+function ExtraLargeTitle (props: any): JSX.Element {
+  return <StyledTitle.ExtraLarge>{props.children}</StyledTitle.ExtraLarge>
 }
 
-function LargeTitle(props: any){
-    return (
-        <StyledTitle.Large>{props.children}</StyledTitle.Large>
-    )
+function LargeTitle (props: any): JSX.Element {
+  return <StyledTitle.Large>{props.children}</StyledTitle.Large>
 }
 
-function MediumTitle(props: any){
-    return (
-        <StyledTitle.Medium>{props.children}</StyledTitle.Medium>
-    )
+function MediumTitle (props: any): JSX.Element {
+  return <StyledTitle.Medium>{props.children}</StyledTitle.Medium>
 }
 
-function SmallTitle(props: any){
-    return (
-        <StyledTitle.Small>{props.children}</StyledTitle.Small>
-    )
+function SmallTitle (props: any): JSX.Element {
+  return <StyledTitle.Small>{props.children}</StyledTitle.Small>
 }
 
-function ExtraSmallTitle(props: any){
-    return (
-        <StyledTitle.ExtraSmall>{props.children}</StyledTitle.ExtraSmall>
-    )
+function ExtraSmallTitle (props: any): JSX.Element {
+  return <StyledTitle.ExtraSmall>{props.children}</StyledTitle.ExtraSmall>
 }
 
-const Title = () => <></>
+const Title = (): JSX.Element => <></>
 
 Title.ExtraLarge = ExtraLargeTitle
 Title.Large = LargeTitle
