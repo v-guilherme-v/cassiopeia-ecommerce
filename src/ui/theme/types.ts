@@ -24,6 +24,7 @@ interface ColorStyles {
   grey: string
   darkGrey: string
   black: string
+  [index: string]: string
 }
 
 interface FieldStateStyles {
