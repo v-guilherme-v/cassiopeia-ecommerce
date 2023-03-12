@@ -30,8 +30,9 @@ const Global = createGlobalStyle`
 
   div#root {
     display: flex;
-    place-items: center;
-    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    height: 100dvh;
   }
 `
 

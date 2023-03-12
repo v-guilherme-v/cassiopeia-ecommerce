@@ -1,4 +1,4 @@
-import StyledTitle from "./index.styled"
+import StyledTitle from "@components/styled/title.styled"
 
 function ExtraLargeTitle (props: any): JSX.Element {
   return <StyledTitle.ExtraLarge>{props.children}</StyledTitle.ExtraLarge>
@@ -20,7 +20,7 @@ function ExtraSmallTitle (props: any): JSX.Element {
   return <StyledTitle.ExtraSmall>{props.children}</StyledTitle.ExtraSmall>
 }
 
-const Title = (): JSX.Element => <></>
+const Title = (): JSX.Element => <>Raw title</>
 
 Title.ExtraLarge = ExtraLargeTitle
 Title.Large = LargeTitle
