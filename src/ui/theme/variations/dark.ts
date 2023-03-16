@@ -44,7 +44,6 @@ const darkTheme: ThemeType = {
   lightShadowHoverLeft: "-10px 5px 18px rgba(103, 105, 116, 0.0833424)",
 
   button: {
-    border: "none",
     borderRadius: "4px",
     transition: "background-color .2s cubic-bezier(.17,.67,.83,.67)"
   },

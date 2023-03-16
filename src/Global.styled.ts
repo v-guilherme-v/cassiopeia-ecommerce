@@ -19,7 +19,6 @@ const Global = createGlobalStyle`
     line-height: 1.5;
 
     background-color: #fff;
-    color: rgba(255, 255, 255, 0.87);
 
     font-synthesis: none;
     text-rendering: optimizeLegibility;

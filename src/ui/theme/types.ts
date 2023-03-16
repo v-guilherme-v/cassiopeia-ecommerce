@@ -1,5 +1,4 @@
 interface ButtonStyles {
-  border: string
   borderRadius: string
   transition: string
 }
