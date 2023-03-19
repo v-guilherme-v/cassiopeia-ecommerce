@@ -18,7 +18,15 @@ function getButtonSize (size: ButtonSizes | undefined): string {
   }
 }
 
-const getBorderColorIndex = (props: ButtonProps): string => {
+const getFontColor = (props: any) => {
+  return props.color
+    ? props.color
+    : (props.outlined != null)
+      ? props.theme.color.black
+      : props.theme.color.white
+}
+
+const getBorderColor = (props: any): string => {
   const { size, outlined } = props
   if (size === ButtonSizes.ICON && (outlined != null)) { return "lightGrey" }
 
@@ -34,18 +42,15 @@ const StyledButton = styled.button<ButtonProps>`
   background-color: ${(props) => (props.outlined != null)
     ? props.theme.color.white
     : props.theme.color.primary
-};
+  };
   
-  color: ${(props) => (props.outlined != null)
-    ? props.theme.color.black
-    : props.theme.color.white
-};
+  color: ${(props) => getFontColor(props)};
 
   width: ${(props) => getButtonSize(props.size)};
   height: 45px;
 
   // TODO: make it better
-  border: ${(props) => `1px solid ${props.theme.color[getBorderColorIndex(props)]}`};
+  border: ${(props) => `1px solid ${props.theme.color[getBorderColor(props)]}`};
   border-radius: ${(props) => props.theme.button.borderRadius};
   
   cursor: pointer;
@@ -57,7 +62,7 @@ const StyledButtonHasIcon = styled(StyledButton)<ButtonPropsHasIcon>`
     props?.icon?.position === ButtonIconPositions.PREPEND
       ? "row-reverse"
       : "row"
-};
+  };
 `
 
 const StyledButtonAsIcon = styled(StyledButton)<ButtonPropsAsIcon>`

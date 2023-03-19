@@ -15,7 +15,7 @@ function RawButton (props: PropsWithChildren<ButtonProps>): JSX.Element {
 
   return (
     <StyledButton.Default {...props}>
-      <Text.Button color="white">
+      <Text.Button>
         { label }
       </Text.Button>
     </StyledButton.Default>
@@ -33,7 +33,7 @@ function ButtonHasIcon (props: PropsWithChildren<ButtonPropsHasIcon>): JSX.Eleme
 
   return (
     <StyledButton.HasIcon {...props}>
-      <Text.Button color="inherit">
+      <Text.Button>
         { label }
       </Text.Button>
       { icon.element }

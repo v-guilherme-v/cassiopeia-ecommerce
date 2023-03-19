@@ -5,7 +5,7 @@ export default function ThinArrow (props: IconProps): JSX.Element {
   const {
     height = "9",
     width = "21",
-    color = "#000"
+    color = "currentColor"
   } = props
 
   return (

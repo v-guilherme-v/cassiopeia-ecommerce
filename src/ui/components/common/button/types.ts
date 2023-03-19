@@ -15,6 +15,7 @@ export interface ButtonProps {
   label?: string
   size?: ButtonSizes
   outlined?: boolean
+  color?: string
 }
 
 export interface ButtonPropsHasIcon extends ButtonProps {
