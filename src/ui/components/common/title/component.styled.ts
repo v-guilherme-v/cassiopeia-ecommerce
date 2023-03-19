@@ -1,32 +1,37 @@
 import styled from "styled-components"
 
 const ExtraLarge = styled.h1`
-  font-size: ${(props) => props.theme.title.extraLarge};
+  font-size: ${(props) => props.theme.title.extraLarge.fontSize};
   font-weight: ${(props) => props.theme.font.weight.medium};
+  line-height: ${(props) => props.theme.title.extraLarge};
   color: ${(props) => props.theme.color.black};
 `
 
 const Large = styled.h2`
-  font-size: ${(props) => props.theme.title.large};
+  font-size: ${(props) => props.theme.title.large.fontSize};
   font-weight: ${(props) => props.theme.font.weight.semibold};
+  line-height: ${(props) => props.theme.title.large};
   color: ${(props) => props.theme.color.black};
 `
 
 const Medium = styled.h3`
-  font-size: ${(props) => props.theme.title.medium};
+  font-size: ${(props) => props.theme.title.medium.fontSize};
   font-weight: ${(props) => props.theme.font.weight.medium};
+  line-height: ${(props) => props.theme.title.medium};
   color: ${(props) => props.theme.color.black};
 `
 
 const Small = styled.h4`
-  font-size: ${(props) => props.theme.title.small};
+  font-size: ${(props) => props.theme.title.small.fontSize};
   font-weight: ${(props) => props.theme.font.weight.medium};
+  line-height: ${(props) => props.theme.title.small};
   color: ${(props) => props.theme.color.black};
 `
 
 const ExtraSmall = styled.h5`
-  font-size: ${(props) => props.theme.title.extraSmall};
+  font-size: ${(props) => props.theme.title.extraSmall.fontSize};
   font-weight: ${(props) => props.theme.font.weight.medium};
+  line-height: ${(props) => props.theme.title.extraSmall};
   color: ${(props) => props.theme.color.black};
 `
 
