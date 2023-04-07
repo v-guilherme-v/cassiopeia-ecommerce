@@ -51,50 +51,50 @@ const lightTheme: ThemeType = {
   text: {
     large: {
       fontSize: "1rem",
-      lineHeight: "20"
+      lineHeight: "20px"
     },
     default: {
       fontSize: "0.875rem",
-      lineHeight: "20"
+      lineHeight: "20px"
     },
     button: {
       fontSize: "0.875rem",
-      lineHeight: "17"
+      lineHeight: "17px"
     },
     caption: {
       fontSize: "0.75rem",
-      lineHeight: "16"
+      lineHeight: "16px"
     },
     strikeLarge: {
       fontSize: "1.125rem",
-      lineHeight: "22"
+      lineHeight: "22px"
     },
     strike: {
       fontSize: "0.875rem",
-      lineHeight: "18"
+      lineHeight: "18px"
     }
   },
 
   title: {
     extraLarge: {
       fontSize: "2rem",
-      lineHeight: "38"
+      lineHeight: "38px"
     },
     large: {
       fontSize: "1.75rem",
-      lineHeight: "28"
+      lineHeight: "28px"
     },
     medium: {
       fontSize: "1.5rem",
-      lineHeight: "28"
+      lineHeight: "28px"
     },
     small: {
       fontSize: "1.125rem",
-      lineHeight: "22"
+      lineHeight: "22px"
     },
     extraSmall: {
       fontSize: "1rem",
-      lineHeight: "22"
+      lineHeight: "22px"
     }
   }
 }

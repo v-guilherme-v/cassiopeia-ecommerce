@@ -1,30 +1,30 @@
 import { type ReactNode } from "react"
 
+export enum ButtonTypes {
+  PRIMARY = "primary",
+  OUTLINED = "outlined",
+  LINK = "link"
+}
+
 export enum ButtonSizes {
-  DEFAULT = "default",
+  NORMAL = "normal",
   ICON = "icon",
   LARGE = "large"
 }
 
 export enum ButtonIconPositions {
   PREPEND = "prepend",
-  APPEND = "append",
+  APPEND = "append"
 }
 
 export interface ButtonProps {
+  buttonType: ButtonTypes
   label?: string
   size?: ButtonSizes
-  outlined?: boolean
   color?: string
-}
-
-export interface ButtonPropsHasIcon extends ButtonProps {
   icon?: {
     element: ReactNode
     position?: ButtonIconPositions
   }
-}
-
-export interface ButtonPropsAsIcon extends ButtonPropsHasIcon {
   rounded?: boolean
 }

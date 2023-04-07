@@ -3,9 +3,9 @@ import { type TextProps } from "./component"
 
 const Large = styled.span<TextProps>`
   font-family: ${(props) => props.theme.font.family};
-  font-size: ${(props) => props.theme.text.large};
+  font-size: ${(props) => props.theme.text.large.fontSize};
   font-weight: ${(props) => props.theme.font.weight.medium};
-  line-height: ${(props) => props.theme.text.large};
+  line-height: ${(props) => props.theme.text.large.lineHeight};
   color: ${(props) => props.theme.color[
     props.color ?? "inherit"
   ]};
@@ -13,9 +13,9 @@ const Large = styled.span<TextProps>`
 
 const Default = styled.span<TextProps>`
   font-family: ${(props) => props.theme.font.family};
-  font-size: ${(props) => props.theme.text.default};
+  font-size: ${(props) => props.theme.text.default.fontSize};
   font-weight: ${(props) => props.theme.font.weight.regular};
-  line-height: ${(props) => props.theme.text.default};
+  line-height: ${(props) => props.theme.text.default.lineHeight};
   color: ${(props) => props.theme.color[
     props.color ?? "inherit"
   ]};
@@ -23,9 +23,9 @@ const Default = styled.span<TextProps>`
 
 const Button = styled.span<TextProps>`
   font-family: ${(props) => props.theme.font.family};
-  font-size: ${(props) => props.theme.text.button};
+  font-size: ${(props) => props.theme.text.button.fontSize};
   font-weight: ${(props) => props.theme.font.weight.medium};
-  line-height: ${(props) => props.theme.text.button};
+  line-height: ${(props) => props.theme.text.button.lineHeight};
   color: ${(props) => props.theme.color[
     props.color ?? "inherit"
   ]};
@@ -33,9 +33,9 @@ const Button = styled.span<TextProps>`
 
 const Caption = styled.span<TextProps>`
   font-family: ${(props) => props.theme.font.family};
-  font-size: ${(props) => props.theme.text.caption};
+  font-size: ${(props) => props.theme.text.caption.fontSize};
   font-weight: ${(props) => props.theme.font.weight.medium};
-  line-height: ${(props) => props.theme.text.caption};
+  line-height: ${(props) => props.theme.text.caption.lineHeight};
   color: ${(props) => props.theme.color[
     props.color ?? "inherit"
   ]};
@@ -43,9 +43,9 @@ const Caption = styled.span<TextProps>`
 
 const StrikeLarge = styled.span<TextProps>`
   font-family: ${(props) => props.theme.font.family};
-  font-size: ${(props) => props.theme.text.strikeLarge};
+  font-size: ${(props) => props.theme.text.strikeLarge.fontSize};
   font-weight: ${(props) => props.theme.font.weight.medium};
-  line-height: ${(props) => props.theme.text.strikeLarge};
+  line-height: ${(props) => props.theme.text.strikeLarge.lineHeight};
   color: ${(props) => props.theme.color[
     props.color ?? "inherit"
   ]};
@@ -53,9 +53,9 @@ const StrikeLarge = styled.span<TextProps>`
 
 const Strike = styled.span<TextProps>`
   font-family: ${(props) => props.theme.font.family};
-  font-size: ${(props) => props.theme.text.strike};
+  font-size: ${(props) => props.theme.text.strike.fontSize};
   font-weight: ${(props) => props.theme.font.weight.medium};
-  line-height: ${(props) => props.theme.text.strike};
+  line-height: ${(props) => props.theme.text.strike.lineHeight};
   color: ${(props) => props.theme.color[
     props.color ?? "inherit"
   ]};
