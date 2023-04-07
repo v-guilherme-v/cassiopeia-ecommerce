@@ -24,6 +24,7 @@
         "allowTemplateLiterals": true
       }
     ],
+    "@typescript-eslint/restrict-template-expressions": 0,
     "array-bracket-spacing": [
       "error",
       "always"
