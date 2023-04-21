@@ -1,5 +1,4 @@
 interface ButtonStyles {
-  border: string
   borderRadius: string
   transition: string
 }
@@ -24,6 +23,7 @@ interface ColorStyles {
   grey: string
   darkGrey: string
   black: string
+  [index: string]: string
 }
 
 interface FieldStateStyles {
@@ -48,20 +48,57 @@ interface FontStyles {
 }
 
 interface TextStyles {
-  large: string
-  default: string
-  button: string
-  caption: string
-  strikeLarge: string
-  strike: string
+  large: {
+    fontSize: string
+    lineHeight: string
+  }
+  default: {
+    fontSize: string
+    lineHeight: string
+  }
+  button: {
+    fontSize: string
+    lineHeight: string
+  }
+  caption: {
+    fontSize: string
+    lineHeight: string
+  }
+  strikeLarge: {
+    fontSize: string
+    lineHeight: string
+  }
+  strike: {
+    fontSize: string
+    lineHeight: string
+  }
+  radio: {
+    fontSize: string
+    lineHeight: string
+  }
 }
 
 interface TitleStyles {
-  extraLarge: string
-  large: string
-  medium: string
-  small: string
-  extraSmall: string
+  extraLarge: {
+    fontSize: string
+    lineHeight: string
+  }
+  large: {
+    fontSize: string
+    lineHeight: string
+  }
+  medium: {
+    fontSize: string
+    lineHeight: string
+  }
+  small: {
+    fontSize: string
+    lineHeight: string
+  }
+  extraSmall: {
+    fontSize: string
+    lineHeight: string
+  }
 }
 
 export interface ThemeType {

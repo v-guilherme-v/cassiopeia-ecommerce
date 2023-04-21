@@ -4,8 +4,7 @@ import { useThemeSetup } from "@theme/hooks"
 import { Home } from "@pages/index"
 import { ThemeFunctionsContext } from "@contexts/index"
 
-import StyledRoot from "./Root.styled"
-import StyledGlobal from "./Global.styled"
+import StyledRoot from "./root.styled"
 
 export default function Root (): JSX.Element {
   const { selectedTheme, handleThemeChange } = useThemeSetup()
@@ -13,8 +12,7 @@ export default function Root (): JSX.Element {
   return (
     <ThemeProvider theme={selectedTheme}>
       <ThemeFunctionsContext.Provider value={{ handleThemeChange }}>
-        <StyledGlobal />
-        <StyledRoot className="App">
+        <StyledRoot>
           <Home />
         </StyledRoot>
       </ThemeFunctionsContext.Provider>
