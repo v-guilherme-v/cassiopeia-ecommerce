@@ -1,3 +1,4 @@
+import React from "react"
 import { createGlobalStyle } from "styled-components"
 import { type ThemeType } from "@theme/types"
 
@@ -5,7 +6,7 @@ declare module "styled-components" {
   export interface DefaultTheme extends ThemeType {}
 }
 
-const Global = createGlobalStyle`
+const RootStyles = createGlobalStyle`
   * { 
     box-sizing: border-box;
     margin: 0;
@@ -16,7 +17,6 @@ const Global = createGlobalStyle`
   :root {
     font-family: ${(props) => props.theme.font.family};
     font-size: ${(props) => props.theme.font.rootSize};
-    line-height: 1.5;
 
     background-color: #fff;
 
@@ -35,4 +35,13 @@ const Global = createGlobalStyle`
   }
 `
 
-export default Global
+const StyledRoot = (props: React.PropsWithChildren): JSX.Element => {
+  return (
+    <React.Fragment>
+      <RootStyles />
+      { props.children }
+    </React.Fragment>
+  )
+}
+
+export default StyledRoot
