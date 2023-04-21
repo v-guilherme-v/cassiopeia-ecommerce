@@ -29,6 +29,10 @@ function TextStrike (props: PropsWithChildren<TextProps>): JSX.Element {
   return <StyledText.Strike {...props}>{props.children}</StyledText.Strike>
 }
 
+function TextRadio (props: PropsWithChildren<TextProps>): JSX.Element {
+  return <StyledText.Radio {...props}>{props.children}</StyledText.Radio>
+}
+
 function Text (props: PropsWithChildren<TextProps>): JSX.Element {
   return <TextDefault {...props}>{props.children}</TextDefault>
 }
@@ -38,5 +42,6 @@ Text.Button = TextButton
 Text.Caption = TextCaption
 Text.StrikeLarge = TextStrikeLarge
 Text.Strike = TextStrike
+Text.Radio = TextRadio
 
 export default Text

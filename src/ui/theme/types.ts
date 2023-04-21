@@ -72,6 +72,10 @@ interface TextStyles {
     fontSize: string
     lineHeight: string
   }
+  radio: {
+    fontSize: string
+    lineHeight: string
+  }
 }
 
 interface TitleStyles {

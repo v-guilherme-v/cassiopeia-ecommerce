@@ -61,11 +61,22 @@ const Strike = styled.span<TextProps>`
   ]};
 `
 
+const Radio = styled.span<TextProps>`
+  font-family: ${(props) => props.theme.font.family};
+  font-size: ${(props) => props.theme.text.default.fontSize};
+  font-weight: ${(props) => props.theme.font.weight.medium};
+  line-height: ${(props) => props.theme.text.default.lineHeight};
+  color: ${(props) => props.theme.color[
+    props.color ?? "inherit"
+  ]};
+`
+
 export default {
   Large,
   Default,
   Button,
   Caption,
   StrikeLarge,
-  Strike
+  Strike,
+  Radio
 }

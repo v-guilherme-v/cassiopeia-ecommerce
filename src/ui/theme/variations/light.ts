@@ -72,6 +72,10 @@ const lightTheme: ThemeType = {
     strike: {
       fontSize: "0.875rem",
       lineHeight: "18px"
+    },
+    radio: {
+      fontSize: "0.75rem",
+      lineHeight: "15px"
     }
   },
 

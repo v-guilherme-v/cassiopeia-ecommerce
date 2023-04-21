@@ -49,20 +49,57 @@ const darkTheme: ThemeType = {
   },
 
   text: {
-    large: "1rem",
-    default: "0.875rem",
-    button: "0.875rem",
-    caption: "0.75rem",
-    strikeLarge: "1.125rem",
-    strike: "0.875rem"
+    large: {
+      fontSize: "1rem",
+      lineHeight: "20px"
+    },
+    default: {
+      fontSize: "0.875rem",
+      lineHeight: "20px"
+    },
+    button: {
+      fontSize: "0.875rem",
+      lineHeight: "17px"
+    },
+    caption: {
+      fontSize: "0.75rem",
+      lineHeight: "16px"
+    },
+    strikeLarge: {
+      fontSize: "1.125rem",
+      lineHeight: "22px"
+    },
+    strike: {
+      fontSize: "0.875rem",
+      lineHeight: "18px"
+    },
+    radio: {
+      fontSize: "0.75rem",
+      lineHeight: "15px"
+    }
   },
 
   title: {
-    extraLarge: "2rem",
-    large: "1.75rem",
-    medium: "1.5rem",
-    small: "1.125rem",
-    extraSmall: "1rem"
+    extraLarge: {
+      fontSize: "2rem",
+      lineHeight: "38px"
+    },
+    large: {
+      fontSize: "1.75rem",
+      lineHeight: "28px"
+    },
+    medium: {
+      fontSize: "1.5rem",
+      lineHeight: "28px"
+    },
+    small: {
+      fontSize: "1.125rem",
+      lineHeight: "22px"
+    },
+    extraSmall: {
+      fontSize: "1rem",
+      lineHeight: "22px"
+    }
   }
 }
 
