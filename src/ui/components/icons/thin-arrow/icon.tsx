@@ -1,4 +1,4 @@
-import StyledThinArrow from "./thin-arrow.styled"
+import StyledThinArrow from "./icon.styled"
 import { type IconProps } from "../types"
 
 export default function ThinArrow (props: IconProps): JSX.Element {

@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from "styled-components"
 
 const StyledRadio = styled.div`
   label {
@@ -23,6 +23,6 @@ const StyledRadio = styled.div`
   input[type="radio"]:checked {
     border-width: 6px;
   }
-`;
+`
 
-export default StyledRadio;
+export default StyledRadio
