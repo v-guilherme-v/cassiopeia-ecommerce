@@ -23,7 +23,8 @@ export function getButtonSize (size: ButtonSizes | undefined): string {
  * @returns { string }
  */
 export function getBgColor (props: any): string {
-  const isPrimary = props.buttonType === ButtonTypes.PRIMARY
+  const { buttonType = ButtonTypes.PRIMARY } = props
+  const isPrimary = buttonType === ButtonTypes.PRIMARY
 
   if (isPrimary) return props.theme.color.primary
   else return props.theme.color.white

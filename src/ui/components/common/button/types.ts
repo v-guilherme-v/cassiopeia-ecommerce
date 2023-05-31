@@ -18,7 +18,7 @@ export enum ButtonIconPositions {
 }
 
 export interface ButtonProps {
-  buttonType: ButtonTypes
+  buttonType?: ButtonTypes
   label?: string
   size?: ButtonSizes
   color?: string
