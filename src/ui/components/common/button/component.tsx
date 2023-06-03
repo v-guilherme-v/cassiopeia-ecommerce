@@ -6,17 +6,17 @@ import { ButtonSizes, type ButtonProps } from "./types"
 
 function Button (props: PropsWithChildren<ButtonProps>): JSX.Element {
   const {
-    label,
     icon,
-    size
+    size,
+    children
   } = props
 
   return (
-    <StyledButton {...props}>
+    <StyledButton data-testid="Button" {...props}>
       {
         size !== ButtonSizes.ICON && (
           <Text.Button>
-            { label }
+            { children }
           </Text.Button>
         )
       }
