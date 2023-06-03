@@ -1,6 +1,8 @@
 {
   "preset": "ts-jest",
   "testEnvironment": "jsdom",
+  "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+  "setupFilesAfterEnv": ["<rootDir>/jest.setup.js"],
   "moduleNameMapper": {
     "^@/(.*)$": "<rootDir>/src/$1",
     "^@components/(.*)$": "<rootDir>/src/ui/components/$1",
@@ -13,12 +15,10 @@
     "jsx",
     "json"
   ],
-  "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
   "coverageDirectory": "<rootDir>/docs/coverage",
   "collectCoverageFrom": [
     "src/**/*.{js,jsx,ts,tsx}",
     "!src/**/*.d.ts",
     "!**/*.test.{js,jsx,ts,tsx}"
-  ],
-  "setupFilesAfterEnv": ["<rootDir>/jest.setup.js"]
+  ]
 }
