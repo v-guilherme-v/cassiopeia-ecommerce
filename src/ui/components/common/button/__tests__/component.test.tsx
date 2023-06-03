@@ -1,19 +1,9 @@
-import { type PropsWithChildren } from "react"
-
 import { screen, render, act, fireEvent } from "@testing-library/react"
-import { ThemeContext } from "styled-components"
 import LightTheme from "@theme/variations/light"
+import { LightContextProvider } from "@components/test.utils"
 
 import Button, { StyledButton, ButtonSizes, ButtonModels, ButtonIconPositions } from "../index"
 import { ThinArrow } from "@components/icons"
-
-function LightContextProvider ({ children }: PropsWithChildren): JSX.Element {
-  return (
-    <ThemeContext.Provider value={LightTheme}>
-      { children }
-    </ThemeContext.Provider>
-  )
-}
 
 describe("The styled button", () => {
   it("renders its default values", () => {
