@@ -1,6 +1,6 @@
-import { type ReactNode } from "react"
+import { type MouseEventHandler, type ReactNode } from "react"
 
-export enum ButtonTypes {
+export enum ButtonModels {
   PRIMARY = "primary",
   OUTLINED = "outlined",
   LINK = "link"
@@ -18,8 +18,7 @@ export enum ButtonIconPositions {
 }
 
 export interface ButtonProps {
-  buttonType: ButtonTypes
-  label?: string
+  model?: ButtonModels
   size?: ButtonSizes
   color?: string
   icon?: {
@@ -27,4 +26,5 @@ export interface ButtonProps {
     position?: ButtonIconPositions
   }
   rounded?: boolean
+  onClick?: MouseEventHandler<HTMLElement>
 }
