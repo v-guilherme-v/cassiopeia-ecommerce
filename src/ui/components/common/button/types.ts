@@ -20,7 +20,6 @@ export enum ButtonIconPositions {
 export interface ButtonProps {
   model?: ButtonModels
   size?: ButtonSizes
-  color?: string
   icon?: {
     element: ReactNode
     position?: ButtonIconPositions
