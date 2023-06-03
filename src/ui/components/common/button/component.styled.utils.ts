@@ -1,8 +1,12 @@
-import { ButtonSizes, ButtonTypes } from "./types"
+import { type ThemeType } from "@theme/types"
+import { ButtonSizes, ButtonModels, type ButtonProps } from "./types"
+
+interface ThemeTypeAsProperty { theme: ThemeType }
+interface StyledButtonProps extends ButtonProps, ThemeTypeAsProperty {}
 
 /**
  * Defines a size based on `ButtonSizes` component prop
- * @param { ButtonSizes | undefined } size
+ * @param { ButtonSizes } size
  * @returns { string } the size itself
  */
 export function getButtonSize (size: ButtonSizes | undefined): string {
@@ -22,9 +26,9 @@ export function getButtonSize (size: ButtonSizes | undefined): string {
  * @param props
  * @returns { string }
  */
-export function getBgColor (props: any): string {
-  const { buttonType = ButtonTypes.PRIMARY } = props
-  const isPrimary = buttonType === ButtonTypes.PRIMARY
+export function getBgColor (props: StyledButtonProps): string {
+  const { model = ButtonModels.PRIMARY } = props
+  const isPrimary = model === ButtonModels.PRIMARY
 
   if (isPrimary) return props.theme.color.primary
   else return props.theme.color.white
@@ -35,14 +39,14 @@ export function getBgColor (props: any): string {
  * @param props component props
  * @returns { string } the css hex color
  */
-export function getFontColor (props: any): string {
-  const { color } = props
-  const isOutlined = props.buttonType === ButtonTypes.OUTLINED
-  const isLink = props.buttonType === ButtonTypes.LINK
+export function getFontColor (props: StyledButtonProps): string {
+  const { model, color, theme } = props
+  const isOutlined = model === ButtonModels.OUTLINED
+  const isLink = model === ButtonModels.LINK
 
   if (color !== null && color !== undefined) return color
-  else if (isOutlined || isLink) return props.theme.color.black
-  else return props.theme.color.white
+  else if (isOutlined || isLink) return theme.color.black
+  else return theme.color.white
 }
 
 /**
@@ -50,10 +54,10 @@ export function getFontColor (props: any): string {
  * @param props component props
  * @returns { string } the entire css border rule
  */
-export function getBorderColor (props: any): string {
-  const { buttonType, size } = props
+export function getBorderColor (props: StyledButtonProps): string {
+  const { model, size } = props
   const isIcon = size === ButtonSizes.ICON
-  const isOutlined = buttonType === ButtonTypes.OUTLINED
+  const isOutlined = model === ButtonModels.OUTLINED
 
   if (isOutlined && isIcon) return `1px solid ${props.theme.color.lightGrey}`
   else if (isOutlined) return `1px solid ${props.theme.color.primary}`
