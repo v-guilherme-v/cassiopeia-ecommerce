@@ -1,6 +1,6 @@
 import { screen, render, act, fireEvent } from "@testing-library/react"
 import LightTheme from "@theme/variations/light"
-import { LightContextProvider } from "@components/test.utils"
+import { LightThemeProvider } from "@components/test.utils"
 
 import Button, { StyledButton, ButtonSizes, ButtonModels, ButtonIconPositions } from "../index"
 import { ThinArrow } from "@components/icons"
@@ -8,9 +8,9 @@ import { ThinArrow } from "@components/icons"
 describe("The styled button", () => {
   it("renders its default values", () => {
     render(
-      <LightContextProvider>
+      <LightThemeProvider>
         <StyledButton>Styled button</StyledButton>
-      </LightContextProvider>
+      </LightThemeProvider>
     )
 
     const styledButton = screen.getByTestId(/StyledButton/)
@@ -24,12 +24,12 @@ describe("The styled button", () => {
 describe("The button", () => {
   it("renders in large size with an appended icon", () => {
     render(
-      <LightContextProvider>
+      <LightThemeProvider>
         <Button
           size={ButtonSizes.LARGE}
           icon={{ element: <ThinArrow /> }}
         >My button</Button>
-      </LightContextProvider>
+      </LightThemeProvider>
     )
 
     // to have the defaults + the large size
@@ -46,7 +46,7 @@ describe("The button", () => {
 
   it("is outlined and has a preppended icon", () => {
     render(
-      <LightContextProvider>
+      <LightThemeProvider>
         <Button
           model={ButtonModels.OUTLINED}
           icon={{
@@ -54,7 +54,7 @@ describe("The button", () => {
             position: ButtonIconPositions.PREPEND
           }}
         >My button</Button>
-      </LightContextProvider>
+      </LightThemeProvider>
     )
 
     const button = screen.getByTestId(/Button/)
@@ -70,13 +70,13 @@ describe("The button", () => {
 
   it("is an icon, rounded and has some svg in it", () => {
     render(
-      <LightContextProvider>
+      <LightThemeProvider>
         <Button
           rounded={true}
           size={ButtonSizes.ICON}
           icon={{ element: <ThinArrow /> }}
         >My button</Button>
-      </LightContextProvider>
+      </LightThemeProvider>
     )
 
     const button = screen.getByTestId(/Button/)
@@ -94,9 +94,9 @@ describe("The button", () => {
     const onClick = jest.fn()
 
     render(
-      <LightContextProvider>
+      <LightThemeProvider>
         <Button onClick={onClick}>My button</Button>
-      </LightContextProvider>
+      </LightThemeProvider>
     )
 
     const button = screen.getByTestId(/Button/)
@@ -108,9 +108,9 @@ describe("The button", () => {
 
   it("has icon size and is outlined", () => {
     render(
-      <LightContextProvider>
+      <LightThemeProvider>
         <Button model={ButtonModels.OUTLINED} size={ButtonSizes.ICON} icon={{ element: <ThinArrow /> }}>My button</Button>
-      </LightContextProvider>
+      </LightThemeProvider>
     )
 
     const button = screen.getByTestId(/Button/)

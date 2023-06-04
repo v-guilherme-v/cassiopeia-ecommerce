@@ -1,13 +1,13 @@
 import { act, fireEvent, render, screen } from "@testing-library/react"
-import { LightContextProvider } from "@components/test.utils"
+import { LightThemeProvider } from "@components/test.utils"
 import Checkbox from "../component"
 
 describe("The checkbox", () => {
   it("is not checked", () => {
     render(
-      <LightContextProvider>
+      <LightThemeProvider>
         <Checkbox checked={false} onChange={jest.fn()}/>
-      </LightContextProvider>
+      </LightThemeProvider>
     )
 
     const checkbox: HTMLInputElement = screen.getByTestId("Checkbox")
@@ -18,9 +18,9 @@ describe("The checkbox", () => {
     const onChange = jest.fn()
 
     const { rerender } = render(
-      <LightContextProvider>
+      <LightThemeProvider>
         <Checkbox onChange={onChange}/>
-      </LightContextProvider>
+      </LightThemeProvider>
     )
 
     const checkbox: HTMLInputElement = screen.getByTestId("Checkbox")
@@ -32,9 +32,9 @@ describe("The checkbox", () => {
 
     expect(onChange).toBeCalledTimes(1)
     rerender(
-      <LightContextProvider>
+      <LightThemeProvider>
         <Checkbox checked={true} onChange={onChange}/>
-      </LightContextProvider>
+      </LightThemeProvider>
     )
     expect(checkbox.checked).toEqual(true)
   })

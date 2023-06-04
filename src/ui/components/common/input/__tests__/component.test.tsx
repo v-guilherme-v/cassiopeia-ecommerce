@@ -1,14 +1,14 @@
 import { act, fireEvent, render, screen } from "@testing-library/react"
-import { LightContextProvider } from "@components/test.utils"
+import { LightThemeProvider } from "@components/test.utils"
 
 import Input from "../component"
 
 describe("The input", () => {
   it("is default, has a value and a name", () => {
     render(
-      <LightContextProvider>
+      <LightThemeProvider>
         <Input name="input" value="My input" onChange={jest.fn()}/>
-      </LightContextProvider>
+      </LightThemeProvider>
     )
 
     const input: HTMLInputElement = screen.getByTestId("Input")
@@ -24,9 +24,9 @@ describe("The input", () => {
 
     let value = "My input"
     const { rerender } = render(
-      <LightContextProvider>
+      <LightThemeProvider>
         <Input.Inline name="input" value={value} onChange={onChange}/>
-      </LightContextProvider>
+      </LightThemeProvider>
     )
 
     const input: HTMLInputElement = screen.getByTestId("Input")
@@ -34,9 +34,9 @@ describe("The input", () => {
 
     await act(() => fireEvent.change(input, { target: { value: "Some text" } }))
     rerender(
-      <LightContextProvider>
+      <LightThemeProvider>
         <Input.Inline name="input" value={value} onChange={onChange}/>
-      </LightContextProvider>
+      </LightThemeProvider>
     )
     expect(input.value).toEqual("Some text")
   })

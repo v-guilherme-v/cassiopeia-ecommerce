@@ -1,14 +1,14 @@
 import { act, fireEvent, render, screen } from "@testing-library/react"
-import { LightContextProvider } from "@components/test.utils"
+import { LightThemeProvider } from "@components/test.utils"
 
 import Radio from "../component"
 import { type RadioProps } from "../types"
 
 const ComponentWrapper = (props: RadioProps): JSX.Element => {
   return (
-    <LightContextProvider>
+    <LightThemeProvider>
       <Radio {...props} />
-    </LightContextProvider>
+    </LightThemeProvider>
   )
 }
 
