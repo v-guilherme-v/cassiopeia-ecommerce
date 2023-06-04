@@ -4,6 +4,11 @@
   "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
   "testPathIgnorePatterns": ["/node_modules/"],
   "setupFilesAfterEnv": ["<rootDir>/jest.setup.js"],
+  "transform": {
+    "^.+\\.{jsx|tsx}?$": ["ts-jest", {
+      "isolatedModules": true
+    }]
+  },
   "moduleNameMapper": {
     "^@/(.*)$": "<rootDir>/src/$1",
     "^@components/(.*)$": "<rootDir>/src/ui/components/$1",
@@ -22,5 +27,13 @@
     "!src/**/*.d.ts",
     "!**/*.test.{js,jsx,ts,tsx}"
   ],
-  "coveragePathIgnorePatterns": ["index\\.ts$", "/node_modules/"]
+  "coveragePathIgnorePatterns": [
+    "/node_modules/",
+    "/src/ui/pages",
+    "/src/ui/theme",
+    "/docs",
+    "main.tsx",
+    "root.*.tsx",
+    "index\\.ts$"
+  ]
 }
