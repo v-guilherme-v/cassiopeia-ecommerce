@@ -2,7 +2,7 @@ import { screen, render } from "@testing-library/react"
 import ThinArrow from "../icon"
 import { IconDirections } from "@components/icons/types"
 
-describe("The thin arrow", () => {
+describe("The thin arrow icon", () => {
   it("renders just fine", () => {
     render(<ThinArrow />)
     expect(screen.getByTestId(/ThinArrowIcon/))
