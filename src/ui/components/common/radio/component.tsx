@@ -4,21 +4,24 @@ import { type RadioProps } from "./types"
 
 function Radio (props: RadioProps): JSX.Element {
   const {
+    value,
     checked = false,
-    label,
-    value
+    children,
+    onChange
   } = props
 
   return (
     <StyledRadio>
       <label>
         <input
+          data-testid="Radio"
           className="radio"
           type="radio"
           value={value}
           checked={checked}
+          onChange={onChange}
         />
-        <Text.Radio>{label}</Text.Radio>
+        <Text.Radio>{ children }</Text.Radio>
       </label>
     </StyledRadio>
   )

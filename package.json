@@ -10,7 +10,8 @@
     "lint": "yarn eslint src/",
     "lint:fix": "yarn lint --fix",
     "postinstall": "husky install",
-    "test": "jest --coverage"
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js --maxWorkers=1",
+    "test:coverage": "node --experimental-vm-modules node_modules/jest/bin/jest.js --maxWorkers=1 --coverage"
   },
   "dependencies": {
     "react": "^18.2.0",

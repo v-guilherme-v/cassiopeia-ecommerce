@@ -21,6 +21,7 @@ function ExtraSmallTitle (props: PropsWithChildren): JSX.Element {
   return <StyledTitle.ExtraSmall>{props.children}</StyledTitle.ExtraSmall>
 }
 
+/** @todo do follow the text example */
 const Title = (): JSX.Element => <>Raw title</>
 
 Title.ExtraLarge = ExtraLargeTitle

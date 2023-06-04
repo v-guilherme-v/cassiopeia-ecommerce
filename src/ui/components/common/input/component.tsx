@@ -1,24 +1,20 @@
 import StyledInput from "./component.styled"
-import { type InputProps } from "./types"
+import Icon from "../icon/component"
+import type { InputProps } from "./types"
 
 function RawInput (props: InputProps): JSX.Element {
   return (
     <>
       <input
+        data-testid="Input"
         id={props.name}
-        type={props.type}
+        type={props?.type ?? "text"}
         name={props.name}
         value={props.value}
         onChange={props.onChange}
         placeholder={props.placeholder}
       />
-      {
-        Boolean(props.icon) && (
-          <div className="Icon">
-            {props.icon}
-          </div>
-        )
-      }
+      <Icon>{ props.icon }</Icon>
     </>
   )
 }

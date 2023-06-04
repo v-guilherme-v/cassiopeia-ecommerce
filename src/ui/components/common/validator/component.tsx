@@ -1,6 +1,6 @@
 import { useContext, memo } from "react"
 import { ThemeContext } from "styled-components"
-import { Chevron, Close } from "@components/icons"
+import { Check, Close } from "@components/icons"
 import { type ThemeType } from "@theme/types"
 
 interface ValidatorProps {
@@ -9,7 +9,7 @@ interface ValidatorProps {
 
 function Validator (props: ValidatorProps): JSX.Element {
   const { color }: ThemeType = useContext(ThemeContext)
-  return props.isValid ? <Chevron color={color.positive} /> : <Close color={color.negative} />
+  return props.isValid ? <Check color={color.positive} /> : <Close color={color.negative} />
 }
 
 export default memo(Validator)

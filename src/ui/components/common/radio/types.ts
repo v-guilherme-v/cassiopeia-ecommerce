@@ -1,5 +1,8 @@
+import type { ChangeEventHandler } from "react"
+
 export interface RadioProps extends React.PropsWithChildren {
-  checked: boolean
+  checked?: boolean
   label?: string
-  value: any
+  value: string
+  onChange: ChangeEventHandler<HTMLInputElement>
 }

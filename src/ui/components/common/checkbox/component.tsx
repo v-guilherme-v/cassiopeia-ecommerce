@@ -1,19 +1,21 @@
-import { type CheckboxProps } from "./types"
 import StyledCheckbox from "./component.styled"
 import Text from "../text/component"
 
-function Checkbox (props: CheckboxProps): JSX.Element {
+import { type CheckboxProps } from "./types"
+import type { PropsWithChildren } from "react"
+
+function Checkbox (props: PropsWithChildren<CheckboxProps>): JSX.Element {
   const {
-    label,
-    isChecked,
+    children,
+    checked = false,
     onChange
   } = props
 
   return (
     <StyledCheckbox className="Checkbox">
       <label>
-        <input type="checkbox" checked={isChecked} onChange={onChange}/>
-        <Text>{ label }</Text>
+        <input data-testid="Checkbox" type="checkbox" checked={checked} onChange={onChange}/>
+        <Text>{ children }</Text>
       </label>
     </StyledCheckbox>
   )

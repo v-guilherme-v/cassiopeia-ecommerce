@@ -1,17 +1,8 @@
 import styled from "styled-components"
 import { type TextProps } from "./component"
 
-const Large = styled.span<TextProps>`
-  font-family: ${(props) => props.theme.font.family};
-  font-size: ${(props) => props.theme.text.large.fontSize};
-  font-weight: ${(props) => props.theme.font.weight.medium};
-  line-height: ${(props) => props.theme.text.large.lineHeight};
-  color: ${(props) => props.theme.color[
-    props.color ?? "inherit"
-  ]};
-`
-
-const Default = styled.span<TextProps>`
+const StyledTextAttrs = { "data-testid": "StyledText" }
+const Default = styled.span.attrs(() => StyledTextAttrs)<TextProps>`
   font-family: ${(props) => props.theme.font.family};
   font-size: ${(props) => props.theme.text.default.fontSize};
   font-weight: ${(props) => props.theme.font.weight.regular};
@@ -21,7 +12,17 @@ const Default = styled.span<TextProps>`
   ]};
 `
 
-const Button = styled.span<TextProps>`
+const Large = styled(Default)`
+  font-family: ${(props) => props.theme.font.family};
+  font-size: ${(props) => props.theme.text.large.fontSize};
+  font-weight: ${(props) => props.theme.font.weight.medium};
+  line-height: ${(props) => props.theme.text.large.lineHeight};
+  color: ${(props) => props.theme.color[
+    props.color ?? "inherit"
+  ]};
+`
+
+const Button = styled(Default)`
   font-family: ${(props) => props.theme.font.family};
   font-size: ${(props) => props.theme.text.button.fontSize};
   font-weight: ${(props) => props.theme.font.weight.medium};
@@ -31,7 +32,7 @@ const Button = styled.span<TextProps>`
   ]};
 `
 
-const Caption = styled.span<TextProps>`
+const Caption = styled(Default)`
   font-family: ${(props) => props.theme.font.family};
   font-size: ${(props) => props.theme.text.caption.fontSize};
   font-weight: ${(props) => props.theme.font.weight.medium};
@@ -41,7 +42,7 @@ const Caption = styled.span<TextProps>`
   ]};
 `
 
-const StrikeLarge = styled.span<TextProps>`
+const StrikeLarge = styled(Default)`
   font-family: ${(props) => props.theme.font.family};
   font-size: ${(props) => props.theme.text.strikeLarge.fontSize};
   font-weight: ${(props) => props.theme.font.weight.medium};
@@ -51,7 +52,7 @@ const StrikeLarge = styled.span<TextProps>`
   ]};
 `
 
-const Strike = styled.span<TextProps>`
+const Strike = styled(Default)`
   font-family: ${(props) => props.theme.font.family};
   font-size: ${(props) => props.theme.text.strike.fontSize};
   font-weight: ${(props) => props.theme.font.weight.medium};
@@ -61,7 +62,7 @@ const Strike = styled.span<TextProps>`
   ]};
 `
 
-const Radio = styled.span<TextProps>`
+const Radio = styled(Default)`
   font-family: ${(props) => props.theme.font.family};
   font-size: ${(props) => props.theme.text.default.fontSize};
   font-weight: ${(props) => props.theme.font.weight.medium};

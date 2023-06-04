@@ -9,7 +9,7 @@ export default function ThinArrow (props: IconProps): JSX.Element {
   } = props
 
   return (
-    <StyledThinArrow {...props}>
+    <StyledThinArrow data-testid="ThinArrowIcon" {...props}>
       <svg
         width={width}
         height={height}

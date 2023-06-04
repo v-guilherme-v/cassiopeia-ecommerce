@@ -1,15 +1,39 @@
 {
   "preset": "ts-jest",
   "testEnvironment": "jsdom",
-  "moduleNameMapper": {
-    "^@/(.*)$": "<rootDir>/src/$1"
-  },
-  "moduleFileExtensions": ["ts", "tsx", "js", "jsx", "json"],
   "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
-  "coverageDirectory": "src/docs/coverage",
+  "testPathIgnorePatterns": ["/node_modules/"],
+  "setupFilesAfterEnv": ["<rootDir>/jest.setup.js"],
+  "transform": {
+    "^.+\\.{jsx|tsx}?$": ["ts-jest", {
+      "isolatedModules": true
+    }]
+  },
+  "moduleNameMapper": {
+    "^@/(.*)$": "<rootDir>/src/$1",
+    "^@components/(.*)$": "<rootDir>/src/ui/components/$1",
+    "^@theme/(.*)$": "<rootDir>/src/ui/theme/$1"
+  },
+  "moduleFileExtensions": [
+    "ts",
+    "tsx",
+    "js",
+    "jsx",
+    "json"
+  ],
+  "coverageDirectory": "<rootDir>/docs/coverage",
   "collectCoverageFrom": [
     "src/**/*.{js,jsx,ts,tsx}",
     "!src/**/*.d.ts",
     "!**/*.test.{js,jsx,ts,tsx}"
+  ],
+  "coveragePathIgnorePatterns": [
+    "/node_modules/",
+    "/src/ui/pages",
+    "/src/ui/theme",
+    "/docs",
+    "main.tsx",
+    "root.*.tsx",
+    "index\\.ts$"
   ]
 }

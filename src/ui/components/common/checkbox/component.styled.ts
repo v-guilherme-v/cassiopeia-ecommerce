@@ -1,6 +1,7 @@
 import styled from "styled-components"
 
-const StyledCheckbox = styled.div`
+const StyledCheckboxAttrs = { "data-testid": "StyledCheckbox" }
+const StyledCheckbox = styled.div.attrs(() => StyledCheckboxAttrs)`
   & label {
     display: flex;
     align-items: center;

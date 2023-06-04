@@ -8,6 +8,8 @@ interface StyledButtonProps extends ButtonProps, ThemeTypeAsProperty {}
  * Defines a size based on `ButtonSizes` component prop
  * @param { ButtonSizes } size
  * @returns { string } the size itself
+ *
+ * @todo tie these sizes to a type, so i can reference elsewhere
  */
 export function getButtonSize (size: ButtonSizes | undefined): string {
   switch (size) {
@@ -40,12 +42,11 @@ export function getBgColor (props: StyledButtonProps): string {
  * @returns { string } the css hex color
  */
 export function getFontColor (props: StyledButtonProps): string {
-  const { model, color, theme } = props
+  const { model, theme } = props
   const isOutlined = model === ButtonModels.OUTLINED
   const isLink = model === ButtonModels.LINK
 
-  if (color !== null && color !== undefined) return color
-  else if (isOutlined || isLink) return theme.color.black
+  if (isOutlined || isLink) return theme.color.black
   else return theme.color.white
 }
 

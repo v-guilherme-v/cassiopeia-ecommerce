@@ -2,7 +2,10 @@ import styled from "styled-components"
 import { type ButtonProps, ButtonSizes, ButtonIconPositions } from "@components/common/button"
 import { getBgColor, getBorderColor, getButtonSize, getFontColor } from "./component.styled.utils"
 
-const StyledButton = styled.button<ButtonProps>`
+const styledAttrs = {
+  "data-testid": "StyledButton"
+}
+const StyledButton = styled.button.attrs(() => styledAttrs)<ButtonProps>`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -13,7 +16,7 @@ const StyledButton = styled.button<ButtonProps>`
   width: ${(props) => getButtonSize(props.size)};
   height: 45px;
 
-  // TODO: make it better
+  /** @todo make it better */
   border: ${(props) => `${getBorderColor(props)}`};
   border-radius: ${(props) => props.theme.button.borderRadius};
   
