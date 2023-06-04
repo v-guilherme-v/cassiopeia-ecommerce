@@ -41,7 +41,7 @@ describe("The button", () => {
     `)
 
     // and some indetermined icon
-    expect(screen.getByTestId(/Icon/)).toBeInTheDocument()
+    expect(screen.getByTestId("Icon")).toBeInTheDocument()
   })
 
   it("is outlined and has a preppended icon", () => {
@@ -65,7 +65,7 @@ describe("The button", () => {
     `)
 
     // and some indetermined icon
-    expect(screen.getByTestId(/Icon/)).toBeInTheDocument()
+    expect(screen.getByTestId("Icon")).toBeInTheDocument()
   })
 
   it("is an icon, rounded and has some svg in it", () => {
@@ -87,7 +87,7 @@ describe("The button", () => {
     `)
 
     // and some indetermined icon
-    expect(screen.getByTestId(/Icon/)).toBeInTheDocument()
+    expect(screen.getByTestId("Icon")).toBeInTheDocument()
   })
 
   it("has some action to be performed on click", async () => {
@@ -119,6 +119,6 @@ describe("The button", () => {
       background-color: ${LightTheme.color.white};
       border: 1px solid ${LightTheme.color.lightGrey};
     `)
-    expect(screen.getByTestId(/Icon/)).toBeInTheDocument()
+    expect(screen.getByTestId("Icon")).toBeInTheDocument()
   })
 })
