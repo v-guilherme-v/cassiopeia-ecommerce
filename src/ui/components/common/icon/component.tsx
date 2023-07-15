@@ -5,7 +5,7 @@ function Icon ({ children }: PropsWithChildren): JSX.Element | null {
   return (
     children != null
       ? (
-        <div data-testid="Icon" className="Icon">
+        <div data-testid="Icon" className="Icon" style={{ lineHeight: 0 }}>
           {children}
         </div>
       )
