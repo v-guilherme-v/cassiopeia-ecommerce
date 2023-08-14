@@ -35,7 +35,9 @@ const Button = styled(Default)`
 const Caption = styled(Default)`
   font-family: ${(props) => props.theme.font.family};
   font-size: ${(props) => props.theme.text.caption.fontSize};
-  font-weight: ${(props) => props.theme.font.weight.medium};
+  font-weight: ${(props) => props.theme.font.weight[
+    props.customWeight ?? "medium"
+  ]};
   line-height: ${(props) => props.theme.text.caption.lineHeight};
   color: ${(props) => props.theme.color[
     props.color ?? "inherit"

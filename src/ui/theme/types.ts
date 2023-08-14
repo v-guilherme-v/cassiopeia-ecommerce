@@ -39,6 +39,7 @@ interface WeightStyles {
   regular: string
   medium: string
   semibold: string
+  [index: string]: string
 }
 
 interface FontStyles {

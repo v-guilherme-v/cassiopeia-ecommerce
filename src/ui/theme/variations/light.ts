@@ -27,7 +27,8 @@ const lightTheme: ThemeType = {
     lightGrey: "#E6E6EB",
     grey: "#AFB1BD",
     darkGrey: "#82828B",
-    black: "#000000"
+    black: "#000000",
+    whatsapp: "#24D366"
   },
 
   fieldState: {
