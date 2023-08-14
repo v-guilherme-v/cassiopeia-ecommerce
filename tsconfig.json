@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "baseUrl": "./",
     "target": "ESNext",
     "useDefineForClassFields": true,
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
@@ -16,16 +17,20 @@
     "noEmit": true,
     "jsx": "react-jsx",
     "paths": {
-      "@theme/*": ["./src/ui/theme/*"],
-      "@components/*": ["./src/ui/components/*"],
-      "@pages/*": ["./src/ui/pages/*"],
-      "@contexts/*": ["./src/ui/contexts/*"],
+      "@theme/*": ["src/ui/theme/*"],
+      "@components/*": ["src/ui/components/*"],
+      "@pages/*": ["src/ui/pages/*"],
+      "@contexts/*": ["src/ui/contexts/*"],
+      "@widgets/": ["src/ui/components/widgets/index"],
+      "@widgets/*": ["src/ui/components/widgets/*"],
+      "@providers": ["src/ui/providers/index"]
     }
   },
   "include": [
     "src",
     "src/**/*.test.ts",
-    "src/**/*.test.tsx"
+    "src/**/*.test.tsx",
+    "./vite.config.ts"
   ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
