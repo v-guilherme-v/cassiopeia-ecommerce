@@ -1,6 +1,3 @@
-export { default as ThinArrow } from "./thin-arrow/icon"
-export * from "./types"
-
 export { default as Close } from "./close.svg"
 export { default as Check } from "./check.svg"
 export { default as MarkerIcon } from "./marker.svg"
@@ -9,3 +6,4 @@ export { default as SearchIcon } from "./search.svg"
 export { default as CartIcon } from "./cart.svg"
 export { default as WhatsappIcon } from "./whatsapp.svg"
 export { default as InstagramIcon } from "./instagram.svg"
+export { default as ThinArrowIcon } from "./thin-arrow.svg"
