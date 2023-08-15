@@ -1,15 +1,17 @@
-import { useContext, memo } from "react"
-import { ThemeContext } from "styled-components"
+import { memo } from "react"
 import { Check, Close } from "@components/icons"
-import { type ThemeType } from "@theme/types"
+import StyledValidator from "./component.styled"
 
-interface ValidatorProps {
+export interface ValidatorProps {
   isValid: boolean
 }
 
 function Validator (props: ValidatorProps): JSX.Element {
-  const { color }: ThemeType = useContext(ThemeContext)
-  return props.isValid ? <Check color={color.positive} /> : <Close color={color.negative} />
+  return (
+    <StyledValidator {...props} >
+      { props.isValid ? <Check data-testid="CheckIcon" /> : <Close data-testid="CloseIcon" /> }
+    </StyledValidator>
+  )
 }
 
 export default memo(Validator)
