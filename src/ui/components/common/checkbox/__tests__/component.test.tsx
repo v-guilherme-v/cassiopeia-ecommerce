@@ -10,7 +10,7 @@ describe("The checkbox", () => {
       </LightThemeProvider>
     )
 
-    const checkbox: HTMLInputElement = screen.getByTestId("Checkbox")
+    const checkbox: HTMLInputElement = screen.getByRole("checkbox")
     expect(checkbox.checked).toEqual(false)
   })
 
@@ -23,7 +23,7 @@ describe("The checkbox", () => {
       </LightThemeProvider>
     )
 
-    const checkbox: HTMLInputElement = screen.getByTestId("Checkbox")
+    const checkbox: HTMLInputElement = screen.getByRole("checkbox")
     expect(checkbox.checked).toEqual(false)
 
     act(() => {
