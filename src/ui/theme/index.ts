@@ -1,2 +1,2 @@
-export { default as light } from "./variations/light"
-export { default as dark } from "./variations/dark"
+export { default as light } from "./styles/light"
+export { default as dark } from "./styles/dark"

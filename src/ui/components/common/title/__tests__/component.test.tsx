@@ -1,7 +1,7 @@
 import { screen, render } from "@testing-library/react"
 import Title from "../component"
 import { LightThemeProvider } from "@providers"
-import lightTheme from "@theme/variations/light"
+import lightTheme from "@theme/styles/light"
 
 describe("The title", () => {
   it("is raw", () => {
