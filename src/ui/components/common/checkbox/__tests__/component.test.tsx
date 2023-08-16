@@ -1,5 +1,5 @@
 import { act, fireEvent, render, screen } from "@testing-library/react"
-import { LightThemeProvider } from "@components/test.utils"
+import { LightThemeProvider } from "@providers"
 import Checkbox from "../component"
 
 describe("The checkbox", () => {

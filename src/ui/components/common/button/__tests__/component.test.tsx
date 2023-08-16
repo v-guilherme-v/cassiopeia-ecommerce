@@ -1,6 +1,6 @@
 import { screen, render, act, fireEvent } from "@testing-library/react"
 import LightTheme from "@theme/variations/light"
-import { LightThemeProvider } from "@components/test.utils"
+import { LightThemeProvider } from "@providers"
 
 import Button, { StyledButton, ButtonSizes, ButtonModels, ButtonIconPositions } from "../index"
 import { ThinArrowIcon } from "@components/icons"
