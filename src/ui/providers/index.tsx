@@ -1,7 +1,7 @@
 import { type PropsWithChildren } from "react"
 
 import { ThemeContext } from "styled-components"
-import LightTheme from "@theme/variations/light"
+import LightTheme from "@theme/styles/light"
 
 export function LightThemeProvider ({
   children

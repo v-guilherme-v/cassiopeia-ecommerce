@@ -1,5 +1,5 @@
 import { screen, render, act, fireEvent } from "@testing-library/react"
-import LightTheme from "@theme/variations/light"
+import LightTheme from "@theme/styles/light"
 import { LightThemeProvider } from "@providers"
 
 import Button, { StyledButton, ButtonSizes, ButtonModels, ButtonIconPositions } from "../index"
