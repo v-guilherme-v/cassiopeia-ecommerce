@@ -15,12 +15,13 @@ const RawInput = styled.div`
   font-family: ${({ theme }) => theme.font.family};
   font-size: ${({ theme }) => theme.text.caption.fontSize};
   position: relative;
+  max-width: 265px;
 
   & input {
     /* it will prevent that input and icon to occupy the same space */
     /* the calc is, icon max-width + the right gap from the div that wraps everything */
     padding: 12px calc(${ICON_MAX_WIDTH} + ${ICON_RIGHT_GAP}) 12px 12px;
-    min-width: 265px;
+    width: 100%;
 
     &::placeholder {
       color: ${({ theme }) => theme.color.darkGrey};

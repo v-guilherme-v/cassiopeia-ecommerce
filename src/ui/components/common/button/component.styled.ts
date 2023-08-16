@@ -2,10 +2,7 @@ import styled from "styled-components"
 import { type ButtonProps, ButtonSizes, ButtonIconPositions } from "@components/common/button"
 import { getBgColor, getBorderColor, getButtonSize, getFontColor } from "./component.styled.utils"
 
-const styledAttrs = {
-  "data-testid": "StyledButton"
-}
-const StyledButton = styled.button.attrs(() => styledAttrs)<ButtonProps>`
+const StyledButton = styled.button<ButtonProps>`
   display: flex;
   align-items: center;
   justify-content: center;

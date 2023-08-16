@@ -2,11 +2,11 @@ import styled from "styled-components"
 
 const StyledCheckboxAttrs = { "data-testid": "StyledCheckbox" }
 const StyledCheckbox = styled.div.attrs(() => StyledCheckboxAttrs)`
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  
   & label {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 10px;
     user-select: none;
   }
 
@@ -34,13 +34,18 @@ const StyledCheckbox = styled.div.attrs(() => StyledCheckboxAttrs)`
     left: 50%;
     transform: translate(-50%, -50%);
 
-    background-image: url("/src/ui/components/icons/chevron/icon.svg");
+    background-image: url("/src/ui/components/icons/check.svg");
     filter: invert(1);
     transition: all .2s;
   }
 
   & input[type="checkbox"]:checked::after {
     visibility: visible;
+  }
+
+  & label,
+  & input[type="checkbox"] {
+    cursor: pointer;
   }
 `
 

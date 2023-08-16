@@ -1,6 +1,6 @@
 import { screen, render } from "@testing-library/react"
 import Text from "../component"
-import { LightThemeProvider } from "@components/test.utils"
+import { LightThemeProvider } from "@providers"
 import lightTheme from "@theme/variations/light"
 
 describe("The text", () => {
