@@ -4,13 +4,9 @@ const StyledNormalTopBar = styled.section`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 8.75rem;
+  margin: 0 auto;
+  max-width: 1160px;
   min-height: 52px;
-
-  position: sticky;
-  top: 0;
-  left: 0;
-  right: 0;
 
   background-color: ${({ theme }) => theme.color.white};
 `

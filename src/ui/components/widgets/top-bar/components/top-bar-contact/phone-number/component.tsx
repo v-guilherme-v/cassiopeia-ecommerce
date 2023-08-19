@@ -5,7 +5,7 @@ export interface PhoneNumberProps {
 }
 
 function PhoneNumber ({ value = "+ NNNNNNNNNN" }: PhoneNumberProps): JSX.Element {
-  return <Text.Caption customWeight="semibold">{ value }</Text.Caption>
+  return <Text.Caption weight="semibold">{ value }</Text.Caption>
 }
 
 export default PhoneNumber
