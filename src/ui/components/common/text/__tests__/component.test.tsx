@@ -10,7 +10,7 @@ describe("The text", () => {
         <Text>My text</Text>
       </LightThemeProvider>
     )
-    const text = screen.getByTestId(/StyledText/)
+    const text = screen.getByText("My text")
     expect(text).toBeInTheDocument()
   })
 
@@ -20,7 +20,7 @@ describe("The text", () => {
         <Text.Caption>My caption</Text.Caption>
       </LightThemeProvider>
     )
-    const text = screen.getByTestId(/StyledText/)
+    const text = screen.getByText("My caption")
     expect(text).toBeInTheDocument()
     expect(text).toHaveStyle(`
       font-size: ${lightTheme.text.caption.fontSize}
@@ -33,7 +33,7 @@ describe("The text", () => {
         <Text.Button>My button text</Text.Button>
       </LightThemeProvider>
     )
-    const text = screen.getByTestId(/StyledText/)
+    const text = screen.getByText("My button text")
     expect(text).toBeInTheDocument()
     expect(text).toHaveStyle(`
       font-size: ${lightTheme.text.button.fontSize}
@@ -46,7 +46,7 @@ describe("The text", () => {
         <Text.Large>My large text</Text.Large>
       </LightThemeProvider>
     )
-    const text = screen.getByTestId(/StyledText/)
+    const text = screen.getByText("My large text")
     expect(text).toBeInTheDocument()
     expect(text).toHaveStyle(`
       font-size: ${lightTheme.text.large.fontSize}
@@ -59,7 +59,7 @@ describe("The text", () => {
         <Text.Strike>My strike text</Text.Strike>
       </LightThemeProvider>
     )
-    const text = screen.getByTestId(/StyledText/)
+    const text = screen.getByText("My strike text")
     expect(text).toBeInTheDocument()
     expect(text).toHaveStyle(`
       font-size: ${lightTheme.text.strike.fontSize}
@@ -72,7 +72,7 @@ describe("The text", () => {
         <Text.StrikeLarge>My strike large text</Text.StrikeLarge>
       </LightThemeProvider>
     )
-    const text = screen.getByTestId(/StyledText/)
+    const text = screen.getByText("My strike large text")
     expect(text).toBeInTheDocument()
     expect(text).toHaveStyle(`
       font-size: ${lightTheme.text.strikeLarge.fontSize}

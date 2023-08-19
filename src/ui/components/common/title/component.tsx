@@ -1,5 +1,5 @@
 import { type PropsWithChildren } from "react"
-import StyledTitle from "@components/common/title/component.styled"
+import StyledTitle from "./component.styled"
 
 function ExtraLargeTitle (props: PropsWithChildren): JSX.Element {
   return <StyledTitle.ExtraLarge>{props.children}</StyledTitle.ExtraLarge>

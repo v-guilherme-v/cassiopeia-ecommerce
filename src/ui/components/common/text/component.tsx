@@ -1,17 +1,12 @@
 import { type PropsWithChildren } from "react"
 import StyledText from "@components/common/text/component.styled"
-
 export interface TextProps extends PropsWithChildren {
   color?: string
-  customWeight?: string
+  weight?: string
 }
 
 function TextLarge (props: TextProps): JSX.Element {
   return <StyledText.Large {...props}>{props.children}</StyledText.Large>
-}
-
-function TextDefault (props: TextProps): JSX.Element {
-  return <StyledText.Default {...props}>{props.children}</StyledText.Default>
 }
 
 function TextButton (props: TextProps): JSX.Element {
@@ -35,7 +30,7 @@ function TextRadio (props: TextProps): JSX.Element {
 }
 
 function Text (props: TextProps): JSX.Element {
-  return <TextDefault {...props}>{props.children}</TextDefault>
+  return <StyledText.Normal {...props}>{props.children}</StyledText.Normal>
 }
 
 Text.Large = TextLarge
