@@ -101,6 +101,10 @@ const lightTheme: ThemeType = {
       fontSize: "1rem",
       lineHeight: "22px"
     }
+  },
+
+  general: {
+    containerSize: "1160px"
   }
 }
 

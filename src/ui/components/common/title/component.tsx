@@ -1,23 +1,27 @@
 import { type PropsWithChildren } from "react"
 import StyledTitle from "./component.styled"
 
-function ExtraLargeTitle (props: PropsWithChildren): JSX.Element {
+export interface TitleProps extends PropsWithChildren {
+  weight?: string
+}
+
+function ExtraLargeTitle (props: TitleProps): JSX.Element {
   return <StyledTitle.ExtraLarge>{props.children}</StyledTitle.ExtraLarge>
 }
 
-function LargeTitle (props: PropsWithChildren): JSX.Element {
-  return <StyledTitle.Large>{props.children}</StyledTitle.Large>
+function LargeTitle (props: TitleProps): JSX.Element {
+  return <StyledTitle.Large {...props}>{props.children}</StyledTitle.Large>
 }
 
-function MediumTitle (props: PropsWithChildren): JSX.Element {
+function MediumTitle (props: TitleProps): JSX.Element {
   return <StyledTitle.Medium>{props.children}</StyledTitle.Medium>
 }
 
-function SmallTitle (props: PropsWithChildren): JSX.Element {
+function SmallTitle (props: TitleProps): JSX.Element {
   return <StyledTitle.Small>{props.children}</StyledTitle.Small>
 }
 
-function ExtraSmallTitle (props: PropsWithChildren): JSX.Element {
+function ExtraSmallTitle (props: TitleProps): JSX.Element {
   return <StyledTitle.ExtraSmall>{props.children}</StyledTitle.ExtraSmall>
 }
 
@@ -29,5 +33,7 @@ Title.Large = LargeTitle
 Title.Medium = MediumTitle
 Title.Small = SmallTitle
 Title.ExtraSmall = ExtraSmallTitle
+
+Title.Styled = StyledTitle
 
 export default Title

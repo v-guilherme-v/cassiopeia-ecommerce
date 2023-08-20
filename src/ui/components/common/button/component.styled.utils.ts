@@ -30,9 +30,11 @@ export function getButtonSize (size: ButtonSizes | undefined): string {
  */
 export function getBgColor (props: StyledButtonProps): string {
   const { model = ButtonModels.PRIMARY } = props
+  const customBgColor = props?.background
   const isPrimary = model === ButtonModels.PRIMARY
 
-  if (isPrimary) return props.theme.color.primary
+  if (customBgColor != null) return customBgColor
+  else if (isPrimary) return props.theme.color.primary
   else return props.theme.color.white
 }
 

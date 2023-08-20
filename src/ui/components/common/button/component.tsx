@@ -25,4 +25,6 @@ function Button (props: PropsWithChildren<ButtonProps>): JSX.Element {
   )
 }
 
+Button.Styled = StyledButton
+
 export default Button
