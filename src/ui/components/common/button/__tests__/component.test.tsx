@@ -121,4 +121,15 @@ describe("The button", () => {
 
     expect(screen.getByTestId("Icon")).toBeInTheDocument()
   })
+
+  it("has a custom background color", () => {
+    render(
+      <LightThemeProvider>
+        <Button background="#000">My button</Button>
+      </LightThemeProvider>
+    )
+
+    const button = screen.getByRole("button")
+    expect(button).toHaveStyle("background-color: #000;")
+  })
 })

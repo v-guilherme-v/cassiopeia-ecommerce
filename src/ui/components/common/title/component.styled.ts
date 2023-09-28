@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import { TitleProps } from "./component"
 
 const ExtraLarge = styled.h1`
   font-size: ${({ theme }) => theme.title.extraLarge.fontSize};
@@ -7,9 +8,11 @@ const ExtraLarge = styled.h1`
   color: ${({ theme }) => theme.color.black};
 `
 
-const Large = styled.h2`
+const Large = styled.h2<TitleProps>`
   font-size: ${({ theme }) => theme.title.large.fontSize};
-  font-weight: ${({ theme }) => theme.font.weight.semibold};
+  font-weight: ${props => props.theme.font.weight[
+    props?.weight || "semibold"
+  ]};
   line-height: ${({ theme }) => theme.title.large.lineHeight};
   color: ${({ theme }) => theme.color.black};
 `

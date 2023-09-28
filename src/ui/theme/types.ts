@@ -76,6 +76,10 @@ interface TitleStyles {
   extraSmall: TitleStyle
 }
 
+interface GeneralStyles {
+  containerSize: string
+}
+
 export interface ThemeType {
   // Root styles
   font: FontStyles
@@ -93,4 +97,5 @@ export interface ThemeType {
   text: TextStyles
   title: TitleStyles
   fieldState: FieldStateStyles
+  general: GeneralStyles
 }
