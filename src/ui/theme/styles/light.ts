@@ -28,7 +28,8 @@ const lightTheme: ThemeType = {
     grey: "#AFB1BD",
     darkGrey: "#82828B",
     black: "#000000",
-    whatsapp: "#24D366"
+    whatsapp: "#24D366",
+    facebook: "#4F66A5"
   },
 
   fieldState: {
@@ -104,7 +105,15 @@ const lightTheme: ThemeType = {
   },
 
   general: {
-    containerSize: "1160px"
+    containerSize: "1160px",
+    headerLayer: 10
+  },
+
+  viewPorts: {
+    extraLarge: "1200px",
+    large: "992px",
+    medium: "768px",
+    small: "576px"
   }
 }
 

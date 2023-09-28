@@ -12,6 +12,7 @@ const StyledHeader = styled.header`
   top: 0;
 
   background-color: ${({ theme }) => theme.color.white};
+  z-index: ${({ theme }) => theme.general.headerLayer};
   padding: 0 1rem;
 `
 

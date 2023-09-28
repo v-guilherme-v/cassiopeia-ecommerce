@@ -3,6 +3,7 @@ import StyledText from "@components/common/text/component.styled"
 export interface TextProps extends PropsWithChildren {
   color?: string
   weight?: string
+  lineHeight?: string
 }
 
 function TextLarge (props: TextProps): JSX.Element {
@@ -39,5 +40,7 @@ Text.Caption = TextCaption
 Text.StrikeLarge = TextStrikeLarge
 Text.Strike = TextStrike
 Text.Radio = TextRadio
+
+Text.Styled = StyledText
 
 export default Text

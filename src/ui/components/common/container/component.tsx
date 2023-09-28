@@ -14,4 +14,6 @@ const StyledContainer = styled.div`
   padding: 0 1rem;
 `
 
+Container.Styled = StyledContainer
+
 export default Container

@@ -1,4 +1,4 @@
-import { Header, Navigation, TopBar, HeroBanner } from "@components/widgets"
+import { Header, Navigation, TopBar, HeroBanner, Footer } from "@components/widgets"
 import styled from "styled-components"
 
 import flowers from "src/assets/flowers-faded.png"
@@ -18,6 +18,7 @@ export default function Home (): JSX.Element {
         description="Our flowers..."
         buttonLabel="Take a look"
         image={{ src: flowers, alt: "Flowers banner" }}/>
+      <Footer />
     </StyledHome>
   )
 }
@@ -25,5 +26,9 @@ export default function Home (): JSX.Element {
 const StyledHome = styled.section`
   ${HeroBanner.Styled} {
     margin-top: 40.5px;
+  }
+
+  ${Footer.Styled} {
+    margin-top: 100px;
   }
 `
