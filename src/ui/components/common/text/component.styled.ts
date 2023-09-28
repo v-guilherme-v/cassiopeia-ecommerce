@@ -14,7 +14,7 @@ const Normal = styled.span<TextProps>`
 const Large = styled(Normal)`
   font-size: ${(props) => props.theme.text.large.fontSize};
   font-weight: ${(props) => props.theme.font.weight.regular};
-  line-height: ${(props) => props.theme.text.large.lineHeight};
+  line-height: ${(props) => props.lineHeight || props.theme.text.large.lineHeight};
   color: ${(props) => props.theme.color[
     props.color ?? "inherit"
   ]};

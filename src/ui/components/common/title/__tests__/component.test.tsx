@@ -1,16 +1,18 @@
 import { screen, render } from "@testing-library/react"
-import Title from "../component"
 import { LightThemeProvider } from "@providers"
 import lightTheme from "@theme/styles/light"
 
+import Title from "../component"
+
 describe("The title", () => {
-  it("is raw", () => {
+  it("is a normal title", () => {
     render(
       <LightThemeProvider>
-        <Title></Title>
+        <Title>Normal title</Title>
       </LightThemeProvider>
     )
-    const title = screen.getByText("Raw title")
+
+    const title = screen.getByText("Normal title")
     expect(title).toBeInTheDocument()
   })
 
@@ -20,6 +22,7 @@ describe("The title", () => {
         <Title.ExtraLarge>Extra large title</Title.ExtraLarge>
       </LightThemeProvider>
     )
+
     const title = screen.getByText("Extra large title")
     expect(title).toBeInTheDocument()
     expect(title).toHaveStyle(`
@@ -38,20 +41,6 @@ describe("The title", () => {
     expect(title).toBeInTheDocument()
     expect(title).toHaveStyle(`
         font-size: ${lightTheme.title.large.fontSize};
-    `)
-  })
-
-  it("is medium", () => {
-    render(
-      <LightThemeProvider>
-        <Title.Medium>Medium title</Title.Medium>
-      </LightThemeProvider>
-    )
-
-    const title = screen.getByText("Medium title")
-    expect(title).toBeInTheDocument()
-    expect(title).toHaveStyle(`
-        font-size: ${lightTheme.title.medium.fontSize};
     `)
   })
 

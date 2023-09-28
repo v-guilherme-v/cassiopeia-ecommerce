@@ -1,10 +1,10 @@
 import styled from "styled-components"
 import { TitleProps } from "./component"
 
-const ExtraLarge = styled.h1`
+const ExtraLarge = styled.h1<TitleProps>`
   font-size: ${({ theme }) => theme.title.extraLarge.fontSize};
-  font-weight: ${({ theme }) => theme.font.weight.medium};
-  line-height: ${({ theme }) => theme.title.extraLarge.lineHeight};
+  font-weight: ${(props) => ( props.weight || props.theme.font.weight.medium )};
+  line-height: ${(props) => ( props.lineHeight || props.theme.title.extraLarge.lineHeight )};
   color: ${({ theme }) => theme.color.black};
 `
 
@@ -13,35 +13,49 @@ const Large = styled.h2<TitleProps>`
   font-weight: ${props => props.theme.font.weight[
     props?.weight || "semibold"
   ]};
-  line-height: ${({ theme }) => theme.title.large.lineHeight};
+  line-height: ${(props) => (
+    props.lineHeight || props.theme.title.large.lineHeight
+  )};
   color: ${({ theme }) => theme.color.black};
 `
 
-const Medium = styled.h3`
+const Normal = styled.h3<TitleProps>`
   font-size: ${({ theme }) => theme.title.medium.fontSize};
-  font-weight: ${({ theme }) => theme.font.weight.medium};
-  line-height: ${({ theme }) => theme.title.medium.lineHeight};
+  font-weight: ${props => props.theme.font.weight[
+    props?.weight || "medium"
+  ]};
+  line-height: ${(props) => (
+    props.lineHeight || props.theme.title.medium.lineHeight
+  )};
   color: ${({ theme }) => theme.color.black};
 `
 
-const Small = styled.h4`
+const Small = styled.h4<TitleProps>`
   font-size: ${({ theme }) => theme.title.small.fontSize};
-  font-weight: ${({ theme }) => theme.font.weight.medium};
-  line-height: ${({ theme }) => theme.title.small.lineHeight};
+  font-weight: ${props => props.theme.font.weight[
+    props?.weight || "medium"
+  ]};
+  line-height: ${(props) => (
+    props.lineHeight || props.theme.title.small.lineHeight
+  )};
   color: ${({ theme }) => theme.color.black};
 `
 
-const ExtraSmall = styled.h5`
+const ExtraSmall = styled.h5<TitleProps>`
   font-size: ${({ theme }) => theme.title.extraSmall.fontSize};
-  font-weight: ${({ theme }) => theme.font.weight.medium};
-  line-height: ${({ theme }) => theme.title.extraSmall.lineHeight};
+  font-weight: ${props => props.theme.font.weight[
+    props?.weight || "medium"
+  ]};
+  line-height: ${(props) => (
+    props.lineHeight || props.theme.title.extraSmall.lineHeight
+  )};
   color: ${({ theme }) => theme.color.black};
 `
 
 export default {
   ExtraLarge,
   Large,
-  Medium,
+  Normal,
   Small,
   ExtraSmall
 }

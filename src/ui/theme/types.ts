@@ -78,6 +78,14 @@ interface TitleStyles {
 
 interface GeneralStyles {
   containerSize: string
+  headerLayer: number
+}
+
+export interface ViewportMedias {
+  extraLarge: string
+  large: string
+  medium: string
+  small: string
 }
 
 export interface ThemeType {
@@ -98,4 +106,5 @@ export interface ThemeType {
   title: TitleStyles
   fieldState: FieldStateStyles
   general: GeneralStyles
+  viewPorts: ViewportMedias
 }

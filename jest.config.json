@@ -18,6 +18,7 @@
     "^@components/(.*)$": "<rootDir>/src/ui/components/$1",
     "^@theme/(.*)$": "<rootDir>/src/ui/theme/$1",
     "^@providers": "<rootDir>/src/ui/providers/index",
+    "^@widgets/(.*)": "<rootDir>/src/ui/components/widgets/$1",
     "\\.svg$": "<rootDir>/__mocks__/svg.js"
   },
   "moduleFileExtensions": [
