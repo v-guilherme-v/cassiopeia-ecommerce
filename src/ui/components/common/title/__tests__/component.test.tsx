@@ -1,7 +1,7 @@
 import { screen, render } from "@testing-library/react"
 import Title from "../component"
-import { LightThemeProvider } from "@components/test.utils"
-import lightTheme from "@theme/variations/light"
+import { LightThemeProvider } from "@providers"
+import lightTheme from "@theme/styles/light"
 
 describe("The title", () => {
   it("is raw", () => {
@@ -20,7 +20,7 @@ describe("The title", () => {
         <Title.ExtraLarge>Extra large title</Title.ExtraLarge>
       </LightThemeProvider>
     )
-    const title = screen.getByTestId(/StyledTitle/)
+    const title = screen.getByText("Extra large title")
     expect(title).toBeInTheDocument()
     expect(title).toHaveStyle(`
         font-size: ${lightTheme.title.extraLarge.fontSize};
@@ -33,7 +33,8 @@ describe("The title", () => {
         <Title.Large>Large title</Title.Large>
       </LightThemeProvider>
     )
-    const title = screen.getByTestId(/StyledTitle/)
+
+    const title = screen.getByText("Large title")
     expect(title).toBeInTheDocument()
     expect(title).toHaveStyle(`
         font-size: ${lightTheme.title.large.fontSize};
@@ -46,7 +47,8 @@ describe("The title", () => {
         <Title.Medium>Medium title</Title.Medium>
       </LightThemeProvider>
     )
-    const title = screen.getByTestId(/StyledTitle/)
+
+    const title = screen.getByText("Medium title")
     expect(title).toBeInTheDocument()
     expect(title).toHaveStyle(`
         font-size: ${lightTheme.title.medium.fontSize};
@@ -59,7 +61,8 @@ describe("The title", () => {
         <Title.Small>Small title</Title.Small>
       </LightThemeProvider>
     )
-    const title = screen.getByTestId(/StyledTitle/)
+
+    const title = screen.getByText("Small title")
     expect(title).toBeInTheDocument()
     expect(title).toHaveStyle(`
         font-size: ${lightTheme.title.small.fontSize};
@@ -72,7 +75,8 @@ describe("The title", () => {
         <Title.ExtraSmall>Extra small title</Title.ExtraSmall>
       </LightThemeProvider>
     )
-    const title = screen.getByTestId(/StyledTitle/)
+
+    const title = screen.getByText("Extra small title")
     expect(title).toBeInTheDocument()
     expect(title).toHaveStyle(`
         font-size: ${lightTheme.title.extraSmall.fontSize};

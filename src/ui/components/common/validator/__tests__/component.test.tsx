@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react"
 import Validator from "../component"
-import { LightThemeProvider } from "@components/test.utils"
+import { LightThemeProvider } from "@providers"
 
 describe("The validator", () => {
   it("has a valid state", () => {

@@ -39,6 +39,7 @@ interface WeightStyles {
   regular: string
   medium: string
   semibold: string
+  [index: string]: string
 }
 
 interface FontStyles {
@@ -47,58 +48,32 @@ interface FontStyles {
   weight: WeightStyles
 }
 
+interface TextStyle {
+  fontSize: string
+  lineHeight: string
+}
+
 interface TextStyles {
-  large: {
-    fontSize: string
-    lineHeight: string
-  }
-  default: {
-    fontSize: string
-    lineHeight: string
-  }
-  button: {
-    fontSize: string
-    lineHeight: string
-  }
-  caption: {
-    fontSize: string
-    lineHeight: string
-  }
-  strikeLarge: {
-    fontSize: string
-    lineHeight: string
-  }
-  strike: {
-    fontSize: string
-    lineHeight: string
-  }
-  radio: {
-    fontSize: string
-    lineHeight: string
-  }
+  large: TextStyle
+  default: TextStyle
+  button: TextStyle
+  caption: TextStyle
+  strikeLarge: TextStyle
+  strike: TextStyle
+  radio: TextStyle
+}
+
+interface TitleStyle {
+  fontSize: string
+  lineHeight: string
 }
 
 interface TitleStyles {
-  extraLarge: {
-    fontSize: string
-    lineHeight: string
-  }
-  large: {
-    fontSize: string
-    lineHeight: string
-  }
-  medium: {
-    fontSize: string
-    lineHeight: string
-  }
-  small: {
-    fontSize: string
-    lineHeight: string
-  }
-  extraSmall: {
-    fontSize: string
-    lineHeight: string
-  }
+  extraLarge: TitleStyle
+  large: TitleStyle
+  medium: TitleStyle
+  small: TitleStyle
+  extraSmall: TitleStyle
 }
 
 export interface ThemeType {

@@ -26,13 +26,6 @@ const RootStyles = createGlobalStyle`
     -moz-osx-font-smoothing: grayscale;
     -webkit-text-size-adjust: 100%;
   }
-
-  div#root {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100dvh;
-  }
 `
 
 const StyledRoot = (props: React.PropsWithChildren): JSX.Element => {
