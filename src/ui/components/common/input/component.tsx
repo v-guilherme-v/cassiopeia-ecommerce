@@ -1,5 +1,4 @@
 import StyledInput from "./component.styled"
-import Icon from "../icon/component"
 import type { InputProps } from "./types"
 
 function RawInput (props: InputProps): JSX.Element {
@@ -14,7 +13,7 @@ function RawInput (props: InputProps): JSX.Element {
         onChange={props.onChange}
         placeholder={props.placeholder}
       />
-      <Icon>{ props.icon }</Icon>
+      { props.icon }
     </>
   )
 }

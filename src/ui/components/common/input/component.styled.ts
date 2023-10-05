@@ -29,7 +29,7 @@ const RawInput = styled.div`
     }
   }
 
-  & .Icon {
+  & svg {
     position: absolute;
     top: 50%;
     right: ${ICON_RIGHT_GAP};
