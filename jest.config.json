@@ -19,7 +19,8 @@
     "^@theme/(.*)$": "<rootDir>/src/ui/theme/$1",
     "^@providers": "<rootDir>/src/ui/providers/index",
     "^@widgets/(.*)": "<rootDir>/src/ui/components/widgets/$1",
-    "\\.svg$": "<rootDir>/__mocks__/svg.js"
+    "\\.svg$": "<rootDir>/__mocks__/svg.js",
+    "\\.(jpg|png)": "<rootDir>/__mocks__/img.js"
   },
   "moduleFileExtensions": [
     "ts",
