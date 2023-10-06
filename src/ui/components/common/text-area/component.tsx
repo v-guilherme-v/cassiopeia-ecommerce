@@ -1,8 +1,8 @@
 import { memo } from "react"
+
 import StyledTextArea from "./component.styled"
+import { RectangleIcon } from "@components/icons"
 import { type TextAreaProps } from "./types"
-import Icon from "../icon/component"
-import Rectangle from "@components/icons/rectangle/icon"
 
 function TextArea (props: TextAreaProps): JSX.Element {
   const {
@@ -18,10 +18,8 @@ function TextArea (props: TextAreaProps): JSX.Element {
 
   return (
     <StyledTextArea>
-      <textarea className="TextArea" {...textAreaProps}/>
-      <Icon>
-        <Rectangle />
-      </Icon>
+      <textarea {...textAreaProps}/>
+      <RectangleIcon />
     </StyledTextArea>
   )
 }

@@ -1,5 +1,6 @@
 export { default as Close } from "./close.svg"
 export { default as Check } from "./check.svg"
+export { default as RectangleIcon } from "./rectangle.svg"
 export { default as MarkerIcon } from "./marker.svg"
 export { default as LogoIcon } from "./logo.svg"
 export { default as SearchIcon } from "./search.svg"

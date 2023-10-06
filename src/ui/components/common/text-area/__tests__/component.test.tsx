@@ -1,6 +1,7 @@
 import { render, screen } from "@testing-library/react"
+import { LightThemeProvider } from "@providers"
+
 import TextArea from "../component"
-import { LightThemeProvider } from "@components/test.utils"
 
 describe("The text area", () => {
   it("renders with some text", () => {

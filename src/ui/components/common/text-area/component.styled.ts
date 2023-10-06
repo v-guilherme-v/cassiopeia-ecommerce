@@ -2,10 +2,7 @@ import styled from "styled-components"
 
 const StyledTextArea = styled.div`
   position: relative;
-
-  textarea {
-    resize: both;
-  }
+  max-width: max-content;
 
   textarea::-webkit-resizer {
     display: none;
@@ -17,10 +14,13 @@ const StyledTextArea = styled.div`
 
   textarea::-ms-resizer {
     display: none;
-  }
+  }  
   
-  & .TextArea {
+  textarea {
+    resize: both;
     display: block;
+    position: relative;
+
     font-family: ${({ theme }) => theme.font.family};
     font-size: ${({ theme }) => theme.text.caption.fontSize};
     line-height: ${({ theme }) => theme.text.caption.lineHeight};
@@ -37,21 +37,21 @@ const StyledTextArea = styled.div`
     }
   }
 
-  & .Icon {
-    position: absolute;
-    right: 2px;
-    bottom: 3px;
-    pointer-events: none;
-    color: ${({ theme }) => theme.color.lightGrey};
-    transform: rotate(-45deg);
-  }
-
-  & .TextArea:focus ~ .Icon {
+  textarea:focus ~ svg {
     color: ${({ theme }) => theme.color.primary};
   }
 
+  svg {
+    color: ${({ theme }) => theme.color.lightGrey};
+    pointer-events: none;
+    position: absolute;
+    right: 3px;
+    bottom: 5px;
+    transform: rotate(-45deg);
+  }
+
   @-moz-document url-prefix() {
-    .Icon {
+    & svg {
       display: none;
     }
   }

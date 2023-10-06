@@ -1,5 +1,5 @@
 import { StyledHeroBanner, StyledHeroBannerActions } from "./widget.styled"
-import { Container, Image, Title, Button, Icon } from "@components/common"
+import { Container, Image, Title, Button } from "@components/common"
 import { ThinArrowIcon } from "@components/icons"
 
 import { useTheme } from "styled-components"
@@ -19,13 +19,13 @@ function HeroBanner (props: HeroBannerProps): JSX.Element {
   return (
     <Container>
       <StyledHeroBanner>
-        <Image src={props.image.src} />
+        <Image src={props.image.src} alt="Flower banner"/>
         <StyledHeroBannerActions>
           <Title.Large weight="medium">{props.title}</Title.Large>
           <Title.Small>{props.description}</Title.Small>
           <Button
             background={theme.color.black}
-            icon={{ element: <Icon><ThinArrowIcon /></Icon> }}
+            icon={{ element: <ThinArrowIcon /> }}
           >{props.buttonLabel}</Button>
         </StyledHeroBannerActions>
       </StyledHeroBanner>

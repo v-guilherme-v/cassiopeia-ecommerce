@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Title, Button } from "@components/common"
+import { Title, Button, Image } from "@components/common"
 
 export const StyledHeroBannerActions = styled.div`
   position: absolute;
@@ -21,11 +21,13 @@ export const StyledHeroBanner = styled.div`
   position: relative;
   border-radius: 4px;
   overflow: hidden;
-  min-height: 220px;
+  max-height: 220px;
 
-  img {
+  ${Image.Styled} {
     width: 100%;
-    max-height: 220px;
-    object-fit: cover;
+  }
+
+  ${Image.Styled} img {
+    object-fit: contain;
   }
 `
