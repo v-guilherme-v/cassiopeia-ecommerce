@@ -88,6 +88,10 @@ export interface ViewportMedias {
   small: string
 }
 
+export interface FallbackImage {
+  backgroundColor: string
+}
+
 export interface ThemeType {
   // Root styles
   font: FontStyles
@@ -100,11 +104,13 @@ export interface ThemeType {
   lightShadowHoverRight: string
   lightShadowHoverLeft: string
 
+  general: GeneralStyles
+  viewPorts: ViewportMedias
+
   // Components Styles
   button: ButtonStyles
   text: TextStyles
   title: TitleStyles
   fieldState: FieldStateStyles
-  general: GeneralStyles
-  viewPorts: ViewportMedias
+  fallbackImage: FallbackImage
 }

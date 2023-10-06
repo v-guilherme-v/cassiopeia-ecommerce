@@ -44,6 +44,18 @@ const darkTheme: ThemeType = {
   lightShadowHoverRight: "3px 7px 18px rgba(103, 105, 116, 0.0833424)",
   lightShadowHoverLeft: "-10px 5px 18px rgba(103, 105, 116, 0.0833424)",
 
+  general: {
+    containerSize: "1160px",
+    headerLayer: 10
+  },
+
+  viewPorts: {
+    extraLarge: "1200px",
+    large: "992px",
+    medium: "768px",
+    small: "576px"
+  },
+
   button: {
     borderRadius: "4px",
     transition: "background-color .2s cubic-bezier(.17,.67,.83,.67)"
@@ -103,9 +115,8 @@ const darkTheme: ThemeType = {
     }
   },
 
-  general: {
-    containerSize: "1160px",
-    headerLayer: 10
+  fallbackImage: {
+    backgroundColor: "#F9F9F9"
   }
 }
 
