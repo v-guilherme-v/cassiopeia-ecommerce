@@ -47,6 +47,7 @@ const StrikeLarge = styled(Normal)`
   color: ${(props) => props.theme.color[
     props.color ?? "inherit"
   ]};
+  text-decoration: line-through;
 `
 
 const Strike = styled(Normal)`
@@ -56,6 +57,7 @@ const Strike = styled(Normal)`
   color: ${(props) => props.theme.color[
     props.color ?? "inherit"
   ]};
+  text-decoration: line-through;
 `
 
 const Radio = styled(Normal)`

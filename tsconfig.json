@@ -23,7 +23,8 @@
       "@contexts/*": ["src/ui/contexts/*"],
       "@widgets/": ["src/ui/components/widgets/index"],
       "@widgets/*": ["src/ui/components/widgets/*"],
-      "@providers": ["src/ui/providers/index"]
+      "@providers": ["src/ui/providers/index"],
+      "@schemas/*": ["src/schemas/index", "src/schemas/*"]
     }
   },
   "include": [

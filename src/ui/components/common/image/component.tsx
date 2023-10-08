@@ -4,13 +4,14 @@ import fallbackSrc from "src/assets/no-image.jpg"
 import { getFallbackImageStyles } from "@theme/selectors"
 
 interface ImageProps extends PropsWithChildren {
+  className?: string
   src: string
   alt: string
   width?: string
   height?: string
 }
 
-function Image ({ src, alt, width, height }: ImageProps): JSX.Element {
+function Image ({ className, src, alt, width, height }: ImageProps): JSX.Element {
   const [ failedToLoad, setFailedToLoad ] = useState<boolean>(false)
 
   /**
@@ -26,6 +27,7 @@ function Image ({ src, alt, width, height }: ImageProps): JSX.Element {
   return (
     <StyledImage>
       <img
+        className={className}
         src={imagePath} alt={alt}
         width={width} height={height}
         onError={onImageError}

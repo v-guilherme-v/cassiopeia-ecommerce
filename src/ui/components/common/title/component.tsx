@@ -2,6 +2,7 @@ import { type PropsWithChildren } from "react"
 import StyledTitle from "./component.styled"
 
 export interface TitleProps extends PropsWithChildren {
+  className?: string
   weight?: string
   lineHeight?: string
 }
