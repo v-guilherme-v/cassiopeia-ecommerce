@@ -3,7 +3,7 @@ interface ButtonStyles {
   transition: string
 }
 
-interface ColorStyles {
+export interface ColorStyles {
   // Main colors
   primary: string
   primaryDark: string
@@ -42,10 +42,16 @@ interface WeightStyles {
   [index: string]: string
 }
 
-interface FontStyles {
+export interface FontStyles {
   family: string
   rootSize: string
   weight: WeightStyles
+}
+
+export interface BoxShadowStyles {
+  lightShadow: string
+  lightShadowHoverRight: string
+  lightShadowHoverLeft: string
 }
 
 interface TextStyle {
@@ -88,7 +94,19 @@ export interface ViewportMedias {
   small: string
 }
 
-export interface FallbackImage {
+export interface ProductCardStyles {
+  width: string
+  img: {
+    width: string
+    height: string
+  }
+  controls: {
+    width: string
+    height: string
+  }
+}
+
+export interface FallbackImageStyles {
   backgroundColor: string
 }
 
@@ -100,9 +118,7 @@ export interface ThemeType {
   color: ColorStyles
 
   // Shadows
-  lightShadow: string
-  lightShadowHoverRight: string
-  lightShadowHoverLeft: string
+  boxShadow: BoxShadowStyles
 
   general: GeneralStyles
   viewPorts: ViewportMedias
@@ -112,5 +128,6 @@ export interface ThemeType {
   text: TextStyles
   title: TitleStyles
   fieldState: FieldStateStyles
-  fallbackImage: FallbackImage
+  productCard: ProductCardStyles
+  fallbackImage: FallbackImageStyles
 }

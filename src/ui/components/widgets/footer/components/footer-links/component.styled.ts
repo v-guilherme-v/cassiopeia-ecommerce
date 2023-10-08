@@ -1,6 +1,6 @@
 import styled from "styled-components"
 import { Title } from "@components/common"
-import { getViewPorts } from "@theme/selectors"
+import { getViewPortsStyles } from "@theme/selectors"
 
 export const StyledFooterLinks = styled.div`
   display: flex;
@@ -22,7 +22,7 @@ export const StyledFooterLinksColumn = styled.div`
     text-decoration: none;
     text-align: center;
 
-    @media(min-width: ${props => getViewPorts(props).medium}) {
+    @media(min-width: ${props => getViewPortsStyles(props).medium}) {
       &:hover {
         text-decoration: underline;
         text-underline-offset: 2px;

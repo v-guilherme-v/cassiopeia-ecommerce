@@ -40,9 +40,11 @@ const darkTheme: ThemeType = {
     success: "1px solid #00CB6F"
   },
 
-  lightShadow: "0px 52px rgba(90, 92, 102, 0.06)",
-  lightShadowHoverRight: "3px 7px 18px rgba(103, 105, 116, 0.0833424)",
-  lightShadowHoverLeft: "-10px 5px 18px rgba(103, 105, 116, 0.0833424)",
+  boxShadow: {
+    lightShadow: "0px 52px rgba(90, 92, 102, 0.06)",
+    lightShadowHoverRight: "3px 7px 18px rgba(103, 105, 116, 0.0833424)",
+    lightShadowHoverLeft: "-10px 5px 18px rgba(103, 105, 116, 0.0833424)"
+  },
 
   general: {
     containerSize: "1160px",
@@ -112,6 +114,18 @@ const darkTheme: ThemeType = {
     extraSmall: {
       fontSize: "1rem",
       lineHeight: "22px"
+    }
+  },
+
+  productCard: {
+    width: "260px",
+    img: {
+      width: "260px",
+      height: "260px"
+    },
+    controls: {
+      width: "2.875rem",
+      height: "2.875rem"
     }
   },
 

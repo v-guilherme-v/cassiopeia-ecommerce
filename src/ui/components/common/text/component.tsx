@@ -1,6 +1,7 @@
 import { type PropsWithChildren } from "react"
 import StyledText from "@components/common/text/component.styled"
 export interface TextProps extends PropsWithChildren {
+  className?: string
   color?: string
   weight?: string
   lineHeight?: string
