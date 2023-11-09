@@ -1,14 +1,15 @@
 import { type PropsWithChildren } from "react"
 import styled from "styled-components"
 
-function Container (props: PropsWithChildren): JSX.Element {
+function Container ({ children }: PropsWithChildren): JSX.Element {
   return (
-    <StyledContainer>{props.children}</StyledContainer>
+    <StyledContainer>{children}</StyledContainer>
   )
 }
 
 const StyledContainer = styled.div`
-  max-width: ${({ theme }) => theme.general.containerSize};
+  --container-size: ${({ theme }) => theme.general.containerSize};
+  max-width: calc(var(--container-size) + 2rem);
   width: 100%;
   margin: 0 auto;
   padding: 0 1rem;

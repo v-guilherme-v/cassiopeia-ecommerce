@@ -20,11 +20,12 @@
       "@theme/*": ["src/ui/theme/*"],
       "@components/*": ["src/ui/components/*"],
       "@pages/*": ["src/ui/pages/*"],
+      "@contexts": ["src/ui/contexts/index"],
       "@contexts/*": ["src/ui/contexts/*"],
       "@widgets/": ["src/ui/components/widgets/index"],
       "@widgets/*": ["src/ui/components/widgets/*"],
       "@providers": ["src/ui/providers/index"],
-      "@schemas/*": ["src/schemas/index", "src/schemas/*"]
+      "@schemas/*": ["src/schemas/*"]
     }
   },
   "include": [

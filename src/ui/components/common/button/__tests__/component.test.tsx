@@ -9,7 +9,7 @@ describe("The styled button", () => {
   it("renders its default values", () => {
     render(
       <LightThemeProvider>
-        <StyledButton>Styled button</StyledButton>
+        <StyledButton.Normal>Styled button</StyledButton.Normal>
       </LightThemeProvider>
     )
 

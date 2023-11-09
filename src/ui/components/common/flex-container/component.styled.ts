@@ -20,9 +20,7 @@ function mountMediaQueries(props: { theme: ThemeType } & FlexContainerProps): st
     const { gap, flexDirection, alignItems, justifyContent } = mediaQueryPropertyMapper(props, viewPortKey)
 
     return `
-      @media(max-width: ${viewPorts[
-        viewPortKey as keyof ViewportMedias
-      ]}) {
+      @media(max-width: ${viewPorts[viewPortKey as keyof ViewportMedias]}) {
         flex-direction: ${flexDirection};
         align-items: ${alignItems};
         justify-content: ${justifyContent};

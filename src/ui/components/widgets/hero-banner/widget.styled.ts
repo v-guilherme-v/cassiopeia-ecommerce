@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Title, Button, Image } from "@components/common"
+import { getViewPortsStyles } from "@theme/selectors";
 
 export const StyledHeroBannerActions = styled.div`
   position: absolute;
@@ -11,8 +12,12 @@ export const StyledHeroBannerActions = styled.div`
     margin-top: .625rem;
   }
   
-  ${Button.Styled} {
+  ${Button.Styled.Normal} {
     margin-top: 1.5rem;
+  }
+
+  @media(max-width: ${props => getViewPortsStyles(props).small}) {
+    padding-left: 2rem;
   }
 `
 

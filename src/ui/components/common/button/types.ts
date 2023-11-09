@@ -25,6 +25,7 @@ export interface ButtonProps {
     element: ReactNode
     position?: ButtonIconPositions
   }
+  disabled?: boolean
   rounded?: boolean
   onClick?: MouseEventHandler<HTMLElement>
 }

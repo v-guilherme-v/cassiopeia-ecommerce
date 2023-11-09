@@ -1,3 +1,4 @@
+import { getViewPortsStyles } from "@theme/selectors";
 import styled from "styled-components";
 
 export default styled.nav`
@@ -19,5 +20,9 @@ export default styled.nav`
       color: inherit;
       text-decoration: none;
     }
+  }
+
+  @media(max-width: ${props => getViewPortsStyles(props).small}) {
+    display: none;
   }
 `

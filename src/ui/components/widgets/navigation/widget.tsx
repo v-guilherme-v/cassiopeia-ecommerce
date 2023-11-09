@@ -1,6 +1,6 @@
 import { useId } from "react"
 import StyledNavigation from "./widget.styled"
-import Text from "../../common/text/component"
+import { Text } from "@components/common"
 
 export interface NavigationLink {
   label: string

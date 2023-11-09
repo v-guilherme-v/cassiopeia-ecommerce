@@ -1,9 +1,10 @@
 import styled from "styled-components"
 import { Header, Navigation, TopBar, HeroBanner, Footer } from "@components/widgets"
-import { ProductCard } from "@components/commerce"
+import { ProductCarousel } from "@components/commerce"
 
-import flowers from "src/assets/flowers-faded.png"
-import flower1 from "src/assets/flower-1.jpg"
+import flowersBanner from "src/assets/flowers-banner.png"
+import randomFlower from "src/assets/flower-1.jpg"
+import { getViewPortsStyles } from "@theme/selectors"
 
 const navigationLinksMock = Array(5).fill(1)
   .map((_, index) => ({ label: `Item ${index}`, route: `item-${index}` }))
@@ -20,13 +21,20 @@ export default function Home (): JSX.Element {
         title="Flowers"
         description="Our flowers..."
         buttonLabel="Take a look"
-        image={{ src: flowers, alt: "Flowers banner" }}/>
+        image={{ src: flowersBanner, alt: "Flowers banner" }} />
 
-      <ProductCard product={{
-        displayName: "Flower 1",
-        imageSource: flower1,
-        pageRoute: ""
-      }}/>
+      <ProductCarousel carouselTitle="Recommended for you"
+        products={
+          Array(16).fill(1).map((_, index) => ({
+            id: index.toString(),
+            displayName: `Flower ${index + 1}`,
+            imageSource: randomFlower,
+            pricing: {
+              listPrice: 90.99,
+              salePrice: 80.99
+            }
+          }))
+        }/>
 
       <Footer />
     </StyledHome>
@@ -40,5 +48,11 @@ const StyledHome = styled.section`
 
   ${Footer.Styled} {
     margin-top: 100px;
+  }
+
+  @media(max-width: ${props => getViewPortsStyles(props).small}) {
+    ${HeroBanner.Styled} {
+      margin-top: 1.75rem;
+    } 
   }
 `
