@@ -1,10 +1,63 @@
 import { type FooterLinksSection } from "@widgets/footer/types"
 
-export const linksMock: FooterLinksSection[] = Array(3).fill(1)
-  .map((_, index, arr) => ({
-    sectionName: `Title ${index + 1}`,
-    linksList: arr.map((_, aIndex) => ({
-      label: `Item ${aIndex + 1}`,
-      route: `title-${index + 1}-item-${aIndex + 1}`
-    }))
-  }))
+export const linksMock: FooterLinksSection[] = [
+  {
+    sectionName: "Help",
+    linksList: [
+      {
+        label: "Contact us",
+        route: "#"
+      },
+      {
+        label: "Delivery information",
+        route: "#"
+      },
+      {
+        label: "Payment information",
+        route: "#"
+      },
+      {
+        label: "Customer service",
+        route: "#"
+      },
+      {
+        label: "FAQ",
+        route: "#"
+      }
+    ]
+  },
+  {
+    sectionName: "About us",
+    linksList: [
+      {
+        label: "Our stores",
+        route: "#"
+      },
+      {
+        label: "Flower care",
+        route: "#"
+      },
+      {
+        label: "Site map",
+        route: "#"
+      }
+    ]
+  },
+  {
+    sectionName: "Legal",
+    linksList: [
+      {
+        label: "Privacy policy",
+        route: "#"
+      },
+      {
+        label: "Terms & Conditions",
+        route: "#"
+      },
+      {
+        label: "Cookie policy",
+        route: "#"
+      }
+    ]
+  }
+]

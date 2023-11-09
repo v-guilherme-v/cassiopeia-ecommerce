@@ -8,7 +8,7 @@ const styles = {
   flexContainer: {
     justifyContent: "space-between",
     gap: "130px",
-    small: {
+    medium: {
       direction: "column",
       gap: "1.5rem"
     }

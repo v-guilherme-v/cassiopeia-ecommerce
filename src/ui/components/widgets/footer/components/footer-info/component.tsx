@@ -5,7 +5,7 @@ import { InstagramIcon, WhatsappIcon, FacebookIcon } from "@components/icons"
 
 import StyleFooterInfo from "./component.styled"
 
-function FooterInfo ({ title = "Footer", contactNumber = "+NNNNNNN" }: FooterInfoProps): JSX.Element {
+function FooterInfo ({ title = "Follow us", contactNumber = "+NNNNNNN" }: FooterInfoProps): JSX.Element {
   return (
     <StyleFooterInfo>
       <Text.Large lineHeight="24px">

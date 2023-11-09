@@ -6,15 +6,12 @@ import flowersBanner from "src/assets/flowers-banner.png"
 import randomFlower from "src/assets/flower-1.jpg"
 import { getViewPortsStyles } from "@theme/selectors"
 
-const navigationLinksMock = Array(5).fill(1)
-  .map((_, index) => ({ label: `Item ${index}`, route: `item-${index}` }))
-
 export default function Home (): JSX.Element {
   return (
     <StyledHome className="Home">
       <Header>
         <TopBar />
-        <Navigation navigationLinks={navigationLinksMock} />
+        <Navigation />
       </Header>
 
       <HeroBanner

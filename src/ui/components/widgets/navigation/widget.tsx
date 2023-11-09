@@ -8,10 +8,18 @@ export interface NavigationLink {
 }
 
 export interface NavigationProps {
-  navigationLinks: NavigationLink[]
+  navigationLinks?: NavigationLink[]
 }
 
-function Navigation ({ navigationLinks }: NavigationProps): JSX.Element {
+const navigationLinksMock: NavigationLink[] = [
+  { label: "Flowers", route: "#" },
+  { label: "Plants", route: "#" },
+  { label: "Gifts", route: "#" },
+  { label: "Discounts", route: "#" },
+  { label: "About us", route: "#" }
+]
+
+function Navigation ({ navigationLinks = navigationLinksMock }: NavigationProps): JSX.Element {
   const uniqueId = useId()
 
   return (
