@@ -16,7 +16,9 @@ const Large = styled.h2<TitleProps>`
   line-height: ${(props) => (
     props.lineHeight || props.theme.title.large.lineHeight
   )};
-  color: ${({ theme }) => theme.color.black};
+  color: ${(props) => props.theme.color[
+    props?.fontColor || "black"
+  ]};
 `
 
 const Normal = styled.h3<TitleProps>`
@@ -38,7 +40,9 @@ const Small = styled.h4<TitleProps>`
   line-height: ${(props) => (
     props.lineHeight || props.theme.title.small.lineHeight
   )};
-  color: ${({ theme }) => theme.color.black};
+  color: ${(props) => props.theme.color[
+    props?.fontColor || "black"
+  ]};
 `
 
 const ExtraSmall = styled.h5<TitleProps>`

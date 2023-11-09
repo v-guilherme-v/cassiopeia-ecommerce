@@ -5,6 +5,7 @@ export interface TitleProps extends PropsWithChildren {
   className?: string
   weight?: string
   lineHeight?: string
+  fontColor?: string
 }
 
 function ExtraLargeTitle (props: TitleProps): JSX.Element {

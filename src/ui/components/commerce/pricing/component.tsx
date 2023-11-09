@@ -46,12 +46,10 @@ function Pricing (props: PriceProps): JSX.Element {
 
 const StyledPricing = styled.div<PriceProps>`
   padding-left: ${props => isAlignedLeft(props?.alignment) ? ".5rem" : "0"};
-  
-  .Pricing {
-    margin-top: .5rem;
-  }
+  margin-top: .5rem;
 
   .ListingPrice {
+    display: block;
     text-align: center;
   }
   
