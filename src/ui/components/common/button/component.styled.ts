@@ -32,4 +32,14 @@ const StyledButton = styled.button<ButtonProps>`
   };
 `
 
-export default StyledButton
+const StyledButtonAsIcon = styled.button`
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+`
+
+export default {
+  Normal: StyledButton,
+  AsIcon: StyledButtonAsIcon
+}

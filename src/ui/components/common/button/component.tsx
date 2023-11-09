@@ -12,7 +12,7 @@ function Button (props: PropsWithChildren<ButtonProps>): JSX.Element {
   } = props
 
   return (
-    <StyledButton {...props}>
+    <StyledButton.Normal {...props}>
       {
         size !== ButtonSizes.ICON && (
           <Text.Button>
@@ -21,10 +21,19 @@ function Button (props: PropsWithChildren<ButtonProps>): JSX.Element {
         )
       }
       { icon?.element }
-    </StyledButton>
+    </StyledButton.Normal>
+  )
+}
+
+function ButtonAsIcon (props: PropsWithChildren<ButtonProps>): JSX.Element {
+  return (
+    <StyledButton.AsIcon {...props}>
+      { props.children }
+    </StyledButton.AsIcon>
   )
 }
 
 Button.Styled = StyledButton
+Button.AsIcon = ButtonAsIcon
 
 export default Button

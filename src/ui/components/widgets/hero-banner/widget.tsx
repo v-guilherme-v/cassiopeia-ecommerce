@@ -21,8 +21,8 @@ function HeroBanner (props: HeroBannerProps): JSX.Element {
       <StyledHeroBanner>
         <Image src={props.image.src} alt="Flower banner"/>
         <StyledHeroBannerActions>
-          <Title.Large weight="medium">{props.title}</Title.Large>
-          <Title.Small>{props.description}</Title.Small>
+          <Title.Large fontColor="snow" weight="medium">{props.title}</Title.Large>
+          <Title.Small fontColor="snow">{props.description}</Title.Small>
           <Button
             background={theme.color.black}
             icon={{ element: <ThinArrowIcon /> }}
