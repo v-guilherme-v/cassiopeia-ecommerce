@@ -1,18 +1,16 @@
 {
   "preset": "ts-jest",
   "testEnvironment": "jsdom",
+  "coverageDirectory": "<rootDir>/docs/coverage",
   "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
-  "testPathIgnorePatterns": [
-    "/node_modules/",
-    "<rootDir>/jest.setup.js"
-  ],
-  "setupFilesAfterEnv": ["<rootDir>/jest.setup.js"],
   "transform": {
     "^.+\\.(js|jsx)?$": "babel-jest",
-    "^.+\\.{tsx}?$": ["ts-jest", {
-      "isolatedModules": true
-    }]
+    "^.+\\.{tsx}?$": [
+      "ts-jest",
+      { "isolatedModules": true }
+    ]
   },
+  "setupFilesAfterEnv": ["<rootDir>/jest.setup.js"],
   "moduleNameMapper": {
     "^@/(.*)$": "<rootDir>/src/$1",
     "^@components/(.*)$": "<rootDir>/src/ui/components/$1",
@@ -20,9 +18,15 @@
     "^@providers": "<rootDir>/src/ui/providers/index",
     "^@widgets/(.*)": "<rootDir>/src/ui/components/widgets/$1",
     "^@schemas/(.*)": "<rootDir>/src/schemas/$1",
-    "\\.svg$": "<rootDir>/__mocks__/svg.js",
-    "\\.(jpg|png)": "<rootDir>/__mocks__/img.js"
+    "^@contexts$": "<rootDir>/src/ui/contexts/index",
+    "^swiper": "<rootDir>/src/__mocks__/swiper.js",
+    "\\.svg$": "<rootDir>/src/__mocks__/svg.js",
+    "\\.(jpg|png)": "<rootDir>/src/__mocks__/img.js"
   },
+  "testPathIgnorePatterns": [
+    "/node_modules/",
+    "<rootDir>/jest.setup.js"
+  ],
   "moduleFileExtensions": [
     "ts",
     "tsx",
@@ -30,7 +34,6 @@
     "jsx",
     "json"
   ],
-  "coverageDirectory": "<rootDir>/docs/coverage",
   "collectCoverageFrom": [
     "src/**/*.{js,jsx,ts,tsx}",
     "!src/**/*.d.ts",
@@ -39,6 +42,7 @@
   "coveragePathIgnorePatterns": [
     "/node_modules/",
     "/src/ui/pages",
+    "/src/ui/providers",
     "/src/ui/theme",
     "/docs",
     "main.tsx",
