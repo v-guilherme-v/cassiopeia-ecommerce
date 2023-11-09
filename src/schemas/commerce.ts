@@ -3,7 +3,7 @@ export interface Product {
   displayName: string
   imageSource: string
   pageRoute: string
-  pricing: Price
+  pricing: Partial<Price>
 }
 
 export interface Price {
