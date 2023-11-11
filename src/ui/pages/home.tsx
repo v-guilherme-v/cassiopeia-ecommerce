@@ -3,7 +3,7 @@ import { Header, Navigation, TopBar, HeroBanner, Footer } from "@components/widg
 import { ProductCarousel } from "@components/commerce"
 
 import flowersBanner from "src/assets/flowers-banner.png"
-import randomFlower from "src/assets/flower-1.jpg"
+import randomFlower from "src/assets/flower-1.png"
 import { getViewPortsStyles } from "@theme/selectors"
 
 export default function Home (): JSX.Element {
@@ -18,7 +18,8 @@ export default function Home (): JSX.Element {
         title="Flowers"
         description="Our flowers..."
         buttonLabel="Take a look"
-        image={{ src: flowersBanner, alt: "Flowers banner" }} />
+        image={{ src: flowersBanner, alt: "Flowers banner" }}
+      />
 
       <ProductCarousel carouselTitle="Recommended for you"
         products={
