@@ -19,6 +19,7 @@
     "paths": {
       "@theme/*": ["src/ui/theme/*"],
       "@components/*": ["src/ui/components/*"],
+      "@pages": ["src/ui/pages/index"],
       "@pages/*": ["src/ui/pages/*"],
       "@contexts": ["src/ui/contexts/index"],
       "@contexts/*": ["src/ui/contexts/*"],
