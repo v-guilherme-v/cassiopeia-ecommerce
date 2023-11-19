@@ -1,59 +1,49 @@
 import styled from "styled-components"
 import { TitleProps } from "./component"
 
+import {
+  getColorStyles,
+  getFontStyles,
+  getTitleStyles
+} from "@theme/selectors"
+
+import { TitleStyle } from "@theme/types"
+
 const ExtraLarge = styled.h1<TitleProps>`
-  font-size: ${({ theme }) => theme.title.extraLarge.fontSize};
-  font-weight: ${(props) => ( props.weight || props.theme.font.weight.medium )};
-  line-height: ${(props) => ( props.lineHeight || props.theme.title.extraLarge.lineHeight )};
-  color: ${({ theme }) => theme.color.black};
+  font-size: ${props => getTitleStyles(props).extraLarge.fontSize};
+  font-weight: ${props => ( props.weight || getFontStyles(props).weight.medium )};
+  line-height: ${props => ( props.lineHeight || getTitleStyles(props).extraLarge.lineHeight)};
+  color: ${props => getColorStyles(props).black};
 `
 
 const Large = styled.h2<TitleProps>`
-  font-size: ${({ theme }) => theme.title.large.fontSize};
-  font-weight: ${props => props.theme.font.weight[
-    props?.weight || "semibold"
+  font-size: ${props => getTitleStyles(props).large.fontSize};
+  font-weight: ${props => getFontStyles(props).weight[props?.weight || "semibold"]};
+  line-height: ${props => getTitleStyles(props).large[
+    (props?.lineHeight || "lineHeight") as keyof TitleStyle
   ]};
-  line-height: ${(props) => (
-    props.lineHeight || props.theme.title.large.lineHeight
-  )};
-  color: ${(props) => props.theme.color[
-    props?.fontColor || "black"
-  ]};
+  color: ${props => props?.fontColor || getColorStyles(props).black};
 `
 
 const Normal = styled.h3<TitleProps>`
-  font-size: ${({ theme }) => theme.title.medium.fontSize};
-  font-weight: ${props => props.theme.font.weight[
-    props?.weight || "medium"
-  ]};
-  line-height: ${(props) => (
-    props.lineHeight || props.theme.title.medium.lineHeight
-  )};
-  color: ${({ theme }) => theme.color.black};
+  font-size: ${props => getTitleStyles(props).medium.fontSize};
+  font-weight: ${props => getFontStyles(props).weight[props?.weight || "medium"]};
+  line-height: ${props => props?.lineHeight || getTitleStyles(props).medium.lineHeight};
+  color: ${props => getColorStyles(props).black};
 `
 
 const Small = styled.h4<TitleProps>`
-  font-size: ${({ theme }) => theme.title.small.fontSize};
-  font-weight: ${props => props.theme.font.weight[
-    props?.weight || "medium"
-  ]};
-  line-height: ${(props) => (
-    props.lineHeight || props.theme.title.small.lineHeight
-  )};
-  color: ${(props) => props.theme.color[
-    props?.fontColor || "black"
-  ]};
+  font-size: ${props => getTitleStyles(props).small.fontSize};
+  font-weight: ${props => getFontStyles(props).weight[props?.weight || "medium"]};
+  line-height: ${(props) => props.lineHeight || getTitleStyles(props).small.lineHeight};
+  color: ${(props) => props?.fontColor || getColorStyles(props).black};
 `
 
 const ExtraSmall = styled.h5<TitleProps>`
-  font-size: ${({ theme }) => theme.title.extraSmall.fontSize};
-  font-weight: ${props => props.theme.font.weight[
-    props?.weight || "medium"
-  ]};
-  line-height: ${(props) => (
-    props.lineHeight || props.theme.title.extraSmall.lineHeight
-  )};
-  color: ${({ theme }) => theme.color.black};
+  font-size: ${props => getTitleStyles(props).extraSmall.fontSize};
+  font-weight: ${props => getFontStyles(props).weight[props?.weight || "medium"]};
+  line-height: ${(props) => props.lineHeight || getTitleStyles(props).extraSmall.lineHeight};
+  color: ${props => getColorStyles(props).black};
 `
 
 export default {
