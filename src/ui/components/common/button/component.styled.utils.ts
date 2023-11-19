@@ -1,8 +1,13 @@
 import { type ThemeType } from "@theme/types"
 import { ButtonSizes, ButtonModels, type ButtonProps } from "./types"
+import { getColorStyles } from "@theme/selectors"
 
+// Auxialiary type to represent the theme in button type
 interface ThemeTypeAsProperty { theme: ThemeType }
-interface StyledButtonProps extends ButtonProps, ThemeTypeAsProperty {}
+
+// A styled button has its own props and the theme in it
+interface StyledButtonProps
+  extends ButtonProps, ThemeTypeAsProperty {}
 
 /**
  * Defines a size based on `ButtonSizes` component prop
@@ -30,12 +35,22 @@ export function getButtonSize (size: ButtonSizes | undefined): string {
  */
 export function getBgColor (props: StyledButtonProps): string {
   const { model = ButtonModels.PRIMARY } = props
-  const customBgColor = props?.background
-  const isPrimary = model === ButtonModels.PRIMARY
+  const themeColors = getColorStyles(props)
 
-  if (customBgColor != null) return customBgColor
-  else if (isPrimary) return props.theme.color.primary
-  else return props.theme.color.white
+  // custom background
+  if (props?.backgroundColor != null) {
+    return props.backgroundColor
+  }
+
+  // default colors
+  switch (model) {
+    case ButtonModels.PRIMARY:
+      return themeColors.primary
+    case ButtonModels.OUTLINED:
+      return themeColors.white
+    case ButtonModels.LINK:
+      return "transparent"
+  }
 }
 
 /**

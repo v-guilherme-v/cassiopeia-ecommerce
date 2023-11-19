@@ -23,8 +23,13 @@ export interface ColorStyles {
   grey: string
   darkGrey: string
   black: string
-  [index: string]: string
+
+  // Social medias
+  whatsapp: string
+  facebook: string
 }
+
+export type ColorStylesValue = ColorStyles[keyof ColorStyles]
 
 interface FieldStateStyles {
   default: string
@@ -59,7 +64,7 @@ interface TextStyle {
   lineHeight: string
 }
 
-interface TextStyles {
+export interface TextStyles {
   large: TextStyle
   default: TextStyle
   button: TextStyle
@@ -69,12 +74,12 @@ interface TextStyles {
   radio: TextStyle
 }
 
-interface TitleStyle {
+export interface TitleStyle {
   fontSize: string
   lineHeight: string
 }
 
-interface TitleStyles {
+export interface TitleStyles {
   extraLarge: TitleStyle
   large: TitleStyle
   medium: TitleStyle

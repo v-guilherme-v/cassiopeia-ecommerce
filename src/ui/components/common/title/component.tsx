@@ -1,11 +1,12 @@
 import { type PropsWithChildren } from "react"
+import { type ColorStyles } from "@theme/types"
 import StyledTitle from "./component.styled"
 
 export interface TitleProps extends PropsWithChildren {
   className?: string
   weight?: string
   lineHeight?: string
-  fontColor?: string
+  fontColor?: keyof ColorStyles
 }
 
 function ExtraLargeTitle (props: TitleProps): JSX.Element {

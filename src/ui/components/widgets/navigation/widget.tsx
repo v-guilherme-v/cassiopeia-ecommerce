@@ -12,11 +12,11 @@ export interface NavigationProps {
 }
 
 const navigationLinksMock: NavigationLink[] = [
-  { label: "Flowers", route: "#" },
-  { label: "Plants", route: "#" },
-  { label: "Gifts", route: "#" },
-  { label: "Discounts", route: "#" },
-  { label: "About us", route: "#" }
+  { label: "Flowers", route: "flowers" },
+  { label: "Plants", route: "plants" },
+  { label: "Gifts", route: "gifts" },
+  { label: "Discounts", route: "discounts" },
+  { label: "About us", route: "about-us" }
 ]
 
 function Navigation ({ navigationLinks = navigationLinksMock }: NavigationProps): JSX.Element {
