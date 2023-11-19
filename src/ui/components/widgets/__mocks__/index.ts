@@ -6,23 +6,23 @@ export const linksMock: FooterLinksSection[] = [
     linksList: [
       {
         label: "Contact us",
-        route: "#"
+        route: "contact-us"
       },
       {
         label: "Delivery information",
-        route: "#"
+        route: "delivery-information"
       },
       {
         label: "Payment information",
-        route: "#"
+        route: "payment-information"
       },
       {
         label: "Customer service",
-        route: "#"
+        route: "customer-service"
       },
       {
         label: "FAQ",
-        route: "#"
+        route: "faq"
       }
     ]
   },
@@ -31,15 +31,15 @@ export const linksMock: FooterLinksSection[] = [
     linksList: [
       {
         label: "Our stores",
-        route: "#"
+        route: "our-stores"
       },
       {
         label: "Flower care",
-        route: "#"
+        route: "flower-care"
       },
       {
         label: "Site map",
-        route: "#"
+        route: "site-map"
       }
     ]
   },
@@ -48,15 +48,15 @@ export const linksMock: FooterLinksSection[] = [
     linksList: [
       {
         label: "Privacy policy",
-        route: "#"
+        route: "privacy-policy"
       },
       {
         label: "Terms & Conditions",
-        route: "#"
+        route: "policy-terms"
       },
       {
         label: "Cookie policy",
-        route: "#"
+        route: "cookie-policy"
       }
     ]
   }
