@@ -1,32 +1,31 @@
 import { StyledHeroBanner, StyledHeroBannerActions } from "./widget.styled"
 import { Container, Image, Title, Button } from "@components/common"
 import { ThinArrowIcon } from "@components/icons"
-
-import { useTheme } from "styled-components"
-
-interface HeroBannerProps {
-  title: string
-  description: string
-  buttonLabel: string
-  image: {
-    src: string
-    alt: string
-  }
-}
+import { useHeroBannerConfig } from "./hooks"
+import type { HeroBannerProps } from "./types"
 
 function HeroBanner (props: HeroBannerProps): JSX.Element {
-  const theme = useTheme()
+  // Props may contain custom colors, buttons...
+  const config = useHeroBannerConfig(props)
+
   return (
     <Container>
       <StyledHeroBanner>
-        <Image src={props.image.src} alt="Flower banner"/>
+        <Image src={config.image.src} alt={config.image.alt}/>
         <StyledHeroBannerActions>
-          <Title.Large fontColor="snow" weight="medium">{props.title}</Title.Large>
-          <Title.Small fontColor="snow">{props.description}</Title.Small>
+          <Title.Large fontColor={config.title.color} weight="medium">
+            { config.title.text }
+          </Title.Large>
+          <Title.Small fontColor={config.description.color}>
+            { config.description.text }
+          </Title.Small>
           <Button
-            background={theme.color.black}
+            model={config.button.model}
+            backgroundColor={config.button.backgroundColor}
             icon={{ element: <ThinArrowIcon /> }}
-          >{props.buttonLabel}</Button>
+          >
+            { config.button.text }
+          </Button>
         </StyledHeroBannerActions>
       </StyledHeroBanner>
     </Container>
