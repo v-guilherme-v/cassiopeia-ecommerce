@@ -33,6 +33,9 @@ export const StyledHeroBanner = styled.div`
   }
 
   ${Image.Styled} img {
-    object-fit: contain;
+    max-width: 100%;
+    object-fit: cover;
+    aspect-ratio: 16 / 9;
+    max-height: 100%;
   }
 `

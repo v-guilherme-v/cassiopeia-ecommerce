@@ -125,7 +125,7 @@ describe("The button", () => {
   it("has a custom background color", () => {
     render(
       <LightThemeProvider>
-        <Button background="#000">My button</Button>
+        <Button backgroundColor="#000">My button</Button>
       </LightThemeProvider>
     )
 
