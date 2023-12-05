@@ -49,7 +49,8 @@ const lightTheme: ThemeType = {
 
   general: {
     containerSize: "1160px",
-    headerLayer: 10
+    headerLayer: 10,
+    miniCartLayer: 11
   },
 
   viewPorts: {

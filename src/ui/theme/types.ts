@@ -3,6 +3,7 @@ interface ButtonStyles {
   transition: string
 }
 
+export type ColorStylesKey = keyof ColorStyles
 export interface ColorStyles {
   // Main colors
   primary: string
@@ -87,9 +88,10 @@ export interface TitleStyles {
   extraSmall: TitleStyle
 }
 
-interface GeneralStyles {
+export interface GeneralStyles {
   containerSize: string
   headerLayer: number
+  miniCartLayer: number
 }
 
 export interface ViewportMedias {
