@@ -3,7 +3,7 @@ import StyledTopBarLogo from "./component.styled"
 
 function Logo (): JSX.Element {
   return (
-    <StyledTopBarLogo>
+    <StyledTopBarLogo href="/">
       <LogoIcon />
     </StyledTopBarLogo>
   )

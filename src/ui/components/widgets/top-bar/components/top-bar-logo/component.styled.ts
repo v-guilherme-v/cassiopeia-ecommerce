@@ -1,10 +1,14 @@
 import styled from "styled-components"
 
-export default styled.div`
+export default styled.a`
   line-height: 10px;
 
   :hover {
     cursor: pointer;
     opacity: .6;
+  }
+
+  :visited {
+    color: inherit;
   }
 `
