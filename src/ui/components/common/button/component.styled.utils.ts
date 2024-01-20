@@ -77,7 +77,9 @@ export function getBorderColor (props: StyledButtonProps): string {
   const isIcon = size === ButtonSizes.ICON
   const isOutlined = model === ButtonModels.OUTLINED
 
-  if (isOutlined && isIcon) return `1px solid ${props.theme.color.lightGrey}`
+  if (props?.customStyles?.borderColor !== null &&
+    props?.customStyles?.borderColor !== undefined) return `1px solid ${props.customStyles.borderColor}`
+  else if (isOutlined && isIcon) return `1px solid ${props.theme.color.lightGrey}`
   else if (isOutlined) return `1px solid ${props.theme.color.primary}`
 
   return "none"

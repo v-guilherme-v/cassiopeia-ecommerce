@@ -21,6 +21,7 @@ export interface ButtonProps {
   model?: ButtonModels
   size?: ButtonSizes
   backgroundColor?: string
+  title?: string
   icon?: {
     element: ReactNode
     position?: ButtonIconPositions
@@ -28,4 +29,8 @@ export interface ButtonProps {
   disabled?: boolean
   rounded?: boolean
   onClick?: MouseEventHandler<HTMLElement>
+  customStyles?: {
+    borderColor?: string
+    borderRadius?: string
+  }
 }
