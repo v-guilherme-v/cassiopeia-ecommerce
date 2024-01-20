@@ -7,4 +7,10 @@ export interface InputProps {
   value: string
   onChange: ChangeEventHandler<HTMLInputElement>
   placeholder?: string
+  customStyles?: {
+    textColor?: string
+    borderColor?: string
+    backgroundColor?: string
+    placeholderColor?: string
+  }
 }
