@@ -43,6 +43,7 @@ const StyledImage = styled.div`
     height: 100%;
     object-position: center;
     background-color: ${props => getFallbackImageStyles(props).backgroundColor};
+    user-select: none;
   }
 `
 
