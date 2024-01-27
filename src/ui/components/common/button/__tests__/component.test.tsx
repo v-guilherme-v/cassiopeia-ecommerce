@@ -132,4 +132,16 @@ describe("The button", () => {
     const button = screen.getByRole("button")
     expect(button).toHaveStyle("background-color: #000;")
   })
+
+  it("is rendered as a link type", () => {
+    render(
+      <LightThemeProvider>
+        <Button model={ButtonModels.LINK}>Button as link</Button>
+      </LightThemeProvider>
+    )
+
+    const button = screen.getByRole("button")
+    expect(button).toBeInTheDocument()
+    expect(button).toHaveStyle("background-color: transparent;")
+  })
 })
