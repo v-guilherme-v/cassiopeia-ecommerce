@@ -1,7 +1,7 @@
 import styled from "styled-components"
 
 import ProductCarouselNavigationControls from "./components/product-carousel-navigation-controls/component"
-import { Container, Title, FlexContainer } from "@components/common"
+import { Block, Container, Title } from "@components/common"
 import ProductCard from "../product-card/component"
 
 import { type Product } from "@schemas/commerce"
@@ -26,10 +26,10 @@ function ProductCarousel ({ carouselTitle = "No title", products = [] }: Product
       <StyledProductCarousel>
         <SwiperContextProvider>
           <StyledProductCarouselHeading>
-            <FlexContainer alignItems="center" justifyContent="space-between">
+            <Block data-name="HeadingContainer">
               <Title>{carouselTitle}</Title>
               <ProductCarouselNavigationControls />
-            </FlexContainer>
+            </Block>
           </StyledProductCarouselHeading>
           <SwiperContext.Consumer>
             {swiperContext => (
@@ -57,6 +57,12 @@ function ProductCarousel ({ carouselTitle = "No title", products = [] }: Product
 
 const StyledProductCarouselHeading = styled.div`
   margin-bottom: 44px;
+
+  [data-name="HeadingContainer"] {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
 
   @media(max-width: 600px) {
     ${Title.Styled.Small} {

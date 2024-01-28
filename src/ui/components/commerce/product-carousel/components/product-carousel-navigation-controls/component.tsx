@@ -2,7 +2,7 @@ import { useContext } from "react"
 import styled from "styled-components"
 
 import { ThinArrowIcon } from "@components/icons"
-import { Button, FlexContainer } from "@components/common"
+import { Button, Block } from "@components/common"
 import { getColorStyles } from "@theme/selectors"
 
 import { SwiperContext, type SwiperContextType } from "@contexts"
@@ -12,7 +12,7 @@ function ProductCarouselNavigationControls (): JSX.Element {
 
   return (
     <StyledProductCarouselNavigationControls>
-      <FlexContainer gap="1.25rem">
+      <Block>
         <Button.AsIcon disabled={swiperContext?.swiperControls?.isBeginning}
           onClick={() => { swiperContext?.onNavigationClick("prev") }}
         >
@@ -23,13 +23,18 @@ function ProductCarouselNavigationControls (): JSX.Element {
         >
           <ThinArrowIcon />
         </Button.AsIcon>
-      </FlexContainer>
+      </Block>
     </StyledProductCarouselNavigationControls>
   )
 }
 
 const StyledProductCarouselNavigationControls = styled.div`
   color: ${props => getColorStyles(props).black};
+
+  ${Block.Styled} {
+    display: flex;
+    gap: 1.25rem;
+  }
 
   ${Button.Styled.AsIcon}:first-child {
     transform: rotate(-180deg);

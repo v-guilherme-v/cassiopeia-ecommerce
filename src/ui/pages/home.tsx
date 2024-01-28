@@ -97,6 +97,12 @@ const StyledHome = styled.section`
     margin-top: 100px;
   }
 
+  @media(max-width: ${props => getViewPortsStyles(props).medium}) {
+    ${Footer.Styled} {
+      margin-top: 0;
+    }
+  }
+
   @media(max-width: ${props => getViewPortsStyles(props).small}) {
     ${HeroBanner.Styled} {
       margin-top: 1.75rem;
