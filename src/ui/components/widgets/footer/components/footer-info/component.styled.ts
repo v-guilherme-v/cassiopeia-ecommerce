@@ -1,11 +1,13 @@
 import styled from "styled-components"
 import { Text } from "@components/common"
+import { getColorStyles } from "@theme/selectors"
 
 export default styled.div`
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
   padding-bottom: 1rem;
+  color: ${props => getColorStyles(props).white};
 
   .Footer__SocialMedias {
     display: flex;

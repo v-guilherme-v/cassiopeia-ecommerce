@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { getViewPortsStyles } from "@theme/selectors"
+import { getColorStyles, getViewPortsStyles } from "@theme/selectors"
 
 export const StyledFooterLinksColumn = styled.div`
   display: flex;
@@ -8,7 +8,7 @@ export const StyledFooterLinksColumn = styled.div`
   max-width: 150px;
 
   a {
-    color: ${({ theme }) => theme.color.black };
+    color: ${props => getColorStyles(props).snow};
     text-decoration: none;
 
     @media(min-width: ${props => getViewPortsStyles(props).medium}) {
@@ -17,6 +17,10 @@ export const StyledFooterLinksColumn = styled.div`
         text-underline-offset: 2px;
       }
     }
+  }
+
+  [data-name="SectionName"] {
+    color: ${props => getColorStyles(props).snow};
   }
 `
 

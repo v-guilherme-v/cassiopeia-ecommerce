@@ -8,7 +8,7 @@ import { Text, Title } from "@components/common"
 export function FooterLinksColumn ({ sectionName = "Section name", linksList = [] }: FooterLinksSection): JSX.Element {
   return (
     <StyledFooterLinksColumn>
-      <Title.ExtraSmall weight="regular" lineHeight="24px">{sectionName}</Title.ExtraSmall>
+      <Title.ExtraSmall data-name="SectionName" weight="regular" lineHeight="24px">{sectionName}</Title.ExtraSmall>
       { linksList.map(link => (
         <a key={link.route} href={link.route}>
           <Text.Button>{link.label}</Text.Button>

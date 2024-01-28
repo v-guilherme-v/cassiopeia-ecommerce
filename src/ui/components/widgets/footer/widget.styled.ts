@@ -1,9 +1,10 @@
 import styled from "styled-components"
-import { Container, FlexContainer } from "@components/common"
+import { Container } from "@components/common"
+import { getColorStyles, getViewPortsStyles } from "@theme/selectors"
 
 export default styled.footer`
   display: flex;
-  background-color: ${({ theme }) => theme.color.snow};
+  background-color: ${props => getColorStyles(props).black};
   padding-top: 3.625rem;
 
   ${Container.Styled} {
@@ -12,7 +13,23 @@ export default styled.footer`
     gap: 3.75rem;
   }
 
-  ${FlexContainer.Styled} {
+  [data-name="Footer__Blocks"] {
+    display: flex;
+    justify-content: space-between;
     max-width: 1005px;
+    gap: 130px;
+  }
+
+  @media(max-width: ${props => getViewPortsStyles(props).medium}){
+    padding-top: 42px;
+    
+    ${Container.Styled} {
+      gap: 42px;
+    }
+
+    [data-name="Footer__Blocks"] {
+      flex-direction: column-reverse;
+      gap: 42px;
+    }
   }
 `

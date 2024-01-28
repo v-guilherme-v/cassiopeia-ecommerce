@@ -1,28 +1,17 @@
-import { Container, FlexContainer } from "@components/common"
+import { Block, Container } from "@components/common"
 import { FooterInfo, FooterLinks, FooterCopyright } from "./components"
 
 import StyledFooter from "./widget.styled"
 import { type FooterProps } from "./types"
 
-const styles = {
-  flexContainer: {
-    justifyContent: "space-between",
-    gap: "130px",
-    medium: {
-      direction: "column",
-      gap: "1.5rem"
-    }
-  }
-}
-
 function Footer (props: FooterProps): JSX.Element {
   return (
     <StyledFooter>
-      <Container>
-        <FlexContainer {...styles.flexContainer}>
+      <Container data-name="Footer__Container">
+        <Block data-name="Footer__Blocks">
           <FooterInfo {...props} />
           <FooterLinks {...props} />
-        </FlexContainer>
+        </Block>
         <FooterCopyright />
       </Container>
     </StyledFooter>
