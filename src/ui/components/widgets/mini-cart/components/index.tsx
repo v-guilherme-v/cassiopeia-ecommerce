@@ -13,6 +13,7 @@ export function MiniCartContainer ({ children }: PropsWithChildren): JSX.Element
     <MiniCartContext.Consumer>
       {miniCartContext => (
         <StyledMiniCart.Container
+          role="dialog"
           data-name="MiniCart__Container"
           isOpen={miniCartContext?.isOpen}
         >
