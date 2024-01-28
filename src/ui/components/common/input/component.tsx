@@ -27,8 +27,10 @@ function InlineInput (props: InputProps): JSX.Element {
 }
 
 function Input (props: InputProps): JSX.Element {
+  const { placeholder: _, ...restProps } = props
+
   return (
-    <StyledInput.Default {...props}>
+    <StyledInput.Default {...restProps}>
       <RawInput { ...props } />
     </StyledInput.Default>
   )
