@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { FlexContainer, Text } from "@components/common"
+import { Block, Text } from "@components/common"
 import { type Price } from "@schemas/commerce"
 
 import { getColorStyles, getFontStyles } from "@theme/selectors"
@@ -12,29 +12,24 @@ interface PriceProps extends Partial<Price> {
 const isAlignedLeft = (alignment?: string): boolean => alignment === "ALIGNED_LEFT"
 
 function Pricing (props: PriceProps): JSX.Element {
-  const { listPrice, salePrice, alignment } = props
+  const { listPrice, salePrice } = props
 
   const listPriceToCurrency = toCurrency(listPrice)
   const salePriceToCurrency = toCurrency(salePrice)
-
-  const priceAlignment = !isAlignedLeft(alignment) ? "center" : "unset"
 
   return (
     <StyledPricing {...props}>
       {
         salePrice != null && salePrice !== 0
           ? (
-            <FlexContainer
-              className="Pricing" gap="1rem"
-              alignItems="center" justifyContent={priceAlignment}
-            >
+            <Block data-name="Pricing">
               <Text.Button className="SalePrice">
                 { salePriceToCurrency }
               </Text.Button>
               <Text.Strike className="ListingPrice PreviousPrice">
                 { listPriceToCurrency }
               </Text.Strike>
-            </FlexContainer>)
+            </Block>)
           : (
             <Text.Button className="ListingPrice">
               { listPriceToCurrency }
@@ -45,8 +40,15 @@ function Pricing (props: PriceProps): JSX.Element {
 }
 
 const StyledPricing = styled.div<PriceProps>`
-  padding-left: ${props => isAlignedLeft(props?.alignment) ? ".5rem" : "0"};
   margin-top: .5rem;
+  padding-left: ${props => isAlignedLeft(props?.alignment) ? ".5rem" : "0"};
+
+  [data-name="Pricing"] {
+    display: flex;
+    align-items: center;
+    justify-content: ${props => isAlignedLeft(props?.alignment) ? "unset" : "center"};
+    gap: 1rem;
+  }
 
   .ListingPrice {
     display: block;
