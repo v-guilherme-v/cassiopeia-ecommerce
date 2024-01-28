@@ -19,6 +19,7 @@
     "^@widgets/(.*)": "<rootDir>/src/ui/components/widgets/$1",
     "^@schemas/(.*)": "<rootDir>/src/schemas/$1",
     "^@contexts$": "<rootDir>/src/ui/contexts/index",
+    "^@utils/(.*)$": "<rootDir>/src/utils/$1",
     "^swiper": "<rootDir>/src/__mocks__/swiper.js",
     "\\.svg$": "<rootDir>/src/__mocks__/svg.js",
     "\\.(jpg|png)": "<rootDir>/src/__mocks__/img.js"

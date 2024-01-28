@@ -7,7 +7,8 @@ import type {
   FallbackImageStyles,
   BoxShadowStyles,
   TextStyles,
-  TitleStyles
+  TitleStyles,
+  GeneralStyles
 } from "@theme/types"
 
 export const getPropsTheme = (props: { theme: ThemeType }): ThemeType => props.theme
@@ -60,6 +61,7 @@ export const getViewPortsStyles = (
   return getPropsTheme(props).viewPorts
 }
 
+export const getGeneralStyles = (props: { theme: ThemeType }): GeneralStyles => getPropsTheme(props).general
 export const getColorStyles = (props: { theme: ThemeType }): ColorStyles => getPropsTheme(props).color
 export const getFontStyles = (props: { theme: ThemeType }): FontStyles => getPropsTheme(props).font
 export const getTextStyles = (props: { theme: ThemeType }): TextStyles => getPropsTheme(props).text

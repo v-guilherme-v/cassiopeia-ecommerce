@@ -21,6 +21,6 @@ interface ImageType {
 export interface HeroBannerProps {
   title: TextCustomType | string
   description: TextCustomType | string
-  button: ButtonCustomType | string
+  button?: ButtonCustomType | string
   image: ImageType
 }

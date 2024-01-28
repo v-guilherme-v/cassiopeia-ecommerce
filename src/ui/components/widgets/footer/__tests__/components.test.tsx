@@ -33,7 +33,7 @@ describe("The footer info section", () => {
       </LightThemeProvider>
     )
 
-    expect(screen.getByText("Footer")).toBeInTheDocument()
+    expect(screen.getByText("Follow us")).toBeInTheDocument()
   })
 })
 

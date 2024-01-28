@@ -1,5 +1,5 @@
 import { memo } from "react"
-import { Check, Close } from "@components/icons"
+import { CheckIcon, CloseIcon } from "@components/icons"
 import StyledValidator from "./component.styled"
 
 export interface ValidatorProps {
@@ -9,7 +9,7 @@ export interface ValidatorProps {
 function Validator (props: ValidatorProps): JSX.Element {
   return (
     <StyledValidator {...props} >
-      { props.isValid ? <Check data-testid="CheckIcon" /> : <Close data-testid="CloseIcon" /> }
+      { props.isValid ? <CheckIcon data-testid="CheckIcon" /> : <CloseIcon data-testid="CloseIcon" /> }
     </StyledValidator>
   )
 }

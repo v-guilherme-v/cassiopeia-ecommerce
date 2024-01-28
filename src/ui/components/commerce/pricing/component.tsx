@@ -3,7 +3,7 @@ import { FlexContainer, Text } from "@components/common"
 import { type Price } from "@schemas/commerce"
 
 import { getColorStyles, getFontStyles } from "@theme/selectors"
-import { toCurrency } from "../utils"
+import { toCurrency } from "@utils/commerce"
 
 interface PriceProps extends Partial<Price> {
   alignment?: string

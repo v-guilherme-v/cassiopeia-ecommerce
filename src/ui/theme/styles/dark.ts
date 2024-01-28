@@ -28,7 +28,8 @@ const darkTheme: ThemeType = {
     grey: "#AFB1BD",
     darkGrey: "#82828B",
     black: "#000000",
-    whatsapp: "#24D366"
+    whatsapp: "#24D366",
+    facebook: "#4F66A5"
   },
 
   fieldState: {
@@ -48,7 +49,8 @@ const darkTheme: ThemeType = {
 
   general: {
     containerSize: "1160px",
-    headerLayer: 10
+    headerLayer: 10,
+    miniCartLayer: 11
   },
 
   viewPorts: {

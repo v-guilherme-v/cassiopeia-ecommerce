@@ -6,6 +6,18 @@ import { LightThemeProvider } from "@providers"
 const navigationLinksMock = Array(5).fill(1).map((_, index) => ({ label: `Item ${index}`, route: `item-${index}` }))
 
 describe("The Navigation", () => {
+  it("renders its default values", () => {
+    render(
+      <LightThemeProvider>
+        <Navigation />
+      </LightThemeProvider>
+    )
+
+    // Flowers is present into mocked list
+    const navigationLink = screen.getByText("Flowers")
+    expect(navigationLink).toBeInTheDocument()
+  })
+
   it("renders some links", () => {
     render(
       <LightThemeProvider>

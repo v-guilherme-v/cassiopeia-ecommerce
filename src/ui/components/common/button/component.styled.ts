@@ -15,7 +15,6 @@ const StyledButton = styled.button<ButtonProps>`
 
   /** @todo make it better */
   border: ${(props) => `${getBorderColor(props)}`};
-  border-radius: ${(props) => props.theme.button.borderRadius};
   
   cursor: pointer;
   user-select: none;
@@ -27,7 +26,7 @@ const StyledButton = styled.button<ButtonProps>`
   };
 
   border-radius: ${(props) => (props.rounded == null) || props.size !== ButtonSizes.ICON
-    ? props.theme.button.borderRadius
+    ? props?.customStyles?.borderRadius ?? props.theme.button.borderRadius
     : "50%"
   };
 `

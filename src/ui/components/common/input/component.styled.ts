@@ -1,9 +1,11 @@
 import styled from "styled-components"
+import { InputProps } from "./types"
+import { getColorStyles } from "@theme/selectors"
 
 const ICON_RIGHT_GAP: string = "8px"
 const ICON_MAX_WIDTH: string = "21px"
 
-const RawInput = styled.div`
+const BaseInput = styled.div<InputProps>`
   // preventing autofill styles
   & :-webkit-autofill,
   & :-webkit-autofill:hover, 
@@ -22,9 +24,11 @@ const RawInput = styled.div`
     /* the calc is, icon max-width + the right gap from the div that wraps everything */
     padding: 12px calc(${ICON_MAX_WIDTH} + ${ICON_RIGHT_GAP}) 12px 12px;
     width: 100%;
+    background-color: ${props => props?.customStyles?.backgroundColor ?? getColorStyles(props).white};
+    color: ${props => props?.customStyles?.textColor ?? getColorStyles(props).black};
 
     &::placeholder {
-      color: ${({ theme }) => theme.color.darkGrey};
+      color: ${props => props?.customStyles?.placeholderColor ?? getColorStyles(props).darkGrey};
       user-select: none;
     }
   }
@@ -38,36 +42,28 @@ const RawInput = styled.div`
   }
 `
 
-const InputInlineStyled = styled(RawInput)`
+const InputInlineStyled = styled(BaseInput)`
   & input {
     padding-left: 3px;
     border: 0;
-    border-bottom: 1px solid color-mix(
-      in srgb,
-      ${({ theme }) => theme.color.darkGrey} 30%,
-      ${({ theme }) => theme.color.lightGrey}
-    );
+    border-bottom: 1px solid ${props => getColorStyles(props).lightGrey};
   }
 
   & input:focus {
-    border-bottom: 1px solid ${({ theme }) => theme.color.primary};
+    border-bottom: 1px solid ${props => getColorStyles(props).primary};
   }
 `
 
-const InputStyled = styled(RawInput)`
+const InputStyled = styled(BaseInput)`
   & input {
     padding-left: 13px;
 
-    border: 1px solid color-mix(
-      in srgb,
-      ${({ theme }) => theme.color.darkGrey} 30%,
-      ${({ theme }) => theme.color.lightGrey}
-    );
+    border: 1px solid ${props => getColorStyles(props).lightGrey};
     border-radius: 4px;
   }
 
   & input:focus {
-    border: 1px solid ${({ theme }) => theme.color.primary};
+    border: 1px solid ${props => getColorStyles(props).primary};
   }
 `
 

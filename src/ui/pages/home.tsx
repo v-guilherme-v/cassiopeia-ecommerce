@@ -1,3 +1,4 @@
+import { useState } from "react"
 import styled, { useTheme } from "styled-components"
 
 import {
@@ -6,6 +7,7 @@ import {
   TopBar,
   BannerContainer,
   HeroBanner,
+  MiniCart,
   Footer
 } from "@components/widgets"
 
@@ -14,36 +16,49 @@ import { ProductCarousel } from "@components/commerce"
 import flowersBanner from "src/assets/flowers-banner.png"
 import randomFlower from "src/assets/flower-1.png"
 
-import { getColorStyles, getViewPortsStyles } from "@theme/selectors"
 import type { ColorStyles } from "@theme/types"
+import { getColorStyles, getViewPortsStyles } from "@theme/selectors"
+
+import { MiniCartContext } from "@contexts"
 
 export default function Home (): JSX.Element {
   const colors: ColorStyles = getColorStyles({ theme: useTheme() })
 
+  const [ isMiniCartOpen, setIsMiniCartOpen ] = useState<boolean>(false)
+
   return (
-    <StyledHome className="Home">
-      <Header>
-        <TopBar />
-        <Navigation />
-      </Header>
+    <StyledHome>
+      <MiniCartContext.Provider value={{
+        isOpen: isMiniCartOpen,
+        toggleMiniCart: () => {
+          setIsMiniCartOpen(c => !c)
+        }
+      }}>
+        <Header>
+          <TopBar />
+          <Navigation />
+        </Header>
+
+        <MiniCart />
+      </MiniCartContext.Provider>
 
       <HeroBanner
-        title={{ text: "Flowers", color: colors.snow }}
-        description={{ text: "Our flowers", color: colors.snow }}
+        title={{ text: "Flowers", color: colors.black }}
+        description={{ text: "Our flowers", color: colors.black }}
         button={{ text: "See more", backgroundColor: colors.black }}
         image={{ src: flowersBanner, alt: "Flowers banner" }}
       />
 
       <BannerContainer>
         <HeroBanner
-          title={{ text: "Flowers", color: colors.snow }}
-          description={{ text: "Our flowers", color: colors.snow }}
+          title={{ text: "Flowers", color: colors.black }}
+          description={{ text: "Our flowers", color: colors.black }}
           button={{ text: "See more", backgroundColor: colors.black }}
           image={{ src: flowersBanner, alt: "Flowers banner" }}
         />
         <HeroBanner
-          title={{ text: "Flowers", color: colors.snow }}
-          description={{ text: "Our flowers", color: colors.snow }}
+          title={{ text: "Flowers", color: colors.black }}
+          description={{ text: "Our flowers", color: colors.black }}
           button={{ text: "See more", backgroundColor: colors.black }}
           image={{
             src: flowersBanner,
@@ -71,6 +86,9 @@ export default function Home (): JSX.Element {
 }
 
 const StyledHome = styled.section`
+  position: relative;
+  overflow-x: hidden;
+
   ${HeroBanner.Styled} {
     margin-top: 40.5px;
   }

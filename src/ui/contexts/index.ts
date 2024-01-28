@@ -11,5 +11,10 @@ export interface SwiperContextType {
   onSwiper: (swiper: SwiperClass) => void
   onAutoplay: (swiper: SwiperClass) => void
 }
-
 export const SwiperContext = createContext<SwiperContextType | null>(null)
+
+export interface MiniCartContextType {
+  isOpen: boolean
+  toggleMiniCart: () => void
+}
+export const MiniCartContext = createContext<MiniCartContextType | null>(null)

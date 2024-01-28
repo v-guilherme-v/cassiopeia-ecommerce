@@ -20,20 +20,23 @@ function RawInput (props: InputProps): JSX.Element {
 
 function InlineInput (props: InputProps): JSX.Element {
   return (
-    <StyledInput.Inline>
+    <StyledInput.Inline {...props}>
       <RawInput { ...props } />
     </StyledInput.Inline>
   )
 }
 
 function Input (props: InputProps): JSX.Element {
+  const { placeholder: _, ...restProps } = props
+
   return (
-    <StyledInput.Default>
+    <StyledInput.Default {...restProps}>
       <RawInput { ...props } />
     </StyledInput.Default>
   )
 }
 
 Input.Inline = InlineInput
+Input.Styled = StyledInput
 
 export default Input
