@@ -38,9 +38,10 @@ function Image ({ className, src, alt, width, height }: ImageProps): JSX.Element
 }
 
 const StyledImage = styled.div`
+  width: 100%;
+  height: 100%;
+  
   img[error="true"] {
-    width: 100%;
-    height: 100%;
     object-position: center;
     background-color: ${props => getFallbackImageStyles(props).backgroundColor};
     user-select: none;

@@ -1,6 +1,6 @@
 import { useMediaQuery } from "react-responsive"
 
-interface IUseDeviceSettings {
+export interface IUseDeviceSettings {
   isTablet: boolean
   isMobile: boolean
 }

@@ -106,7 +106,7 @@ const StyledMiniCartContent = styled.div<MiniCartProps>`
   }
 
   @media(max-width: ${props => getViewPortsStyles(props).small}) {
-    padding: 2.5rem 1.5rem 0;
+    padding: 2.5rem 1.5rem 2.5rem;
 
     ${Block.Styled}[data-name="MiniCart__PromotionEntry"] {
       & button {

@@ -23,15 +23,15 @@ function Pricing (props: PriceProps): JSX.Element {
         salePrice != null && salePrice !== 0
           ? (
             <Block data-name="Pricing">
-              <Text.Button className="SalePrice">
+              <Text.Button data-name="SalePrice">
                 { salePriceToCurrency }
               </Text.Button>
-              <Text.Strike className="ListingPrice PreviousPrice">
+              <Text.Strike data-name="ListingPrice PreviousPrice">
                 { listPriceToCurrency }
               </Text.Strike>
             </Block>)
           : (
-            <Text.Button className="ListingPrice">
+            <Text.Button data-name="ListingPrice">
               { listPriceToCurrency }
             </Text.Button>)
       }
@@ -50,15 +50,17 @@ const StyledPricing = styled.div<PriceProps>`
     gap: 1rem;
   }
 
-  .ListingPrice {
+  [data-name*="ListingPrice"] {
     display: block;
     text-align: center;
   }
   
-  .PreviousPrice {
+  [data-name*="PreviousPrice"] {
     font-weight: ${props => getFontStyles(props).weight.regular};
     color: ${props => getColorStyles(props).darkGrey};
   }
 `
+
+Pricing.Styled = StyledPricing
 
 export default Pricing

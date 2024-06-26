@@ -8,13 +8,22 @@ export default {
     0: {
       slidesPerView: 1
     },
-    600: {
-      slidesPerView: 2
+    360: {
+      slidesPerView: 2,
+      spaceBetween: 8
     },
-    895: {
+    576: {
+      spaceBetween: 8,
+      slidesPerView: 3
+    },
+    750: {
+      slidesPerView: 4
+    },
+    892: {
       slidesPerView: 3
     },
     1200: {
+      spaceBetween: 16,
       slidesPerView: 4
     }
   }

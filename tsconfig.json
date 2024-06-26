@@ -26,6 +26,7 @@
       "@widgets/": ["src/ui/components/widgets/index"],
       "@widgets/*": ["src/ui/components/widgets/*"],
       "@providers": ["src/ui/providers/index"],
+      "@ui/utils": ["src/ui/utils/index"],
       "@schemas/*": ["src/schemas/*"],
       "@utils/*": ["src/utils/*"]
     }

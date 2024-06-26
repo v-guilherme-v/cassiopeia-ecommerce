@@ -80,6 +80,19 @@ export default function Home (): JSX.Element {
           }))
         }/>
 
+      <ProductCarousel carouselTitle="People have bought"
+        products={
+          Array(16).fill(1).map((_, index) => ({
+            id: index.toString(),
+            displayName: `Flower ${index + 1}`,
+            imageSource: randomFlower,
+            pricing: {
+              listPrice: 90.99,
+              salePrice: 80.99
+            }
+          }))
+        }/>
+
       <Footer />
     </StyledHome>
   )
@@ -98,6 +111,10 @@ const StyledHome = styled.section`
   }
 
   @media(max-width: ${props => getViewPortsStyles(props).medium}) {
+    ${HeroBanner.Styled} {
+      margin-top: 0;
+    }
+
     ${Footer.Styled} {
       margin-top: 0;
     }
