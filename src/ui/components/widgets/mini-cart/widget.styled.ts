@@ -14,7 +14,7 @@ const StyledMiniCartContainer = styled.aside<MiniCartProps>`
 ` 
 
 const StyledMiniCartOverlay = styled.div<MiniCartProps>`
-  position: absolute;
+  position: fixed;
   inset: 0;
   background: rgba(36, 36, 36, 0.38);
   visibility: ${props => props?.isOpen ? "visible" : "hidden"};
@@ -22,7 +22,7 @@ const StyledMiniCartOverlay = styled.div<MiniCartProps>`
 `
 
 const StyledMiniCartContent = styled.div<MiniCartProps>`
-  position: absolute;
+  position: fixed;
   overflow-y: auto;
   top: 0;
   right: ${props => !props?.isOpen ?
