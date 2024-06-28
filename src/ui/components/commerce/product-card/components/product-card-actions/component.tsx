@@ -3,21 +3,13 @@ import { getColorStyles, getProductCardStyles, getViewPortsStyles } from "@theme
 import { type MouseEventHandler } from "react"
 import styled from "styled-components"
 
-interface ActionProps {
+interface ProductCardActionProps {
   name: string
   icon: JSX.Element
   onClick?: MouseEventHandler
 }
 
-function Action (props: ActionProps): JSX.Element {
-  return (
-    <StyledAction onClick={props.onClick}>
-      { props.icon }
-    </StyledAction>
-  )
-}
-
-const StyledAction = styled.div`
+const StyledProductCardAction = styled.div`
   --control-width: ${props => getProductCardStyles(props).controls.width};
   --control-height: ${props => getProductCardStyles(props).controls.height};
 
@@ -35,12 +27,11 @@ const StyledAction = styled.div`
   }
 `
 
-function ProductCardActions ({ className = "" }: { className?: string }): JSX.Element {
+function ProductCardAction (props: ProductCardActionProps): JSX.Element {
   return (
-    <StyledProductCardActions className={className}>
-      <Action name="AddToCart" icon={<CartIcon />}/>
-      <Action name="SeeProduct" icon={<SearchIcon />}/>
-    </StyledProductCardActions>
+    <StyledProductCardAction onClick={props.onClick}>
+      { props.icon }
+    </StyledProductCardAction>
   )
 }
 
@@ -60,7 +51,7 @@ const StyledProductCardActions = styled.div`
   transition: opacity .5s,
     transform .5s;
 
-  ${StyledAction}:hover svg {
+  ${StyledProductCardAction}:hover svg {
     opacity: 0.5;
   }
 
@@ -70,11 +61,20 @@ const StyledProductCardActions = styled.div`
     bottom: 15px;
     opacity: 1;
 
-    ${StyledAction}:hover svg {
+    ${StyledProductCardAction}:hover svg {
       opacity: 1;
     }
   }
 `
+
+function ProductCardActions ({ className = "" }: { className?: string }): JSX.Element {
+  return (
+    <StyledProductCardActions className={className}>
+      <ProductCardAction name="AddToCart" icon={<CartIcon />}/>
+      <ProductCardAction name="SeeProduct" icon={<SearchIcon />}/>
+    </StyledProductCardActions>
+  )
+}
 
 ProductCardActions.Styled = StyledProductCardActions
 

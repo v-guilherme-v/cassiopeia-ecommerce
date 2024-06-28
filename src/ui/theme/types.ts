@@ -111,6 +111,13 @@ export interface ProductCardStyles {
     width: string
     height: string
   }
+  mobile: {
+    width: string
+    img: {
+      width: string
+      height: string
+    }
+  }
 }
 
 export interface FallbackImageStyles {

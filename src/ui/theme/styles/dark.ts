@@ -128,6 +128,13 @@ const darkTheme: ThemeType = {
     controls: {
       width: "2.875rem",
       height: "2.875rem"
+    },
+    mobile: {
+      width: "163px",
+      img: {
+        width: "163px",
+        height: "163px"
+      }
     }
   },
 

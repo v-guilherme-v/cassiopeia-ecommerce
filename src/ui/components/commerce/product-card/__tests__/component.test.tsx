@@ -1,13 +1,31 @@
 import { screen, render } from "@testing-library/react"
 import { LightThemeProvider } from "@providers"
 
-import ProductCard, { ProductCardStyleTypes } from "../component"
+import ProductCardWrapper from "../component"
+import { EProductCardAlignStyles } from "../types"
+
+import { useDeviceSettings, type IUseDeviceSettings } from "@ui/utils"
+
+jest.mock("@ui/utils", () => ({
+  useDeviceSettings: jest.fn()
+}))
+
+const mockedDeviceSettings = useDeviceSettings as jest.MockedFunction<() => IUseDeviceSettings>
 
 describe("The product card component", () => {
+  afterEach(() => {
+    jest.clearAllMocks()
+  })
+
   it("renders without image", () => {
+    mockedDeviceSettings.mockReturnValueOnce({
+      isTablet: true,
+      isMobile: false
+    })
+
     render(
       <LightThemeProvider>
-        <ProductCard product={{ displayName: "Flower 1" }}/>
+        <ProductCardWrapper product={{ displayName: "Flower 1" }}/>
       </LightThemeProvider>
     )
 
@@ -18,7 +36,7 @@ describe("The product card component", () => {
   it("renders without a name", () => {
     render(
       <LightThemeProvider>
-        <ProductCard product={{}} alignment={ProductCardStyleTypes.ALIGNED_LEFT} />
+        <ProductCardWrapper product={{}} alignment={EProductCardAlignStyles.ALIGNED_LEFT} />
       </LightThemeProvider>
     )
 
