@@ -21,13 +21,13 @@ import { getColorStyles, getViewPortsStyles } from "@theme/selectors"
 
 import { MiniCartContext } from "@contexts"
 
-export default function Home (): JSX.Element {
+export default function HomePage (): JSX.Element {
   const colors: ColorStyles = getColorStyles({ theme: useTheme() })
 
   const [ isMiniCartOpen, setIsMiniCartOpen ] = useState<boolean>(false)
 
   return (
-    <StyledHome>
+    <StyledHomePage>
       <MiniCartContext.Provider value={{
         isOpen: isMiniCartOpen,
         toggleMiniCart: () => {
@@ -94,11 +94,11 @@ export default function Home (): JSX.Element {
         }/>
 
       <Footer />
-    </StyledHome>
+    </StyledHomePage>
   )
 }
 
-const StyledHome = styled.section`
+const StyledHomePage = styled.section`
   position: relative;
   overflow-x: hidden;
 

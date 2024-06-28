@@ -1,7 +1,7 @@
 import { ThemeProvider } from "styled-components"
 import { useThemeSetup } from "@theme/hooks"
 
-import { Home } from "@pages"
+import { ProductPage } from "@pages"
 import { ThemeFunctionsContext } from "@contexts"
 
 import StyledRoot from "./root.styled"
@@ -13,7 +13,7 @@ export default function Root (): JSX.Element {
     <ThemeProvider theme={selectedTheme}>
       <ThemeFunctionsContext.Provider value={{ handleThemeChange }}>
         <StyledRoot>
-          <Home />
+          <ProductPage />
         </StyledRoot>
       </ThemeFunctionsContext.Provider>
     </ThemeProvider>
