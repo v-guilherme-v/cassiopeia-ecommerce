@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled, { useTheme } from "styled-components"
 
 import {
   Block,
@@ -15,7 +15,8 @@ import {
   TopBar,
   Footer,
   ProductImage,
-  ProductTags
+  ProductTags,
+  ProductColorSelector
 } from "@components/widgets"
 
 import { CartIcon } from "@components/icons"
@@ -29,6 +30,8 @@ const breadcrumbs = [
 ]
 
 export default function ProductPage (): JSX.Element {
+  const theme = useTheme()
+
   return (
     <StyledProductPage>
       <Header>
@@ -57,8 +60,17 @@ export default function ProductPage (): JSX.Element {
               </Block>
             </Block>
             <Block data-name="Product__QuantityCounter">
-              <Text.Large data-name="Product__QuantityLabel">Count:</Text.Large>
+              <Text.Large data-name="Product__QuantityLabel">Quantity</Text.Large>
               <Counter onQuantityChange={newQty => { console.log("new qty is ", newQty) }}/>
+            </Block>
+            <Block data-name="Product__ColorSelector">
+              <Text.Large data-name="Product__ColorSelectorLabel">Color</Text.Large>
+              <ProductColorSelector
+                initialColor="purple"
+                colorOptions={[
+                  { id: "purple", value: theme.color.active },
+                  { id: "green", value: theme.color.positive }
+                ]} />
             </Block>
           </Block>
         </Block>
@@ -113,13 +125,15 @@ const StyledProductPage = styled.section`
         }
       }
 
-      ${Block.Styled}[data-name="Product__QuantityCounter"] {
+      ${Block.Styled}[data-name="Product__QuantityCounter"],
+      ${Block.Styled}[data-name="Product__ColorSelector"] {
         display: flex;
         flex-direction: column;
         margin-top: 40px;
         gap: 24.5px;
 
-        ${Text.Styled.Large}[data-name="Product__QuantityLabel"] {
+        ${Text.Styled.Large}[data-name="Product__QuantityLabel"],
+        ${Text.Styled.Large}[data-name="Product__ColorSelectorLabel"] {
           line-height: 24px;
         }
       }
