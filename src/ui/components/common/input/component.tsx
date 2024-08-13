@@ -7,11 +7,7 @@ function RawInput (props: InputProps): JSX.Element {
       <input
         data-testid="Input"
         id={props.name}
-        type={props?.type ?? "text"}
-        name={props.name}
-        value={props.value}
-        onChange={props.onChange}
-        placeholder={props.placeholder}
+        { ...props }
       />
       { props.icon }
     </>
@@ -20,17 +16,15 @@ function RawInput (props: InputProps): JSX.Element {
 
 function InlineInput (props: InputProps): JSX.Element {
   return (
-    <StyledInput.Inline {...props}>
+    <StyledInput.Inline>
       <RawInput { ...props } />
     </StyledInput.Inline>
   )
 }
 
 function Input (props: InputProps): JSX.Element {
-  const { placeholder: _, ...restProps } = props
-
   return (
-    <StyledInput.Default {...restProps}>
+    <StyledInput.Default>
       <RawInput { ...props } />
     </StyledInput.Default>
   )
