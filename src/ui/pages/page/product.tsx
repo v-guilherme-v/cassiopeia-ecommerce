@@ -2,6 +2,7 @@ import styled, { useTheme } from "styled-components"
 
 import {
   Block,
+  Button,
   Container,
   Text,
   Title,
@@ -21,6 +22,7 @@ import {
 
 import { CartIcon } from "@components/icons"
 import { getColorStyles } from "@theme/selectors"
+import { ButtonModels, ButtonSizes } from "@components/common/button"
 
 const breadcrumbs = [
   { name: "Level 1" },
@@ -71,6 +73,15 @@ export default function ProductPage (): JSX.Element {
                   { id: "purple", value: theme.color.active },
                   { id: "green", value: theme.color.positive }
                 ]} />
+            </Block>
+            <Block data-name="Product__CartActions">
+              <Button data-name="GoToCart">Add to cart</Button>
+              <Button
+                data-name="AddToCart"
+                size={ButtonSizes.ICON}
+                model={ButtonModels.OUTLINED}
+                icon={{ element: <CartIcon /> }}
+              />
             </Block>
           </Block>
         </Block>
@@ -135,6 +146,22 @@ const StyledProductPage = styled.section`
         ${Text.Styled.Large}[data-name="Product__QuantityLabel"],
         ${Text.Styled.Large}[data-name="Product__ColorSelectorLabel"] {
           line-height: 24px;
+        }
+      }
+
+      ${Block.Styled}[data-name="Product__CartActions"] {
+        display: flex;
+        margin-top: 50px;
+        gap: 20px;
+
+        ${Button.Styled}[data-name="GoToCart"] {
+          max-width: 309px;
+          width: 100%;
+        }
+
+        ${Button.Styled}[data-name="AddToCart"] svg {
+          width: 17px;
+          height: 14px;
         }
       }
     }
