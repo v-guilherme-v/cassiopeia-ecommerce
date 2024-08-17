@@ -1,10 +1,12 @@
 import { Image } from "@components/common"
 import styled from "styled-components"
 
+import randomFlower from "src/assets/flower-1.png"
+
 export default function ProductImage (): JSX.Element {
   return (
     <StyledProductImage>
-      <Image src="" alt="No img"/>
+      <Image src={randomFlower} alt="No img"/>
     </StyledProductImage>
   )
 }

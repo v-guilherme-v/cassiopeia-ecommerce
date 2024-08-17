@@ -1,2 +1,2 @@
-export type * from "./commerce"
-export type * from "./ui"
+export * from "./commerce"
+export * from "./ui"

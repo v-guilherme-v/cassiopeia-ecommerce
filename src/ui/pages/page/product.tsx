@@ -1,6 +1,7 @@
 import styled, { useTheme } from "styled-components"
 
 import {
+  Accordion,
   Block,
   Button,
   Container,
@@ -21,8 +22,12 @@ import {
 } from "@components/widgets"
 
 import { CartIcon } from "@components/icons"
-import { getColorStyles } from "@theme/selectors"
+import { getColorStyles, getViewPortsStyles } from "@theme/selectors"
 import { ButtonModels, ButtonSizes } from "@components/common/button"
+
+import { ScrollRestoration } from "react-router-dom"
+
+import { toCurrency } from "@utils/commerce"
 
 const breadcrumbs = [
   { name: "Level 1" },
@@ -36,6 +41,7 @@ export default function ProductPage (): JSX.Element {
 
   return (
     <StyledProductPage>
+      <ScrollRestoration />
       <Header>
         <TopBar />
         <Navigation />
@@ -55,10 +61,14 @@ export default function ProductPage (): JSX.Element {
           </Block>
           <Block data-name="ProductPage__ActionSection">
             <Block data-name="Product__Identification">
-              <Title data-name="ProductName">Product name</Title>
+              <Title data-name="ProductName">Flower</Title>
               <Block data-name="ProductPricing">
-                <Title.Large data-name="ProductCurrentPrice">Price</Title.Large>
-                <Text.StrikeLarge data-name="ProductOldPrice">Oldprice</Text.StrikeLarge>
+                <Title.Large data-name="ProductCurrentPrice">
+                  { toCurrency(80.99) }
+                </Title.Large>
+                <Text.StrikeLarge data-name="ProductOldPrice">
+                  { toCurrency(90.99) }
+                </Text.StrikeLarge>
               </Block>
             </Block>
             <Block data-name="Product__QuantityCounter">
@@ -75,13 +85,35 @@ export default function ProductPage (): JSX.Element {
                 ]} />
             </Block>
             <Block data-name="Product__CartActions">
-              <Button data-name="GoToCart">Add to cart</Button>
+              <Button
+                data-name="GoToCart"
+                backgroundColor={theme.color.black}
+              >
+                Add to cart
+              </Button>
               <Button
                 data-name="AddToCart"
                 size={ButtonSizes.ICON}
                 model={ButtonModels.OUTLINED}
                 icon={{ element: <CartIcon /> }}
               />
+            </Block>
+            <Block data-name="Product__Description">
+              <Accordion label="Description">
+                <Text.Caption>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi autem ab magni laudantium iste soluta aspernatur iure sunt, dolore in laborum, est ipsum aperiam optio aliquid, deleniti ullam maxime quo.
+                </Text.Caption>
+              </Accordion>
+              <Accordion label="Description">
+                <Text.Caption>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi autem ab magni laudantium iste soluta aspernatur iure sunt, dolore in laborum, est ipsum aperiam optio aliquid, deleniti ullam maxime quo.
+                </Text.Caption>
+              </Accordion>
+              <Accordion label="Description">
+                <Text.Caption>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi autem ab magni laudantium iste soluta aspernatur iure sunt, dolore in laborum, est ipsum aperiam optio aliquid, deleniti ullam maxime quo.
+                </Text.Caption>
+              </Accordion>
             </Block>
           </Block>
         </Block>
@@ -159,11 +191,28 @@ const StyledProductPage = styled.section`
           width: 100%;
         }
 
-        ${Button.Styled}[data-name="AddToCart"] svg {
-          width: 17px;
-          height: 14px;
+        ${Button.Styled}[data-name="AddToCart"] {
+          min-width: 46px;
+
+          & svg {
+            width: 17px;
+            height: 14px;
+          }
         }
       }
+
+      ${Block.Styled}[data-name="Product__Description"] {
+        margin-top: 40px;
+      }
     }
+
+    @media (max-width: ${props => getViewPortsStyles(props).large}) {
+      flex-direction: column;
+      gap: 32px;
+    }
+  }
+
+  ${Footer.Styled} {
+    margin-top: 32px;
   }
 `
