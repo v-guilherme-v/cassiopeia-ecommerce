@@ -3,6 +3,7 @@ import styled from "styled-components"
 export default styled.div`
   line-height: 10px;
 
+  a,
   a:is(
     :active,
     :visited,

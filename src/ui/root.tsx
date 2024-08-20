@@ -7,14 +7,15 @@ import { ThemeFunctionsContext } from "@contexts"
 import StyledRoot from "./root.styled"
 
 import {
-  createBrowserRouter,
+  createHashRouter,
   RouterProvider
 } from "react-router-dom"
 
 export default function Root (): JSX.Element {
   const { selectedTheme, handleThemeChange } = useThemeSetup()
 
-  const router = createBrowserRouter([
+  // Using hash router till i host it somewhere else than github
+  const router = createHashRouter([
     {
       path: "/",
       element: <HomePage />

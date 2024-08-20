@@ -93,7 +93,7 @@ export default function HomePage (): JSX.Element {
           }))
         }/>
 
-      <Footer />
+      <Footer contactNumber="(16) 3635-6304" />
     </StyledHomePage>
   )
 }

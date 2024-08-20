@@ -2,11 +2,11 @@
   "name": "cassiopeia-ecommerce",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://v-guilherme-v.github.io/cassiopeia-ecommerce/",
+  "homepage": "https://v-guilherme-v.github.io/cassiopeia-ecommerce",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "deploy": "gh-pages -d build",
+    "deploy": "gh-pages -d dist",
     "preview": "vite preview",
     "lint": "yarn eslint src/",
     "lint:fix": "yarn lint --fix",
