@@ -1303,4 +1303,4 @@ Valid keys: `+JSON.stringify(Object.keys(A),null,"  "));var Ne=Y(J,de,Z,X,le+"."
     -moz-osx-font-smoothing: grayscale;
     -webkit-text-size-adjust: 100%;
   }
-`,Y3=e=>oe($e.Fragment,{children:[C(Q3,{}),e.children]});function K3(){const{selectedTheme:e,handleThemeChange:t}=Ly(),n=Ww([{path:"/",element:C(cp,{})},{path:"/home",element:C(cp,{})},{path:"/product",element:C(U3,{})},{path:"*",element:C(W3,{})}],{basename:"/cassiopeia-ecommerce"});return C(Ey,{theme:e,children:C(Ny.Provider,{value:{handleThemeChange:t},children:C(Y3,{children:C(eS,{router:n})})})})}_s.createRoot(document.getElementById("root")).render(C($e.StrictMode,{children:C(K3,{})}));
+`,Y3=e=>oe($e.Fragment,{children:[C(Q3,{}),e.children]});function K3(){const{selectedTheme:e,handleThemeChange:t}=Ly(),n=Ww([{path:"/",element:C(cp,{})},{path:"/home",element:C(cp,{})},{path:"/product",element:C(U3,{})},{path:"*",element:C(W3,{})}]);return C(Ey,{theme:e,children:C(Ny.Provider,{value:{handleThemeChange:t},children:C(Y3,{children:C(eS,{router:n})})})})}_s.createRoot(document.getElementById("root")).render(C($e.StrictMode,{children:C(K3,{})}));
