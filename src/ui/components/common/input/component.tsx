@@ -2,14 +2,15 @@ import StyledInput from "./component.styled"
 import type { InputProps } from "./types"
 
 function RawInput (props: InputProps): JSX.Element {
+  const { customStyles, ...restProps } = props
   return (
     <>
       <input
         data-testid="Input"
-        id={props.name}
-        { ...props }
+        id={restProps.name}
+        { ...restProps }
       />
-      { props.icon }
+      { restProps.icon }
     </>
   )
 }
