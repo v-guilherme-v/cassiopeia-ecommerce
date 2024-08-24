@@ -8,6 +8,7 @@ import Input from "../input/component"
 import { doNothing } from "@utils/index"
 
 interface CounterActionsProps {
+  ariaLabel: string
   operationType: string
   onActionClick: React.MouseEventHandler
   isActionDisabled?: boolean
@@ -19,6 +20,7 @@ function CounterAction (props: PropsWithChildren<CounterActionsProps>): JSX.Elem
       <Button.AsIcon
         data-name="CounterAction"
         data-action={props.operationType}
+        aria-label={props.ariaLabel}
         disabled={props.isActionDisabled}
         onClick={props.onActionClick}
       >
@@ -57,15 +59,14 @@ function Counter (props: CounterProps): JSX.Element {
   const counterMaxQty = props.maxQuantity ?? 999
 
   function evalInitialQuantity (): number {
-    if (
-      props.initialQuantity === null ||
-      props.initialQuantity === undefined ||
-      props.initialQuantity < counterMinQty ||
-      props.initialQuantity > counterMaxQty
-    ) {
-      return 1
+    const quantity = props.initialQuantity ?? 1
+
+    if (quantity < counterMinQty) {
+      return counterMinQty
+    } else if (quantity > counterMaxQty) {
+      return counterMaxQty
     } else {
-      return props.initialQuantity
+      return quantity
     }
   }
 
@@ -95,6 +96,7 @@ function Counter (props: CounterProps): JSX.Element {
   return (
     <StyledCounter>
       <CounterAction
+        ariaLabel="difference"
         operationType="diff"
         isActionDisabled={counterQty === counterMinQty}
         onActionClick={onDiffActionClick}
@@ -108,6 +110,7 @@ function Counter (props: CounterProps): JSX.Element {
         onChange={doNothing}
       />
       <CounterAction
+        ariaLabel="sum"
         operationType="sum"
         isActionDisabled={counterQty === counterMaxQty}
         onActionClick={onSumActionClick}
