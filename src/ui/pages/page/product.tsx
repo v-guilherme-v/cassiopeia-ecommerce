@@ -28,6 +28,7 @@ import { ButtonModels, ButtonSizes } from "@components/common/button"
 import { ScrollRestoration } from "react-router-dom"
 import randomFlower from "src/assets/flower-1.png"
 import { toCurrency } from "@utils/commerce"
+import { doNothing } from "@utils/index"
 
 const breadcrumbs = [
   { name: "Level 1" },
@@ -73,7 +74,7 @@ export default function ProductPage (): JSX.Element {
             </Block>
             <Block data-name="Product__QuantityCounter">
               <Text.Large data-name="Product__QuantityLabel">Quantity</Text.Large>
-              <Counter onQuantityChange={newQty => { console.log("new qty is ", newQty) }}/>
+              <Counter onQuantityChange={doNothing}/>
             </Block>
             <Block data-name="Product__ColorSelector">
               <Text.Large data-name="Product__ColorSelectorLabel">Color</Text.Large>
