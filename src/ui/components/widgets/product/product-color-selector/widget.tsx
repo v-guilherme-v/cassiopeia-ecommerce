@@ -23,6 +23,7 @@ function ColorSelectionOption (props: PropsWithChildren<ColorSelectionOptionProp
     <StyledColorSelectionOption {...restProps}>
       <input
         type="radio"
+        aria-label={props.name}
         name={props.name}
         checked={props.selected}
         onChange={event => { props.onColorOptionSelected(event) }}
