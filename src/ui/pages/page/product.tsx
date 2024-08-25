@@ -26,7 +26,7 @@ import { getColorStyles, getViewPortsStyles } from "@theme/selectors"
 import { ButtonModels, ButtonSizes } from "@components/common/button"
 
 import { ScrollRestoration } from "react-router-dom"
-
+import randomFlower from "src/assets/flower-1.png"
 import { toCurrency } from "@utils/commerce"
 
 const breadcrumbs = [
@@ -52,7 +52,7 @@ export default function ProductPage (): JSX.Element {
         </Block>
         <Block data-name="ProductPage__Content">
           <Block data-name="ProductPage__ImageSection">
-            <ProductImage />
+            <ProductImage imageURL={randomFlower} imageAltText="Random flower"/>
             <ProductTags tags={[
               { icon: <CartIcon />, name: "Benefits description" },
               { icon: <CartIcon />, name: "Benefits description" },
