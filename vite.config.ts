@@ -14,5 +14,6 @@ export default defineConfig({
     svgr({
       exportAsDefault: true
     })
-  ]
+  ],
+  base: "/cassiopeia-ecommerce/"
 })

@@ -22,6 +22,7 @@
     "^@ui/utils$": "<rootDir>/src/ui/utils/index",
     "^@utils/(.*)$": "<rootDir>/src/utils/$1",
     "^swiper": "<rootDir>/src/__mocks__/swiper.js",
+    "^react-router-dom": "<rootDir>/src/__mocks__/react-router.js",
     "\\.svg$": "<rootDir>/src/__mocks__/svg.js",
     "\\.(jpg|png)": "<rootDir>/src/__mocks__/img.js"
   },

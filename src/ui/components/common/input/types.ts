@@ -1,12 +1,7 @@
-import { type ReactNode, type ChangeEventHandler } from "react"
+import { type ReactNode } from "react"
 
-export interface InputProps {
+export interface InputProps extends React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> {
   icon?: ReactNode
-  name: string
-  type?: string
-  value: string
-  onChange: ChangeEventHandler<HTMLInputElement>
-  placeholder?: string
   customStyles?: {
     textColor?: string
     borderColor?: string

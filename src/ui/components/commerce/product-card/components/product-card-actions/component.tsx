@@ -25,6 +25,16 @@ const StyledProductCardAction = styled.div`
   svg {
     color: ${props => getColorStyles(props).black};
   }
+  
+  @media (max-width: ${props => getViewPortsStyles(props).medium}) {
+    --control-width: 40px;
+    --control-height: 40px;
+
+    svg {
+      width: 1rem;
+      height: 1rem;
+    }
+  }
 `
 
 function ProductCardAction (props: ProductCardActionProps): JSX.Element {

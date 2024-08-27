@@ -38,7 +38,10 @@ export function getBgColor (props: StyledButtonProps): string {
   const themeColors = getColorStyles(props)
 
   // custom background
-  if (props?.backgroundColor != null) {
+  if (
+    props.backgroundColor !== null &&
+    props.backgroundColor !== undefined
+  ) {
     return props.backgroundColor
   }
 

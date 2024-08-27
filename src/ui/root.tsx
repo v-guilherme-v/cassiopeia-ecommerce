@@ -1,19 +1,44 @@
 import { ThemeProvider } from "styled-components"
 import { useThemeSetup } from "@theme/hooks"
 
-import { Home } from "@pages"
+import { HomePage, ProductPage, NotFoundPage } from "@pages"
 import { ThemeFunctionsContext } from "@contexts"
 
 import StyledRoot from "./root.styled"
 
+import {
+  createHashRouter,
+  RouterProvider
+} from "react-router-dom"
+
 export default function Root (): JSX.Element {
   const { selectedTheme, handleThemeChange } = useThemeSetup()
+
+  // Using hash router till i host it somewhere else than github
+  const router = createHashRouter([
+    {
+      path: "/",
+      element: <HomePage />
+    },
+    {
+      path: "/home",
+      element: <HomePage />
+    },
+    {
+      path: "/product",
+      element: <ProductPage />
+    },
+    {
+      path: "*",
+      element: <NotFoundPage />
+    }
+  ])
 
   return (
     <ThemeProvider theme={selectedTheme}>
       <ThemeFunctionsContext.Provider value={{ handleThemeChange }}>
         <StyledRoot>
-          <Home />
+          <RouterProvider router={router} />
         </StyledRoot>
       </ThemeFunctionsContext.Provider>
     </ThemeProvider>
