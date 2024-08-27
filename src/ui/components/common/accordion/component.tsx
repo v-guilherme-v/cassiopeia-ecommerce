@@ -27,6 +27,11 @@ function Accordion (props: PropsWithChildren<AccordionProps>): JSX.Element {
 }
 
 const StyledAccordion = styled.div`
+  /* To hide marker on Safari */
+  summary::-webkit-details-marker {
+    display: none;
+  }
+  
   summary[data-name="AccordionSummary"] {
     list-style: none;
     position: relative;
