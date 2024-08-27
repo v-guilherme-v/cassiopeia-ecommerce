@@ -1,3 +1,4 @@
+import { useState } from "react"
 import styled, { useTheme } from "styled-components"
 
 import {
@@ -16,10 +17,13 @@ import {
   Navigation,
   TopBar,
   Footer,
+  MiniCart,
   ProductImage,
   ProductTags,
   ProductColorSelector
 } from "@components/widgets"
+
+import { MiniCartContext } from "@contexts"
 
 import { CartIcon } from "@components/icons"
 import { getColorStyles, getViewPortsStyles } from "@theme/selectors"
@@ -40,13 +44,26 @@ const breadcrumbs = [
 export default function ProductPage (): JSX.Element {
   const theme = useTheme()
 
+  const [ isMiniCartOpen, setIsMiniCartOpen ] = useState<boolean>(false)
+
   return (
     <StyledProductPage>
       <ScrollRestoration />
-      <Header>
-        <TopBar />
-        <Navigation />
-      </Header>
+
+      <MiniCartContext.Provider value={{
+        isOpen: isMiniCartOpen,
+        toggleMiniCart: () => {
+          setIsMiniCartOpen(c => !c)
+        }
+      }}>
+        <Header>
+          <TopBar />
+          <Navigation />
+        </Header>
+
+        <MiniCart />
+      </MiniCartContext.Provider>
+
       <Container>
         <Block data-name="ProductPage__Heading">
           <Breadcrumbs breadcrumbs={breadcrumbs} />
@@ -145,7 +162,7 @@ const StyledProductPage = styled.section`
         padding-bottom: 15px;
         border-bottom: 1px solid ${props => getColorStyles(props).lightGrey};
 
-        ${Title.Styled}[data-name="ProductName"] {
+        ${Title.Styled.Normal}[data-name="ProductName"] {
           font-weight: 400;
           line-height: 24px;
           margin-bottom: 20px;
@@ -187,18 +204,29 @@ const StyledProductPage = styled.section`
         margin-top: 50px;
         gap: 20px;
 
-        ${Button.Styled}[data-name="GoToCart"] {
+        ${Button.Styled.Normal}[data-name="GoToCart"] {
           max-width: 309px;
           width: 100%;
         }
 
-        ${Button.Styled}[data-name="AddToCart"] {
+        ${Button.Styled.Normal}[data-name="AddToCart"] {
           min-width: 46px;
 
           & svg {
             width: 17px;
             height: 14px;
           }
+        }
+
+        @media (max-width: ${props => getViewPortsStyles(props).medium}) {
+          position: fixed;
+          width: 100%;
+          margin: 0;
+          left: 0;
+          bottom: 0;
+          padding: 25px;
+          z-index: 1;
+          background-color: ${props => getColorStyles(props).white};
         }
       }
 
