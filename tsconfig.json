@@ -17,6 +17,7 @@
     "noEmit": true,
     "jsx": "react-jsx",
     "paths": {
+      "@ui/*": ["src/ui/*"],
       "@theme/*": ["src/ui/theme/*"],
       "@components/*": ["src/ui/components/*"],
       "@pages": ["src/ui/pages/index"],

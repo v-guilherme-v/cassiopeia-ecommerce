@@ -1,5 +1,5 @@
 import { useState } from "react"
-import styled, { useTheme } from "styled-components"
+import { useTheme } from "styled-components"
 
 import {
   Header,
@@ -12,12 +12,13 @@ import {
 } from "@components/widgets"
 
 import { ProductCarousel } from "@components/commerce"
+import StyledHomePage from "./page.styled"
 
 import flowersBanner from "src/assets/flowers-banner.png"
 import randomFlower from "src/assets/flower-1.png"
 
 import type { ColorStyles } from "@theme/types"
-import { getColorStyles, getViewPortsStyles } from "@theme/selectors"
+import { getColorStyles } from "@theme/selectors"
 
 import { MiniCartContext } from "@contexts"
 
@@ -97,32 +98,3 @@ export default function HomePage (): JSX.Element {
     </StyledHomePage>
   )
 }
-
-const StyledHomePage = styled.section`
-  position: relative;
-  overflow-x: hidden;
-
-  ${HeroBanner.Styled} {
-    margin-top: 40.5px;
-  }
-
-  ${Footer.Styled} {
-    margin-top: 100px;
-  }
-
-  @media(max-width: ${props => getViewPortsStyles(props).medium}) {
-    ${HeroBanner.Styled} {
-      margin-top: 0;
-    }
-
-    ${Footer.Styled} {
-      margin-top: 0;
-    }
-  }
-
-  @media(max-width: ${props => getViewPortsStyles(props).small}) {
-    ${HeroBanner.Styled} {
-      margin-top: 1.75rem;
-    } 
-  }
-`
