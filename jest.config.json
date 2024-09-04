@@ -13,6 +13,7 @@
   "setupFilesAfterEnv": ["<rootDir>/jest.setup.js"],
   "moduleNameMapper": {
     "^@/(.*)$": "<rootDir>/src/$1",
+    "^@ui/(.*)$": "<rootDir>/src/ui/$1",
     "^@components/(.*)$": "<rootDir>/src/ui/components/$1",
     "^@theme/(.*)$": "<rootDir>/src/ui/theme/$1",
     "^@providers": "<rootDir>/src/ui/providers/index",

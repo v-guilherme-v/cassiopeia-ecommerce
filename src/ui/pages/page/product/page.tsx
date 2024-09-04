@@ -1,5 +1,6 @@
-import { useState } from "react"
-import styled, { useTheme } from "styled-components"
+import { useState, useRef, useEffect } from "react"
+import { useTheme } from "styled-components"
+import StyledProductPage from "./page.styled"
 
 import {
   Accordion,
@@ -26,13 +27,15 @@ import {
 import { MiniCartContext } from "@contexts"
 
 import { CartIcon } from "@components/icons"
-import { getColorStyles, getViewPortsStyles } from "@theme/selectors"
 import { ButtonModels, ButtonSizes } from "@components/common/button"
 
 import { ScrollRestoration } from "react-router-dom"
 import randomFlower from "src/assets/flower-1.png"
+
 import { toCurrency } from "@utils/commerce"
 import { doNothing } from "@utils/index"
+
+import { useViewPorts } from "@ui/hooks/use-viewports"
 
 const breadcrumbs = [
   { name: "Level 1" },
@@ -44,7 +47,44 @@ const breadcrumbs = [
 export default function ProductPage (): JSX.Element {
   const theme = useTheme()
 
+  const footerRef = useRef<HTMLDivElement>(null)
+  const cartActionsRef = useRef<HTMLDivElement>(null)
   const [ isMiniCartOpen, setIsMiniCartOpen ] = useState<boolean>(false)
+
+  const viewPorts = useViewPorts()
+
+  useEffect(() => {
+    function onScroll (): void {
+      if (
+        footerRef.current !== null &&
+        cartActionsRef.current !== null
+      ) {
+        const footerElement = footerRef.current
+        const cartActionsElement = cartActionsRef.current
+
+        if (footerElement !== null && cartActionsElement !== null) {
+          const footerRect = footerElement.getBoundingClientRect()
+          if ((footerRect.y + cartActionsElement.getBoundingClientRect().height) <= window.innerHeight) {
+            cartActionsElement.style.position = "static"
+            cartActionsElement.style.padding = "0"
+            cartActionsElement.style.marginTop = "50px"
+          } else if (footerRect.y > window.innerHeight) {
+            cartActionsElement.style.position = "fixed"
+            cartActionsElement.style.padding = "25px"
+            cartActionsElement.style.marginTop = "0"
+          }
+        }
+      }
+    }
+
+    if (viewPorts.maxWidthMedium) {
+      window.addEventListener("scroll", onScroll)
+    }
+
+    return () => {
+      window.removeEventListener("scroll", onScroll)
+    }
+  }, [ viewPorts ])
 
   return (
     <StyledProductPage>
@@ -102,7 +142,7 @@ export default function ProductPage (): JSX.Element {
                   { id: "green", value: theme.color.positive }
                 ]} />
             </Block>
-            <Block data-name="Product__CartActions">
+            <Block ref={cartActionsRef} data-name="Product__CartActions">
               <Button
                 data-name="GoToCart"
                 backgroundColor={theme.color.black}
@@ -136,112 +176,7 @@ export default function ProductPage (): JSX.Element {
           </Block>
         </Block>
       </Container>
-      <Footer />
+      <Footer ref={footerRef}/>
     </StyledProductPage>
   )
 }
-
-const StyledProductPage = styled.section`
-  display: flex;
-  flex-direction: column;
-  height: 100dvh;
-
-  ${Container.Styled} {
-    flex: 1;
-  }
-  
-  ${Block.Styled}[data-name="ProductPage__Content"] {
-    display: flex;
-    gap: 70px;
-
-    ${Block.Styled}[data-name="ProductPage__ActionSection"] {
-      flex: 1;
-      max-width: 518px;
-
-      ${Block.Styled}[data-name="Product__Identification"] {
-        padding-bottom: 15px;
-        border-bottom: 1px solid ${props => getColorStyles(props).lightGrey};
-
-        ${Title.Styled.Normal}[data-name="ProductName"] {
-          font-weight: 400;
-          line-height: 24px;
-          margin-bottom: 20px;
-        }
-
-        ${Block.Styled}[data-name="ProductPricing"] {
-          display: flex;
-          gap: 20px;
-
-          ${Title.Styled.Large}[data-name="ProductCurrentPrice"] {
-            font-weight: 500;
-            line-height: 28px;
-          }
-
-          ${Text.Styled.StrikeLarge}[data-name="ProductOldPrice"] {
-            color: ${props => getColorStyles(props).darkGrey};
-            font-weight: 500;
-            line-height: 22px;
-            align-self: end;
-          }
-        }
-      }
-
-      ${Block.Styled}[data-name="Product__QuantityCounter"],
-      ${Block.Styled}[data-name="Product__ColorSelector"] {
-        display: flex;
-        flex-direction: column;
-        margin-top: 40px;
-        gap: 24.5px;
-
-        ${Text.Styled.Large}[data-name="Product__QuantityLabel"],
-        ${Text.Styled.Large}[data-name="Product__ColorSelectorLabel"] {
-          line-height: 24px;
-        }
-      }
-
-      ${Block.Styled}[data-name="Product__CartActions"] {
-        display: flex;
-        margin-top: 50px;
-        gap: 20px;
-
-        ${Button.Styled.Normal}[data-name="GoToCart"] {
-          max-width: 309px;
-          width: 100%;
-        }
-
-        ${Button.Styled.Normal}[data-name="AddToCart"] {
-          min-width: 46px;
-
-          & svg {
-            width: 17px;
-            height: 14px;
-          }
-        }
-
-        @media (max-width: ${props => getViewPortsStyles(props).medium}) {
-          position: fixed;
-          width: 100%;
-          margin: 0;
-          left: 0;
-          bottom: 0;
-          padding: 25px;
-          z-index: 1;
-          background-color: ${props => getColorStyles(props).white};
-        }
-      }
-
-      ${Block.Styled}[data-name="Product__Description"] {
-        margin-top: 40px;
-      }
-    }
-
-    @media (max-width: ${props => getViewPortsStyles(props).large}) {
-      flex-direction: column;
-      gap: 32px;
-    }
-  }
-
-  ${Footer.Styled} {
-    margin-top: 32px;
-  }
-`

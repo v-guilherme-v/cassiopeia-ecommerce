@@ -1,14 +1,16 @@
-import type { PropsWithChildren } from "react"
+import { forwardRef, type PropsWithChildren } from "react"
 import styled from "styled-components"
+import type { ForwardRefWithStyled } from "@ui/types"
 
-function Block ({ children, ...restProps }: PropsWithChildren): JSX.Element {
+const Block = forwardRef<HTMLDivElement, PropsWithChildren>((props, ref) => {
+  const { children, ...restProps } = props
   return (
-    <StyledBlock {...restProps}>{ children }</StyledBlock>
+    <StyledBlock ref={ref} {...restProps}>{ children }</StyledBlock>
   )
-}
+}) as ForwardRefWithStyled<HTMLDivElement, PropsWithChildren, typeof StyledBlock>
 
 const StyledBlock = styled.div``
-
+Block.displayName = "Block"
 Block.Styled = StyledBlock
 
 export default Block
