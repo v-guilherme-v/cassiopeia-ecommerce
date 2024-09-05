@@ -1,4 +1,6 @@
 import { useId } from "react"
+import { Link } from "react-router-dom"
+
 import StyledNavigation from "./widget.styled"
 import { Text } from "@components/common"
 
@@ -12,10 +14,10 @@ export interface NavigationProps {
 }
 
 const navigationLinksMock: NavigationLink[] = [
-  { label: "Flowers", route: "flowers" },
-  { label: "Plants", route: "plants" },
-  { label: "Gifts", route: "gifts" },
-  { label: "Discounts", route: "discounts" },
+  { label: "Flowers", route: "/category/flowers" },
+  { label: "Plants", route: "/category/plants" },
+  { label: "Gifts", route: "/category/gifts" },
+  { label: "Discounts", route: "/category/discounts" },
   { label: "About us", route: "about-us" }
 ]
 
@@ -27,9 +29,9 @@ function Navigation ({ navigationLinks = navigationLinksMock }: NavigationProps)
       <ul className="Navigation__Links">
         {navigationLinks.map((link) => (
           <li key={link.route + uniqueId} className="Navigation__Link">
-            <a href={link.route} className="Navigation__LinkAnchor">
+            <Link to={link.route} className="Navigation__LinkAnchor">
               <Text.Large>{link.label}</Text.Large>
-            </a>
+            </Link>
           </li>
         ))}
       </ul>

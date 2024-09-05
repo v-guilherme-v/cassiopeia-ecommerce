@@ -1,9 +1,9 @@
 import { type PropsWithChildren } from "react"
 import styled from "styled-components"
 
-function Container ({ children }: PropsWithChildren): JSX.Element {
+function Container ({ children, ...restProps }: PropsWithChildren): JSX.Element {
   return (
-    <StyledContainer>{children}</StyledContainer>
+    <StyledContainer {...restProps}>{children}</StyledContainer>
   )
 }
 
