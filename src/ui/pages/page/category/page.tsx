@@ -1,9 +1,10 @@
 import { useState } from "react"
 
 import {
+  Text,
   Block,
   Container,
-  Text
+  Select
 } from "@components/common"
 
 import {
@@ -46,10 +47,23 @@ export default function CategoryPage (): JSX.Element {
             <Breadcrumbs breadcrumbs={breadcrumbs} displayMode="title" />
           </Block>
           <Block data-name="CategoryPage__Filters">
-            <Block data-name="CategoryPage__Filters__Options">
-
+            <Block data-name="CategoryPage__FilterOptions">
+              <Select placeholder="Sort by" mode="multi" options={[
+                { value: "popular", label: "Popular" },
+                { value: "best-sellers", label: "Best sellers" },
+                { value: "news", label: "Just arrived" }
+              ]} />
+              <Select placeholder="Occasion" mode="multi" options={[
+                { value: "first-date", label: "First date" },
+                { value: "valentines", label: "Valentines" },
+                { value: "mothers-day", label: "Mother's Day" }
+              ]} />
+              <Select placeholder="Price" options={[
+                { value: "asc", label: "Most expensive" },
+                { value: "desc", label: "Cheapest" }
+              ]} />
             </Block>
-            <Text>24 items</Text>
+            <Text data-name="CategoryPage__FilterTotalItems">24 items</Text>
           </Block>
         </Container>
 

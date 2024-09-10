@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { Block, Container } from "@components/common"
+import { Block, Container, Text } from "@components/common"
 import { Footer } from "@components/widgets"
 import { getColorStyles, getViewPortsStyles } from "@theme/selectors"
 
@@ -14,10 +14,23 @@ export default styled.section`
 
   ${Block.Styled}[data-name="CategoryPage__Filters"] {
     display: flex;
+    align-items: center;
     justify-content: space-between;
+    gap: 1rem;
     padding: 16px 0;
-    margin-top: 24px;
+    margin-top: 8px;
     border-bottom: 1px solid ${props => getColorStyles(props).lightGrey};
+
+    ${Block.Styled}[data-name="CategoryPage__FilterOptions"] {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    ${Text.Styled.Normal}[data-name="CategoryPage__FilterTotalItems"] {
+      user-select: none;
+    }
   }
   
   ${Footer.Styled} {
