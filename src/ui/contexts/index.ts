@@ -18,3 +18,9 @@ export interface MiniCartContextType {
   toggleMiniCart: () => void
 }
 export const MiniCartContext = createContext<MiniCartContextType | null>(null)
+
+export interface MobileFiltersContextType {
+  isFilterMenuOpen: boolean
+  toggleMobileFilters: () => void
+}
+export const MobileFiltersContext = createContext<MobileFiltersContextType | null>(null)

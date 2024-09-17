@@ -1,22 +1,28 @@
-import { type PropsWithChildren } from "react"
+import { type ReactNode, type PropsWithChildren } from "react"
 import styled from "styled-components"
 
 import { getColorStyles } from "@theme/selectors"
 import Text from "../text"
-import Block from "../block/component"
+import Block from "../block"
+import Button from "../button"
 
 interface AccordionProps {
   label: string
+  initiallyOpen?: boolean
+  iconToOpen?: ReactNode
+  iconToClose?: ReactNode
 }
 
 function Accordion (props: PropsWithChildren<AccordionProps>): JSX.Element {
   return (
     <StyledAccordion {...props}>
-      <details data-name="AccordionDetails">
+      <details data-name="AccordionDetails" open={props.initiallyOpen}>
         <summary data-name="AccordionSummary">
           <Text.Button data-name="AccordionSummary__Text">
             { props.label }
           </Text.Button>
+          <Button.AsIcon data-name="AccordionActionOpen">{props.iconToOpen ?? "+"}</Button.AsIcon>
+          <Button.AsIcon data-name="AccordionActionClose">{props.iconToClose ?? "-"}</Button.AsIcon>
         </summary>
         <Block data-name="AccordionContent">
           { props.children }
@@ -39,16 +45,22 @@ const StyledAccordion = styled.div`
     cursor: pointer;
     padding: 19px 0;
 
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
     ${Text.Styled.Button}[data-name="AccordionSummary__Text"] {
       line-height: 20px;
     }
   }
 
-  summary[data-name="AccordionSummary"]::before {
-    content: "+";
-    position: absolute;
-    right: 0;
-    font-size: 18px;
+  ${Button.Styled.AsIcon}[data-name="AccordionActionOpen"],
+  ${Button.Styled.AsIcon}[data-name="AccordionActionClose"] {
+    pointer-events: none;
+  }
+
+  ${Button.Styled.AsIcon}[data-name="AccordionActionClose"] {
+    display: none;
   }
 
   details[data-name="AccordionDetails"] {
@@ -57,9 +69,13 @@ const StyledAccordion = styled.div`
 
   details[data-name="AccordionDetails"][open] {
     padding-bottom: 19px;
+
+    ${Button.Styled.AsIcon}[data-name="AccordionActionOpen"] {
+      display: none;
+    }
     
-    summary[data-name="AccordionSummary"]::before {
-      content: "-";
+    ${Button.Styled.AsIcon}[data-name="AccordionActionClose"] {
+      display: block;
     }
   }
 `

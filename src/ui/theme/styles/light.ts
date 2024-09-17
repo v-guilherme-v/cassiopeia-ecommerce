@@ -27,6 +27,7 @@ const lightTheme: ThemeType = {
     lightGrey: "#E6E6EB",
     grey: "#AFB1BD",
     darkGrey: "#82828B",
+    lightBlack: "#505050",
     black: "#000000",
     whatsapp: "#24D366",
     facebook: "#4F66A5"
@@ -50,7 +51,8 @@ const lightTheme: ThemeType = {
   general: {
     containerSize: "1160px",
     headerLayer: 10,
-    miniCartLayer: 11
+    miniCartLayer: 11,
+    mobileFiltersLayer: 11
   },
 
   viewPorts: {

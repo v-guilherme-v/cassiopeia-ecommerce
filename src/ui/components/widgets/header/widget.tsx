@@ -1,4 +1,3 @@
-import { getViewPortsStyles } from "@ui/theme/selectors"
 import { type PropsWithChildren } from "react"
 import styled from "styled-components"
 
@@ -15,10 +14,6 @@ const StyledHeader = styled.header`
   background-color: ${({ theme }) => theme.color.white};
   z-index: ${({ theme }) => theme.general.headerLayer};
   padding: 0 1rem;
-
-  @media (max-width: ${props => getViewPortsStyles(props).small}) {
-    margin-bottom: 30px;
-  }
 `
 
 export default Header

@@ -1,3 +1,4 @@
+import { getViewPortsStyles } from "@ui/theme/selectors"
 import styled from "styled-components"
 
 const StyledNormalTopBar = styled.section`
@@ -9,6 +10,10 @@ const StyledNormalTopBar = styled.section`
   min-height: 52px;
 
   background-color: ${({ theme }) => theme.color.white};
+
+  @media (max-width: ${props => getViewPortsStyles(props).medium}) {
+    height: 72px;
+  }
 `
 
 const StyledSocialMediasTopBar = styled(StyledNormalTopBar)``

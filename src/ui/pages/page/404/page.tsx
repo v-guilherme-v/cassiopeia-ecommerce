@@ -1,4 +1,3 @@
-import { useState } from "react"
 import styled, { useTheme } from "styled-components"
 
 import {
@@ -12,30 +11,23 @@ import {
 import { Block, Button, Title } from "@components/common"
 import { useNavigate } from "react-router-dom"
 
-import { MiniCartContext } from "@contexts"
+import { MiniCartContextProvider } from "@providers"
 import { ThinArrowIcon } from "@components/icons"
 import { ButtonIconPositions } from "@components/common/button"
 
 export default function NotFoundPage (): JSX.Element {
-  const [ isMiniCartOpen, setIsMiniCartOpen ] = useState<boolean>(false)
-
   const goTo = useNavigate()
 
   return (
     <StyledNotFound>
-      <MiniCartContext.Provider value={{
-        isOpen: isMiniCartOpen,
-        toggleMiniCart: () => {
-          setIsMiniCartOpen(c => !c)
-        }
-      }}>
+      <MiniCartContextProvider>
         <Header>
           <TopBar />
           <Navigation />
         </Header>
 
         <MiniCart />
-      </MiniCartContext.Provider>
+      </MiniCartContextProvider>
 
       <Block data-name="NotFoundPage">
         <Title>Sorry, we couldn&apos;t find it for you now</Title>

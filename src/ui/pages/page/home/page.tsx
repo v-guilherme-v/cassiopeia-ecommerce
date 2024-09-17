@@ -1,4 +1,3 @@
-import { useState } from "react"
 import { useTheme } from "styled-components"
 
 import {
@@ -20,28 +19,21 @@ import randomFlower from "src/assets/flower-1.png"
 import type { ColorStyles } from "@theme/types"
 import { getColorStyles } from "@theme/selectors"
 
-import { MiniCartContext } from "@contexts"
+import { MiniCartContextProvider } from "@providers"
 
 export default function HomePage (): JSX.Element {
   const colors: ColorStyles = getColorStyles({ theme: useTheme() })
 
-  const [ isMiniCartOpen, setIsMiniCartOpen ] = useState<boolean>(false)
-
   return (
     <StyledHomePage>
-      <MiniCartContext.Provider value={{
-        isOpen: isMiniCartOpen,
-        toggleMiniCart: () => {
-          setIsMiniCartOpen(c => !c)
-        }
-      }}>
+      <MiniCartContextProvider>
         <Header>
           <TopBar />
           <Navigation />
         </Header>
 
         <MiniCart />
-      </MiniCartContext.Provider>
+      </MiniCartContextProvider>
 
       <HeroBanner
         title={{ text: "Flowers", color: colors.black }}

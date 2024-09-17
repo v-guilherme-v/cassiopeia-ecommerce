@@ -23,6 +23,7 @@ export interface ColorStyles {
   lightGrey: string
   grey: string
   darkGrey: string
+  lightBlack: string
   black: string
 
   // Social medias
@@ -92,6 +93,7 @@ export interface GeneralStyles {
   containerSize: string
   headerLayer: number
   miniCartLayer: number
+  mobileFiltersLayer: number
 }
 
 export interface ViewportMedias {

@@ -39,9 +39,11 @@ export default styled.section`
     ${Text.Styled.Normal}[data-name="CategoryPage__FilterTotalItems"] {
       user-select: none;
     }
-
-    svg {
-      color: #505050
+    
+    ${Button.Styled.Normal}[data-name="CategoryPage__MobileFiltersAction"] {
+      max-width: max-content;
+      max-height: 20px;
+      color: ${props => getColorStyles(props).lightBlack};
     }
 
     @media (max-width: ${props => getViewPortsStyles(props).medium}) {
@@ -49,6 +51,10 @@ export default styled.section`
       border-bottom: none;
       margin-top: 13px;
       padding: 0;
+
+      ${Text.Styled.Normal}[data-name="CategoryPage__FilterTotalItems"] {
+        color: ${props => getColorStyles(props).lightBlack};
+      }
     }
   }
 
@@ -104,7 +110,7 @@ export default styled.section`
 
   @media(max-width: ${props => getViewPortsStyles(props).medium}) {
     ${Footer.Styled} {
-      margin-top: 2rem;
+      margin-top: 60px;
     }
   }
 `

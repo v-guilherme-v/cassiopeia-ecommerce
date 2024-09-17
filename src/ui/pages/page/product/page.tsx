@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react"
+import { useRef, useEffect } from "react"
 import { useTheme } from "styled-components"
 import StyledProductPage from "./page.styled"
 
@@ -24,7 +24,7 @@ import {
   ProductColorSelector
 } from "@components/widgets"
 
-import { MiniCartContext } from "@contexts"
+import { MiniCartContextProvider } from "@providers"
 
 import { CartIcon } from "@components/icons"
 import { ButtonModels, ButtonSizes } from "@components/common/button"
@@ -49,7 +49,6 @@ export default function ProductPage (): JSX.Element {
 
   const footerRef = useRef<HTMLDivElement>(null)
   const cartActionsRef = useRef<HTMLDivElement>(null)
-  const [ isMiniCartOpen, setIsMiniCartOpen ] = useState<boolean>(false)
 
   const viewPorts = useViewPorts()
 
@@ -90,19 +89,14 @@ export default function ProductPage (): JSX.Element {
     <StyledProductPage>
       <ScrollRestoration />
 
-      <MiniCartContext.Provider value={{
-        isOpen: isMiniCartOpen,
-        toggleMiniCart: () => {
-          setIsMiniCartOpen(c => !c)
-        }
-      }}>
+      <MiniCartContextProvider>
         <Header>
           <TopBar />
           <Navigation />
         </Header>
 
         <MiniCart />
-      </MiniCartContext.Provider>
+      </MiniCartContextProvider>
 
       <Container>
         <Block data-name="ProductPage__Heading">
