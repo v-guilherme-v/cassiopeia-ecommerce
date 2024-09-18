@@ -27,7 +27,6 @@ const StyledMobileFiltersContainer = styled.aside<IStyledMobileFiltersProps>`
   width: 100%;
 
   background-color: ${props => getColorStyles(props).white};
-  box-shadow: -5px 10px 52px 0px rgba(90, 92, 102, 0.06);
   z-index: ${props => getGeneralStyles(props).mobileFiltersLayer};
   transition: right var(--mobile-filters-transition-time);
 

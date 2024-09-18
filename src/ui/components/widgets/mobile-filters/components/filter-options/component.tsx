@@ -6,6 +6,7 @@ import { Accordion, Block } from "@components/common"
 
 import SelectableFilterTag from "../filter-tags/component"
 import { getColorStyles } from "@ui/theme/selectors"
+import { doNothing } from "@utils/index"
 
 function MobileFilterOption (
   props: PropsWithChildren<{ label: string, initiallyOpen?: boolean }>
@@ -56,6 +57,7 @@ export function MobileFilterOptions (): JSX.Element {
               key={filterTag.name}
               name={filterTag.name}
               label={filterTag.label}
+              onFilterTagClick={doNothing}
               isSelected={filterTag?.isActive}
             />
           )

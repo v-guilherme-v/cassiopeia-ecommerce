@@ -33,6 +33,7 @@ import {
 import randomFlower from "src/assets/flower-1.png"
 import { useViewPorts } from "@ui/hooks/use-viewports"
 import { ButtonModels } from "@ui/components/common/button"
+import { doNothing } from "@utils/index"
 
 const breadcrumbs = [
   { name: "Level 1" },
@@ -79,17 +80,17 @@ export default function CategoryPage (): JSX.Element {
             <Block data-name="CategoryPage__Filters">
               {viewPorts.minWidthMedium ? (
                 <Block data-name="CategoryPage__FilterOptions">
-                  <Select placeholder="Sort by" mode="multi" options={[
+                  <Select onChange={doNothing} placeholder="Sort by" mode="multi" options={[
                     { value: "popular", label: "Popular" },
                     { value: "best-sellers", label: "Best sellers" },
                     { value: "news", label: "Just arrived" }
                   ]} />
-                  <Select placeholder="Occasion" mode="multi" options={[
+                  <Select onChange={doNothing} placeholder="Occasion" mode="multi" options={[
                     { value: "first-date", label: "First date" },
                     { value: "valentines", label: "Valentines" },
                     { value: "mothers-day", label: "Mother's Day" }
                   ]} />
-                  <Select placeholder="Price" options={[
+                  <Select onChange={doNothing} placeholder="Price" options={[
                     { value: "asc", label: "Most expensive" },
                     { value: "desc", label: "Cheapest" }
                   ]} />
@@ -119,7 +120,7 @@ export default function CategoryPage (): JSX.Element {
                         pageRoute: "/product",
                         displayName: result.displayName,
                         imageSource: randomFlower,
-                        pricing: { listPrice: 49.99 }
+                        pricing: { listPrice: result.pricing.listPrice }
                       }}
                     />
                   )

@@ -74,27 +74,29 @@ function Select (props: ISelectProps): JSX.Element {
   const onOptionSelection = useCallback((newOption: ISelectOption) => {
     if (selectionMode === "single") {
       setSelectedOptions([ newOption ])
+      props.onChange(newOption)
       setIsSelectOpen(false)
     } else if (selectionMode === "multi") {
-      setSelectedOptions(currOptions => {
-        return [
-          ...currOptions,
-          newOption
-        ]
-      })
+      const newOptions = [
+        ...selectedOptions,
+        newOption
+      ]
+      setSelectedOptions(newOptions)
+      props.onChange(newOptions)
     }
   }, [ selectedOptions, selectionMode ])
 
   const onCrumbClick = useCallback((clickedCrumb: ISelectOption) => {
-    setSelectedOptions(currOptions => {
-      return currOptions.filter(option => option.value !== clickedCrumb.value)
-    })
+    const newOptions = selectedOptions.filter(option => option.value !== clickedCrumb.value)
+    setSelectedOptions(newOptions)
+    props.onChange(newOptions)
   }, [ selectedOptions ])
 
   return (
     <StyledSelect isSelectOpen={isSelectOpen}>
       <Block data-name="Select">
         <Block data-name="Select__Box"
+          data-testid="Select__Box"
           tabIndex={0}
           onBlur={onSelectBlur}
           onClick={onClickOverSelect}

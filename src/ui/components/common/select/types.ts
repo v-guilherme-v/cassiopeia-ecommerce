@@ -6,6 +6,7 @@ export interface ISelectOption {
 export interface ISelectProps {
   mode?: "single" | "multi"
   options: ISelectOption[]
+  onChange: (options: ISelectOption | ISelectOption[]) => void
   placeholder: string
 }
 
