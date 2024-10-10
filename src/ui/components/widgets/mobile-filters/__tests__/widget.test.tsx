@@ -2,51 +2,30 @@ import { fireEvent, render, screen } from "@testing-library/react"
 import MobileFilters from "../widget"
 
 import { MobileFiltersContext } from "@contexts"
-import { LightThemeProvider, MobileFiltersContextProvider } from "@providers"
+import { LightThemeProvider } from "@providers"
 
 describe("The mobile filters widget", () => {
-  it("is open when toggle is clicked for the first time", () => {
+  it("calls its toggle visibility function", () => {
+    const providerContext = {
+      isFilterMenuOpen: true,
+      toggleMobileFilters: jest.fn()
+    }
+
     render(
       <LightThemeProvider>
-        <MobileFiltersContextProvider>
-          <MobileFiltersContext.Consumer>
-            {context => (
-              <button onClick={() => context?.toggleMobileFilters()}>
-                Toggle filters
-              </button>
-            )}
-          </MobileFiltersContext.Consumer>
-          <MobileFilters></MobileFilters>
-        </MobileFiltersContextProvider>
+        <MobileFiltersContext.Provider value={providerContext}>
+          <MobileFilters />
+        </MobileFiltersContext.Provider>
       </LightThemeProvider>
     )
 
-    const toggleFiltersButton = screen.getByText("Toggle filters")
-    fireEvent.click(toggleFiltersButton)
+    const filterDismissAction = screen.getByText("Filters", { exact: true })
+    expect(filterDismissAction).toBeVisible()
+    fireEvent.click(filterDismissAction)
+    expect(providerContext.toggleMobileFilters).toBeCalled()
 
-    expect(screen.getByText("Filters", { exact: true })).toBeVisible()
-  })
-
-  it("is open when toggle is clicked for the first time 1", () => {
-    render(
-      <LightThemeProvider>
-        <MobileFiltersContextProvider>
-          <MobileFiltersContext.Consumer>
-            {context => (
-              <button onClick={() => context?.toggleMobileFilters()}>
-                Toggle filters
-              </button>
-            )}
-          </MobileFiltersContext.Consumer>
-          <MobileFilters></MobileFilters>
-        </MobileFiltersContextProvider>
-      </LightThemeProvider>
-    )
-
-    const toggleFiltersButton = screen.getByText("Toggle filters")
-    fireEvent.click(toggleFiltersButton)
-
-    expect(screen.getByText("Filters", { exact: true })).toBeVisible()
+    // TODO: It's now clicked to cover the current component state tests,
+    // but in future this test should expect something back from this call
     const brandNewFilterOption = screen.getByText("Brand new")
     fireEvent.click(brandNewFilterOption)
   })
