@@ -8,7 +8,8 @@ import type {
   BoxShadowStyles,
   TextStyles,
   TitleStyles,
-  GeneralStyles
+  GeneralStyles,
+  SideMenuStyles
 } from "@theme/types"
 
 export const getPropsTheme = (props: { theme: ThemeType }): ThemeType => props.theme
@@ -69,3 +70,4 @@ export const getTitleStyles = (props: { theme: ThemeType }): TitleStyles => getP
 export const getBoxShadowStyles = (props: { theme: ThemeType }): BoxShadowStyles => getPropsTheme(props).boxShadow
 export const getProductCardStyles = (props: { theme: ThemeType }): ProductCardStyles => getPropsTheme(props).productCard
 export const getFallbackImageStyles = (props: { theme: ThemeType }): FallbackImageStyles => getPropsTheme(props).fallbackImage
+export const getSideMenuStyles = (props: { theme: ThemeType }): SideMenuStyles => getPropsTheme(props).sideMenu

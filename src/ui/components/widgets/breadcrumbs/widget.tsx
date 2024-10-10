@@ -1,4 +1,3 @@
-/* eslint-disable multiline-ternary */
 /* eslint-disable indent */
 
 import styled, { css } from "styled-components"

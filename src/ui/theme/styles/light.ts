@@ -12,7 +12,7 @@ const lightTheme: ThemeType = {
   },
 
   color: {
-    primary: "#595CFF",
+    primary: "#000",
     primaryDark: "#383BE4",
     secondary: "#8C8EFF",
 
@@ -142,6 +142,12 @@ const lightTheme: ThemeType = {
 
   fallbackImage: {
     backgroundColor: "#F9F9F9"
+  },
+
+  sideMenu: {
+    width: "554px",
+    zIndex: 11,
+    transitionTime: "500ms"
   }
 }
 

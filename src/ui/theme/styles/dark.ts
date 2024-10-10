@@ -142,6 +142,12 @@ const darkTheme: ThemeType = {
 
   fallbackImage: {
     backgroundColor: "#F9F9F9"
+  },
+
+  sideMenu: {
+    width: "554px",
+    zIndex: 11,
+    transitionTime: "500ms"
   }
 }
 
