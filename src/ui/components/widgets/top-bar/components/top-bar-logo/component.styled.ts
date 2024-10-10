@@ -6,6 +6,7 @@ export default styled.div`
 
   a { 
     display: block;
+    cursor: default;
   }
 
   a,
@@ -18,6 +19,7 @@ export default styled.div`
   }
 
   @media (min-width: ${props => getViewPortsStyles(props).medium}) {
+    a:hover,
     :hover {
       cursor: pointer;
       opacity: .6;

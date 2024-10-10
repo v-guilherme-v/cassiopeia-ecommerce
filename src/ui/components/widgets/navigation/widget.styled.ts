@@ -22,7 +22,7 @@ export default styled.nav`
     }
   }
 
-  @media(max-width: ${props => getViewPortsStyles(props).small}) {
+  @media(max-width: ${props => getViewPortsStyles(props).medium}) {
     display: none;
   }
 `

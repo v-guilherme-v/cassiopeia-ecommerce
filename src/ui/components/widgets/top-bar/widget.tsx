@@ -1,6 +1,8 @@
 import StyledTopBar from "./widget.styled"
 
-import TopBarActions from "./components/top-bar-actions/component"
+import TopBarLeftSideActions from "./components/top-bar-left-side-actions/component"
+import TopBarRightSideActions from "./components/top-bar-right-side-actions/component"
+
 import TopBarCitySelector from "./components/top-bar-city-selector/component"
 import TopBarLogo from "./components/top-bar-logo/component"
 import TopBarContact from "./components/top-bar-contact/component"
@@ -8,9 +10,9 @@ import TopBarContact from "./components/top-bar-contact/component"
 function TopBar (): JSX.Element {
   return (
     <StyledTopBar.Normal>
-      <TopBarCitySelector />
+      <TopBarLeftSideActions />
       <TopBarLogo />
-      <TopBarActions />
+      <TopBarRightSideActions />
     </StyledTopBar.Normal>
   )
 }
