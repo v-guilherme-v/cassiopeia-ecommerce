@@ -43,7 +43,7 @@ describe("The button", () => {
     expect(screen.getByTestId("Icon")).toBeInTheDocument()
   })
 
-  it("is outlined and has a preppended icon", () => {
+  it("is outlined and has a prepended icon", () => {
     render(
       <LightThemeProvider>
         <Button
@@ -143,5 +143,18 @@ describe("The button", () => {
     const button = screen.getByRole("button")
     expect(button).toBeInTheDocument()
     expect(button).toHaveStyle("background-color: transparent;")
+  })
+
+  it("has custom styles", () => {
+    render(
+      <LightThemeProvider>
+        <Button customStyles={{
+          borderColor: "#f00"
+        }}>Custom styles</Button>
+      </LightThemeProvider>
+    )
+
+    const button = screen.getByRole("button")
+    expect(button).toHaveStyle("border-color: #f00;")
   })
 })

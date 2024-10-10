@@ -23,6 +23,7 @@ export interface ColorStyles {
   lightGrey: string
   grey: string
   darkGrey: string
+  lightBlack: string
   black: string
 
   // Social medias
@@ -92,6 +93,7 @@ export interface GeneralStyles {
   containerSize: string
   headerLayer: number
   miniCartLayer: number
+  mobileFiltersLayer: number
 }
 
 export interface ViewportMedias {
@@ -124,6 +126,12 @@ export interface FallbackImageStyles {
   backgroundColor: string
 }
 
+export interface SideMenuStyles {
+  width: string
+  transitionTime: string
+  zIndex: number
+}
+
 export interface ThemeType {
   // Root styles
   font: FontStyles
@@ -144,4 +152,5 @@ export interface ThemeType {
   fieldState: FieldStateStyles
   productCard: ProductCardStyles
   fallbackImage: FallbackImageStyles
+  sideMenu: SideMenuStyles
 }

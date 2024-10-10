@@ -21,7 +21,6 @@ function HeroBanner (props: HeroBannerProps): JSX.Element {
           </Title.Small>
           <Button
             model={config.button.model}
-            backgroundColor={config.button.backgroundColor}
             icon={{ element: <ThinArrowIcon /> }}
           >
             { config.button.text }

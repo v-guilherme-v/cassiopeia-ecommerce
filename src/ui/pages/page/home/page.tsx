@@ -1,4 +1,3 @@
-import { useState } from "react"
 import { useTheme } from "styled-components"
 
 import {
@@ -8,7 +7,8 @@ import {
   BannerContainer,
   HeroBanner,
   MiniCart,
-  Footer
+  Footer,
+  MobileNavigation
 } from "@components/widgets"
 
 import { ProductCarousel } from "@components/commerce"
@@ -21,27 +21,38 @@ import type { ColorStyles } from "@theme/types"
 import { getColorStyles } from "@theme/selectors"
 
 import { MiniCartContext } from "@contexts"
+import { MiniCartContextProvider, MobileNavigationContextProvider } from "@providers"
+
+import { SideMenu } from "@ui/components/common"
+import { useViewPorts } from "@ui/hooks/use-viewports"
+
+import { categoriesMock } from "@widgets/__mocks__"
 
 export default function HomePage (): JSX.Element {
   const colors: ColorStyles = getColorStyles({ theme: useTheme() })
-
-  const [ isMiniCartOpen, setIsMiniCartOpen ] = useState<boolean>(false)
+  const viewPorts = useViewPorts()
 
   return (
     <StyledHomePage>
-      <MiniCartContext.Provider value={{
-        isOpen: isMiniCartOpen,
-        toggleMiniCart: () => {
-          setIsMiniCartOpen(c => !c)
-        }
-      }}>
-        <Header>
-          <TopBar />
-          <Navigation />
-        </Header>
+      <MiniCartContextProvider>
+        <MobileNavigationContextProvider>
+          <Header>
+            <TopBar />
+            { viewPorts.minWidthMedium
+              ? <Navigation categories={categoriesMock}/>
+              : <MobileNavigation categories={categoriesMock}/>
+            }
+          </Header>
+        </MobileNavigationContextProvider>
 
-        <MiniCart />
-      </MiniCartContext.Provider>
+        <MiniCartContext.Consumer>
+          {miniCartContext => (
+            <SideMenu isOpen={miniCartContext?.isOpen}>
+              <MiniCart />
+            </SideMenu>
+          )}
+        </MiniCartContext.Consumer>
+      </MiniCartContextProvider>
 
       <HeroBanner
         title={{ text: "Flowers", color: colors.black }}

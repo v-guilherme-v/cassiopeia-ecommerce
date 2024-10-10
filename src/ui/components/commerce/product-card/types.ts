@@ -7,4 +7,6 @@ export enum EProductCardAlignStyles {
 export interface IProductCardProps {
   product: Omit<Partial<Product>, "id">
   alignment?: EProductCardAlignStyles
+  // Mobile can be achieved by different window sizes
+  mobileResolution?: string
 }

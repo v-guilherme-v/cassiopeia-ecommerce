@@ -1,6 +1,6 @@
-import { type PropsWithChildren } from "react"
+import type { HTMLAttributes, PropsWithChildren } from "react"
 import StyledText from "@components/common/text/component.styled"
-export interface TextProps extends PropsWithChildren {
+export interface TextProps extends PropsWithChildren<HTMLAttributes<HTMLDivElement>> {
   className?: string
   color?: string
   weight?: string

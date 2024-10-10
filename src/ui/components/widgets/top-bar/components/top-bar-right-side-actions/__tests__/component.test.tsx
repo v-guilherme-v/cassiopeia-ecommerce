@@ -1,9 +1,14 @@
 import { render } from "@testing-library/react"
 
 import TopBarActions from "../component"
+import { LightThemeProvider } from "@ui/providers"
 
 describe("The TopBarActions", () => {
   it("renders fine", () => {
-    render(<TopBarActions />)
+    render(
+      <LightThemeProvider>
+        <TopBarActions />
+      </LightThemeProvider>
+    )
   })
 })

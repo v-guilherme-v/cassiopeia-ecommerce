@@ -1,13 +1,15 @@
-import { forwardRef, type PropsWithChildren } from "react"
+import { forwardRef, type HTMLAttributes, type PropsWithChildren } from "react"
 import styled from "styled-components"
 import type { ForwardRefWithStyled } from "@ui/types"
 
-const Block = forwardRef<HTMLDivElement, PropsWithChildren>((props, ref) => {
+interface BlockCommonAttrs extends PropsWithChildren<HTMLAttributes<HTMLDivElement>> {}
+
+const Block = forwardRef<HTMLDivElement, BlockCommonAttrs>((props, ref) => {
   const { children, ...restProps } = props
   return (
     <StyledBlock ref={ref} {...restProps}>{ children }</StyledBlock>
   )
-}) as ForwardRefWithStyled<HTMLDivElement, PropsWithChildren, typeof StyledBlock>
+}) as ForwardRefWithStyled<HTMLDivElement, BlockCommonAttrs, typeof StyledBlock>
 
 const StyledBlock = styled.div``
 Block.displayName = "Block"

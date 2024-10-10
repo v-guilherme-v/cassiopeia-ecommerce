@@ -48,6 +48,7 @@
       "error",
       "never"
     ],
+    "multiline-ternary": "off",
     "react/react-in-jsx-scope": "off"
   }
 }

@@ -1,4 +1,3 @@
-import { useState } from "react"
 import styled, { useTheme } from "styled-components"
 
 import {
@@ -6,36 +5,50 @@ import {
   Navigation,
   TopBar,
   MiniCart,
-  Footer
+  Footer,
+  MobileNavigation
 } from "@components/widgets"
 
-import { Block, Button, Title } from "@components/common"
+import { Block, Button, SideMenu, Title } from "@components/common"
 import { useNavigate } from "react-router-dom"
 
 import { MiniCartContext } from "@contexts"
+import {
+  MiniCartContextProvider,
+  MobileNavigationContextProvider
+} from "@providers"
+
 import { ThinArrowIcon } from "@components/icons"
 import { ButtonIconPositions } from "@components/common/button"
+import { useViewPorts } from "@ui/hooks/use-viewports"
+
+import { categoriesMock } from "@widgets/__mocks__"
 
 export default function NotFoundPage (): JSX.Element {
-  const [ isMiniCartOpen, setIsMiniCartOpen ] = useState<boolean>(false)
-
   const goTo = useNavigate()
+  const viewPorts = useViewPorts()
 
   return (
     <StyledNotFound>
-      <MiniCartContext.Provider value={{
-        isOpen: isMiniCartOpen,
-        toggleMiniCart: () => {
-          setIsMiniCartOpen(c => !c)
-        }
-      }}>
-        <Header>
-          <TopBar />
-          <Navigation />
-        </Header>
+      <MiniCartContextProvider>
+        <MobileNavigationContextProvider>
+          <Header>
+            <TopBar />
+            { viewPorts.minWidthMedium
+              ? <Navigation categories={categoriesMock} />
+              : <MobileNavigation categories={categoriesMock} />
+            }
+          </Header>
+        </MobileNavigationContextProvider>
 
-        <MiniCart />
-      </MiniCartContext.Provider>
+        <MiniCartContext.Consumer>
+          {miniCartContext => (
+            <SideMenu isOpen={miniCartContext?.isOpen}>
+              <MiniCart />
+            </SideMenu>
+          )}
+        </MiniCartContext.Consumer>
+      </MiniCartContextProvider>
 
       <Block data-name="NotFoundPage">
         <Title>Sorry, we couldn&apos;t find it for you now</Title>

@@ -23,10 +23,4 @@ export default styled.section`
       margin-top: 0;
     }
   }
-
-  @media(max-width: ${props => getViewPortsStyles(props).small}) {
-    ${HeroBanner.Styled} {
-      margin-top: 1.75rem;
-    } 
-  }
 `

@@ -7,4 +7,7 @@ export { default as Footer } from "./footer/widget"
 export { default as MiniCart } from "./mini-cart/widget"
 export { default as Breadcrumbs } from "./breadcrumbs/widget"
 
+export { default as MobileFilters } from "./mobile-filters/widget"
+export { default as MobileNavigation } from "./mobile-navigation/widget"
+
 export * from "./product"

@@ -1,4 +1,5 @@
 import { type FooterLinksSection } from "@widgets/footer/types"
+import type { ICategory } from "@widgets/types"
 
 export const linksMock: FooterLinksSection[] = [
   {
@@ -60,4 +61,57 @@ export const linksMock: FooterLinksSection[] = [
       }
     ]
   }
+]
+
+export const categoriesMock: ICategory[] = [
+  {
+    id: "c0001",
+    label: "Flowers",
+    route: "/category/flowers",
+    parentCategoryId: "root",
+    children: [
+      {
+        id: "c0010",
+        parentCategoryId: "c0001",
+        label: "Daisies",
+        route: "/category/flowers/daisies",
+        children: [
+          {
+            id: "c0110",
+            parentCategoryId: "c0010",
+            label: "Sub Daisies",
+            route: "/category/flowers/sub-daisies"
+          },
+          {
+            id: "c0111",
+            parentCategoryId: "c0010",
+            label: "Sub Daisies",
+            route: "/category/flowers/sub-daisies"
+          },
+          {
+            id: "c0112",
+            parentCategoryId: "c0010",
+            label: "Sub Daisies",
+            route: "/category/flowers/sub-daisies"
+          }
+        ]
+      },
+      {
+        id: "c0011",
+        parentCategoryId: "c0001",
+        label: "Tulips",
+        route: "/category/flowers/tulips"
+      },
+      {
+        id: "c0012",
+        parentCategoryId: "c0001",
+        label: "Roses",
+        route: "/category/flowers/roses"
+      }
+    ]
+  },
+  { id: "c0002", parentCategoryId: "root", label: "Plants", route: "/category/plants" },
+  { id: "c0003", parentCategoryId: "root", label: "Gifts", route: "/category/gifts" },
+  { id: "c0004", parentCategoryId: "root", label: "Discounts", route: "/category/discounts" },
+  { id: "c0005", parentCategoryId: "root", label: "About us", route: "about-us" }
 ]

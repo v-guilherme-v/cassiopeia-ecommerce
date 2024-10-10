@@ -66,7 +66,7 @@ export function getFontColor (props: StyledButtonProps): string {
   const isOutlined = model === ButtonModels.OUTLINED
   const isLink = model === ButtonModels.LINK
 
-  if (isOutlined || isLink) return theme.color.black
+  if (isOutlined || isLink) return theme.color.primary
   else return theme.color.white
 }
 

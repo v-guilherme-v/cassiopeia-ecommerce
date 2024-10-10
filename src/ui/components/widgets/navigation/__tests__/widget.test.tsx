@@ -1,31 +1,19 @@
 import { render, screen } from "@testing-library/react"
+import { LightThemeProvider } from "@providers"
+import { categoriesMock } from "@widgets/__mocks__"
 
 import Navigation from "../widget"
-import { LightThemeProvider } from "@providers"
 
-const navigationLinksMock = Array(5).fill(1).map((_, index) => ({ label: `Item ${index}`, route: `item-${index}` }))
-
-describe("The Navigation", () => {
-  it("renders its default values", () => {
+describe("The Navigation component", () => {
+  it("has some categories to navigate", () => {
     render(
       <LightThemeProvider>
-        <Navigation />
+        <Navigation categories={categoriesMock} />
       </LightThemeProvider>
     )
 
     // Flowers is present into mocked list
     const navigationLink = screen.getByText("Flowers")
     expect(navigationLink).toBeInTheDocument()
-  })
-
-  it("renders some links", () => {
-    render(
-      <LightThemeProvider>
-        <Navigation navigationLinks={navigationLinksMock} />
-      </LightThemeProvider>
-    )
-
-    const linksLabels = screen.getAllByText(/Item [0-9]/)
-    expect(linksLabels).toHaveLength(5)
   })
 })

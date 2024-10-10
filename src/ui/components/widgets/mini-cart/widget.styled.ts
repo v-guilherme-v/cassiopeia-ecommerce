@@ -1,43 +1,15 @@
 import styled from "styled-components"
-import { getColorStyles, getGeneralStyles, getViewPortsStyles } from "@theme/selectors"
-import { Block, Title, Input } from "@components/common"
+import { getColorStyles, getViewPortsStyles } from "@theme/selectors"
+import { Block, Title, Input, Button } from "@components/common"
 
 interface MiniCartProps {
   isOpen?: boolean
 }
 
-const StyledMiniCartContainer = styled.aside<MiniCartProps>`
-  --mini-cart-width: 554px;
-  --mini-cart-transition-time: 500ms;
-
-  visibility: ${props => props?.isOpen ? "visible" : "hidden"};
-` 
-
-const StyledMiniCartOverlay = styled.div<MiniCartProps>`
-  position: fixed;
-  inset: 0;
-  background: rgba(36, 36, 36, 0.38);
-  visibility: ${props => props?.isOpen ? "visible" : "hidden"};
-  z-index: ${props => getGeneralStyles(props).miniCartLayer - 1};
-`
-
-const StyledMiniCartContent = styled.div<MiniCartProps>`
-  position: fixed;
-  overflow-y: auto;
-  top: 0;
-  right: ${props => !props?.isOpen ?
-    "calc(var(--mini-cart-width) * -1)" :
-    "0"
-  };
-
-  height: 100svh;
-  width: var(--mini-cart-width);
-
-  background-color: ${props => getColorStyles(props).white};
-  box-shadow: -5px 10px 52px 0px rgba(90, 92, 102, 0.06);
-  z-index: ${props => getGeneralStyles(props).miniCartLayer};
-  transition: right var(--mini-cart-transition-time);
+export const StyledMiniCartContent = styled.div<MiniCartProps>`
   padding: 2.5rem 3.75rem;
+  box-shadow: -5px 10px 52px 0px rgba(90, 92, 102, 0.06);
+  background-color: ${props => getColorStyles(props).white};
 
   ${Block.Styled}[data-name="MiniCart__Items"] {
     display: flex;
@@ -102,12 +74,37 @@ const StyledMiniCartContent = styled.div<MiniCartProps>`
   }
 
   @media(max-width: ${props => getViewPortsStyles(props).medium}) {
-    --mini-cart-width: 100%;
+    padding: 0 24px 50px 24px;
+    
+    ${Block.Styled}[data-name="MiniCart__Heading"]{
+      margin: 0;
+      padding: 0;
+      border: none;
+      height: 72px;
+
+      ${Title.Styled.ExtraSmall} {
+        line-height: 19px;
+      }
+
+      ${Button.Styled.AsIcon}[data-name="MiniCart__HeadingAction"] {
+        display: flex;
+        align-items: center;
+        gap: 23px;
+      }
+
+      & svg {
+        width: 14px;
+        height: 14px;
+        color: ${props => getColorStyles(props).black};
+      }
+    }
+
+    ${Block.Styled}[data-name="MiniCart__Items"] {
+      gap: 18px;
+    }
   }
 
   @media(max-width: ${props => getViewPortsStyles(props).small}) {
-    padding: 2.5rem 1.5rem 2.5rem;
-
     ${Block.Styled}[data-name="MiniCart__PromotionEntry"] {
       & button {
         width: auto;
@@ -120,9 +117,3 @@ const StyledMiniCartContent = styled.div<MiniCartProps>`
     }
   }
 `
-
-export default {
-  Container: StyledMiniCartContainer,
-  Content: StyledMiniCartContent,
-  Overlay: StyledMiniCartOverlay
-}

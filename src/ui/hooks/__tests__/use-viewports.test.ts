@@ -28,6 +28,7 @@ describe("useViewPorts", () => {
   it("should return correct values for various viewport sizes", () => {
     (useMediaQuery as jest.Mock)
       .mockReturnValueOnce(true) // maxWidthSmall
+      .mockReturnValueOnce(false) // minWidthSmall
       .mockReturnValueOnce(false) // maxWidthMedium
       .mockReturnValueOnce(true) // maxWidthLarge
       .mockReturnValueOnce(false) // maxWidthExtraLarge
@@ -36,6 +37,7 @@ describe("useViewPorts", () => {
 
     expect(result.current).toEqual({
       maxWidthSmall: true,
+      minWidthMedium: false,
       maxWidthMedium: false,
       maxWidthLarge: true,
       maxWidthExtraLarge: false
