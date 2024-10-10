@@ -4,7 +4,7 @@ import { MobileFiltersContext } from "@contexts"
 export function MobileFiltersContextProvider (props: PropsWithChildren): JSX.Element {
   const [ isFilterMenuOpen, setIsFilterMenuOpen ] = useState<boolean>(false)
 
-  const miniCartContextValue = {
+  const mobilesFiltersContextValue = {
     isFilterMenuOpen,
     toggleMobileFilters: () => {
       setIsFilterMenuOpen(c => !c)
@@ -12,7 +12,7 @@ export function MobileFiltersContextProvider (props: PropsWithChildren): JSX.Ele
   }
 
   return (
-    <MobileFiltersContext.Provider value={miniCartContextValue}>
+    <MobileFiltersContext.Provider value={mobilesFiltersContextValue}>
       {props.children}
     </MobileFiltersContext.Provider>
   )
