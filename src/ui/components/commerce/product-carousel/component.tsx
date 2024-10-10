@@ -48,7 +48,7 @@ function ProductCarousel ({ carouselTitle = "No title", products = [] }: Product
               >
                 {products.map(product => (
                   <SwiperSlide key={product.id}>
-                    <ProductCard product={product} />
+                    <ProductCard product={product} mobileResolution="892px"/>
                   </SwiperSlide>
                 ))}
               </Swiper>
@@ -92,7 +92,7 @@ const StyledProductCarousel = styled.div`
     margin: 2rem auto 2rem;
   }
 
-  @media(max-width: 750px) {
+  @media(max-width: 767px) {
     max-width: 550px;
   }
 
@@ -101,7 +101,7 @@ const StyledProductCarousel = styled.div`
   }
 
   @media(max-width: 360px) {
-    max-width: 200px;
+    max-width: 163px;
   }
 
   @media(max-width: ${props => getViewPortsStyles(props).medium}) {

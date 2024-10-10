@@ -45,7 +45,7 @@ const StyledProductCard = styled.div<IProductCardProps>`
   }
 
   /* Only mobile */
-  @media (max-width: ${props => getViewPortsStyles(props).medium}) {
+  @media (max-width: ${props => props.mobileResolution ?? getViewPortsStyles(props).medium}) {
     --card-width: ${(props) => getProductCardStyles(props).mobile.width};
     --img-height: ${(props) => getProductCardStyles(props).mobile.img.height};
 
