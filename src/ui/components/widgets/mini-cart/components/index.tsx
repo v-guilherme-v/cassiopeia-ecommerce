@@ -1,69 +1,47 @@
 import { type PropsWithChildren, useState } from "react"
-import { ThemeConsumer } from "styled-components"
 import { Block, Button, Input, Text, Title } from "@components/common"
 import { ButtonModels } from "@components/common/button"
 import { CartLineItem } from "@components/commerce"
 import { CloseIcon, ThinArrowIcon } from "@components/icons"
 import { MiniCartContext } from "@contexts"
 
-import StyledMiniCart from "../widget.styled"
-
-export function MiniCartContainer ({ children }: PropsWithChildren): JSX.Element {
-  return (
-    <MiniCartContext.Consumer>
-      {miniCartContext => (
-        <StyledMiniCart.Container
-          role="dialog"
-          data-name="MiniCart__Container"
-          isOpen={miniCartContext?.isOpen}
-        >
-          { children }
-        </StyledMiniCart.Container>
-      )}
-    </MiniCartContext.Consumer>
-  )
-}
+import { StyledMiniCartContent } from "../widget.styled"
+import { useViewPorts } from "@ui/hooks/use-viewports"
 
 export function MiniCartContent ({ children }: PropsWithChildren): JSX.Element {
   return (
-    <MiniCartContext.Consumer>
-      {miniCartContext => (
-        <StyledMiniCart.Content
-          data-name="MiniCart__Content"
-          isOpen={miniCartContext?.isOpen}
-        >
-          { children }
-        </StyledMiniCart.Content>
-      )}
-    </MiniCartContext.Consumer>
-  )
-}
-
-export function MiniCartOverlay (): JSX.Element {
-  return (
-    <MiniCartContext.Consumer>
-      {miniCartContext => (
-        <StyledMiniCart.Overlay
-          data-name="MiniCart__Overlay"
-          onClick={() => { miniCartContext?.toggleMiniCart() }}
-          isOpen={miniCartContext?.isOpen}
-        />
-      )}
-    </MiniCartContext.Consumer>
+    <StyledMiniCartContent>
+      { children }
+    </StyledMiniCartContent>
   )
 }
 
 export function MiniCartHeading (): JSX.Element {
+  const viewPorts = useViewPorts()
+
   return (
     <MiniCartContext.Consumer>
       {miniCartContext => (
         <Block data-name="MiniCart__Heading">
-          <Title>Your cart</Title>
-          <Button.AsIcon
-            onClick={() => { miniCartContext?.toggleMiniCart() }}
-          >
-            <CloseIcon />
-          </Button.AsIcon>
+          {viewPorts.minWidthMedium
+            ? (
+              <>
+                <Title>Your cart</Title>
+                <Button.AsIcon
+                  onClick={() => { miniCartContext?.toggleMiniCart() }}
+                >
+                  <CloseIcon />
+                </Button.AsIcon>
+              </>)
+            : (
+              <Button.AsIcon data-name="MiniCart__HeadingAction"
+                onClick={() => { miniCartContext?.toggleMiniCart() }}
+              >
+                <CloseIcon />
+                <Title.ExtraSmall>Your cart</Title.ExtraSmall>
+              </Button.AsIcon>)
+          }
+
         </Block>
       )}
     </MiniCartContext.Consumer>
@@ -74,28 +52,17 @@ export function MiniCartPromotionEntry (): JSX.Element {
   const [ couponEntry, setCouponEntry ] = useState<string>("")
 
   return (
-    <ThemeConsumer>
-      {theme => (
-        <Block data-name="MiniCart__PromotionEntry">
-          <Input
-            name="CouponEntry"
-            placeholder="Add promocode"
-            value={couponEntry}
-            onChange={(e) => { setCouponEntry(e.target.value) }}
-            customStyles={{
-              placeholderColor: theme.color.black,
-              backgroundColor: theme.color.snow
-            }}
-          />
-          <Button
-            model={ButtonModels.OUTLINED}
-            customStyles={{ borderColor: theme.color.black }}
-          >
-            Apply
-          </Button>
-        </Block>
-      )}
-    </ThemeConsumer>
+    <Block data-name="MiniCart__PromotionEntry">
+      <Input
+        name="CouponEntry"
+        placeholder="Add promocode"
+        value={couponEntry}
+        onChange={(e) => { setCouponEntry(e.target.value) }}
+      />
+      <Button model={ButtonModels.OUTLINED} >
+        Apply
+      </Button>
+    </Block>
   )
 }
 
@@ -130,17 +97,12 @@ export function MiniCartItems (): JSX.Element {
 
 export function MiniCartCheckout (): JSX.Element {
   return (
-    <ThemeConsumer>
-      {theme => (
-        <Button
-          data-name="MiniCart__Checkout"
-          backgroundColor={theme.color.black}
-          customStyles={{ borderRadius: "8px" }}
-          icon={{ element: <ThinArrowIcon /> }}
-        >
-          Checkout
-        </Button>
-      )}
-    </ThemeConsumer>
+    <Button
+      data-name="MiniCart__Checkout"
+      customStyles={{ borderRadius: "8px" }}
+      icon={{ element: <ThinArrowIcon /> }}
+    >
+      Checkout
+    </Button>
   )
 }
