@@ -24,3 +24,9 @@ export interface MobileFiltersContextType {
   toggleMobileFilters: () => void
 }
 export const MobileFiltersContext = createContext<MobileFiltersContextType | null>(null)
+
+export interface MobileNavContextType {
+  isMobileNavOpen: boolean
+  toggleMobileNavigation: () => void
+}
+export const MobileNavContext = createContext<MobileNavContextType | null>(null)

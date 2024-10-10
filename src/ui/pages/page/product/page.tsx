@@ -3,13 +3,13 @@ import { useTheme } from "styled-components"
 import StyledProductPage from "./page.styled"
 
 import {
-  Accordion,
   Block,
   Button,
   Container,
   Text,
   Title,
-  Counter
+  Counter,
+  SideMenu
 } from "@components/common"
 
 import {
@@ -21,10 +21,17 @@ import {
   MiniCart,
   ProductImage,
   ProductTags,
-  ProductColorSelector
+  ProductColorSelector,
+  MobileNavigation,
+  ProductDescription
 } from "@components/widgets"
 
-import { MiniCartContextProvider } from "@providers"
+import { MiniCartContext } from "@contexts"
+
+import {
+  MiniCartContextProvider,
+  MobileNavigationContextProvider
+} from "@providers"
 
 import { CartIcon } from "@components/icons"
 import { ButtonModels, ButtonSizes } from "@components/common/button"
@@ -36,6 +43,7 @@ import { toCurrency } from "@utils/commerce"
 import { doNothing } from "@utils/index"
 
 import { useViewPorts } from "@ui/hooks/use-viewports"
+import { categoriesMock } from "@widgets/__mocks__"
 
 const breadcrumbs = [
   { name: "Level 1" },
@@ -90,12 +98,23 @@ export default function ProductPage (): JSX.Element {
       <ScrollRestoration />
 
       <MiniCartContextProvider>
-        <Header>
-          <TopBar />
-          <Navigation />
-        </Header>
+        <MobileNavigationContextProvider>
+          <Header>
+            <TopBar />
+            { viewPorts.minWidthMedium
+              ? <Navigation categories={categoriesMock}/>
+              : <MobileNavigation categories={categoriesMock}/>
+            }
+          </Header>
+        </MobileNavigationContextProvider>
 
-        <MiniCart />
+        <MiniCartContext.Consumer>
+          {miniCartContext => (
+            <SideMenu isOpen={miniCartContext?.isOpen}>
+              <MiniCart />
+            </SideMenu>
+          )}
+        </MiniCartContext.Consumer>
       </MiniCartContextProvider>
 
       <Container>
@@ -105,11 +124,13 @@ export default function ProductPage (): JSX.Element {
         <Block data-name="ProductPage__Content">
           <Block data-name="ProductPage__ImageSection">
             <ProductImage imageURL={randomFlower} imageAltText="Random flower"/>
-            <ProductTags tags={[
-              { icon: <CartIcon />, name: "Benefits description" },
-              { icon: <CartIcon />, name: "Benefits description" },
-              { icon: <CartIcon />, name: "Benefits description" }
-            ]} />
+            {viewPorts.minWidthMedium && (
+              <ProductTags tags={[
+                { icon: <CartIcon />, name: "Benefits description" },
+                { icon: <CartIcon />, name: "Benefits description" },
+                { icon: <CartIcon />, name: "Benefits description" }
+              ]} />
+            )}
           </Block>
           <Block data-name="ProductPage__ActionSection">
             <Block data-name="Product__Identification">
@@ -138,10 +159,9 @@ export default function ProductPage (): JSX.Element {
             </Block>
             <Block ref={cartActionsRef} data-name="Product__CartActions">
               <Button
-                data-name="GoToCart"
-                backgroundColor={theme.color.black}
+                data-name="Checkout"
               >
-                Add to cart
+                Checkout
               </Button>
               <Button
                 data-name="AddToCart"
@@ -150,23 +170,7 @@ export default function ProductPage (): JSX.Element {
                 icon={{ element: <CartIcon /> }}
               />
             </Block>
-            <Block data-name="Product__Description">
-              <Accordion label="Description">
-                <Text.Caption>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi autem ab magni laudantium iste soluta aspernatur iure sunt, dolore in laborum, est ipsum aperiam optio aliquid, deleniti ullam maxime quo.
-                </Text.Caption>
-              </Accordion>
-              <Accordion label="Description">
-                <Text.Caption>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi autem ab magni laudantium iste soluta aspernatur iure sunt, dolore in laborum, est ipsum aperiam optio aliquid, deleniti ullam maxime quo.
-                </Text.Caption>
-              </Accordion>
-              <Accordion label="Description">
-                <Text.Caption>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi autem ab magni laudantium iste soluta aspernatur iure sunt, dolore in laborum, est ipsum aperiam optio aliquid, deleniti ullam maxime quo.
-                </Text.Caption>
-              </Accordion>
-            </Block>
+            <ProductDescription />
           </Block>
         </Block>
       </Container>

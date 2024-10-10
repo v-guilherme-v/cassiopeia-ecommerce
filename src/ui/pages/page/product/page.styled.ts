@@ -54,6 +54,33 @@ export default styled.section`
             align-self: end;
           }
         }
+
+        @media (max-width: ${props => getViewPortsStyles(props).medium}) {
+          display: flex;
+          justify-content: space-between;
+          padding: 0;
+          border: none;
+
+          ${Title.Styled.Normal}[data-name="ProductName"] {
+            font-size: 22px;
+            line-height: 19px;
+            margin: 0;
+          }
+
+          ${Block.Styled}[data-name="ProductPricing"] {
+            gap: 9px;
+            
+            ${Title.Styled.Large}[data-name="ProductCurrentPrice"] {
+              font-size: 22px;
+              line-height: 19px;
+            }
+
+            ${Text.Styled.StrikeLarge}[data-name="ProductOldPrice"] {
+              font-size: 18px;
+              line-height: 19px;
+            }
+          }
+        }        
       }
 
       ${Block.Styled}[data-name="Product__QuantityCounter"],
@@ -74,7 +101,7 @@ export default styled.section`
         margin-top: 50px;
         gap: 20px;
 
-        ${Button.Styled.Normal}[data-name="GoToCart"] {
+        ${Button.Styled.Normal}[data-name="Checkout"] {
           max-width: 309px;
           width: 100%;
         }
@@ -85,6 +112,7 @@ export default styled.section`
           & svg {
             width: 17px;
             height: 14px;
+            color: ${props => getColorStyles(props).black}
           }
         }
 
@@ -100,7 +128,7 @@ export default styled.section`
         }
       }
 
-      ${Block.Styled}[data-name="Product__Description"] {
+      div[data-name="Product__Description"] {
         margin-top: 40px;
       }
     }
@@ -108,6 +136,10 @@ export default styled.section`
     @media (max-width: ${props => getViewPortsStyles(props).large}) {
       flex-direction: column;
       gap: 32px;
+    }
+
+    @media (max-width: ${props => getViewPortsStyles(props).medium}) {
+      gap: 26px;
     }
   }
 
