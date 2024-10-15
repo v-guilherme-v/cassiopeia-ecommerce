@@ -36,10 +36,6 @@ function ProductCarousel ({ carouselTitle = "No title", products = [] }: Product
             {swiperContext => (
               <Swiper
                 loop
-                // Disabling autoplay for now
-                // autoplay={{
-                //   disableOnInteraction: false
-                // }}
                 spaceBetween={swiperConfigs.spaceBetween}
                 onSwiper={swiperContext?.onSwiper}
                 onAutoplay={swiperContext?.onAutoplay}

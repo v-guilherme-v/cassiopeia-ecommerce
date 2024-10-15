@@ -1,7 +1,6 @@
 import { Autoplay, Controller, Navigation } from "swiper/modules"
 
 export default {
-  autoplay: true,
   spaceBetween: 40,
   modules: [ Autoplay, Controller, Navigation ],
   breakpoints: {
