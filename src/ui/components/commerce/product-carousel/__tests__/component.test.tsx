@@ -7,6 +7,15 @@ import { SwiperContext, type SwiperContextType } from "@contexts"
 import { LightThemeProvider } from "@providers"
 
 describe("The product carousel", () => {
+  beforeAll(() => {
+    Object.defineProperty(window, "matchMedia", {
+      writable: true,
+      value: jest.fn().mockImplementation(() => ({
+        matches: false
+      }))
+    })
+  })
+
   it("render a product card as content", () => {
     const carouselTitle = "Recently bought"
 
@@ -33,6 +42,31 @@ describe("The product carousel", () => {
     )
 
     expect(screen.queryByText("No title")).not.toBeInTheDocument()
+  })
+
+  it("has reduced motion active", () => {
+    const carouselTitle = "Recently bought"
+
+    Object.defineProperty(window, "matchMedia", {
+      writable: true,
+      value: jest.fn().mockImplementation(() => ({
+        matches: true
+      }))
+    })
+
+    render(
+      <LightThemeProvider>
+        <ProductCarousel
+          carouselTitle={carouselTitle}
+          products={[ {
+            id: "flower-1",
+            displayName: "Flower 1"
+          } ]}
+        />
+      </LightThemeProvider>
+    )
+
+    expect(screen.getByText(carouselTitle)).toBeInTheDocument()
   })
 })
 
