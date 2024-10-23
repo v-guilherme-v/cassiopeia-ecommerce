@@ -1,7 +1,7 @@
 import { fireEvent, render, screen } from "@testing-library/react"
 
 import ProductCarousel from "../component"
-import ProductCarouselNavigationControls from "../components/product-carousel-navigation-controls/component"
+import CarouselNavigationControls from "@components/common/carousel/components/navigation-controls/component"
 
 import { SwiperContext, type SwiperContextType } from "@contexts"
 import { LightThemeProvider } from "@providers"
@@ -76,13 +76,15 @@ describe("The product carousel nav buttons", () => {
       swiperInstance: null,
       onSwiper: jest.fn(),
       onNavigationClick: jest.fn(),
-      onAutoplay: jest.fn()
+      onAutoplay: jest.fn(),
+      onSliderMove: jest.fn(),
+      onTouchMove: jest.fn()
     }
 
     render(
       <LightThemeProvider>
         <SwiperContext.Provider value={swiperCommonContext}>
-          <ProductCarouselNavigationControls />
+          <CarouselNavigationControls />
         </SwiperContext.Provider>
       </LightThemeProvider>
     )

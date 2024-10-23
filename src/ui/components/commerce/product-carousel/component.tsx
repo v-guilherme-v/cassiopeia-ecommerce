@@ -1,8 +1,9 @@
 import styled from "styled-components"
 
-import ProductCarouselNavigationControls from "./components/product-carousel-navigation-controls/component"
-import { Block, Container, Title } from "@components/common"
 import ProductCard from "../product-card/component"
+
+import { Block, Container, Title } from "@components/common"
+import CarouselNavigationControls from "@components/common/carousel/components/navigation-controls/component"
 
 import { type Product } from "@schemas/commerce"
 import { SwiperContext } from "@contexts"
@@ -12,8 +13,7 @@ import { Swiper, SwiperSlide } from "swiper/react"
 import swiperConfigs from "./settings"
 
 import "swiper/css"
-import "swiper/css/autoplay"
-import "swiper/css/navigation"
+
 import { getViewPortsStyles } from "@theme/selectors"
 
 interface ProductCarouselProps {
@@ -21,6 +21,7 @@ interface ProductCarouselProps {
   products?: Array<Partial<Product>>
 }
 
+// This component must be merged with Carousel component
 function ProductCarousel ({ carouselTitle = "No title", products = [] }: ProductCarouselProps): JSX.Element | null {
   return products.length > 0
     ? (<Container>
@@ -29,7 +30,7 @@ function ProductCarousel ({ carouselTitle = "No title", products = [] }: Product
           <StyledProductCarouselHeading>
             <Block data-name="HeadingContainer">
               <Title>{carouselTitle}</Title>
-              <ProductCarouselNavigationControls />
+              <CarouselNavigationControls />
             </Block>
           </StyledProductCarouselHeading>
           <SwiperContext.Consumer>
@@ -59,6 +60,10 @@ function ProductCarousel ({ carouselTitle = "No title", products = [] }: Product
 const StyledProductCarouselHeading = styled.div`
   margin-bottom: 44px;
 
+  ${CarouselNavigationControls.Styled} {
+    margin-right: 32px;
+  }
+
   [data-name="HeadingContainer"] {
     display: flex;
     align-items: center;
@@ -72,7 +77,7 @@ const StyledProductCarouselHeading = styled.div`
       font-weight: 600;
     }
 
-    ${ProductCarouselNavigationControls.Styled} {
+    ${CarouselNavigationControls.Styled} {
       display: none;
     }
 
@@ -96,7 +101,7 @@ const StyledProductCarousel = styled.div`
     max-width: 350px;
   }
 
-  @media(max-width: 360px) {
+  @media(max-width: 359px) {
     max-width: 163px;
   }
 
