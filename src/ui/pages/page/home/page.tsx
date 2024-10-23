@@ -6,6 +6,7 @@ import {
   TopBar,
   BannerContainer,
   HeroBanner,
+  HeroBannerCarousel,
   MiniCart,
   Footer,
   MobileNavigation
@@ -26,7 +27,7 @@ import { MiniCartContextProvider, MobileNavigationContextProvider } from "@provi
 import { SideMenu } from "@ui/components/common"
 import { useViewPorts } from "@ui/hooks/use-viewports"
 
-import { categoriesMock } from "@widgets/__mocks__"
+import { categoriesMock, heroBannersMock } from "@widgets/__mocks__"
 
 export default function HomePage (): JSX.Element {
   const colors: ColorStyles = getColorStyles({ theme: useTheme() })
@@ -54,12 +55,7 @@ export default function HomePage (): JSX.Element {
         </MiniCartContext.Consumer>
       </MiniCartContextProvider>
 
-      <HeroBanner
-        title={{ text: "Flowers", color: colors.black }}
-        description={{ text: "Our flowers", color: colors.black }}
-        button={{ text: "See more", backgroundColor: colors.black }}
-        image={{ src: flowersBanner, alt: "Flowers banner" }}
-      />
+      <HeroBannerCarousel heroBanners={heroBannersMock}/>
 
       <BannerContainer>
         <HeroBanner

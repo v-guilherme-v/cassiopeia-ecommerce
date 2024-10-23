@@ -1,5 +1,6 @@
 import { type FooterLinksSection } from "@widgets/footer/types"
 import type { ICategory } from "@widgets/types"
+import flowersBanner from "src/assets/flowers-banner.png"
 
 export const linksMock: FooterLinksSection[] = [
   {
@@ -114,4 +115,25 @@ export const categoriesMock: ICategory[] = [
   { id: "c0003", parentCategoryId: "root", label: "Gifts", route: "/category/gifts" },
   { id: "c0004", parentCategoryId: "root", label: "Discounts", route: "/category/discounts" },
   { id: "c0005", parentCategoryId: "root", label: "About us", route: "about-us" }
+]
+
+export const heroBannersMock = [
+  {
+    title: { text: "Flowers", color: "#000" },
+    description: { text: "Our flowers", color: "#000" },
+    button: { text: "See more", backgroundColor: "#000" },
+    image: { src: flowersBanner, alt: "Flowers banner" }
+  },
+  {
+    title: { text: "Flowers", color: "#000" },
+    description: { text: "Our flowers", color: "#000" },
+    button: { text: "See more", backgroundColor: "#000" },
+    image: { src: flowersBanner, alt: "Flowers banner" }
+  },
+  {
+    title: { text: "Flowers", color: "#000" },
+    description: { text: "Our flowers", color: "#000" },
+    button: { text: "See more", backgroundColor: "#000" },
+    image: { src: flowersBanner, alt: "Flowers banner" }
+  }
 ]

@@ -1,7 +1,8 @@
 import { useTheme } from "styled-components"
 import { getColorStyles } from "@theme/selectors"
 import { ButtonModels } from "@components/common/button"
-import type { HeroBannerProps } from "./types"
+
+import type { HeroBannerProps } from "@widgets/types"
 
 export function useHeroBannerConfig (props: HeroBannerProps): any {
   const {
