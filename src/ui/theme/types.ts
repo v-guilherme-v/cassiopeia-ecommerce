@@ -9,6 +9,7 @@ export interface ColorStyles {
   primary: string
   primaryDark: string
   secondary: string
+  accent: string
 
   // UI colors
   active: string
