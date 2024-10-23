@@ -79,6 +79,10 @@ const StyledHeroBannerCarousel = styled.div`
   }
 
   @media (max-width: ${props => getViewPortsStyles(props).medium}) {
+    // Images won't break on mobile (rule will be removed)
+    ${HeroBanner.Styled} img {
+      object-fit: cover;
+    }
 
     ${CarouselNavigationControls.Styled} {
       display: none;
