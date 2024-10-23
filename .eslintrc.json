@@ -37,6 +37,10 @@
       "error",
       "never"
     ],
+    "curly": [
+      "error",
+      "never"
+    ],
     "indent": [
       "error",
       2,

@@ -10,6 +10,8 @@ export interface SwiperContextType {
   onNavigationClick: (direction: string) => void
   onSwiper: (swiper: SwiperClass) => void
   onAutoplay: (swiper: SwiperClass) => void
+  onTouchMove: (swiper: SwiperClass) => void
+  onSliderMove: (swiper: SwiperClass) => void
 }
 export const SwiperContext = createContext<SwiperContextType | null>(null)
 

@@ -15,6 +15,7 @@ const lightTheme: ThemeType = {
     primary: "#000",
     primaryDark: "#383BE4",
     secondary: "#8C8EFF",
+    accent: "#595CFF",
 
     active: "#595CFF",
     positive: "#00CB6F",

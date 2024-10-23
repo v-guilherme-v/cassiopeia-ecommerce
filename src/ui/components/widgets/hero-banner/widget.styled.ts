@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Title, Button, Image } from "@components/common"
+import { Title, Button } from "@components/common"
 import { getViewPortsStyles } from "@theme/selectors";
 
 export const StyledHeroBannerActions = styled.div`
@@ -26,9 +26,6 @@ export const StyledHeroBanner = styled.div`
   position: relative;
   border-radius: 4px;
   overflow: hidden;
-  max-height: 220px;
-
-  ${Image.Styled} {
-    width: 100%;
-  }
+  // Otherwise buttons will look bad
+  min-height: 220px;
 `

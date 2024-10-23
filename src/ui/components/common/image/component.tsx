@@ -38,8 +38,10 @@ function Image ({ className, src, alt, width, height }: ImageProps): JSX.Element
 }
 
 const StyledImage = styled.div`
-  width: 100%;
-  height: 100%;
+  img {
+    height: 100%;
+    width: 100%;
+  }
   
   img[error="true"] {
     object-position: center;

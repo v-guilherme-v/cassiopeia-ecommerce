@@ -1,8 +1,8 @@
-import { Autoplay, Controller, Navigation } from "swiper/modules"
+import { Autoplay, Navigation } from "swiper/modules"
 
 export default {
   spaceBetween: 40,
-  modules: [ Autoplay, Controller, Navigation ],
+  modules: [ Autoplay, Navigation ],
   breakpoints: {
     0: {
       slidesPerView: 1

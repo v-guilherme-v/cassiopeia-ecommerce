@@ -2,7 +2,8 @@ import { StyledHeroBanner, StyledHeroBannerActions } from "./widget.styled"
 import { Container, Image, Title, Button } from "@components/common"
 import { ThinArrowIcon } from "@components/icons"
 import { useHeroBannerConfig } from "./hooks"
-import type { HeroBannerProps } from "./types"
+
+import type { HeroBannerProps } from "@widgets/types"
 
 function HeroBanner (props: HeroBannerProps): JSX.Element {
   // Props may contain custom colors, buttons...

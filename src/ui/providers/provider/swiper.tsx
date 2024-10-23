@@ -32,6 +32,14 @@ export function SwiperContextProvider ({ children }: PropsWithChildren): JSX.Ele
     updateControlsAttributes(swiper)
   }
 
+  const onTouchMove = (swiper: SwiperClass): void => {
+    updateControlsAttributes(swiper)
+  }
+
+  const onSliderMove = (swiper: SwiperClass): void => {
+    updateControlsAttributes(swiper)
+  }
+
   const onSwiper = (swiperInstance: SwiperClass): void => {
     setSwiperInstance(swiperInstance)
   }
@@ -50,7 +58,7 @@ export function SwiperContextProvider ({ children }: PropsWithChildren): JSX.Ele
   useEffect(() => {
     if (swiperInstance !== null && isAutoPlayOn) {
       swiperInstance.params.autoplay = { delay: 5000 }
-      swiperInstance.autoplay.start()
+      swiperInstance.autoplay?.start()
     }
   }, [
     swiperInstance,
@@ -61,6 +69,8 @@ export function SwiperContextProvider ({ children }: PropsWithChildren): JSX.Ele
     swiperInstance,
     swiperControls,
     onNavigationClick,
+    onTouchMove,
+    onSliderMove,
     onAutoplay,
     onSwiper
   }

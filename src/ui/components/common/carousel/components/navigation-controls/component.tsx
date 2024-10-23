@@ -7,28 +7,30 @@ import { getColorStyles } from "@theme/selectors"
 
 import { SwiperContext, type SwiperContextType } from "@contexts"
 
-function ProductCarouselNavigationControls (): JSX.Element {
+function CarouselNavigationControls (): JSX.Element {
   const swiperContext = useContext<SwiperContextType | null>(SwiperContext)
 
   return (
-    <StyledProductCarouselNavigationControls>
-      <Block>
-        <Button.AsIcon disabled={swiperContext?.swiperControls?.isBeginning}
+    <StyledCarouselNavigationControls>
+      <Block data-name="CarouselNavigationControls">
+        <Button.AsIcon data-name="CarouselPrev__Control"
+          disabled={swiperContext?.swiperControls?.isBeginning}
           onClick={() => { swiperContext?.onNavigationClick("prev") }}
         >
           <ThinArrowIcon />
         </Button.AsIcon>
-        <Button.AsIcon disabled={swiperContext?.swiperControls?.isEnd}
+        <Button.AsIcon data-name="CarouselNext__Control"
+          disabled={swiperContext?.swiperControls?.isEnd}
           onClick={() => { swiperContext?.onNavigationClick("next") }}
         >
           <ThinArrowIcon />
         </Button.AsIcon>
       </Block>
-    </StyledProductCarouselNavigationControls>
+    </StyledCarouselNavigationControls>
   )
 }
 
-const StyledProductCarouselNavigationControls = styled.div`
+const StyledCarouselNavigationControls = styled.div`
   color: ${props => getColorStyles(props).black};
 
   ${Block.Styled} {
@@ -36,7 +38,7 @@ const StyledProductCarouselNavigationControls = styled.div`
     gap: 1.25rem;
   }
 
-  ${Button.Styled.AsIcon}:first-child {
+  ${Button.Styled.AsIcon}:first-child svg {
     transform: rotate(-180deg);
   }
 
@@ -49,6 +51,6 @@ const StyledProductCarouselNavigationControls = styled.div`
   }
 `
 
-ProductCarouselNavigationControls.Styled = StyledProductCarouselNavigationControls
+CarouselNavigationControls.Styled = StyledCarouselNavigationControls
 
-export default ProductCarouselNavigationControls
+export default CarouselNavigationControls
