@@ -10,7 +10,7 @@ export const StyledSideMenuContainer = styled.aside<IStyledSideMenuProps>`
   --side-menu-width: ${props => getSideMenuStyles(props).width};
   --side-menu-transition-time: ${props => getSideMenuStyles(props).transitionTime};
 
-  visibility: ${props => props?.isOpen ? "visible" : "hidden"};
+  opacity: ${props => props.isOpen ? "1" : "0"};
 
   position: fixed;
   overflow-y: auto;
@@ -18,13 +18,15 @@ export const StyledSideMenuContainer = styled.aside<IStyledSideMenuProps>`
 
   ${props => (
     props.animationDirection === "right" && css`
-      right: ${!props?.isOpen ? "calc(var(--side-menu-width) * -1)" : "0"};
+      transform: translateX(${!props?.isOpen ? "100%" : "0"});
+      right: 0;
     `
   )}
 
   ${props => (
     props.animationDirection === "left" && css`
-      left: ${!props?.isOpen ? "calc(var(--side-menu-width) * -1)" : "0"};
+      transform: translateX(${!props?.isOpen ? "-100%" : "0"});
+      left: 0%;
     `
   )}
 
@@ -34,9 +36,9 @@ export const StyledSideMenuContainer = styled.aside<IStyledSideMenuProps>`
 
   background-color: ${props => getColorStyles(props).white};
   z-index: ${props => getSideMenuStyles(props).zIndex};
-  transition: right var(--side-menu-transition-time),
-    left var(--side-menu-transition-time);
-` 
+  transition: transform var(--side-menu-transition-time), 
+    opacity var(--side-menu-transition-time);
+`;
 
 export const StyledSideMenuOverlay = styled.div<IStyledSideMenuProps>`
   position: fixed;
