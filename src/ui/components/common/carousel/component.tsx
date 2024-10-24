@@ -1,5 +1,6 @@
 import { type ReactNode, useId } from "react"
 import { Swiper, SwiperSlide, type SwiperProps } from "swiper/react"
+import { A11y } from "swiper/modules"
 
 import styled from "styled-components"
 import { getColorStyles } from "@ui/theme/selectors"
@@ -29,12 +30,17 @@ export default function Carousel (props: ICarouselProps): JSX.Element | null {
   const swiperProps = {...props}
   delete swiperProps.navigationControls
 
+  swiperProps.modules = [ A11y ].concat(swiperProps.modules ?? [])
+
   return (
-    <StyledCarousel>
+    <StyledCarousel
+      data-name="StyledCarousel"
+    >
       <SwiperContextProvider>
         <SwiperContext.Consumer>
           {swiperContext => (
             <Swiper
+              aria-roledescription="carousel"
               onSwiper={swiperContext?.onSwiper}
               onAutoplay={swiperContext?.onAutoplay}
               onTouchMove={swiperContext?.onTouchMove}
