@@ -1,6 +1,6 @@
 import { createContext } from "react"
 import { type SwiperClass } from "swiper/react"
-import { type SwiperControls } from "@schemas/ui"
+import { type SwiperControls } from "@ui/types"
 
 export const ThemeFunctionsContext = createContext({})
 

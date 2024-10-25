@@ -1,4 +1,4 @@
-import { type Product } from "@schemas/commerce"
+import { type Product } from "@app/types/commerce"
 
 export enum EProductCardAlignStyles {
   ALIGNED_LEFT = "ALIGNED_LEFT"

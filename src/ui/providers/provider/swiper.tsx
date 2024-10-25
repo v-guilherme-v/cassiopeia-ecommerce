@@ -2,7 +2,7 @@ import { type PropsWithChildren, useState, useEffect } from "react"
 import { type SwiperClass } from "swiper/react"
 
 import { SwiperContext } from "../../contexts"
-import { type SwiperControls } from "@schemas/ui"
+import { type SwiperControls } from "@ui/types"
 
 export function SwiperContextProvider ({ children }: PropsWithChildren): JSX.Element {
   const [ swiperInstance, setSwiperInstance ] = useState<SwiperClass | null>(null)

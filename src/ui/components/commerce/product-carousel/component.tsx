@@ -5,7 +5,7 @@ import ProductCard from "../product-card/component"
 import { Block, Container, Title } from "@components/common"
 import CarouselNavigationControls from "@components/common/carousel/components/navigation-controls/component"
 
-import { type Product } from "@schemas/commerce"
+import { type Product } from "@app/types/commerce"
 import { SwiperContext } from "@contexts"
 import { SwiperContextProvider } from "@providers"
 

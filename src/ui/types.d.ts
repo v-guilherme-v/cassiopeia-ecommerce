@@ -1,3 +1,8 @@
+export interface SwiperControls {
+  isBeginning?: boolean
+  isEnd?: boolean
+}
+
 /**
  * A utility type that combines a React forwardRef component with a styled component.
  *

@@ -1,6 +1,6 @@
 import styled from "styled-components"
 import { Block, Text } from "@components/common"
-import { type Price } from "@schemas/commerce"
+import { type Price } from "@app/types/commerce"
 
 import { getColorStyles, getFontStyles } from "@theme/selectors"
 import { toCurrency } from "@utils/commerce"
