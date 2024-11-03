@@ -73,6 +73,10 @@ const lightTheme: ThemeType = {
       fontSize: "1rem",
       lineHeight: "20px"
     },
+    body: {
+      fontSize: "1rem",
+      lineHeight: "24px"
+    },
     default: {
       fontSize: "0.875rem",
       lineHeight: "20px"

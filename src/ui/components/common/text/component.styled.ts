@@ -2,7 +2,9 @@ import styled from "styled-components"
 import { type TextProps } from "./component"
 import { ColorStylesKey } from "@theme/types"
 
-const Normal = styled.span<TextProps>`
+const Normal = styled.span.attrs({
+  "data-name": "StyledText"
+})<TextProps>`
   font-family: ${(props) => props.theme.font.family};
   font-size: ${(props) => props.theme.text.default.fontSize};
   font-weight: ${(props) => props.theme.font.weight[
@@ -31,6 +33,14 @@ const Button = styled(Normal)`
     props?.weight || "medium"
   ]};
   line-height: ${(props) => props.theme.text.button.lineHeight};
+  color: ${(props) => props.theme.color[
+    (props?.color ?? "inherit") as ColorStylesKey
+  ]};
+`
+
+const Body = styled(Normal)`
+  font-size: ${(props) => props.theme.text.body.fontSize};
+  line-height: ${(props) => props.theme.text.body.lineHeight};
   color: ${(props) => props.theme.color[
     (props?.color ?? "inherit") as ColorStylesKey
   ]};
@@ -86,6 +96,7 @@ export default {
   Large,
   Normal,
   Button,
+  Body,
   Caption,
   StrikeLarge,
   Strike,

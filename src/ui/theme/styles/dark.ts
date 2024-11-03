@@ -81,6 +81,10 @@ const darkTheme: ThemeType = {
       fontSize: "0.875rem",
       lineHeight: "17px"
     },
+    body: {
+      fontSize: "1rem",
+      lineHeight: "24px"
+    },
     caption: {
       fontSize: "0.75rem",
       lineHeight: "16px"

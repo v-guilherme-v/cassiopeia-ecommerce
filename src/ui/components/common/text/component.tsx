@@ -15,6 +15,10 @@ function TextButton (props: TextProps): JSX.Element {
   return <StyledText.Button {...props}>{props.children}</StyledText.Button>
 }
 
+function TextBody (props: TextProps): JSX.Element {
+  return <StyledText.Body {...props}>{props.children}</StyledText.Body>
+}
+
 function TextCaption (props: TextProps): JSX.Element {
   return <StyledText.Caption {...props}>{props.children}</StyledText.Caption>
 }
@@ -36,6 +40,7 @@ function Text (props: TextProps): JSX.Element {
 }
 
 Text.Large = TextLarge
+Text.Body = TextBody
 Text.Button = TextButton
 Text.Caption = TextCaption
 Text.StrikeLarge = TextStrikeLarge
