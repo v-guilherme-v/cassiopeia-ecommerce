@@ -1,5 +1,5 @@
-import { getColorStyles, getViewPortsStyles } from "@ui/theme/selectors"
 import styled from "styled-components"
+import { getColorStyles, getViewPortsStyles } from "@ui/theme/selectors"
 
 const StyledNormalTopBar = styled.section`
   display: flex;
@@ -16,9 +16,14 @@ const StyledNormalTopBar = styled.section`
   }
 `
 
+const StyledLogoOnlyTopBar = styled(StyledNormalTopBar)`
+  justify-content: center;
+`
+
 const StyledSocialMediasTopBar = styled(StyledNormalTopBar)``
 
 export default {
   Normal: StyledNormalTopBar,
+  LogoOnly: StyledLogoOnlyTopBar,
   SocialMedias: StyledSocialMediasTopBar
 }
