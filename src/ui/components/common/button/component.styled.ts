@@ -9,14 +9,14 @@ const StyledButton = styled.button<ButtonProps>`
   gap: 13.5px;
 
   background-color: ${(props) => getBgColor(props)};
-  color: ${(props) => getFontColor(props)};
   width: ${(props) => getButtonSize(props.size)};
+  color: ${(props) => getFontColor(props)};
   height: 45px;
 
   /** @todo make it better */
   border: ${(props) => `${getBorderColor(props)}`};
   
-  cursor: pointer;
+  cursor: ${props => props.disabled ? "not-allowed" : "pointer"};
   user-select: none;
 
   flex-direction: ${(props) =>
@@ -29,6 +29,10 @@ const StyledButton = styled.button<ButtonProps>`
     ? props?.customStyles?.borderRadius ?? props.theme.button.borderRadius
     : "50%"
   };
+
+  [data-name="StyledText"] {
+    color: ${(props) => getFontColor(props)};
+  }
 `
 
 const StyledButtonAsIcon = styled.button`
