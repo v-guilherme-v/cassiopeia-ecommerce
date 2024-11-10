@@ -9,3 +9,9 @@ export interface InputProps extends React.DetailedHTMLProps<React.InputHTMLAttri
     placeholderColor?: string
   }
 }
+
+export interface IInputWithValidationProps extends Omit<InputProps, "icon"> {
+  isValid?: boolean
+  showValidator?: boolean
+  errorMessage?: string
+}

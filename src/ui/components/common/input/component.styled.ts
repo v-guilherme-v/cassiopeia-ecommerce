@@ -1,6 +1,12 @@
-import styled from "styled-components"
-import { InputProps } from "./types"
+import styled, { css } from "styled-components"
 import { getColorStyles } from "@theme/selectors"
+
+import Text from "../text"
+
+import {
+  InputProps,
+  IInputWithValidationProps
+} from "./types"
 
 const ICON_RIGHT_GAP: string = "8px"
 const ICON_MAX_WIDTH: string = "21px"
@@ -18,6 +24,7 @@ const BaseInput = styled.div<InputProps>`
   font-size: ${({ theme }) => theme.text.caption.fontSize};
   position: relative;
   max-width: 265px;
+  width: 100%;
 
   & input {
     /* it will prevent that input and icon to occupy the same space */
@@ -67,7 +74,29 @@ const InputStyled = styled(BaseInput)`
   }
 `
 
+const StyledInputWithValidator = styled.div<Pick<IInputWithValidationProps, "isValid">>`
+  max-width: 265px;
+  width: 100%;
+
+  ${InputStyled} svg {
+    width: 21px;
+    height: 9px;
+  }
+
+  ${props => props.isValid === false && css`
+    ${InputStyled} input {
+      border-color: ${props => getColorStyles(props).negative};
+    }
+  `}
+
+
+  ${Text.Styled.Caption} {
+    color: ${props => getColorStyles(props).negative};
+  }
+`
+
 export default {
   Default: InputStyled,
-  Inline: InputInlineStyled
+  Inline: InputInlineStyled,
+  ValidatorContainer: StyledInputWithValidator
 }

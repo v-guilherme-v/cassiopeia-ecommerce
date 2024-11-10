@@ -1,8 +1,12 @@
 import StyledInput from "./component.styled"
-import type { InputProps } from "./types"
+import type { InputProps, IInputWithValidationProps } from "./types"
+
+import Text from "../text"
+import Validator from "../validator"
 
 function RawInput (props: InputProps): JSX.Element {
   const { customStyles, ...restProps } = props
+  
   return (
     <>
       <input
@@ -31,7 +35,30 @@ function Input (props: InputProps): JSX.Element {
   )
 }
 
+function InputWithValidator (props: IInputWithValidationProps): JSX.Element {
+  const inputIcon = props.showValidator ?
+    <Validator isValid={props.isValid ?? false} /> :
+    null
+
+  const inputProps = { ...props }
+  delete inputProps.isValid
+  delete inputProps.showValidator
+  delete inputProps.errorMessage
+
+  return (
+    <StyledInput.ValidatorContainer isValid={props.isValid}>
+      <StyledInput.Default>
+        <RawInput icon={inputIcon} { ...inputProps } />
+      </StyledInput.Default>
+      <Text.Caption>
+        { !props.isValid ? props.errorMessage : null }
+      </Text.Caption>
+    </StyledInput.ValidatorContainer>
+  )
+}
+
 Input.Inline = InlineInput
+Input.Validator = InputWithValidator
 Input.Styled = StyledInput
 
 export default Input
