@@ -76,10 +76,6 @@ const StyledStepActions = styled.div<Partial<IStepActionsProps>>`
 
     ${Button.Styled.Normal}[data-name="StepActions__Next"] {
       min-width: 174px;
-
-      &:not(:disabled){
-        background-color: ${props => getColorStyles(props).accent};
-      }
     }
   }
 `
