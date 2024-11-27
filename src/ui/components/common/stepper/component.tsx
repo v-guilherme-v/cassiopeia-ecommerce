@@ -1,4 +1,4 @@
-import { Suspense, useState, useCallback } from "react"
+import { Suspense, useEffect, useState, useCallback } from "react"
 import Block from "../block"
 
 import { StyledStepper } from "./component.styled"
@@ -70,6 +70,10 @@ export default function Stepper (props: IStepperProps): JSX.Element {
       }
     }
   }, [ statefulSteps ])
+
+  useEffect(() => {
+    setStatefulSteps(getStepsState(props))
+  }, [ props.steps ])
 
   return (
     <StyledStepper data-name="StyledStepper">
