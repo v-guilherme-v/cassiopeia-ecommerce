@@ -1,10 +1,10 @@
-import { lazy } from "react"
 import StyledCheckoutPage from "./page.styled"
 
 import {
   Header,
   TopBar,
-  Footer
+  Footer,
+  CheckoutSteps
 } from "@components/widgets"
 
 import {
@@ -13,27 +13,9 @@ import {
   Container
 } from "@components/common"
 
-import Stepper from "@components/common/stepper/component"
+import { CheckoutContextProvider } from "@providers"
 
 export default function CheckoutPage (): JSX.Element {
-  const steps = [
-    {
-      id: "identification",
-      title: "Identification",
-      component: <>Identification</>,
-    },
-    {
-      id: "shipping",
-      title: "Shipping",
-      component: <>Shipping</>,
-      state: "complete" as const
-    },
-    {
-      id: "payment",
-      title: "Payment",
-      component: <>Payment</>,
-    }
-  ]
 
   return (
     <StyledCheckoutPage>
@@ -44,7 +26,9 @@ export default function CheckoutPage (): JSX.Element {
           </Title.ExtraLarge>
           <Block data-name="CheckoutPage__Content">
             <Block data-name="CheckoutContent__Forms">
-              <Stepper steps={steps} />
+              <CheckoutContextProvider>
+                <CheckoutSteps />
+              </CheckoutContextProvider>
             </Block>
             <Block data-name="CheckoutContent__CartSummary"></Block>
           </Block>

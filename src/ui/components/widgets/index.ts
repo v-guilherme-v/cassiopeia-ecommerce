@@ -12,3 +12,4 @@ export { default as MobileFilters } from "./mobile-filters/widget"
 export { default as MobileNavigation } from "./mobile-navigation/widget"
 
 export * from "./product"
+export * from "./checkout"
