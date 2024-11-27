@@ -1,3 +1,5 @@
+import { GuestUser } from "@app/types/commerce"
+
 export interface SwiperControls {
   isBeginning?: boolean
   isEnd?: boolean
@@ -17,3 +19,12 @@ export interface SwiperControls {
  * - `Styled`: The styled component itself, accessible as a static property.
  */
 export type ForwardRefWithStyled<E, P, S> = React.ForwardRefExoticComponent<P & React.RefAttributes<E>> & { Styled: S }
+
+export interface CheckoutReducerState {
+  guestUser: Partial<GuestUser>
+}
+
+export interface CheckoutReducerAction {
+  type: "UPDATE_USER"
+  payload: Partial<GuestUser>
+}
