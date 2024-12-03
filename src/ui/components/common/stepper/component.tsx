@@ -85,16 +85,14 @@ export default function Stepper (props: IStepperProps): JSX.Element {
               order={index + 1}
               name={step.title}
               state={step.state as TStepState}
-            >
-              { step.component }
-            </StepBullet>
+            />
           )
         })}
       </Block>
       <Block data-name="Stepper__CurrentStep">
         <Block data-name="Stepper__CurrentStepContent">
           <Suspense>
-            { currentStep?.component }
+            { currentStep?.component && <currentStep.component />}
           </Suspense>
         </Block>
         <Block data-name="Stepper__CurrentStepActions">

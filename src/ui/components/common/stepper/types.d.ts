@@ -16,7 +16,7 @@ export interface IStepActionsProps {
 export interface IStepperStep {
   id: string
   title: string
-  component: ReactNode
+  component: () => JSX.Element
   state?: TStepState
   actions?: Omit<IStepActionsProps, "onPrevButtonClick" | "onNextButtonClick">
 }
