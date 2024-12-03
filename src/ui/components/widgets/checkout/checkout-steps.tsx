@@ -19,7 +19,7 @@ export default function CheckoutSteps(): JSX.Element {
     {
       id: "identification",
       title: "Identification",
-      component: <CheckoutUserIdentification />,
+      component: () => <CheckoutUserIdentification />,
       actions: {
         nextButtonLabel: "Shipping",
         isNextButtonDisabled: isGuestUserInvalid()
@@ -28,12 +28,12 @@ export default function CheckoutSteps(): JSX.Element {
     {
       id: "shipping",
       title: "Shipping",
-      component: <>Shipping</>
+      component: () => <>Shipping</>
     },
     {
       id: "payment",
       title: "Payment",
-      component: <>Payment</>,
+      component: () => <>Payment</>,
     }
   ]
 

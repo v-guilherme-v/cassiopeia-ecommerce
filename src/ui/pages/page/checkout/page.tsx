@@ -3,8 +3,7 @@ import StyledCheckoutPage from "./page.styled"
 import {
   Header,
   TopBar,
-  Footer,
-  CheckoutSteps
+  Footer
 } from "@components/widgets"
 
 import {
@@ -14,6 +13,7 @@ import {
 } from "@components/common"
 
 import { CheckoutContextProvider } from "@providers"
+import CheckoutSteps from "@widgets/checkout/checkout-steps"
 
 export default function CheckoutPage (): JSX.Element {
 
