@@ -8,7 +8,7 @@ const steps: IStepperStep[] = [
   {
     id: "step-1",
     title: "Step 1",
-    component: <>First step</>,
+    component: () => <>First step</>,
     state: "complete",
     actions: {
       nextButtonLabel: "Go to second"
@@ -17,7 +17,7 @@ const steps: IStepperStep[] = [
   {
     id: "step-2",
     title: "Step 2",
-    component: <>Second step</>,
+    component: () => <>Second step</>,
     actions: {
       prevButtonLabel: "Go to first"
     }
@@ -25,7 +25,7 @@ const steps: IStepperStep[] = [
   {
     id: "step-3",
     title: "Step 3",
-    component: <>Third step</>
+    component: () => <>Third step</>
   }
 ]
 
@@ -59,7 +59,7 @@ describe("The Stepper component...", () => {
           {
             id: "step",
             title: "Step",
-            component: <>Single step</>,
+            component: () => <>Single step</>,
             state: "complete",
             actions: {
               prevButtonLabel: "Back to somewhere",

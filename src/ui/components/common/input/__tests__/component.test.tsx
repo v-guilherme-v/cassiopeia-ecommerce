@@ -40,4 +40,24 @@ describe("The input", () => {
     )
     expect(input.value).toEqual("Some text")
   })
+
+  it("is an input with a validator", () => {
+    const { rerender } = render(
+      <LightThemeProvider>
+        <Input.Validator name="input" />
+      </LightThemeProvider>
+    )
+
+    rerender(
+      <LightThemeProvider>
+        <Input.Validator name="input" showValidator={true} />
+      </LightThemeProvider>
+    )
+
+    rerender(
+      <LightThemeProvider>
+        <Input.Validator name="input" showValidator={true} isValid={true} />
+      </LightThemeProvider>
+    )
+  })
 })
