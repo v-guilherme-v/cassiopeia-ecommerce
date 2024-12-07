@@ -1,14 +1,21 @@
-import { useCallback, useContext } from "react"
+import { useCallback, useContext, useEffect } from "react"
 import styled from "styled-components"
 
-import { Block, Form, Input, Text } from "@components/common"
+import {
+  Block,
+  Form,
+  Input,
+  Text
+} from "@components/common"
 
 import {
   CheckoutGuestUserContext,
-  CheckoutReducerDispatchContext
+  CheckoutReducerDispatchContext,
+  StepperActionsContext
 } from "@contexts"
 
 import * as RegExps from "@utils/expressions"
+import { doNothing } from "@app/utils"
 
 const locales = {
   guestUserFullNameInvalid: "O nome completo não é válido",
@@ -19,6 +26,11 @@ const locales = {
 export default function CheckoutUserIdentification(): JSX.Element {
   const guestUser = useContext(CheckoutGuestUserContext)
   const dispatch = useContext(CheckoutReducerDispatchContext)
+
+  const {
+    isNextActionDisabled = true,
+    setIsNextActionDisabled = doNothing
+  } = (useContext(StepperActionsContext) ?? {})
 
   const onChange = useCallback<React.ChangeEventHandler<HTMLFormElement>>(event => {
     const inputName = event.target.name
@@ -62,6 +74,24 @@ export default function CheckoutUserIdentification(): JSX.Element {
       })
     }
   }, [])
+
+  useEffect(() => {
+    function isGuestUserInvalid(): boolean {
+      return Boolean(
+        (guestUser.fullName === "" || guestUser.errors?.fullName === false) ||
+        (guestUser.email === "" || guestUser.errors?.email === false ) ||
+        (guestUser.cellphone === "" || guestUser.errors?.cellphone === false)
+      )
+    }
+
+    if(isGuestUserInvalid()) {
+      setIsNextActionDisabled(true)
+    } else {
+      if(isNextActionDisabled) {
+        setIsNextActionDisabled(false)
+      }
+    }
+  }, [ isNextActionDisabled, guestUser ])
 
   return (
     <StyledCheckoutUserIdentification>
