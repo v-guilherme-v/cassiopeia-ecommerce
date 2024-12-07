@@ -36,8 +36,9 @@ function Input (props: InputProps): JSX.Element {
 }
 
 function InputWithValidator (props: IInputWithValidationProps): JSX.Element {
+  const isInputValid = props.isValid ?? false
   const inputIcon = props.showValidator ?
-    <Validator isValid={props.isValid ?? false} /> :
+    <Validator isValid={isInputValid} /> :
     null
 
   const inputProps = { ...props }
@@ -46,7 +47,7 @@ function InputWithValidator (props: IInputWithValidationProps): JSX.Element {
   delete inputProps.errorMessage
 
   return (
-    <StyledInput.ValidatorContainer isValid={props.isValid}>
+    <StyledInput.ValidatorContainer isValid={isInputValid}>
       <StyledInput.Default>
         <RawInput icon={inputIcon} { ...inputProps } />
       </StyledInput.Default>
