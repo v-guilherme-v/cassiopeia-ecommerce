@@ -1,9 +1,17 @@
-import { Suspense, useEffect, useState, useCallback } from "react"
+import {
+  Suspense,
+  useEffect,
+  useState,
+  useCallback
+} from "react"
+
 import Block from "../block"
 
 import { StyledStepper } from "./component.styled"
 import { IStepperProps, IStepperStep, TStepState } from "./types"
 import { StepActions, StepBullet } from "./components"
+
+import { StepperActionsContext } from "@ui/contexts"
 
 interface IStepperStepIndexed extends IStepperStep {
   index: number
@@ -38,6 +46,9 @@ function getStepsState(props: IStepperProps): IStepperStepIndexed[] {
 export default function Stepper (props: IStepperProps): JSX.Element {
   const [statefulSteps, setStatefulSteps] = useState<IStepperStepIndexed[]>(getStepsState(props))
   const currentStep = statefulSteps.find(step => step.state === "current")
+
+  const [isPrevActionDisabled, setIsPrevActionDisabled] = useState<boolean>(false)
+  const [isNextActionDisabled, setIsNextActionDisabled] = useState<boolean>(false)
   
   const goToStep = useCallback((action: "prev" | "next") => {
     const currentStepsCopy = [ ...statefulSteps ]
@@ -91,20 +102,27 @@ export default function Stepper (props: IStepperProps): JSX.Element {
       </Block>
       <Block data-name="Stepper__CurrentStep">
         <Block data-name="Stepper__CurrentStepContent">
-          <Suspense>
-            { currentStep?.component && <currentStep.component />}
-          </Suspense>
+          <StepperActionsContext.Provider value={{
+            isPrevActionDisabled,
+            setIsPrevActionDisabled,
+            isNextActionDisabled,
+            setIsNextActionDisabled
+          }}>
+            <Suspense>
+              { currentStep?.component && <currentStep.component />}
+            </Suspense>
+          </StepperActionsContext.Provider>
         </Block>
         <Block data-name="Stepper__CurrentStepActions">
           <StepActions
             prevButtonLabel={currentStep?.actions?.prevButtonLabel}
             isPrevButtonHidden={!currentStep || currentStep?.index === 0}
             onPrevButtonClick={() => { goToStep("prev") }}
-            isPrevButtonDisabled={currentStep?.actions?.isPrevButtonDisabled}
+            isPrevButtonDisabled={isPrevActionDisabled}
             nextButtonLabel={currentStep?.actions?.nextButtonLabel}
             isNextButtonHidden={!currentStep || currentStep?.index === statefulSteps.length - 1}
             onNextButtonClick={() => { goToStep("next") }}
-            isNextButtonDisabled={currentStep?.actions?.isNextButtonDisabled}
+            isNextButtonDisabled={isNextActionDisabled}
           />
         </Block>
       </Block>
