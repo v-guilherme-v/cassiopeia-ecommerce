@@ -1,5 +1,3 @@
-import type { ReactNode } from "react"
-
 export type TStepState = "complete" | "current" | "pending"
 
 export interface IStepActionsProps {
@@ -15,6 +13,7 @@ export interface IStepActionsProps {
 
 export interface IStepperStep {
   id: string
+  index?: number
   title: string
   component: () => JSX.Element
   state?: TStepState
@@ -25,8 +24,10 @@ export interface IStepperProps {
   steps: IStepperStep[]
 }
 
-export interface IStepBulletProps {
+export interface IStepBulletProps extends Pick<React.HTMLAttributes<HTMLDivElement>, "role">{
   order: number
   name: string
   state: TStepState
 }
+
+export type TGoToStepAction = "prev" | "next"

@@ -37,7 +37,7 @@ function getStatusColor({ state }: Pick<IStepBulletProps, "state">, theme: Defau
 
 }
 
-export default styled.div<IStepBulletProps>`
+export default styled.div<Pick<IStepBulletProps, "state">>`
   display: flex;
   align-items: center;
 
