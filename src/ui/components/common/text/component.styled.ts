@@ -2,9 +2,7 @@ import styled from "styled-components"
 import { type TextProps } from "./component"
 import { ColorStylesKey } from "@theme/types"
 
-const Normal = styled.span.attrs({
-  "data-name": "StyledText"
-})<TextProps>`
+const Normal = styled.span<TextProps>`
   font-family: ${(props) => props.theme.font.family};
   font-size: ${(props) => props.theme.text.default.fontSize};
   font-weight: ${(props) => props.theme.font.weight[

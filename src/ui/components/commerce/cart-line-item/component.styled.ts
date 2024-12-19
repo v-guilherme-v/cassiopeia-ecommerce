@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { Button } from "@components/common"
+import { Button, Text } from "@components/common"
 
 const StyledCartLineItem = styled.div`
   display: flex;
@@ -42,17 +42,17 @@ const StyledCartLineItem = styled.div`
     max-height: 27px;
   }
 
-  ${Button.Styled}[data-name="CartLineItem__Action--diff"]{
+  ${Button.Styled.Normal}[data-name="CartLineItem__Action--diff"]{
     width: 26px;
     height: 26px;
   }
 
-  ${Button.Styled}[data-name="CartLineItem__Action--sum"]{
+  ${Button.Styled.Normal}[data-name="CartLineItem__Action--sum"]{
     width: 26px;
     height: 26px;
   }
 
-  ${Button.Styled}[data-name="CartLineItem__Quantity"]{
+  ${Text.Styled.Button}[data-name="CartLineItem__Quantity"]{
     display: flex;
     align-items: center;
     justify-content: center;
