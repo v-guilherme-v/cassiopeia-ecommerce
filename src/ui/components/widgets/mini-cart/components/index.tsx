@@ -1,7 +1,7 @@
 import { type PropsWithChildren, useState } from "react"
-import { Block, Button, Input, Text, Title } from "@components/common"
+import { Block, Button, Input, Title } from "@components/common"
 import { ButtonModels } from "@components/common/button"
-import { CartLineItem } from "@components/commerce"
+import { CartLineItem, CartPriceInfo } from "@components/commerce"
 import { CloseIcon, ThinArrowIcon } from "@components/icons"
 import { MiniCartContext } from "@contexts"
 
@@ -69,14 +69,7 @@ export function MiniCartPromotionEntry (): JSX.Element {
 export function MiniCartSummary (): JSX.Element {
   return (
     <Block data-name="MiniCart__Summary">
-      <Block data-name="MiniCart__SummaryItem">
-        <Text>Discounts</Text>
-        <Text weight="medium">R$ 15,00</Text>
-      </Block>
-      <Block data-name="MiniCart__SummaryItem">
-        <Text>Total</Text>
-        <Text weight="medium">R$ 129,90</Text>
-      </Block>
+      <CartPriceInfo />
     </Block>
   )
 }

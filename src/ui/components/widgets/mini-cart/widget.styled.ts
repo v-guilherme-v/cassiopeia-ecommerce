@@ -60,13 +60,6 @@ export const StyledMiniCartContent = styled.div<MiniCartProps>`
     }
   }
 
-  ${Block.Styled}[data-name="MiniCart__SummaryItem"] {
-    display: flex;
-    justify-content: space-between;
-    border-top: 1px solid ${props => getColorStyles(props).paleGrey};
-    padding: 18px 0 14px;
-  }
-
   button[data-name="MiniCart__Checkout"] {
     width: 221px;
     margin: auto;
