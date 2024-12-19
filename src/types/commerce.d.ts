@@ -10,3 +10,10 @@ export interface Price {
   listPrice: number
   salePrice: number
 }
+
+interface GuestUser {
+  fullName: string
+  email: string
+  cellphone: string
+  errors: { [fieldName: string]: boolean }
+}

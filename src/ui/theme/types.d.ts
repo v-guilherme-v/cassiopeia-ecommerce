@@ -71,6 +71,7 @@ export interface TextStyles {
   large: TextStyle
   default: TextStyle
   button: TextStyle
+  body: TextStyle
   caption: TextStyle
   strikeLarge: TextStyle
   strike: TextStyle

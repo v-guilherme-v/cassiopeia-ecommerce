@@ -17,6 +17,14 @@ function TopBar (): JSX.Element {
   )
 }
 
+function TopBarLogoOnly (): JSX.Element {
+  return (
+    <StyledTopBar.LogoOnly>
+      <TopBarLogo />
+    </StyledTopBar.LogoOnly>
+  )
+}
+
 function TopBarSocialMedias (): JSX.Element {
   return (
     <StyledTopBar.SocialMedias>
@@ -26,6 +34,7 @@ function TopBarSocialMedias (): JSX.Element {
   )
 }
 
+TopBar.LogoOnly = TopBarLogoOnly
 TopBar.SocialMedias = TopBarSocialMedias
 
 export default TopBar

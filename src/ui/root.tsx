@@ -1,7 +1,14 @@
 import { ThemeProvider } from "styled-components"
 import { useThemeSetup } from "@theme/hooks"
 
-import { HomePage, ProductPage, NotFoundPage, CategoryPage } from "@pages"
+import {
+  HomePage,
+  ProductPage,
+  NotFoundPage,
+  CategoryPage,
+  CheckoutPage
+} from "@pages"
+
 import { ThemeFunctionsContext } from "@contexts"
 
 import StyledRoot from "./root.styled"
@@ -31,6 +38,10 @@ export default function Root (): JSX.Element {
     {
       path: "/category/:categoryId",
       element: <CategoryPage />
+    },
+    {
+      path: "/checkout",
+      element: <CheckoutPage />
     },
     {
       path: "*",

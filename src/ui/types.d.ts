@@ -1,3 +1,6 @@
+import { Dispatch, SetStateAction } from "react"
+import { GuestUser } from "@app/types/commerce"
+
 export interface SwiperControls {
   isBeginning?: boolean
   isEnd?: boolean
@@ -17,3 +20,19 @@ export interface SwiperControls {
  * - `Styled`: The styled component itself, accessible as a static property.
  */
 export type ForwardRefWithStyled<E, P, S> = React.ForwardRefExoticComponent<P & React.RefAttributes<E>> & { Styled: S }
+
+export interface IStepperActionsContext {
+  isPrevActionDisabled: boolean
+  setIsPrevActionDisabled: Dispatch<SetStateAction<boolean>>
+  isNextActionDisabled: boolean
+  setIsNextActionDisabled: Dispatch<SetStateAction<boolean>>
+}
+
+export interface CheckoutReducerState {
+  guestUser: Partial<GuestUser>
+}
+
+export interface CheckoutReducerAction {
+  type: "UPDATE_USER"
+  payload: Partial<GuestUser>
+}

@@ -40,4 +40,12 @@ describe("The TopBar", () => {
       </LightThemeProvider>
     )
   })
+
+  it("is on logo render view mode", () => {
+    render(
+      <LightThemeProvider>
+        <TopBar.LogoOnly />
+      </LightThemeProvider>
+    )
+  })
 })

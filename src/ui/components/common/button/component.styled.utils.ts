@@ -2,7 +2,7 @@ import { type ThemeType } from "@theme/types"
 import { ButtonSizes, ButtonModels, type ButtonProps } from "./types"
 import { getColorStyles } from "@theme/selectors"
 
-// Auxialiary type to represent the theme in button type
+// Auxiliary type to represent the theme in button type
 interface ThemeTypeAsProperty { theme: ThemeType }
 
 // A styled button has its own props and the theme in it
@@ -48,7 +48,11 @@ export function getBgColor (props: StyledButtonProps): string {
   // default colors
   switch (model) {
     case ButtonModels.PRIMARY:
-      return themeColors.primary
+      if (props.disabled) {
+        return themeColors.grey
+      } else {
+        return themeColors.primary
+      }
     case ButtonModels.OUTLINED:
       return themeColors.white
     case ButtonModels.LINK:
@@ -66,7 +70,8 @@ export function getFontColor (props: StyledButtonProps): string {
   const isOutlined = model === ButtonModels.OUTLINED
   const isLink = model === ButtonModels.LINK
 
-  if (isOutlined || isLink) return theme.color.primary
+  if(isLink && props.disabled) return theme.color.grey
+  else if (isOutlined || isLink) return theme.color.primary
   else return theme.color.white
 }
 

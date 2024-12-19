@@ -19,6 +19,34 @@ describe("The styled button", () => {
       background-color: ${LightTheme.color.primary}
     `)
   })
+
+  it("has its background grayed out when disabled", () => {
+    render(
+      <LightThemeProvider>
+        <StyledButton.Normal disabled>Styled button disabled</StyledButton.Normal>
+      </LightThemeProvider>
+    )
+
+    const styledButton = screen.getByText("Styled button disabled")
+    expect(styledButton).toBeInTheDocument()
+    expect(styledButton).toHaveStyle(`
+      background-color: ${LightTheme.color.grey}
+    `)
+  })
+
+  it("is a link and it's disabled", () => {
+    render(
+      <LightThemeProvider>
+        <StyledButton.Normal model={ButtonModels.LINK} disabled>Styled button disabled</StyledButton.Normal>
+      </LightThemeProvider>
+    )
+
+    const styledButton = screen.getByText("Styled button disabled")
+    expect(styledButton).toBeInTheDocument()
+    expect(styledButton).toHaveStyle(`
+      color: ${LightTheme.color.grey}
+    `)
+  })
 })
 
 describe("The button", () => {

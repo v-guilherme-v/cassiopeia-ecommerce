@@ -1,6 +1,8 @@
-import { createContext } from "react"
-import { type SwiperClass } from "swiper/react"
-import { type SwiperControls } from "@ui/types"
+import { createContext, Dispatch } from "react"
+import type { SwiperClass } from "swiper/react"
+import type { SwiperControls, CheckoutReducerAction, IStepperActionsContext } from "@ui/types"
+import { GuestUser } from "@app/types/commerce"
+import { doNothing } from "@app/utils"
 
 export const ThemeFunctionsContext = createContext({})
 
@@ -32,3 +34,8 @@ export interface MobileNavContextType {
   toggleMobileNavigation: () => void
 }
 export const MobileNavContext = createContext<MobileNavContextType | null>(null)
+
+export const StepperActionsContext = createContext<IStepperActionsContext | null>(null)
+
+export const CheckoutReducerDispatchContext = createContext<Dispatch<CheckoutReducerAction>>(doNothing)
+export const CheckoutGuestUserContext = createContext<Partial<GuestUser>>({})
