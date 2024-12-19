@@ -17,12 +17,20 @@ export default function CheckoutSteps(): JSX.Element {
     {
       id: "shipping",
       title: "Shipping",
-      component: () => <>Shipping</>
+      component: () => <>Shipping</>,
+      actions: {
+        prevButtonLabel: "Identification",
+        nextButtonLabel: "Payment"
+      }
     },
     {
       id: "payment",
       title: "Payment",
       component: () => <>Payment</>,
+      actions: {
+        prevButtonLabel: "Shipping",
+        isNextButtonHidden: true
+      }
     }
   ]
 

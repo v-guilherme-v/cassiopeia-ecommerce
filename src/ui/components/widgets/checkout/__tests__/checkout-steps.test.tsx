@@ -18,7 +18,7 @@ describe("The checkout steps widget", () => {
     expect(goToShippingAction).toBeInTheDocument()
     fireEvent.click(goToShippingAction)
     
-    const goToPaymentAction = screen.getByText("Next step")
+    const goToPaymentAction = screen.getAllByText("Payment")[1]
     expect(goToPaymentAction).toBeInTheDocument()
     fireEvent.click(goToPaymentAction)
   })

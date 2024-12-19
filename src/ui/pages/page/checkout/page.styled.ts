@@ -17,6 +17,10 @@ export default styled.div`
     margin-top: 50px;
   }
 
+  ${Block.Styled}[data-name="CheckoutContent__Forms"] {
+    max-width: 100%;
+  }
+
   ${Footer.Styled} {
     margin-top: 32px;
   }

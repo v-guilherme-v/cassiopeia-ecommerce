@@ -16,6 +16,7 @@ import {
 
 import * as RegExps from "@utils/expressions"
 import { doNothing } from "@app/utils"
+import { getViewPortsStyles } from "@app/ui/theme/selectors"
 
 const locales = {
   guestUserFullNameInvalid: "O nome completo não é válido",
@@ -149,6 +150,19 @@ const StyledCheckoutUserIdentification = styled.div`
 
     ${Input.Styled.ValidatorContainer} {
       flex: 0 0 50%;
+    }
+  }
+
+  @media (max-width: ${props => getViewPortsStyles(props).small}) {
+    ${Block.Styled}[data-name="CheckoutUserIdentification__Content"]
+    ${Form.Styled} ${Input.Styled.ValidatorContainer} {
+      flex: 0 0 100%;
+      max-width: unset;
+    }
+    
+    ${Block.Styled}[data-name="CheckoutUserIdentification__Content"]
+    ${Form.Styled} ${Input.Styled.ValidatorContainer} ${Input.Styled.Default}{
+      max-width: unset;
     }
   }
 `

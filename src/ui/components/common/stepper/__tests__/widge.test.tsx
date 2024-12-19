@@ -4,6 +4,9 @@ import { LightThemeProvider } from "@ui/providers"
 import Stepper from "../component"
 import { IStepperStep } from "../types"
 
+import { useViewPorts } from "@ui/hooks/use-viewports"
+jest.mock("@ui/hooks/use-viewports")
+
 const steps: IStepperStep[] = [
   {
     id: "step-1",
@@ -30,6 +33,12 @@ const steps: IStepperStep[] = [
 ]
 
 describe("The Stepper component...", () => {
+  beforeAll(() => {
+    // Some code will only run on mobile, so i'm "simulating" this view
+    (useViewPorts as jest.Mock)
+      .mockReturnValue({ maxWidthMedium: true })
+  })
+
   it("goes forward and backwards", () => {
     render(
       <LightThemeProvider>
