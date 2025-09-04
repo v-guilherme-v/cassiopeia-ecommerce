@@ -1,7 +1,7 @@
 import { render, screen, fireEvent } from "@testing-library/react"
 import { LightThemeProvider, CheckoutContextProvider } from "@providers"
 
-import CheckoutIdentification from "../identification/widget"
+import CheckoutIdentification from "../shipping/widget"
 
 describe("The checkout identification widget", () => {
   it("changes the form inputs", async () => {

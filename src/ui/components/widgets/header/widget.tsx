@@ -3,7 +3,7 @@ import styled from "styled-components"
 
 function Header (props: PropsWithChildren): JSX.Element {
   return (
-    <StyledHeader>{ props.children }</StyledHeader>
+    <StyledHeader {...props}>{ props.children }</StyledHeader>
   )
 }
 

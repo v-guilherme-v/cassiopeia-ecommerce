@@ -5,7 +5,7 @@ import { MobileFiltersContext } from "@contexts"
 import { LightThemeProvider } from "@providers"
 
 describe("The mobile filters widget", () => {
-  it("calls its toggle visibility function", () => {
+  it("calls its toggle visibility function", async () => {
     const providerContext = {
       isFilterMenuOpen: true,
       toggleMobileFilters: jest.fn()
@@ -19,14 +19,14 @@ describe("The mobile filters widget", () => {
       </LightThemeProvider>
     )
 
-    const filterDismissAction = screen.getByText("Filters", { exact: true })
+    const filterDismissAction = await screen.findByText("Filters", { exact: true })
     expect(filterDismissAction).toBeVisible()
     fireEvent.click(filterDismissAction)
     expect(providerContext.toggleMobileFilters).toBeCalled()
 
     // TODO: It's now clicked to cover the current component state tests,
     // but in future this test should expect something back from this call
-    const brandNewFilterOption = screen.getByText("Brand new")
+    const brandNewFilterOption = await screen.findByText("Brand new")
     fireEvent.click(brandNewFilterOption)
   })
 })

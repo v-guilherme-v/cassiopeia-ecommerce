@@ -1,7 +1,7 @@
 import { type PropsWithChildren, useState } from "react"
 import { Block, Button, Input, Title } from "@components/common"
 import { ButtonModels } from "@components/common/button"
-import { CartLineItem, CartPriceInfo } from "@components/commerce"
+import { CartLineItem, SummaryPriceInfo } from "@components/commerce"
 import { CloseIcon, ThinArrowIcon } from "@components/icons"
 import { MiniCartContext } from "@contexts"
 
@@ -69,7 +69,7 @@ export function MiniCartPromotionEntry (): JSX.Element {
 export function MiniCartSummary (): JSX.Element {
   return (
     <Block data-name="MiniCart__Summary">
-      <CartPriceInfo />
+      <SummaryPriceInfo />
     </Block>
   )
 }
@@ -92,7 +92,7 @@ export function MiniCartCheckout (): JSX.Element {
   return (
     <Button
       data-name="MiniCart__Checkout"
-      customStyles={{ borderRadius: "8px" }}
+      style={{ borderRadius: "8px" }}
       icon={{ element: <ThinArrowIcon /> }}
     >
       Checkout

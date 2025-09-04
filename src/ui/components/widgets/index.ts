@@ -12,3 +12,5 @@ export { default as MobileFilters } from "./mobile-filters/widget"
 export { default as MobileNavigation } from "./mobile-navigation/widget"
 
 export * from "./product"
+
+export { default as CartSummary } from "./cart-summary/widget"
