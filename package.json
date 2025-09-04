@@ -11,12 +11,15 @@
     "lint": "yarn eslint src/",
     "lint:fix": "yarn lint --fix",
     "postinstall": "husky install",
-    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js --maxWorkers=1",
-    "test:coverage": "node --experimental-vm-modules node_modules/jest/bin/jest.js --maxWorkers=1 --coverage"
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js --maxWorkers=1 --verbose",
+    "test:coverage": "node --experimental-vm-modules node_modules/jest/bin/jest.js --maxWorkers=1 --coverage --verbose"
   },
   "dependencies": {
+    "i18next": "^24.2.2",
+    "motion": "^12.23.11",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-i18next": "^15.4.0",
     "react-responsive": "^10.0.0",
     "react-router-dom": "^6.26.1",
     "styled-components": "^5.3.6",
