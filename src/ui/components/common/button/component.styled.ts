@@ -26,7 +26,7 @@ const StyledButton = styled.button<ButtonProps>`
   };
 
   border-radius: ${(props) => (props.rounded == null) || props.size !== ButtonSizes.ICON
-    ? props?.customStyles?.borderRadius ?? props.theme.button.borderRadius
+    ? props?.style?.borderRadius ?? props.theme.button.borderRadius
     : "50%"
   };
 

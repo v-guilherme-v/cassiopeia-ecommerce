@@ -1,5 +1,5 @@
 import { screen, render, act, fireEvent } from "@testing-library/react"
-import LightTheme from "@theme/styles/light"
+import LightTheme from "@ui/theme/styles/theme"
 import { LightThemeProvider } from "@providers"
 
 import Button, { StyledButton, ButtonSizes, ButtonModels, ButtonIconPositions } from "../index"
@@ -176,7 +176,7 @@ describe("The button", () => {
   it("has custom styles", () => {
     render(
       <LightThemeProvider>
-        <Button customStyles={{
+        <Button style={{
           borderColor: "#f00"
         }}>Custom styles</Button>
       </LightThemeProvider>

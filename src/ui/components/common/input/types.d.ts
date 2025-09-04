@@ -1,13 +1,10 @@
-import { type ReactNode } from "react"
+import { CSSProperties, type ReactNode } from "react"
 
 export interface InputProps extends React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> {
   icon?: ReactNode
-  customStyles?: {
-    textColor?: string
-    borderColor?: string
-    backgroundColor?: string
-    placeholderColor?: string
-  }
+  styles?: CSSProperties
+  filledBackground?: boolean
+  label?: string
 }
 
 export interface IInputWithValidationProps extends Omit<InputProps, "icon"> {

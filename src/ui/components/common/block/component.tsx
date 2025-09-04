@@ -7,7 +7,7 @@ interface BlockCommonAttrs extends PropsWithChildren<HTMLAttributes<HTMLDivEleme
 const Block = forwardRef<HTMLDivElement, BlockCommonAttrs>((props, ref) => {
   const { children, ...restProps } = props
   return (
-    <StyledBlock ref={ref} {...restProps}>{ children }</StyledBlock>
+    <StyledBlock ref={ref} style={props.style} {...restProps}>{ children }</StyledBlock>
   )
 }) as ForwardRefWithStyled<HTMLDivElement, BlockCommonAttrs, typeof StyledBlock>
 
