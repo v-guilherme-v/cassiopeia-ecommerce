@@ -1,6 +1,6 @@
 import { screen, render } from "@testing-library/react"
 import { LightThemeProvider } from "@providers"
-import lightTheme from "@theme/styles/light"
+import lightTheme from "@ui/theme/styles/theme"
 
 import Title from "../component"
 

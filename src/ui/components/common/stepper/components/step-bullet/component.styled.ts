@@ -1,6 +1,6 @@
 import styled, { DefaultTheme } from "styled-components"
 import { Block, Text } from "@components/common"
-import { getTextStyles } from "@theme/selectors"
+import { getTextStyles, getViewPortsStyles } from "@theme/selectors"
 
 import { IStepBulletProps } from "../../types"
 
@@ -11,7 +11,7 @@ interface IGetStatusColor {
   titleTextColor: string
 }
 
-function getStatusColor({ state }: Pick<IStepBulletProps, "state">, theme: DefaultTheme) : IGetStatusColor {
+export function getStatusColor({ state }: Pick<IStepBulletProps, "state">, theme: DefaultTheme) : IGetStatusColor {
   if(state === "complete") {
     return {
       borderColor: theme.color.accent,
@@ -40,15 +40,6 @@ function getStatusColor({ state }: Pick<IStepBulletProps, "state">, theme: Defau
 export default styled.div<Pick<IStepBulletProps, "state">>`
   display: flex;
   align-items: center;
-
-  &:not(:first-child)::before {
-    content: "";
-    display: inline-flex;
-    width: 60px;
-    height: 2px;
-    background-color: ${props => getStatusColor({ state: props.state }, props.theme).titleTextColor};
-    margin-inline: 20px;
-  }
   
   ${Block.Styled}[data-name="StepTitle"]::before {
     content: attr(data-order);
@@ -59,8 +50,8 @@ export default styled.div<Pick<IStepBulletProps, "state">>`
     align-items: center;
     justify-content: center;
 
-    width: 24px;
-    height: 24px;
+    width: var(--bullet-width);
+    height: var(--bullet-height);
     color: ${props => getStatusColor({ state: props.state }, props.theme).orderTextColor};
 
     border: 1px solid ${props => getStatusColor({ state: props.state }, props.theme).borderColor};
@@ -77,5 +68,27 @@ export default styled.div<Pick<IStepBulletProps, "state">>`
       color: ${props => getStatusColor({ state: props.state }, props.theme).titleTextColor};
       user-select: none;
     }
+  }
+
+  @media (min-width: ${props => getViewPortsStyles(props).medium}) {
+    &:not(:first-child)::before {
+      content: "";
+      display: inline-flex;
+      width: 60px;
+      height: 2px;
+      background-color: ${props => getStatusColor({ state: props.state }, props.theme).titleTextColor};
+      margin-inline: 20px;
+    }
+  }
+
+  @media (max-width: ${props => getViewPortsStyles(props).medium}) {
+    --bullet-width: 32px;
+    --bullet-height: 32px;
+
+    ${Block.Styled}[data-name="StepTitle"]::before {
+      font-size: 16px;
+      border-width: 2px;
+    }
+
   }
 `

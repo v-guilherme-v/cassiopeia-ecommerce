@@ -22,6 +22,7 @@ export interface IStepperStep {
 
 export interface IStepperProps {
   steps: IStepperStep[]
+  portalSelector?: string
 }
 
 export interface IStepBulletProps extends Pick<React.HTMLAttributes<HTMLDivElement>, "role">{

@@ -1,7 +1,7 @@
 import { screen, render } from "@testing-library/react"
 import Text from "../component"
 import { LightThemeProvider } from "@providers"
-import lightTheme from "@theme/styles/light"
+import lightTheme from "@ui/theme/styles/theme"
 
 describe("The text", () => {
   it("is in default format", () => {
