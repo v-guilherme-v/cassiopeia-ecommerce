@@ -1,7 +1,7 @@
-import { type PropsWithChildren } from "react"
+import { CSSProperties, type PropsWithChildren } from "react"
 import styled from "styled-components"
 
-function Header (props: PropsWithChildren): JSX.Element {
+function Header (props: PropsWithChildren<{ style?: CSSProperties }>): JSX.Element {
   return (
     <StyledHeader {...props}>{ props.children }</StyledHeader>
   )
