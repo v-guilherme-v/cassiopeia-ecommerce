@@ -1,4 +1,4 @@
-import { type MouseEventHandler, type ReactNode } from "react"
+import { CSSProperties, type MouseEventHandler, type ReactNode } from "react"
 
 export enum ButtonModels {
   PRIMARY = "primary",
@@ -29,8 +29,5 @@ export interface ButtonProps {
   disabled?: boolean
   rounded?: boolean
   onClick?: MouseEventHandler<HTMLElement>
-  customStyles?: {
-    borderColor?: string
-    borderRadius?: string
-  }
+  style?: CSSProperties
 }

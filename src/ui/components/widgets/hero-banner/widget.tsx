@@ -10,8 +10,8 @@ function HeroBanner (props: HeroBannerProps): JSX.Element {
   const config = useHeroBannerConfig(props)
 
   return (
-    <Container>
-      <StyledHeroBanner>
+    <Container data-name="HeroBanner__Container">
+      <StyledHeroBanner data-name="HeroBanner__Styled">
         <Image src={config.image.src} alt={config.image.alt}/>
         <StyledHeroBannerActions>
           <Title.Large fontColor={config.title.color} weight="medium">

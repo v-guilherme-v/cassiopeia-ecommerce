@@ -1,9 +1,9 @@
 import { type ThemeType } from "../types"
 
-const darkTheme: ThemeType = {
+const lightTheme: ThemeType = {
   font: {
     family: "Inter, system-ui, Avenir, Helvetica, Arial, sans-serif",
-    rootSize: "",
+    rootSize: "16px",
     weight: {
       regular: "400",
       medium: "500",
@@ -12,7 +12,7 @@ const darkTheme: ThemeType = {
   },
 
   color: {
-    primary: "#595CFF",
+    primary: "#000",
     primaryDark: "#383BE4",
     secondary: "#8C8EFF",
     accent: "#595CFF",
@@ -44,7 +44,7 @@ const darkTheme: ThemeType = {
   },
 
   boxShadow: {
-    lightShadow: "0px 52px rgba(90, 92, 102, 0.06)",
+    lightShadow: "0px 3px 52px 0px rgba(90, 92, 102, 0.06)",
     lightShadowHoverRight: "3px 7px 18px rgba(103, 105, 116, 0.0833424)",
     lightShadowHoverLeft: "-10px 5px 18px rgba(103, 105, 116, 0.0833424)"
   },
@@ -65,13 +65,17 @@ const darkTheme: ThemeType = {
 
   button: {
     borderRadius: "4px",
-    transition: "background-color .2s cubic-bezier(.17,.67,.83,.67)"
+    transition: "background-color .2s cubic-bezier(.17, .67, .83, .67)"
   },
 
   text: {
     large: {
       fontSize: "1rem",
       lineHeight: "20px"
+    },
+    body: {
+      fontSize: "1rem",
+      lineHeight: "24px"
     },
     default: {
       fontSize: "0.875rem",
@@ -80,10 +84,6 @@ const darkTheme: ThemeType = {
     button: {
       fontSize: "0.875rem",
       lineHeight: "17px"
-    },
-    body: {
-      fontSize: "1rem",
-      lineHeight: "24px"
     },
     caption: {
       fontSize: "0.75rem",
@@ -153,7 +153,11 @@ const darkTheme: ThemeType = {
     width: "554px",
     zIndex: 11,
     transitionTime: "500ms"
+  },
+
+  orderSummaryMobile: {
+    transitionTime: "100ms"
   }
 }
 
-export default darkTheme
+export default lightTheme

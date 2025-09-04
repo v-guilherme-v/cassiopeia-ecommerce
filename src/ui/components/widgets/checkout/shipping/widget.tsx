@@ -86,7 +86,7 @@ export default function CheckoutUserIdentification(): JSX.Element {
     }
 
     if(isGuestUserInvalid()) {
-      setIsNextActionDisabled(true)
+      setIsNextActionDisabled(false)
     } else {
       if(isNextActionDisabled) {
         setIsNextActionDisabled(false)
@@ -98,7 +98,7 @@ export default function CheckoutUserIdentification(): JSX.Element {
     <StyledCheckoutUserIdentification>
       <Block data-name="CheckoutUserIdentification">
         <Block data-name="CheckoutUserIdentification__Heading">
-          <Text.Body>User identification</Text.Body>
+          <Text.Body>Contact information</Text.Body>
         </Block>
         <Block data-name="CheckoutUserIdentification__Content">
           <Form onChange={onChange}>
@@ -143,13 +143,17 @@ const StyledCheckoutUserIdentification = styled.div`
     margin-bottom: 20px;
   }
 
+  ${Block.Styled}[data-name="CheckoutUserIdentification__Heading"]:not(:first-child) {
+    margin: 20px 0;
+  }
+
   ${Block.Styled}[data-name="CheckoutUserIdentification__Content"] ${Form.Styled} {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
 
     ${Input.Styled.ValidatorContainer} {
-      flex: 0 0 50%;
+      flex: 0 0 45%;
     }
   }
 

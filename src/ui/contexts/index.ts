@@ -17,6 +17,14 @@ export interface SwiperContextType {
 }
 export const SwiperContext = createContext<SwiperContextType | null>(null)
 
+export interface LayoutContextType<T = unknown> {
+  properties: T
+}
+
+export const LayoutContext = createContext<LayoutContextType<unknown>>({
+  properties: {}
+})
+
 export interface MiniCartContextType {
   isOpen: boolean
   toggleMiniCart: () => void

@@ -4,17 +4,15 @@ import type { InputProps, IInputWithValidationProps } from "./types"
 import Text from "../text"
 import Validator from "../validator"
 
-function RawInput (props: InputProps): JSX.Element {
-  const { customStyles, ...restProps } = props
-  
+function RawInput (props: InputProps): JSX.Element {  
   return (
     <>
       <input
         data-testid="Input"
-        id={restProps.name}
-        { ...restProps }
+        id={props.name}
+        { ...props }
       />
-      { restProps.icon }
+      { props.icon }
     </>
   )
 }

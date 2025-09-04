@@ -31,11 +31,11 @@ const BaseInput = styled.div<InputProps>`
     /* the calc is, icon max-width + the right gap from the div that wraps everything */
     padding: 12px calc(${ICON_MAX_WIDTH} + ${ICON_RIGHT_GAP}) 12px 12px;
     width: 100%;
-    background-color: ${props => props?.customStyles?.backgroundColor ?? getColorStyles(props).white};
-    color: ${props => props?.customStyles?.textColor ?? getColorStyles(props).black};
+    background-color: ${props => props?.style?.backgroundColor ?? getColorStyles(props).white};
+    color: ${props => props?.style?.textColor ?? getColorStyles(props).black};
 
     &::placeholder {
-      color: ${props => props?.customStyles?.placeholderColor ?? getColorStyles(props).darkGrey};
+      color: ${props => props?.style?.placeholderColor ?? getColorStyles(props).darkGrey};
       user-select: none;
     }
   }

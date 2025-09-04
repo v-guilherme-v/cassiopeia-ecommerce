@@ -1,13 +1,16 @@
 import { type ThemeType } from "@theme/types"
 import { ButtonSizes, ButtonModels, type ButtonProps } from "./types"
 import { getColorStyles } from "@theme/selectors"
+import { CSSProperties } from "react"
 
 // Auxiliary type to represent the theme in button type
 interface ThemeTypeAsProperty { theme: ThemeType }
 
 // A styled button has its own props and the theme in it
 interface StyledButtonProps
-  extends ButtonProps, ThemeTypeAsProperty {}
+  extends ButtonProps, ThemeTypeAsProperty {
+    style: CSSProperties
+  }
 
 /**
  * Defines a size based on `ButtonSizes` component prop
@@ -85,8 +88,8 @@ export function getBorderColor (props: StyledButtonProps): string {
   const isIcon = size === ButtonSizes.ICON
   const isOutlined = model === ButtonModels.OUTLINED
 
-  if (props?.customStyles?.borderColor !== null &&
-    props?.customStyles?.borderColor !== undefined) return `1px solid ${props.customStyles.borderColor}`
+  if (props?.style?.borderColor !== null &&
+    props?.style?.borderColor !== undefined) return `1px solid ${props.style.borderColor}`
   else if (isOutlined && isIcon) return `1px solid ${props.theme.color.lightGrey}`
   else if (isOutlined) return `1px solid ${props.theme.color.primary}`
 

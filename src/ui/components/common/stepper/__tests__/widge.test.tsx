@@ -39,29 +39,29 @@ describe("The Stepper component...", () => {
       .mockReturnValue({ maxWidthMedium: true })
   })
 
-  it("goes forward and backwards", () => {
+  it("goes forward and backwards", async () => {
     render(
       <LightThemeProvider>
         <Stepper steps={steps}/>
       </LightThemeProvider>
     )
 
-    expect(screen.getByText("Second step")).toBeInTheDocument()
+    expect(await screen.findByText("Second step")).toBeInTheDocument()
     
-    const secondStepPrevButton = screen.getByRole("button", { name: "Go to first" })
+    const secondStepPrevButton = await screen.findByRole("button", { name: "Go to first" })
     expect(secondStepPrevButton).toBeInTheDocument()
     fireEvent.click(secondStepPrevButton)
     
-    expect(screen.getByText("First step")).toBeInTheDocument()
+    expect(await screen.findByText("First step")).toBeInTheDocument()
 
-    const firstStepNextButton = screen.getByRole("button", { name: "Go to second" })
+    const firstStepNextButton = await screen.findByRole("button", { name: "Go to second" })
     expect(firstStepNextButton).toBeInTheDocument()
     fireEvent.click(firstStepNextButton)
 
-    expect(screen.getByText("Second step")).toBeInTheDocument()
+    expect(await screen.findByText("Second step")).toBeInTheDocument()
   })
 
-  it("has no actions cause it's complete", () => {
+  it("has no content/actions cause it's complete", async () => {
     render(
       <LightThemeProvider>
         <Stepper steps={[
@@ -78,7 +78,9 @@ describe("The Stepper component...", () => {
         ]}/>
       </LightThemeProvider>
     )
-
+    // When the only step is already complete, Stepper has no current step,
+    // therefore it renders no step content or actions.
+    expect(screen.queryByText("Single step")).not.toBeInTheDocument()
     expect(screen.queryByText("Back to somewhere")).not.toBeInTheDocument()
     expect(screen.queryByText("Go to somewhere")).not.toBeInTheDocument()
   })

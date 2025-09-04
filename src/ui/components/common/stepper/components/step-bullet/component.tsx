@@ -3,6 +3,7 @@ import { Block, Text } from "@components/common"
 import { IStepBulletProps } from "../../types"
 
 import StyledStepBullet from "./component.styled"
+import { ForwardRefWithStyled } from "@ui/types"
 
 const StepBullet = forwardRef<HTMLDivElement, IStepBulletProps>((props, ref) => {
   return (
@@ -14,6 +15,8 @@ const StepBullet = forwardRef<HTMLDivElement, IStepBulletProps>((props, ref) => 
       </Block>
     </StyledStepBullet>
   )
-})
+}) as ForwardRefWithStyled<HTMLDivElement, IStepBulletProps, typeof StyledStepBullet>
+
+StepBullet.Styled = StyledStepBullet
 
 export default StepBullet

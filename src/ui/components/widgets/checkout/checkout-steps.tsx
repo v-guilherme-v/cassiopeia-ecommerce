@@ -1,14 +1,16 @@
 import { lazy } from "react"
 import { Stepper } from "@components/common"
+import { useViewPorts } from "@app/ui/hooks/use-viewports"
 
-const CheckoutUserIdentification = lazy(() => import("./identification/widget"))
+const CheckoutCartItems = lazy(() => import("./cart-items/widget"))
+const CheckoutUserIdentificationStep = lazy(() => import("./shipping/widget"))
 
 export default function CheckoutSteps(): JSX.Element {
   const steps = [
     {
-      id: "identification",
-      title: "Identification",
-      component: () => <CheckoutUserIdentification />,
+      id: "cart",
+      title: "Cart",
+      component: () => <CheckoutCartItems />,
       actions: {
         nextButtonLabel: "Shipping",
         isNextButtonDisabled: false
@@ -17,9 +19,9 @@ export default function CheckoutSteps(): JSX.Element {
     {
       id: "shipping",
       title: "Shipping",
-      component: () => <>Shipping</>,
+      component: () => <CheckoutUserIdentificationStep />,
       actions: {
-        prevButtonLabel: "Identification",
+        prevButtonLabel: "Cart",
         nextButtonLabel: "Payment"
       }
     },
@@ -34,5 +36,7 @@ export default function CheckoutSteps(): JSX.Element {
     }
   ]
 
-  return <Stepper steps={steps} />
+  const { maxWidthMedium } = useViewPorts()
+
+  return !maxWidthMedium ? <Stepper steps={steps} portalSelector="#CartSummary__Actions"/> : <Stepper.Mobile steps={steps} portalSelector="#CartSummary__StepperActions" />
 }

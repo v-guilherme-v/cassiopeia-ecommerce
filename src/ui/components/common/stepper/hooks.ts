@@ -1,10 +1,7 @@
 import {
   useState,
   useCallback,
-  useMemo,
-  useRef,
-  createRef,
-  RefObject
+  useRef
 } from "react"
 
 import { IStepperProps, IStepperStep, TGoToStepAction } from "./types"
@@ -17,57 +14,21 @@ export function useStepper({ steps }: Pick<IStepperProps, "steps">) {
 
   const stepsElementRef = useRef<HTMLDivElement>(null)
 
-  const stepperBulletsRefList = useMemo(() => {
-    return steps.reduce<{[key: string]: RefObject<HTMLDivElement>}>((acc, step) => {
-      acc[step.id] = createRef()
-      return acc;
-    }, {})
-  }, [steps])
+  const stepperBulletsRefList = useRef<{[name: string]: HTMLDivElement | null }>({});
 
   const { maxWidthMedium } = useViewPorts()
 
-  function scrollToBulletPosition(params: {
-    forAction: TGoToStepAction, 
-    targetStep: IStepperStep,
-    currentStep?: IStepperStep
-  }) {
-    const targetElementRef = stepperBulletsRefList[params.targetStep.id]
-    const currentElementRef = stepperBulletsRefList[params.currentStep?.id ?? ""]
+  function scrollToBulletPosition(targetStep: IStepperStep) {
+    if(stepperBulletsRefList.current) {
+      const targetStepElement = stepperBulletsRefList.current[targetStep.id]
 
-    if(
-      params.forAction === "prev" &&
-      targetElementRef.current !== null &&
-      currentElementRef &&
-      currentElementRef.current !== null
-    ) {
-      const targetElementBounding = targetElementRef.current.getBoundingClientRect()
-      const currentElementBounding = currentElementRef.current.getBoundingClientRect()
+      if (targetStepElement) {
+        const elementTop = targetStepElement.getBoundingClientRect().top + window.scrollY;
+        const offset = targetStep.id === "cart" ? 80 : 20; 
 
-      const scrollDistance = currentElementBounding.left - Math.abs(targetElementBounding.left)
-  
-      if(stepsElementRef.current !== null) {
-        if(params.targetStep.index === 0) {
-          targetElementRef.current.scrollIntoView({
-            behavior: "smooth",
-            block: "nearest",
-            inline: "start"
-          });
-        } else {
-          stepsElementRef.current.scrollBy({
-            left: -Math.abs(scrollDistance),
-            behavior: "smooth",
-          });
-        }
-      }
-    } else if(params.forAction === "next") {
-      if (
-        stepsElementRef.current &&
-        targetElementRef.current !== null
-      ) {
-        targetElementRef.current.scrollIntoView({
-          behavior: "smooth",
-          block: "nearest",
-          inline: "center"
+        window.scrollTo({
+          top: elementTop - offset, // Scroll to the element's position minus the offset
+          behavior: "smooth", // Enable smooth scrolling
         });
       }
     }
@@ -91,15 +52,10 @@ export function useStepper({ steps }: Pick<IStepperProps, "steps">) {
         currentStepsCopy[currentStep.index].state = "pending"
         prevStep.state = "current"
 
-        
         if(maxWidthMedium) {
-          scrollToBulletPosition({
-            forAction: action,
-            targetStep: prevStep,
-            currentStep
-          })
+          scrollToBulletPosition(prevStep)
         }
-        
+
         setStatefulSteps(currentStepsCopy)
       }
 
@@ -117,10 +73,7 @@ export function useStepper({ steps }: Pick<IStepperProps, "steps">) {
         nextStep.state = "current"
 
         if(maxWidthMedium) {
-          scrollToBulletPosition({
-            forAction: action,
-            targetStep: nextStep
-          })
+          scrollToBulletPosition(nextStep)
         }
         
         setStatefulSteps(currentStepsCopy)

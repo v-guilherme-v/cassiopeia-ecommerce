@@ -44,7 +44,6 @@ export default function StepActions (props: IStepActionsProps): JSX.Element | nu
             onClick={props.onNextButtonClick}
             disabled={props.isNextButtonDisabled}
             icon={{ element: <ThinArrowIcon /> }}
-            customStyles={{ borderRadius: "8px" }}
           >
             { nextButtonLabel }
           </Button>
@@ -62,8 +61,6 @@ const StyledStepActions = styled.div<Partial<IStepActionsProps>>`
     border-top: 1px solid ${props => getColorStyles(props).lightGrey};
 
     ${Button.Styled.Normal}[data-name="StepActions__Prev"] {
-      justify-content: start;
-
       ${Text.Styled.Button} {
         line-height: 20px;
         font-weight: ${props => getFontStyles(props).weight.regular};

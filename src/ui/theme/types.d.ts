@@ -134,6 +134,10 @@ export interface SideMenuStyles {
   zIndex: number
 }
 
+export interface OrderSummaryMobileStyles {
+  transitionTime: string
+}
+
 export interface ThemeType {
   // Root styles
   font: FontStyles
@@ -155,4 +159,5 @@ export interface ThemeType {
   productCard: ProductCardStyles
   fallbackImage: FallbackImageStyles
   sideMenu: SideMenuStyles
+  orderSummaryMobile: OrderSummaryMobileStyles
 }
