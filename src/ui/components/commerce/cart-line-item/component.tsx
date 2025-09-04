@@ -2,7 +2,7 @@ import { ThemeConsumer } from "styled-components"
 import { toCurrency } from "@utils/commerce"
 
 import { Block, Button, Image, Text } from "@components/common"
-import { MinusSignIcon, PlusSignIcon } from "@components/icons"
+import { MinusSignIcon, PlusSignIcon, TrashCanIcon } from "@components/icons"
 import { ButtonSizes } from "@components/common/button"
 
 import StyledCartLineItem from "./component.styled"
@@ -25,7 +25,7 @@ function CartLineItem ({ name = "Name", price = 0 }: CartLineItemProps): JSX.Ele
             <Image src={flower} alt="flower" />
           </Block>
           <Block data-name="CartLineItem__Container">
-            <Block data-name="CartLineItem__Details">
+            <Block data-name="CartLineItem__Row">
               <Text.Large data-name="CartLineItem__Name">{name}</Text.Large>
               <Text.Large data-name="CartLineItem__Price" weight="medium">{priceAsCurrency}</Text.Large>
             </Block>
@@ -45,6 +45,9 @@ function CartLineItem ({ name = "Name", price = 0 }: CartLineItemProps): JSX.Ele
                 rounded={true}
                 icon={{ element: <PlusSignIcon /> }}
               />
+              <Button.AsIcon data-name="CartLineItem__Remove">
+                <TrashCanIcon />
+              </Button.AsIcon>
             </Block>
           </Block>
         </StyledCartLineItem>
