@@ -1,16 +1,10 @@
 # Cassiopeia E-commerce
 
 ## Apresentação
-Uma solução digital para floriculturas que contempla uma logística padrão/básica, baseando-se em e-commerece reais, os quais incrementam complexidade dependendo da logística que se necessita atender. A aplicação e marca Cassiopeia, assim como sua identidade visual é oriunda de _UI kits_ gratuitos, o qual pode ser acessado a partir do link que está na seção de referências. Vale mencionar que este projeto não tem intento comercial e nem será revendido como produto, a real necessidade aqui é expor as _hard skills_ do desenvolvedor.
-
-## Aspectos visuais
-Abaixo estão algumas das telas obtidas do UI Kit.
-
-### Home page
-<img width="100%" alt="image" src="https://github.com/v-guilherme-v/cassiopeia-ecommerce/assets/56317921/d10705b6-91fb-4699-9cd3-cf6b38624ab5">
+Uma vitrine e checkout demonstrativos para floriculturas. O projeto usa dados e cenários fictícios (produtos, frete e pagamento) e uma identidade visual oriunda de um UI Kit gratuito. Não possui intuito comercial.
 
 ## Requisitos funcionais
-Entre as diversas funcionalidades de um e-commerce, se descrevem como necessárias para este caso:
+Entre as diversas funcionalidades de um e-commerce, requer-se:
 - Banners;
 - Carrosséis;
 - Página do produto com SKUs;
@@ -20,6 +14,12 @@ Entre as diversas funcionalidades de um e-commerce, se descrevem como necessári
   - Seleção de endereços;
   - Métodos de entrega;
   - Métodos de pagamentos.
+
+
+## Exemplos
+### Home page
+<img width="100%" alt="image" src="https://github.com/v-guilherme-v/cassiopeia-ecommerce/assets/56317921/d10705b6-91fb-4699-9cd3-cf6b38624ab5">
+
 
 ## Referências
 UI kit: <https://uibundle.com/products/683-cassiopeia-flower-store-free-ui-kit>
