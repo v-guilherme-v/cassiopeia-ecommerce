@@ -25,12 +25,12 @@ export default function CheckoutCart(): JSX.Element {
   return (
     <StyledCheckoutCart>
       <Block data-name="CheckoutCart__Title">
-        <Text.Large>{t("checkout.cart.description")}</Text.Large>
+        <Text.Large>{t("message.cart")}</Text.Large>
       </Block>
       <Block data-name="CheckoutCart__CartLineItems">
         <Block data-name="CheckoutCart__TableHeadings">
-          <Text.Button data-name="CheckoutCart__TableHeading">{t("product.name.label")}</Text.Button>
-          <Text.Button data-name="CheckoutCart__TableHeading">{t("price.name.label")}</Text.Button>
+          <Text.Button data-name="CheckoutCart__TableHeading">{t("labels.product")}</Text.Button>
+          <Text.Button data-name="CheckoutCart__TableHeading">{t("labels.price")}</Text.Button>
         </Block>
         <Block data-name="CheckoutCart__TableContent">
           {Array(3).fill(1).map((_, index) => {
@@ -39,7 +39,7 @@ export default function CheckoutCart(): JSX.Element {
         </Block>
       </Block>
       <Block data-name="CheckoutCart__Title">
-        <Text.Large>{t("cart.add.coupons")}</Text.Large>
+        <Text.Large>{t("actions.addCoupons")}</Text.Large>
       </Block>
       <Block data-name="CheckoutCart__PromotionEntry">
         <MiniCartPromotionEntry />

@@ -15,7 +15,7 @@ export default function CartSummary(): JSX.Element {
 
   return !maxWidthMedium ? (
     <StyledCartSummary>
-      <Title.Small>{t("summary.title")}</Title.Small>
+      <Title.Small>{t("labels.summary")}</Title.Small>
       <SummaryPriceInfo />
       <Block id="CartSummary__Actions"></Block>
     </StyledCartSummary>

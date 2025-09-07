@@ -8,8 +8,10 @@ import { ChevronIcon, CloseIcon, EditIcon, MarkerIcon } from "@components/icons"
 import type { ICategory, INavigationProps } from "@widgets/types"
 
 import StyledMobileNavigation from "./widget.styled"
+import { useTranslation } from "react-i18next"
 
 export default function MobileNavigation (props: INavigationProps): JSX.Element {
+  const { t } = useTranslation()
   const initialCategories = props.categories
   const [ parentCategory, setParentCategory ] = useState<Partial<ICategory> | null>()
   const [ currentCategory, setCurrentCategory ] = useState<Pick<ICategory, "children">>({ children: initialCategories })
@@ -91,7 +93,7 @@ export default function MobileNavigation (props: INavigationProps): JSX.Element 
             <Block data-name="MobileNavigation__Heading">
               <Button.AsIcon onClick={mobileNavContext?.toggleMobileNavigation}>
                 <CloseIcon />
-                <Title.ExtraSmall>Menu</Title.ExtraSmall>
+                <Title.ExtraSmall>{t("labels.menu")}</Title.ExtraSmall>
               </Button.AsIcon>
             </Block>
             {parentCategory !== null &&
@@ -134,14 +136,14 @@ export default function MobileNavigation (props: INavigationProps): JSX.Element 
               <Block data-name="MobileNavigation__CitySelector">
                 <Block data-name="MobileNavigation__CurrentCity">
                   <MarkerIcon />
-                  <Text>City</Text>
+                  <Text>{t("labels.city")}</Text>
                 </Block>
                 <Button.AsIcon data-name="MobileNavigation__EditCity">
                   <EditIcon />
-                  <Text.Caption>Change</Text.Caption>
+                  <Text.Caption>{t("actions.change")}</Text.Caption>
                 </Button.AsIcon>
               </Block>
-              <Text data-name="MobileNavigation__Help">Help</Text>
+              <Text data-name="MobileNavigation__Help">{t("labels.help")}</Text>
             </Block>
           </StyledMobileNavigation>
         </SideMenu>
