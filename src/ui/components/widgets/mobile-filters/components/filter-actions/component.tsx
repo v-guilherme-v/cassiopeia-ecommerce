@@ -4,13 +4,15 @@ import styled from "styled-components"
 import { Block, Button } from "@ui/components/common"
 import { getColorStyles } from "@ui/theme/selectors"
 import { ButtonModels } from "@ui/components/common/button"
+import { useTranslation } from "react-i18next"
 
 export function MobileFilterActions (): JSX.Element {
+  const { t } = useTranslation()
   return (
     <StyledMobileFilterActions>
       <Block data-name="MobileFilterActions">
-        <Button model={ButtonModels.OUTLINED}>Clean</Button>
-        <Button>Apply</Button>
+        <Button model={ButtonModels.OUTLINED}>{t("actions.clean")}</Button>
+        <Button>{t("actions.apply")}</Button>
       </Block>
     </StyledMobileFilterActions>
   )

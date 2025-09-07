@@ -32,7 +32,7 @@ export function CartSummaryMobile(): JSX.Element {
           </Block>
           <Block data-name="CartSummary__Title">
             <CartPriceIcon />
-            <Text.Body>{t("summary.title")}</Text.Body>
+            <Text.Body>{t("labels.summary")}</Text.Body>
             <AnimatePresence>
               {!isMobileSummaryVisible && <Text weight="medium" data-name="CartSummary__Title__Total">R$ 129,90</Text>}
             </AnimatePresence>

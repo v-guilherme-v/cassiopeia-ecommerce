@@ -44,6 +44,7 @@ import { doNothing } from "@utils/index"
 
 import { useViewPorts } from "@ui/hooks/use-viewports"
 import { categoriesMock } from "@widgets/__mocks__"
+import { useTranslation } from "react-i18next"
 
 const breadcrumbs = [
   { name: "Level 1" },
@@ -54,6 +55,7 @@ const breadcrumbs = [
 
 export default function ProductPage (): JSX.Element {
   const theme = useTheme()
+  const { t } = useTranslation()
 
   const footerRef = useRef<HTMLDivElement>(null)
   const cartActionsRef = useRef<HTMLDivElement>(null)
@@ -123,18 +125,18 @@ export default function ProductPage (): JSX.Element {
         </Block>
         <Block data-name="ProductPage__Content">
           <Block data-name="ProductPage__ImageSection">
-            <ProductImage imageURL={randomFlower} imageAltText="Random flower"/>
+            <ProductImage imageURL={randomFlower} imageAltText={t("mock.product.altName")}/>
             {viewPorts.minWidthMedium && (
               <ProductTags tags={[
-                { icon: <CartIcon />, name: "Benefits description" },
-                { icon: <CartIcon />, name: "Benefits description" },
-                { icon: <CartIcon />, name: "Benefits description" }
+                { icon: <CartIcon />, name: t("labels.benefitsDescription") },
+                { icon: <CartIcon />, name: t("labels.benefitsDescription") },
+                { icon: <CartIcon />, name: t("labels.benefitsDescription") }
               ]} />
             )}
           </Block>
           <Block data-name="ProductPage__ActionSection">
             <Block data-name="Product__Identification">
-              <Title data-name="ProductName">Flower</Title>
+              <Title data-name="ProductName">{t("mock.product.name")}</Title>
               <Block data-name="ProductPricing">
                 <Title.Large data-name="ProductCurrentPrice">
                   { toCurrency(80.99) }
@@ -145,11 +147,11 @@ export default function ProductPage (): JSX.Element {
               </Block>
             </Block>
             <Block data-name="Product__QuantityCounter">
-              <Text.Large data-name="Product__QuantityLabel">Quantity</Text.Large>
+              <Text.Large data-name="Product__QuantityLabel">{t("labels.quantity")}</Text.Large>
               <Counter onQuantityChange={doNothing}/>
             </Block>
             <Block data-name="Product__ColorSelector">
-              <Text.Large data-name="Product__ColorSelectorLabel">Color</Text.Large>
+              <Text.Large data-name="Product__ColorSelectorLabel">{t("labels.color")}</Text.Large>
               <ProductColorSelector
                 initialColor="purple"
                 colorOptions={[
@@ -161,7 +163,7 @@ export default function ProductPage (): JSX.Element {
               <Button
                 data-name="Checkout"
               >
-                Checkout
+                {t("actions.checkout")}
               </Button>
               <Button
                 data-name="AddToCart"

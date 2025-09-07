@@ -10,11 +10,11 @@ function SummaryPriceInfo (): JSX.Element {
     <StyledSummaryPriceInfo>
       <Block data-name="SummaryPriceInfo">
         <Block data-name="SummaryPriceInfo__Item">
-          <Text>{t("summary.discounts")}</Text>
+          <Text>{t("labels.discounts")}</Text>
           <Text weight="medium">R$ 15,00</Text>
         </Block>
         <Block data-name="SummaryPriceInfo__Item">
-          <Text>{t("summary.total")}</Text>
+          <Text>{t("labels.total")}</Text>
           <Text weight="medium">R$ 129,90</Text>
         </Block>
       </Block>

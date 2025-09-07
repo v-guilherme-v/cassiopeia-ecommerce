@@ -17,14 +17,10 @@ import {
 import * as RegExps from "@utils/expressions"
 import { doNothing } from "@app/utils"
 import { getViewPortsStyles } from "@app/ui/theme/selectors"
-
-const locales = {
-  guestUserFullNameInvalid: "O nome completo não é válido",
-  guestUserEmailInvalid: "O e-mail não é válido",
-  guestUserCellphoneInvalid: "O celular não é válido"
-}
+import { useTranslation } from "react-i18next"
 
 export default function CheckoutUserIdentification(): JSX.Element {
+  const { t } = useTranslation()
   const guestUser = useContext(CheckoutGuestUserContext)
   const dispatch = useContext(CheckoutReducerDispatchContext)
 
@@ -97,36 +93,36 @@ export default function CheckoutUserIdentification(): JSX.Element {
   return (
     <StyledCheckoutUserIdentification>
       <Block data-name="CheckoutUserIdentification">
-        <Block data-name="CheckoutUserIdentification__Heading">
-          <Text.Body>Contact information</Text.Body>
+      <Block data-name="CheckoutUserIdentification__Heading">
+          <Text.Body>{t("labels.contactInformation")}</Text.Body>
         </Block>
         <Block data-name="CheckoutUserIdentification__Content">
           <Form onChange={onChange}>
             <Input.Validator
               name="fullName"
-              placeholder="Full Name"
+              placeholder={t("labels.fullName")}
               defaultValue={guestUser.fullName}
               showValidator={(guestUser.fullName ?? "").length > 0}
               isValid={!guestUser.fullName || guestUser.errors?.fullName}
-              errorMessage={locales.guestUserFullNameInvalid}
+              errorMessage={t("message.invalidFullName")}
               maxLength={60}
             />
             <Input.Validator
               name="email"
-              placeholder="Email"
+              placeholder={t("labels.email")}
               defaultValue={guestUser.email}
               showValidator={(guestUser.email ?? "").length > 0}
               isValid={!guestUser.email || guestUser.errors?.email}
-              errorMessage={locales.guestUserEmailInvalid}
+              errorMessage={t("messages.invalidEmail")}
               maxLength={254}
             />
             <Input.Validator
               name="cellphone"
-              placeholder="Cellphone"
+              placeholder={t("labels.cellphone")}
               defaultValue={guestUser.cellphone}
               showValidator={(guestUser.cellphone ?? "").length > 0}
               isValid={!guestUser.cellphone || guestUser.errors?.cellphone}
-              errorMessage={locales.guestUserCellphoneInvalid}
+              errorMessage={t("messages.invalidCellphone")}
               maxLength={30}
             />
           </Form>

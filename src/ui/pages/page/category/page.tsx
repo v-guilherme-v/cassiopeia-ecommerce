@@ -41,6 +41,7 @@ import { ButtonModels } from "@ui/components/common/button"
 import { doNothing } from "@utils/index"
 
 import { categoriesMock } from "@widgets/__mocks__"
+import { useTranslation } from "react-i18next"
 
 const breadcrumbs = [
   { name: "Level 1" },
@@ -61,6 +62,7 @@ const categoryResults = Array(8).fill(1).map((_, index) => ({
 
 export default function CategoryPage (): JSX.Element {
   const viewPorts = useViewPorts()
+  const { t } = useTranslation()
 
   return (
     <StyledCategoryPage>
@@ -98,19 +100,19 @@ export default function CategoryPage (): JSX.Element {
           <Block data-name="CategoryPage__Filters">
             {viewPorts.minWidthMedium ? (
               <Block data-name="CategoryPage__FilterOptions">
-                <Select onChange={doNothing} placeholder="Sort by" mode="multi" options={[
-                  { value: "popular", label: "Popular" },
-                  { value: "best-sellers", label: "Best sellers" },
-                  { value: "news", label: "Just arrived" }
+                <Select onChange={doNothing} placeholder={t("labels.sortBy")} mode="multi" options={[
+                  { value: "popular", label: t("labels.popular") },
+                  { value: "best-sellers", label: t("labels.bestSellers") },
+                  { value: "news", label: t("mock.category.justArrived") }
                 ]} />
-                <Select onChange={doNothing} placeholder="Occasion" mode="multi" options={[
-                  { value: "first-date", label: "First date" },
-                  { value: "valentines", label: "Valentines" },
-                  { value: "mothers-day", label: "Mother's Day" }
+                <Select onChange={doNothing} placeholder={t("labels.occasion")} mode="multi" options={[
+                  { value: "first-date", label: t("labels.firstDate") },
+                  { value: "valentines", label: t("labels.valentinesDay") },
+                  { value: "mothers-day", label: t("labels.mothersDay") }
                 ]} />
-                <Select onChange={doNothing} placeholder="Price" options={[
-                  { value: "asc", label: "Most expensive" },
-                  { value: "desc", label: "Cheapest" }
+                <Select onChange={doNothing} placeholder={t("mock.category.price") } options={[
+                  { value: "asc", label: t("mock.category.mostExpensive") },
+                  { value: "desc", label: t("mock.category.cheapest") }
                 ]} />
               </Block>
             ) : (
@@ -132,7 +134,7 @@ export default function CategoryPage (): JSX.Element {
                 )}
               </MobileFiltersContext.Consumer>
             )}
-            <Text data-name="CategoryPage__FilterTotalItems">24 items</Text>
+            <Text data-name="CategoryPage__FilterTotalItems">{t("labels.itemCount", { count: 24 })}</Text>
           </Block>
           <Block data-name="CategoryPage__Results">
             <Block data-name="CategoryPage__ResultList">
@@ -150,7 +152,7 @@ export default function CategoryPage (): JSX.Element {
                 )
               })}
             </Block>
-            <Button data-name="CategoryPage__ResultsLoadMore">See more</Button>
+            <Button data-name="CategoryPage__ResultsLoadMore">{t("actions.seeMore")}</Button>
           </Block>
         </Container>
       </MobileFiltersContextProvider>

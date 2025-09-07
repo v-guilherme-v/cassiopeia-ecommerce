@@ -10,6 +10,7 @@ import {
 } from "@components/widgets"
 
 import { Block, Button, SideMenu, Title } from "@components/common"
+import { useTranslation } from "react-i18next"
 import { useNavigate } from "react-router-dom"
 
 import { MiniCartContext } from "@contexts"
@@ -27,6 +28,7 @@ import { categoriesMock } from "@widgets/__mocks__"
 export default function NotFoundPage (): JSX.Element {
   const goTo = useNavigate()
   const viewPorts = useViewPorts()
+  const { t } = useTranslation()
 
   return (
     <StyledNotFound>
@@ -51,7 +53,7 @@ export default function NotFoundPage (): JSX.Element {
       </MiniCartContextProvider>
 
       <Block data-name="NotFoundPage">
-        <Title>Sorry, we couldn&apos;t find it for you now</Title>
+        <Title>{t("message.404")}</Title>
         <Button
           icon={{
             element: <ThinArrowIcon />,
@@ -60,7 +62,7 @@ export default function NotFoundPage (): JSX.Element {
           backgroundColor={useTheme().color.black}
           onClick={() => { goTo("/home") }}
         >
-          Back to home
+          {t("actions.backToHome")}
         </Button>
       </Block>
 

@@ -126,6 +126,10 @@ const StyledCounter = styled.div`
   align-items: center;
   gap: 5px;
 
+  & ${Input.Styled} {
+    max-width: max-content;
+  }
+
   & input {
     font-size: ${props => getTextStyles(props).button.fontSize};
     line-height: ${props => getTextStyles(props).button.lineHeight};

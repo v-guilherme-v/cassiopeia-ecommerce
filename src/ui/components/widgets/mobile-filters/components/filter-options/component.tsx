@@ -7,6 +7,7 @@ import { Accordion, Block } from "@components/common"
 import SelectableFilterTag from "../filter-tags/component"
 import { getColorStyles } from "@ui/theme/selectors"
 import { doNothing } from "@utils/index"
+import { useTranslation } from "react-i18next"
 
 function MobileFilterOption (
   props: PropsWithChildren<{ label: string, initiallyOpen?: boolean }>
@@ -32,25 +33,27 @@ function MobileFilterOption (
   )
 }
 
-const sortByFilterOptions = [
-  { name: "best-sellers", label: "Best sellers" },
-  { name: "popular", label: "Popular" },
-  { name: "brand-new", label: "Brand new", isActive: true },
-  { name: "popular-men", label: "Popular for men" },
-  { name: "popular-women", label: "Popular for women" }
-]
-
-const colorFilterOptions = [
-  { name: "yellow-tag", label: "Yellow", colorIndicator: "#FFD568" },
-  { name: "red-tag", label: "Red", isActive: true, colorIndicator: "#F63838" },
-  { name: "pink-tag", label: "Pink", colorIndicator: "#FF659C" },
-  { name: "grey-tag", label: "Grey", colorIndicator: "#D9D9D9" }
-]
-
 export function MobileFilterOptions (): JSX.Element {
+  const { t } = useTranslation()
+
+  const sortByFilterOptions = [
+    { name: "best-sellers", label: t("labels.bestSellers") },
+    { name: "popular", label: t("labels.popular") },
+    { name: "brand-new", label: t("labels.brandNew"), isActive: true },
+    { name: "popular-men", label: t("labels.popularForMen") },
+    { name: "popular-women", label: t("labels.popularForWomen") }
+  ]
+
+  const colorFilterOptions = [
+    { name: "yellow-tag", label: t("mock.filter.yellow"), colorIndicator: "#FFD568" },
+    { name: "red-tag", label: t("mock.filter.red"), isActive: true, colorIndicator: "#F63838" },
+    { name: "pink-tag", label: t("mock.filter.pink"), colorIndicator: "#FF659C" },
+    { name: "grey-tag", label: t("mock.filter.grey"), colorIndicator: "#D9D9D9" }
+  ]
+
   return (
     <StyledMobileFilterOptions>
-      <MobileFilterOption label="Sort by" initiallyOpen={sortByFilterOptions.some(o => o.isActive)}>
+      <MobileFilterOption label={t("labels.sortBy")} initiallyOpen={sortByFilterOptions.some(o => o.isActive)}>
         {sortByFilterOptions.map(filterTag => {
           return (
             <SelectableFilterTag
@@ -63,7 +66,7 @@ export function MobileFilterOptions (): JSX.Element {
           )
         })}
       </MobileFilterOption>
-      <MobileFilterOption label="Color" initiallyOpen={colorFilterOptions.some(o => o.isActive)}>
+      <MobileFilterOption label={t("labels.color")} initiallyOpen={colorFilterOptions.some(o => o.isActive)}>
         {colorFilterOptions.map(filterTag => {
           return (
             <SelectableFilterTag
@@ -76,13 +79,13 @@ export function MobileFilterOptions (): JSX.Element {
           )
         })}
       </MobileFilterOption>
-      <MobileFilterOption label="Flower type">
+      <MobileFilterOption label={t("labels.flowerType")}>
         {[
-          { name: "roses", label: "Roses" },
-          { name: "lilies", label: "Lilies" },
-          { name: "tulips", label: "Tulips" },
-          { name: "orchids", label: "Orchids" },
-          { name: "daisies", label: "Daisies" }
+          { name: "roses", label: t("mock.filter.roses") },
+          { name: "lilies", label: t("mock.filter.lilies") },
+          { name: "tulips", label: t("mock.filter.tulips") },
+          { name: "orchids", label: t("mock.filter.orchids") },
+          { name: "daisies", label: t("mock.filter.daisies") }
         ].map(filterTag => {
           return (
             <SelectableFilterTag
@@ -93,11 +96,11 @@ export function MobileFilterOptions (): JSX.Element {
           )
         })}
       </MobileFilterOption>
-      <MobileFilterOption label="Occasion">
+      <MobileFilterOption label={t("labels.occasion")}>
         {[
-          { name: "mothers-day", label: "Mother's day" },
-          { name: "valentines", label: "Valentines" },
-          { name: "first-date", label: "First date" }
+          { name: "mothers-day", label: t("labels.mothersDay") },
+          { name: "valentines", label: t("labels.valentinesDay") },
+          { name: "first-date", label: t("labels.firstDate") }
         ].map(filterTag => {
           return (
             <SelectableFilterTag
