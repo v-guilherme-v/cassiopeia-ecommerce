@@ -53,7 +53,7 @@ export default styled.div.attrs({
     }
   }
 
-  ${Block.Styled}[data-name="Select__SelectOptions"] {
+  [data-name="Select__SelectOptions"] {
     position: absolute;
     display: flex;
     flex-direction: column;
@@ -68,12 +68,13 @@ export default styled.div.attrs({
     ${Text.Styled.Caption}[data-name="Select__SelectOption"] {
       line-height: 26px;
       padding: calc(var(--select-padding-y) / 2) 1rem;
+      user-select: none;
 
       @media(min-width: ${props => getViewPortsStyles(props).medium}) {
         cursor: pointer;
 
         &:hover {
-          color: ${props => getColorStyles(props).primary}
+          color: ${props => getColorStyles(props).accent}
         }
       }
     }

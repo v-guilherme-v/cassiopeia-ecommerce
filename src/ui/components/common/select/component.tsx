@@ -1,8 +1,8 @@
 import { useCallback, useState } from "react"
+import { AnimatePresence, motion } from "motion/react"
 import { ArrowDownIcon } from "@components/icons"
-
-import StyledSelect from "./component.styled"
 import { Block, Text } from "@components/common"
+import StyledSelect from "./component.styled"
 
 import type {
   ISelectOption,
@@ -11,7 +11,7 @@ import type {
   IMultiOptionsCrumbsProps
 } from "./types"
 
-function MultiOptionsCrumbs (props: IMultiOptionsCrumbsProps): JSX.Element {
+function MultiOptionsCrumbs(props: IMultiOptionsCrumbsProps): JSX.Element {
   return (
     <Block data-name="MultiOptionsCrumbs">
       {
@@ -32,18 +32,18 @@ function MultiOptionsCrumbs (props: IMultiOptionsCrumbsProps): JSX.Element {
   )
 }
 
-function SelectedOptions (props: ISelectedOptionsProps): JSX.Element {
+function SelectedOptions(props: ISelectedOptionsProps): JSX.Element {
   return (
     <Block data-name="Select__SelectedOptions">
-      { props.mode === "single"
+      {props.mode === "single"
         ? <Text.Caption data-name="Select__SelectedOption">{props.selectedOptions[0].label}</Text.Caption>
-        : <MultiOptionsCrumbs selectedOptions={props.selectedOptions} onCrumbClick={props.onCrumbClick}/>
+        : <MultiOptionsCrumbs selectedOptions={props.selectedOptions} onCrumbClick={props.onCrumbClick} />
       }
     </Block>
   )
 }
 
-function SelectOption (props: { option: ISelectOption, onOptionSelection: (option: ISelectOption) => void }): JSX.Element {
+function SelectOption(props: { option: ISelectOption, onOptionSelection: (option: ISelectOption) => void }): JSX.Element {
   return (
     <Text.Caption data-name="Select__SelectOption"
       onMouseDown={(event) => {
@@ -57,11 +57,11 @@ function SelectOption (props: { option: ISelectOption, onOptionSelection: (optio
   )
 }
 
-function Select (props: ISelectProps): JSX.Element {
+function Select(props: ISelectProps): JSX.Element {
   const selectionMode = props.mode ?? "single"
 
-  const [ isSelectOpen, setIsSelectOpen ] = useState<boolean>(false)
-  const [ selectedOptions, setSelectedOptions ] = useState<ISelectOption[]>([])
+  const [isSelectOpen, setIsSelectOpen] = useState<boolean>(false)
+  const [selectedOptions, setSelectedOptions] = useState<ISelectOption[]>([])
 
   const onClickOverSelect = useCallback(() => {
     setIsSelectOpen(curr => !curr)
@@ -73,7 +73,7 @@ function Select (props: ISelectProps): JSX.Element {
 
   const onOptionSelection = useCallback((newOption: ISelectOption) => {
     if (selectionMode === "single") {
-      setSelectedOptions([ newOption ])
+      setSelectedOptions([newOption])
       props.onChange(newOption)
       setIsSelectOpen(false)
     } else if (selectionMode === "multi") {
@@ -84,13 +84,13 @@ function Select (props: ISelectProps): JSX.Element {
       setSelectedOptions(newOptions)
       props.onChange(newOptions)
     }
-  }, [ selectedOptions, selectionMode ])
+  }, [selectedOptions, selectionMode])
 
   const onCrumbClick = useCallback((clickedCrumb: ISelectOption) => {
     const newOptions = selectedOptions.filter(option => option.value !== clickedCrumb.value)
     setSelectedOptions(newOptions)
     props.onChange(newOptions)
-  }, [ selectedOptions ])
+  }, [selectedOptions])
 
   return (
     <StyledSelect isSelectOpen={isSelectOpen}>
@@ -104,27 +104,37 @@ function Select (props: ISelectProps): JSX.Element {
           {
             selectedOptions.length === 0
               ? <Text.Caption data-name="Select__Placeholder">{props.placeholder}</Text.Caption>
-              : <SelectedOptions mode={selectionMode} selectedOptions={selectedOptions} onCrumbClick={onCrumbClick}/>
+              : <SelectedOptions mode={selectionMode} selectedOptions={selectedOptions} onCrumbClick={onCrumbClick} />
           }
           <Block data-name="Select__ToggleAction">
             <ArrowDownIcon />
           </Block>
         </Block>
-        {isSelectOpen && selectedOptions.length !== props.options.length && (
-          <Block data-name="Select__SelectOptions">
-            {props.options
-              .filter(option => !selectedOptions.includes(option))
-              .map(option => {
-                return (
-                  <SelectOption key={option.value}
-                    option={option}
-                    onOptionSelection={onOptionSelection}
-                  />
-                )
-              })
-            }
-          </Block>
-        )}
+        <AnimatePresence initial={false}>
+          {isSelectOpen && selectedOptions.length !== props.options.length && (
+              <motion.div data-name="Select__SelectOptions"
+                initial={{ opacity: 0, y: -6 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -6 }}
+                transition={{
+                  duration: 0.18,
+                  easing: "ease-out"
+                }} 
+              >
+                {props.options
+                  .filter(option => !selectedOptions.includes(option))
+                  .map(option => {
+                    return (
+                      <SelectOption key={option.value}
+                        option={option}
+                        onOptionSelection={onOptionSelection}
+                      />
+                    )
+                  })
+                }
+              </motion.div>
+          )}
+        </AnimatePresence>
 
       </Block>
     </StyledSelect>
