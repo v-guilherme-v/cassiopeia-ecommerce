@@ -1,9 +1,11 @@
 /* eslint-disable indent */
+import { type PropsWithChildren } from "react"
 import styled, { css } from "styled-components"
+import { motion } from "motion/react"
 
 import { Block, Text } from "@ui/components/common"
 import { getColorStyles } from "@ui/theme/selectors"
-import { type PropsWithChildren } from "react"
+import { animationConfig } from "@ui/config"
 
 interface ISelectableFilterTagProps {
   name: string
@@ -21,19 +23,20 @@ export default function SelectableFilterTag (
       isSelected={props.isSelected}
       colorIndicator={props.colorIndicator}
     >
-      <Block
+      <motion.div
         data-name="SelectableFilterTag"
         onClick={() => {
           if (typeof props?.onFilterTagClick === "function") {
             props.onFilterTagClick({ name: props.name, isSelected: props?.isSelected ?? false })
           }
         }}
+        whileTap={animationConfig.buttons.whileTap}
       >
         <Block data-name="SelectableFilterTag__Color"/>
         <Text.Caption>
           {props.label}
         </Text.Caption>
-      </Block>
+      </motion.div>
     </StyledSelectableFilterTag>
   )
 }
@@ -45,7 +48,7 @@ const StyledSelectableFilterTag = styled.div.attrs({
 })<IStyledSelectableFilterTag>`
   cursor: pointer;
 
-  ${Block.Styled}[data-name="SelectableFilterTag"] {
+  [data-name="SelectableFilterTag"] {
     display: flex;
     align-items: center;
     gap: 4px;

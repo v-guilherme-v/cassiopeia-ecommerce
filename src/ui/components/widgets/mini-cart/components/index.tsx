@@ -1,12 +1,15 @@
 import { type PropsWithChildren, useState } from "react"
 import { Block, Button, Input, Title } from "@components/common"
+import { useNavigate } from "react-router-dom"
+import { t } from "i18next"
+
 import { ButtonModels } from "@components/common/button"
 import { CartLineItem, SummaryPriceInfo } from "@components/commerce"
 import { CloseIcon, ThinArrowIcon } from "@components/icons"
+import { useViewPorts } from "@ui/hooks/use-viewports"
 import { MiniCartContext } from "@contexts"
 
 import { StyledMiniCartContent } from "../widget.styled"
-import { useViewPorts } from "@ui/hooks/use-viewports"
 
 export function MiniCartContent ({ children }: PropsWithChildren): JSX.Element {
   return (
@@ -26,9 +29,10 @@ export function MiniCartHeading (): JSX.Element {
           {viewPorts.minWidthMedium
             ? (
               <>
-                <Title>Your cart</Title>
-                <Button.AsIcon
+                <Title>{t("labels.yourCart")}</Title>
+                <Button.AsIcon data-name="MiniCart__HeadingAction"
                   onClick={() => { miniCartContext?.toggleMiniCart() }}
+                  animate={true}
                 >
                   <CloseIcon />
                 </Button.AsIcon>
@@ -36,9 +40,10 @@ export function MiniCartHeading (): JSX.Element {
             : (
               <Button.AsIcon data-name="MiniCart__HeadingAction"
                 onClick={() => { miniCartContext?.toggleMiniCart() }}
+                animate={true}
               >
                 <CloseIcon />
-                <Title.ExtraSmall>Your cart</Title.ExtraSmall>
+                <Title.ExtraSmall>{t("labels.yourCart")}</Title.ExtraSmall>
               </Button.AsIcon>)
           }
 
@@ -89,13 +94,15 @@ export function MiniCartItems (): JSX.Element {
 }
 
 export function MiniCartCheckout (): JSX.Element {
+  const navigate = useNavigate()
+
   return (
     <Button
       data-name="MiniCart__Checkout"
-      style={{ borderRadius: "8px" }}
       icon={{ element: <ThinArrowIcon /> }}
+      onClick={() => navigate("/checkout")}
     >
-      Checkout
+      {t("actions.checkout")}
     </Button>
   )
 }
