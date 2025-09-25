@@ -3,15 +3,12 @@ import { getProductCardStyles, getViewPortsStyles } from "@theme/selectors"
 import { Title, Image } from "@components/common"
 import { Pricing } from "@components/commerce"
 
-import ProductCardActions from "./components/product-card-actions/component";
 import type { IProductCardProps } from "@components/commerce/product-card/types";
 
 const StyledProductCard = styled.div<IProductCardProps>`
   --card-width: ${(props) => getProductCardStyles(props).width};
   --img-height: ${(props) => getProductCardStyles(props).img.height};
-  --control-width: ${(props) => getProductCardStyles(props).controls.width};
   --text-alignment: ${(props) => props.alignment === "ALIGNED_LEFT" ? "start" : "center"};
-  --translate-value: ${(props) => "-" + getProductCardStyles(props).controls.height};
 
   width: var(--card-width);
   padding-bottom: 38px;
@@ -22,26 +19,16 @@ const StyledProductCard = styled.div<IProductCardProps>`
   }
 
   ${Image.Styled} img {
-      height: var(--img-height);
-      width: var(--card-width);
-      object-fit: cover;
-      border-radius: 4px;
+    height: var(--img-height);
+    width: var(--card-width);
+    object-fit: cover;
+    border-radius: 4px;
   }
 
   ${Title.Styled.Small} {
     margin-top: 1.25rem;
     padding: 0 0.5rem;
     text-align: var(--text-alignment);
-  }
-
-  /* Only desktop */
-  @media (min-width: ${(props) => getViewPortsStyles(props).medium}) {
-    :hover {
-      & ${ProductCardActions.Styled} {
-        transform: translateY(calc(var(--translate-value) + -15px));
-        opacity: 1;
-      }
-    }
   }
 
   /* Only mobile */

@@ -133,8 +133,8 @@ const lightTheme: ThemeType = {
       height: "260px"
     },
     controls: {
-      width: "2.875rem",
-      height: "2.875rem"
+      width: 46,
+      height: 46
     },
     mobile: {
       width: "163px",
@@ -152,7 +152,7 @@ const lightTheme: ThemeType = {
   sideMenu: {
     width: "554px",
     zIndex: 11,
-    transitionTime: "500ms"
+    transitionTime: 0.2
   },
 
   orderSummaryMobile: {

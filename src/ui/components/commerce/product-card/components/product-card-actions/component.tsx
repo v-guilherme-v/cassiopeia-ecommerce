@@ -1,7 +1,10 @@
+import { forwardRef, type MouseEventHandler } from "react"
+import { motion } from "motion/react"
+import styled from "styled-components"
+
 import { CartIcon, SearchIcon } from "@components/icons"
 import { getColorStyles, getProductCardStyles, getViewPortsStyles } from "@theme/selectors"
-import { type MouseEventHandler } from "react"
-import styled from "styled-components"
+import { animationConfig } from "@ui/config"
 
 interface ProductCardActionProps {
   name: string
@@ -10,8 +13,8 @@ interface ProductCardActionProps {
 }
 
 const StyledProductCardAction = styled.div`
-  --control-width: ${props => getProductCardStyles(props).controls.width};
-  --control-height: ${props => getProductCardStyles(props).controls.height};
+  --control-width: ${props => `${getProductCardStyles(props).controls.width}px`};
+  --control-height: ${props => `${getProductCardStyles(props).controls.height}px`};
 
   display: flex;
   align-items: center;
@@ -21,6 +24,7 @@ const StyledProductCardAction = styled.div`
   border-radius: 4px;
   cursor: pointer;
   background-color: ${props => getColorStyles(props).white};
+  transform-origin: center bottom;
   
   svg {
     color: ${props => getColorStyles(props).black};
@@ -37,29 +41,34 @@ const StyledProductCardAction = styled.div`
   }
 `
 
-function ProductCardAction (props: ProductCardActionProps): JSX.Element {
+const MProductCardAction = motion(StyledProductCardAction);
+
+function ProductCardAction(props: ProductCardActionProps): JSX.Element {
   return (
-    <StyledProductCardAction onClick={props.onClick}>
-      { props.icon }
-    </StyledProductCardAction>
+    <MProductCardAction
+      variants={{
+        actionsVisible: { opacity: 1, scale: 1 },
+        actionsHidden: { opacity: 0, scale: 0.96 }
+      }}
+      transition={{
+        scale: { type: "spring", stiffness: 500, damping: 28, mass: 0.5 },
+        opacity: { duration: 0.15, ease: "easeOut" }
+      }}
+      whileTap={animationConfig.buttons.whileTap}
+      onClick={props.onClick}
+    >
+      {props.icon}
+    </MProductCardAction>
   )
 }
 
 const StyledProductCardActions = styled.div`
-  --control-height: ${props => "-" + getProductCardStyles(props).controls.height};
-
   position: absolute;
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
   gap: 1.875rem;
-  bottom: var(--control-height);
-  /** ProductCard knows how to handle opacity */
-  opacity: 0;
-
-  transition: opacity .5s,
-    transform .5s;
 
   ${StyledProductCardAction}:hover svg {
     opacity: 0.5;
@@ -77,15 +86,17 @@ const StyledProductCardActions = styled.div`
   }
 `
 
-function ProductCardActions ({ className = "" }: { className?: string }): JSX.Element {
+const ProductCardActions = forwardRef<HTMLDivElement>((_, ref) => {
   return (
-    <StyledProductCardActions className={className}>
-      <ProductCardAction name="AddToCart" icon={<CartIcon />}/>
-      <ProductCardAction name="SeeProduct" icon={<SearchIcon />}/>
+    <StyledProductCardActions ref={ref}>
+      <ProductCardAction name="AddToCart" icon={<CartIcon />} />
+      <ProductCardAction name="SeeProduct" icon={<SearchIcon />} />
     </StyledProductCardActions>
   )
 }
+)
 
-ProductCardActions.Styled = StyledProductCardActions
+ProductCardActions.displayName = "ProductCardActions"
+  ; (ProductCardActions as any).Styled = StyledProductCardActions
 
 export default ProductCardActions

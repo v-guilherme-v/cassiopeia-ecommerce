@@ -112,8 +112,8 @@ export interface ProductCardStyles {
     height: string
   }
   controls: {
-    width: string
-    height: string
+    width: number
+    height: number
   }
   mobile: {
     width: string
@@ -130,7 +130,7 @@ export interface FallbackImageStyles {
 
 export interface SideMenuStyles {
   width: string
-  transitionTime: string
+  transitionTime: number
   zIndex: number
 }
 
