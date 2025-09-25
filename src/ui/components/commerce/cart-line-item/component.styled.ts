@@ -49,28 +49,12 @@ const StyledCartLineItem = styled.div`
       margin-left: auto;
       flex: 0 0 30%;
       text-align: end;
+      max-width: max-content;
     }
 
     [data-name="CartLineItem__Remove"] svg {
       color: ${props => getColorStyles(props).negative};
     }
-  }
-
-  ${Button.Styled.Normal}[data-name="CartLineItem__Action--diff"]{
-    width: 26px;
-    height: 26px;
-  }
-
-  ${Button.Styled.Normal}[data-name="CartLineItem__Action--sum"]{
-    width: 26px;
-    height: 26px;
-  }
-
-  ${Text.Styled.Button}[data-name="CartLineItem__Quantity"]{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 53px;
   }
 `
 

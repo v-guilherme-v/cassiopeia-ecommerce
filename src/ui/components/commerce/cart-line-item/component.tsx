@@ -1,12 +1,12 @@
 import { ThemeConsumer } from "styled-components"
-import { toCurrency } from "@utils/commerce"
+import { toCurrency } from "@ui/utils/commerce"
 
-import { Block, Button, Image, Text } from "@components/common"
-import { MinusSignIcon, PlusSignIcon, TrashCanIcon } from "@components/icons"
-import { ButtonSizes } from "@components/common/button"
+import { Block, Button, Counter, Image, Text } from "@components/common"
+import { TrashCanIcon } from "@components/icons"
 
 import StyledCartLineItem from "./component.styled"
 import flower from "src/assets/flower-1.png"
+import { noop } from "@ui/utils/generic"
 
 interface CartLineItemProps {
   name?: string
@@ -30,22 +30,8 @@ function CartLineItem ({ name = "Name", price = 0 }: CartLineItemProps): JSX.Ele
               <Text.Large data-name="CartLineItem__Price" weight="medium">{priceAsCurrency}</Text.Large>
             </Block>
             <Block data-name="CartLineItem__Actions">
-              <Button
-                data-name="CartLineItem__Action--diff"
-                backgroundColor={theme.color.paleGrey}
-                size={ButtonSizes.ICON}
-                rounded={true}
-                icon={{ element: <MinusSignIcon /> }}
-              />
-              <Text.Button data-name="CartLineItem__Quantity">N</Text.Button>
-              <Button
-                data-name="CartLineItem__Action--sum"
-                backgroundColor={theme.color.paleGrey}
-                size={ButtonSizes.ICON}
-                rounded={true}
-                icon={{ element: <PlusSignIcon /> }}
-              />
-              <Button.AsIcon data-name="CartLineItem__Remove">
+              <Counter onQuantityChange={noop} />
+              <Button.AsIcon data-name="CartLineItem__Remove" animate={true}>
                 <TrashCanIcon />
               </Button.AsIcon>
             </Block>
