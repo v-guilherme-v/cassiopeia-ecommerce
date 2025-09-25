@@ -30,4 +30,5 @@ export interface ButtonProps {
   rounded?: boolean
   onClick?: MouseEventHandler<HTMLElement>
   style?: CSSProperties
+  animate?: boolean
 }

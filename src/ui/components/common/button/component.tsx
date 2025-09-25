@@ -3,6 +3,10 @@ import StyledButton from "./component.styled"
 import Text from "@components/common/text"
 
 import { ButtonSizes, type ButtonProps } from "./types"
+import { motion } from "motion/react"
+import { animationConfig } from "@ui/config"
+
+const MButton = motion(StyledButton.Normal);
 
 function Button (props: PropsWithChildren<ButtonProps>): JSX.Element {
   const {
@@ -12,7 +16,7 @@ function Button (props: PropsWithChildren<ButtonProps>): JSX.Element {
   } = props
 
   return (
-    <StyledButton.Normal {...props}>
+    <MButton whileTap={animationConfig.buttons.whileTap} {...props}>
       {
         size !== ButtonSizes.ICON && (
           <Text.Button>
@@ -21,15 +25,17 @@ function Button (props: PropsWithChildren<ButtonProps>): JSX.Element {
         )
       }
       { icon?.element }
-    </StyledButton.Normal>
+    </MButton>
   )
 }
 
+const MButtonAsIcon = motion(StyledButton.AsIcon);
+
 function ButtonAsIcon (props: PropsWithChildren<ButtonProps>): JSX.Element {
   return (
-    <StyledButton.AsIcon {...props}>
+    <MButtonAsIcon whileTap={props.animate ? animationConfig.buttons.whileTap : null} {...props}>
       { props.children }
-    </StyledButton.AsIcon>
+    </MButtonAsIcon>
   )
 }
 

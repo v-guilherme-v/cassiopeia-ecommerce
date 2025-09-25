@@ -9,7 +9,9 @@ interface ThemeTypeAsProperty { theme: ThemeType }
 // A styled button has its own props and the theme in it
 interface StyledButtonProps
   extends ButtonProps, ThemeTypeAsProperty {
-    style: CSSProperties
+    // Optional: motion/react and React types define `style` as optional
+    // so keep it optional here to avoid type incompatibilities.
+    style?: CSSProperties
   }
 
 /**
