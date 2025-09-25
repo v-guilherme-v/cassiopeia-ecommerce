@@ -7,12 +7,11 @@ import Validator from "../validator"
 function RawInput (props: InputProps): JSX.Element {  
   return (
     <>
-      <input
-        data-testid="Input"
-        id={props.name}
-        { ...props }
-      />
-      { props.icon }
+      { props.id && props.label && <label htmlFor={props.id}>{props.label}</label> }
+      <div data-name="InputContainer">
+        <input data-testid="Input" { ...props } />
+        { props.icon }
+      </div>
     </>
   )
 }

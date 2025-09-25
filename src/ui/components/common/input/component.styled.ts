@@ -22,9 +22,15 @@ const BaseInput = styled.div<InputProps>`
 
   font-family: ${({ theme }) => theme.font.family};
   font-size: ${({ theme }) => theme.text.caption.fontSize};
-  position: relative;
   max-width: 265px;
   width: 100%;
+
+  & label {
+    display: block;
+    font-size: 13px;
+    margin-bottom: 1rem;
+    user-select: none;
+  }
 
   & input {
     /* it will prevent that input and icon to occupy the same space */
@@ -46,6 +52,10 @@ const BaseInput = styled.div<InputProps>`
     right: ${ICON_RIGHT_GAP};
     transform: translateY(-50%);
     max-width: 21px;
+  }
+
+  [data-name="InputContainer"] {
+    position: relative;
   }
 `
 
@@ -70,7 +80,7 @@ const InputStyled = styled(BaseInput)`
   }
 
   & input:focus {
-    border: 1px solid ${props => getColorStyles(props).primary};
+    border: 1px solid ${props => getColorStyles(props).accent};
   }
 `
 
