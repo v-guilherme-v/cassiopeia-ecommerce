@@ -99,7 +99,7 @@ export default styled.section`
       ${Block.Styled}[data-name="Product__CartActions"] {
         display: flex;
         margin-top: 50px;
-        gap: 20px;
+        gap: .5rem;
 
         ${Button.Styled.Normal}[data-name="Checkout"] {
           max-width: 309px;

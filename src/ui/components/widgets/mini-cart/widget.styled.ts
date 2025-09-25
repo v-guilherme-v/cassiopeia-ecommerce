@@ -61,7 +61,8 @@ export const StyledMiniCartContent = styled.div<MiniCartProps>`
   }
 
   button[data-name="MiniCart__Checkout"] {
-    width: 221px;
+    max-width: 80%;
+    width: 100%;
     margin: auto;
     margin-top: 2.5rem;
   }

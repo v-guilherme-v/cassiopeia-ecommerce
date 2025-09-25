@@ -42,7 +42,6 @@ const StyledCartSummary = styled.div`
 
   #CartSummary__Actions [data-name="StepActions"] {
     padding-top: 18px;
-    border-top: 1px solid ${props => getColorStyles(props).paleGrey};
 
     button {
       flex: 1;

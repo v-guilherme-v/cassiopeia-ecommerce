@@ -4,7 +4,7 @@ import { ThinArrowIcon } from "@components/icons"
 import { Block, Button, Text } from "@components/common"
 import { ButtonIconPositions, ButtonModels } from "@components/common/button"
 
-import { getColorStyles, getFontStyles } from "@theme/selectors"
+import { getFontStyles } from "@theme/selectors"
 import { IStepActionsProps } from "../../types"
 
 export default function StepActions (props: IStepActionsProps): JSX.Element | null {
@@ -58,7 +58,6 @@ const StyledStepActions = styled.div<Partial<IStepActionsProps>>`
     display: flex;
     justify-content: ${props => props.isPrevButtonHidden || props.isNextButtonHidden ? "center" : "space-between"};
     padding-top: 20.5px;
-    border-top: 1px solid ${props => getColorStyles(props).lightGrey};
 
     ${Button.Styled.Normal}[data-name="StepActions__Prev"] {
       ${Text.Styled.Button} {
