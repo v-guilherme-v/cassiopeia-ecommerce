@@ -52,6 +52,12 @@ export const StyledStepperMobile = styled.div`
 
   ${Block.Styled}[data-step-state="complete"] {
     border-color: ${props => getStatusColor({ state: "complete" }, props.theme).titleTextColor};
+
+    [data-name="Stepper__StepContent"] {
+      opacity: .5;
+      pointer-events: none;
+      transition: opacity 1s ease-in-out;
+    }
   }
 
   ${Block.Styled}[data-step-state="current"] {
