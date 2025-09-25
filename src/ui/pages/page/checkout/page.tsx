@@ -18,20 +18,14 @@ import { CheckoutContextProvider } from "@providers"
 import CheckoutSteps from "@widgets/checkout/checkout-steps"
 
 import { useCheckoutLayoutProperties } from "@ui/hooks/checkout/use-checkout-layout"
-import { useTheme } from "styled-components"
-import { getGeneralStyles } from "@app/ui/theme/selectors"
 
 export default function CheckoutPage (): JSX.Element {
   const layoutProperties = useCheckoutLayoutProperties()
-  const generalStyles = getGeneralStyles({ theme: useTheme() })
 
   return (
     <StyledCheckoutPage>
         <LayoutContext.Provider value={{ properties: layoutProperties }}>
-          <Header style={{
-            zIndex: !layoutProperties.isMobileSummaryVisible ? generalStyles.headerLayer: "-1",
-            position: !layoutProperties.isMobileSummaryVisible ? "sticky": "static"
-          }}>
+          <Header>
             <TopBar.LogoOnly />
           </Header>
           <Container data-name="CheckoutPage__Container">
