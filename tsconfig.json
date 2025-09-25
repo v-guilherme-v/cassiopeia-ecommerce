@@ -30,7 +30,7 @@
       "@widgets/*": ["src/ui/components/widgets/*"],
       "@providers": ["src/ui/providers/index"],
       "@ui/utils": ["src/ui/utils/index"],
-      "@utils/*": ["src/utils/*"]
+      "@utils/*": ["src/ui/utils/*"]
     }
   },
   "include": [
