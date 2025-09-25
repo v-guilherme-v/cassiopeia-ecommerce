@@ -3,11 +3,12 @@ import styled from "styled-components"
 
 import { ThinArrowIcon } from "@components/icons"
 import { Button, Block } from "@components/common"
-import { getColorStyles } from "@theme/selectors"
+import { ButtonProps } from "@components/common/button"
 
+import { getColorStyles } from "@theme/selectors"
 import { SwiperContext, type SwiperContextType } from "@contexts"
 
-function CarouselNavigationControls (): JSX.Element {
+function CarouselNavigationControls (props: Pick<ButtonProps, "animate">): JSX.Element {
   const swiperContext = useContext<SwiperContextType | null>(SwiperContext)
 
   return (
@@ -16,12 +17,14 @@ function CarouselNavigationControls (): JSX.Element {
         <Button.AsIcon data-name="CarouselPrev__Control"
           disabled={swiperContext?.swiperControls?.isBeginning}
           onClick={() => { swiperContext?.onNavigationClick("prev") }}
+          animate={props.animate}
         >
           <ThinArrowIcon />
         </Button.AsIcon>
         <Button.AsIcon data-name="CarouselNext__Control"
           disabled={swiperContext?.swiperControls?.isEnd}
           onClick={() => { swiperContext?.onNavigationClick("next") }}
+          animate={props.animate}
         >
           <ThinArrowIcon />
         </Button.AsIcon>

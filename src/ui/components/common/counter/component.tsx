@@ -5,7 +5,7 @@ import { getColorStyles, getTextStyles } from "@theme/selectors"
 
 import Button from "../button/component"
 import Input from "../input/component"
-import { doNothing } from "@utils/index"
+import { noop } from "@ui/utils/generic"
 
 interface CounterActionsProps {
   ariaLabel: string
@@ -23,6 +23,7 @@ function CounterAction (props: PropsWithChildren<CounterActionsProps>): JSX.Elem
         aria-label={props.ariaLabel}
         disabled={props.isActionDisabled}
         onClick={props.onActionClick}
+        animate={true}
       >
         { props.children }
       </Button.AsIcon>
@@ -107,7 +108,7 @@ function Counter (props: CounterProps): JSX.Element {
         name="CounterQuantity"
         disabled={true}
         value={counterQty.toString()}
-        onChange={doNothing}
+        onChange={noop}
       />
       <CounterAction
         ariaLabel="sum"

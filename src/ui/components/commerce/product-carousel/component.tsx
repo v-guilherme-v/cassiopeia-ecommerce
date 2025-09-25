@@ -30,7 +30,7 @@ function ProductCarousel ({ carouselTitle = "No title", products = [] }: Product
           <StyledProductCarouselHeading>
             <Block data-name="HeadingContainer">
               <Title>{carouselTitle}</Title>
-              <CarouselNavigationControls />
+              <CarouselNavigationControls animate={true} />
             </Block>
           </StyledProductCarouselHeading>
           <SwiperContext.Consumer>
