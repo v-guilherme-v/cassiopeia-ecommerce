@@ -38,7 +38,7 @@ import {
 import randomFlower from "src/assets/flower-1.png"
 import { useViewPorts } from "@ui/hooks/use-viewports"
 import { ButtonModels } from "@ui/components/common/button"
-import { doNothing } from "@utils/index"
+import { noop } from "@ui/utils/generic"
 
 import { categoriesMock } from "@widgets/__mocks__"
 import { useTranslation } from "react-i18next"
@@ -100,17 +100,17 @@ export default function CategoryPage (): JSX.Element {
           <Block data-name="CategoryPage__Filters">
             {viewPorts.minWidthMedium ? (
               <Block data-name="CategoryPage__FilterOptions">
-                <Select onChange={doNothing} placeholder={t("labels.sortBy")} mode="multi" options={[
+                <Select onChange={noop} placeholder={t("labels.sortBy")} mode="multi" options={[
                   { value: "popular", label: t("labels.popular") },
                   { value: "best-sellers", label: t("labels.bestSellers") },
                   { value: "news", label: t("mock.category.justArrived") }
                 ]} />
-                <Select onChange={doNothing} placeholder={t("labels.occasion")} mode="multi" options={[
-                  { value: "first-date", label: t("labels.firstDate") },
-                  { value: "valentines", label: t("labels.valentinesDay") },
-                  { value: "mothers-day", label: t("labels.mothersDay") }
+                <Select onChange={noop} placeholder={t("labels.occasion")} mode="multi" options={[
+                  { value: "first-date", label: t("mock.filter.firstDate") },
+                  { value: "valentines", label: t("mock.filter.valentinesDay") },
+                  { value: "mothers-day", label: t("mock.filter.mothersDay") }
                 ]} />
-                <Select onChange={doNothing} placeholder={t("mock.category.price") } options={[
+                <Select onChange={noop} placeholder={t("mock.category.price") } options={[
                   { value: "asc", label: t("mock.category.mostExpensive") },
                   { value: "desc", label: t("mock.category.cheapest") }
                 ]} />

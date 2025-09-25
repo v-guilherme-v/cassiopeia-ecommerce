@@ -2,7 +2,7 @@ import { useContext, useEffect } from "react"
 import styled from "styled-components"
 
 import { StepperActionsContext } from "@contexts"
-import { doNothing } from "@app/utils"
+import { noop } from "@ui/utils/generic"
 
 import { Block, Text } from "@components/common"
 import { CartLineItem } from "@components/commerce"
@@ -13,7 +13,7 @@ import { useTranslation } from "react-i18next"
 
 export default function CheckoutCart(): JSX.Element {
   const {
-    setIsNextActionDisabled = doNothing
+    setIsNextActionDisabled = noop
   } = (useContext(StepperActionsContext) ?? {})
 
   const { t } = useTranslation()

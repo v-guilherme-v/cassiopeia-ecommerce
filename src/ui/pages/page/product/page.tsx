@@ -39,8 +39,8 @@ import { ButtonModels, ButtonSizes } from "@components/common/button"
 import { ScrollRestoration } from "react-router-dom"
 import randomFlower from "src/assets/flower-1.png"
 
-import { toCurrency } from "@utils/commerce"
-import { doNothing } from "@utils/index"
+import { toCurrency } from "@ui/utils/commerce"
+import { noop } from "@ui/utils/generic"
 
 import { useViewPorts } from "@ui/hooks/use-viewports"
 import { categoriesMock } from "@widgets/__mocks__"
@@ -148,7 +148,7 @@ export default function ProductPage (): JSX.Element {
             </Block>
             <Block data-name="Product__QuantityCounter">
               <Text.Large data-name="Product__QuantityLabel">{t("labels.quantity")}</Text.Large>
-              <Counter onQuantityChange={doNothing}/>
+              <Counter onQuantityChange={noop}/>
             </Block>
             <Block data-name="Product__ColorSelector">
               <Text.Large data-name="Product__ColorSelectorLabel">{t("labels.color")}</Text.Large>

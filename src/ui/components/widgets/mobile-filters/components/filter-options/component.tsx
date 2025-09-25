@@ -6,7 +6,7 @@ import { Accordion, Block } from "@components/common"
 
 import SelectableFilterTag from "../filter-tags/component"
 import { getColorStyles } from "@ui/theme/selectors"
-import { doNothing } from "@utils/index"
+import { noop } from "@ui/utils/generic"
 import { useTranslation } from "react-i18next"
 
 function MobileFilterOption (
@@ -60,7 +60,7 @@ export function MobileFilterOptions (): JSX.Element {
               key={filterTag.name}
               name={filterTag.name}
               label={filterTag.label}
-              onFilterTagClick={doNothing}
+              onFilterTagClick={noop}
               isSelected={filterTag?.isActive}
             />
           )
@@ -98,9 +98,9 @@ export function MobileFilterOptions (): JSX.Element {
       </MobileFilterOption>
       <MobileFilterOption label={t("labels.occasion")}>
         {[
-          { name: "mothers-day", label: t("labels.mothersDay") },
-          { name: "valentines", label: t("labels.valentinesDay") },
-          { name: "first-date", label: t("labels.firstDate") }
+          { name: "mothers-day", label: t("mock.filter.mothersDay") },
+          { name: "valentines", label: t("mock.filter.valentinesDay") },
+          { name: "first-date", label: t("mock.filter.firstDate") }
         ].map(filterTag => {
           return (
             <SelectableFilterTag
