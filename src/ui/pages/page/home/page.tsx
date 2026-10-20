@@ -15,8 +15,8 @@ import {
 import { ProductCarousel } from "@components/commerce"
 import StyledHomePage from "./page.styled"
 
-import flowersBanner from "src/assets/flowers-banner.png"
-import randomFlower from "src/assets/flower-1.png"
+import flowersBanner from "@app/assets/flowers-banner.png"
+import randomFlower from "@app/assets/flower-1.png"
 
 import type { ColorStyles } from "@theme/types"
 import { getColorStyles } from "@theme/selectors"

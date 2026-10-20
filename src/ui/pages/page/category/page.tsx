@@ -35,7 +35,7 @@ import {
   MobileFiltersContextProvider
 } from "@providers"
 
-import randomFlower from "src/assets/flower-1.png"
+import randomFlower from "@app/assets/flower-1.png"
 import { useViewPorts } from "@ui/hooks/use-viewports"
 import { ButtonModels } from "@ui/components/common/button"
 import { doNothing } from "@utils/index"

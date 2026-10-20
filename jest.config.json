@@ -11,7 +11,9 @@
     ]
   },
   "setupFilesAfterEnv": ["<rootDir>/jest.setup.js"],
-  "moduleNameMapper": {    
+  "moduleNameMapper": {
+    "\\.svg$": "<rootDir>/src/__mocks__/svg.js",
+    "\\.(jpg|png)": "<rootDir>/src/__mocks__/img.js",
     "^@/(.*)$": "<rootDir>/src/$1",
     "^@app/(.*)$": ["<rootDir>/src/$1"],
     "^@ui/(.*)$": "<rootDir>/src/ui/$1",
@@ -25,9 +27,7 @@
     "^@utils/(.*)$": "<rootDir>/src/utils/$1",
     "^swiper": "<rootDir>/src/__mocks__/swiper.js",
     "^react-router-dom": "<rootDir>/src/__mocks__/react-router.js",
-    "^react-i18next": "<rootDir>/src/__mocks__/react-i18next.js",
-    "\\.svg$": "<rootDir>/src/__mocks__/svg.js",
-    "\\.(jpg|png)": "<rootDir>/src/__mocks__/img.js"
+    "^react-i18next": "<rootDir>/src/__mocks__/react-i18next.js"
   },
   "testPathIgnorePatterns": [
     "/node_modules/",

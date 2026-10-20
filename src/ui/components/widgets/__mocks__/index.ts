@@ -1,6 +1,6 @@
 import { type FooterLinksSection } from "@widgets/footer/types"
 import type { ICategory } from "@widgets/types"
-import flowersBanner from "src/assets/flowers-banner.png"
+import flowersBanner from "@app/assets/flowers-banner.png"
 
 export const linksMock: FooterLinksSection[] = [
   {
