@@ -37,7 +37,7 @@ import { CartIcon } from "@components/icons"
 import { ButtonModels, ButtonSizes } from "@components/common/button"
 
 import { ScrollRestoration } from "react-router-dom"
-import randomFlower from "src/assets/flower-1.png"
+import randomFlower from "@app/assets/flower-1.png"
 
 import { toCurrency } from "@utils/commerce"
 import { doNothing } from "@utils/index"

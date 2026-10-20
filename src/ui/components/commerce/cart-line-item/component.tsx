@@ -6,7 +6,7 @@ import { MinusSignIcon, PlusSignIcon, TrashCanIcon } from "@components/icons"
 import { ButtonSizes } from "@components/common/button"
 
 import StyledCartLineItem from "./component.styled"
-import flower from "src/assets/flower-1.png"
+import flower from "@app/assets/flower-1.png"
 
 interface CartLineItemProps {
   name?: string

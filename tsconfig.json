@@ -1,43 +1,41 @@
 {
   "compilerOptions": {
-    "baseUrl": "./",
     "target": "ESNext",
     "useDefineForClassFields": true,
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
     "allowJs": false,
     "skipLibCheck": true,
-    "esModuleInterop": false,
-    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "module": "ESNext",
-    "moduleResolution": "Node",
+    "moduleResolution": "Bundler",
     "resolveJsonModule": true,
     "isolatedModules": false,
     "noEmit": true,
     "jsx": "react-jsx",
     "sourceMap": true,
+    "types": ["jest", "@testing-library/jest-dom"],
     "paths": {
-      "@app/*": ["src/*"],
-      "@ui/*": ["src/ui/*"],
-      "@theme/*": ["src/ui/theme/*"],
-      "@components/*": ["src/ui/components/*"],
-      "@pages": ["src/ui/pages/index"],
-      "@pages/*": ["src/ui/pages/*"],
-      "@contexts": ["src/ui/contexts/index"],
-      "@contexts/*": ["src/ui/contexts/*"],
-      "@widgets/": ["src/ui/components/widgets/index"],
-      "@widgets/*": ["src/ui/components/widgets/*"],
-      "@providers": ["src/ui/providers/index"],
-      "@ui/utils": ["src/ui/utils/index"],
-      "@utils/*": ["src/utils/*"]
+      "@app/*": ["./src/*"],
+      "@ui/*": ["./src/ui/*"],
+      "@theme/*": ["./src/ui/theme/*"],
+      "@components/*": ["./src/ui/components/*"],
+      "@pages": ["./src/ui/pages/index"],
+      "@pages/*": ["./src/ui/pages/*"],
+      "@contexts": ["./src/ui/contexts/index"],
+      "@contexts/*": ["./src/ui/contexts/*"],
+      "@widgets/": ["./src/ui/components/widgets/index"],
+      "@widgets/*": ["./src/ui/components/widgets/*"],
+      "@providers": ["./src/ui/providers/index"],
+      "@ui/utils": ["./src/ui/utils/index"],
+      "@utils/*": ["./src/utils/*"]
     }
   },
   "include": [
     "src",
     "src/**/*.test.ts",
-    "src/**/*.test.tsx",
-    "./vite.config.ts"
+    "src/**/*.test.tsx"
   ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

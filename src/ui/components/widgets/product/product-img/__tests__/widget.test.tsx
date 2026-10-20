@@ -2,7 +2,7 @@ import { render, screen } from "@testing-library/react"
 import { LightThemeProvider } from "@providers"
 import ProductImage from "../widget"
 
-import randomFlower from "src/assets/flower-1.png"
+import randomFlower from "@app/assets/flower-1.png"
 
 describe("The ProductImage", () => {
   it("has a random flower on screen", async () => {

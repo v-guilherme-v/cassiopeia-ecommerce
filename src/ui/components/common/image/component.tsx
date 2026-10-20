@@ -1,6 +1,6 @@
 import { type PropsWithChildren, useState } from "react"
 import styled from "styled-components"
-import fallbackSrc from "src/assets/no-image.jpg"
+import fallbackSrc from "@app/assets/no-image.jpg"
 import { getFallbackImageStyles } from "@theme/selectors"
 
 interface ImageProps extends PropsWithChildren {
